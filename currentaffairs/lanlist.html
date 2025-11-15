@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>ADAM Consult - Land Property Listings</title>
+
+  <!-- Your existing CSS files -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/ratecards.css" />
+  <link rel="stylesheet" href="/css/protect.css" />
+
+  <!-- Google fonts + Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Additional table styling (your main CSS will override normally) */
+    .land-table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 40px;
+    }
+
+    table.land-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    table.land-table thead th {
+      background: #1a73e8;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.land-table tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    /* Small image box */
+    .image-thumb {
+      width: 60px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .image-thumb:hover {
+      transform: scale(1.05);
+    }
+
+    /* Image Popup Modal */
+    .img-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+
+    .img-modal-content img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <section class="ratecard-section">
+    <h2>Land / Property Listing – ADAM Consult</h2>
+    <p>A complete public-domain friendly listing table with all relevant land parameters.</p>
+  </section>
+
+  <!-- LAND LISTING TABLE -->
+  <div class="land-table-container">
+    <table class="land-table">
+      <thead>
+        <tr>
+          <th>S/N</th>
+          <th>Status</th>
+          <th>Image</th>
+          <th>Location Address</th>
+          <th>Area (Acres)</th>
+          <th>Lat/Long</th>
+          <th>Google Maps</th>
+          <th>Road Sides</th>
+          <th>Road Frontage (ft)</th>
+          <th>Water Body Nearby</th>
+          <th>Water Body Inside</th>
+          <th>Zone</th>
+          <th>Dev Authority</th>
+          <th>FAR</th>
+          <th>Permissible Height</th>
+          <th>Title</th>
+          <th>Freehold / Leasehold</th>
+          <th>Balance Lease (Years)</th>
+          <th>Sale Type</th>
+          <th>Sale Condition</th>
+          <th>Tentative Price</th>
+          <th>Other Conditions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- SAMPLE DATA ROW 1 -->
+        <tr>
+          <td>1</td>
+          <td><span style="color:green;font-weight:600;">Active</span></td>
+
+          <!-- small image AND popup -->
+          <td>
+            <a href="/currentaffairs/sample-land-01.jpg" class="popup-image">
+              <img src="/currentaffairs/sample-land-01-thumb.jpg" class="image-thumb" alt="Land Image">
+            </a>
+          </td>
+
+          <td>Survey No. 47/2, Hinjewadi Phase-2, Pune, Maharashtra</td>
+          <td>8.5</td>
+          <td>18.5971, 73.7182</td>
+
+          <td>
+            <a href="https://maps.google.com/?q=18.5971,73.7182" target="_blank">Open Gmap</a>
+          </td>
+
+          <td>2-side road</td>
+          <td>240</td>
+
+          <td>No</td>
+          <td>No</td>
+
+          <td>Industrial</td>
+          <td>PMRDA</td>
+          <td>1.5</td>
+          <td>36m</td>
+
+          <td>Clean</td>
+          <td>Freehold</td>
+          <td>–</td>
+
+          <td>Private</td>
+          <td>Outright</td>
+
+          <td>₹12 Cr (Negotiable)</td>
+          <td>No special conditions</td>
+        </tr>
+
+        <!-- ROWS TO BE DUPLICATED FOR FUTURE LISTINGS -->
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<!-- ========== CORE SCRIPTS (already in your code) ========== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
+        if (toggle && nav) {
+          toggle.addEventListener("click", () => nav.classList.toggle("active"));
+        }
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
+
+    // Load main.js
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    document.body.appendChild(main);
+  });
+</script>
+
+<!-- ===================== POPUP IMAGE JS (SEPARATE) ====================== -->
+<script src="/js/popup-image.js"></script>
+
+</body>
+</html>
+
