@@ -151,21 +151,46 @@
     </div>
   </section>
 
-  <!-- Footer Placeholder -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder"></div>    
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Load Header
       fetch("/header.html")
         .then(res => res.text())
-        .then(html => { document.getElementById("header-placeholder").innerHTML = html; });
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          const toggle = document.getElementById("menu-toggle");
+          const nav = document.getElementById("mobile-menu");
 
-      // Load Footer
+          if (toggle && nav) {
+            toggle.addEventListener("click", function () {
+              nav.classList.toggle("active");
+            });
+          }
+          if (typeof initDropdowns === "function") initDropdowns();
+        });
       fetch("/footer.html")
         .then(res => res.text())
-        .then(html => { document.getElementById("footer-placeholder").innerHTML = html; });
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+          const protect = document.createElement("script");
+          protect.src = "/js/imgTextProtect.js";
+          document.body.appendChild(protect);
+        });
+      const main = document.createElement("script");
+      main.src = "/js/main.js";
+      main.onload = () => {
+        if (typeof initTabs === "function") initTabs();
+        if (typeof initHeroAnimation === "function") initHeroAnimation();
+      };
+      document.body.appendChild(main);
+
+      const dropdown = document.createElement("script");
+      dropdown.src = "/js/dropdown.js";
+      document.body.appendChild(dropdown);
     });
   </script>
+
+  <script src="landpage.js"></script>
 </body>
 </html>
