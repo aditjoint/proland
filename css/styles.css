@@ -2207,6 +2207,51 @@ body::before {
   background-color: #eaf0ff;
   transition: 0.3s;
 }
+.land-listing.hero-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius-md);
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.land-listing.hero-services .service-card {
+    background-color: #fff;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    color: #333;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.land-listing.hero-services .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    background-color: #f0f4ff;
+}
+
+.land-listing.hero-services .service-card i {
+    font-size: var(--font-size-2xl);
+    color: #004aad;
+    margin-bottom: var(--spacing-md);
+}
+
+.land-listing.hero-services .service-card h3 {
+    font-size: var(--font-size-lg);
+    color: #003366;
+    margin-bottom: var(--spacing-xs);
+}
+
+.land-listing.hero-services .service-card p {
+    font-size: var(--font-size-sm);
+    color: #555;
+    margin-bottom: 0;
+}
 
 
 
