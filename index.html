@@ -132,17 +132,15 @@
  
 
     <!-- DO NOT TOUCH BELOW CODES -->
-  
 
+  
   <div id="footer-placeholder"></div>    
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Load Header
     fetch("/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
-
         const toggle = document.getElementById("menu-toggle");
         const nav = document.getElementById("mobile-menu");
 
@@ -151,17 +149,12 @@
             nav.classList.toggle("active");
           });
         }
-
         if (typeof initDropdowns === "function") initDropdowns();
       });
-
-    // Load Footer
     fetch("/footer.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("footer-placeholder").innerHTML = html;
-
-        // ✅ Load protection script after footer
         const protect = document.createElement("script");
         protect.src = "/js/imgTextProtect.js";
         document.body.appendChild(protect);
@@ -171,7 +164,6 @@
     main.onload = () => {
       if (typeof initTabs === "function") initTabs();
       if (typeof initHeroAnimation === "function") initHeroAnimation();
-      // Add other initializers if needed
     };
     document.body.appendChild(main);
 
@@ -180,6 +172,6 @@
     document.body.appendChild(dropdown);
   });
 </script>
-
+ <script src="landpage.js"></script>
 </body>
 </html>
