@@ -49,96 +49,75 @@
   </style>
 </head>
 
-  <style>
-    /* Additional table styling (your main CSS will override normally) */
+   <style>
+    /* Container for horizontal scrolling on small screens */
     .land-table-container {
       width: 100%;
       overflow-x: auto;
       margin-top: 20px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
     }
 
+    /* Table styling */
     table.land-table {
       width: 100%;
       border-collapse: collapse;
+      font-family: Arial, sans-serif;
       font-size: 14px;
+      table-layout: fixed; /* fixed layout for consistent column widths */
+      min-width: 1200px; /* minimum width to fit all columns */
     }
 
+    /* Header cells */
     table.land-table thead th {
-      background: #1a73e8;
+      background-color: #1a73e8;
       color: #fff;
-      padding: 12px;
+      padding: 12px 8px;
       text-align: left;
-      white-space: nowrap;
-    }
-
-    table.land-table tbody td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
+      white-space: normal; /* allow wrapping */
+      word-break: break-word; /* wrap long words */
+      border: 1px solid #ddd;
       vertical-align: middle;
     }
 
-    /* Small image box */
+    /* Body cells */
+    table.land-table tbody td {
+      padding: 10px 8px;
+      border: 1px solid #ddd;
+      vertical-align: middle;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    /* Image thumbnails in table */
     .image-thumb {
       width: 60px;
       height: 45px;
       object-fit: cover;
       border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform 0.3s ease;
     }
-
     .image-thumb:hover {
       transform: scale(1.05);
     }
 
-    /* Image Popup Modal */
-    .img-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 900px) {
+      table.land-table {
+        font-size: 12px;
+        min-width: 1000px; /* slightly narrower on small devices */
+      }
+      table.land-table thead th, table.land-table tbody td {
+        padding: 6px 4px;
+      }
     }
-
-    .img-modal-content img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-
-    .ratecard-section {
-      padding: 15px 0 !important;
-      margin: 0 !important;
-    }
-  
-    .ratecard-section h2 {
-      margin: 0 !important;
-      padding: 0 !important;
-      font-weight: 700;
-    }
-  
-    /* Reduce table gap */
-    .land-table-container {
-      margin-top: 10px !important;
-    }    
-    </style>
-  </head>
-  
+  </style>
+</head>
 <body>
-
-<div id="header-placeholder"></div>
-
-<main>
-  <section class="ratecard-section">
-    <h2>Land / Property Listing</h2>
-  </section>
-
-  <!-- LAND LISTING TABLE -->
   <div class="land-table-container">
-    <table class="land-table">
+    <table class="land-table" role="table" aria-label="Land / Property Listing">
       <thead>
         <tr>
           <th>S/N</th>
@@ -172,72 +151,39 @@
         </tr>
       </thead>
       <tbody>
-        <!-- SAMPLE DATA ROW 1 -->
-          
-                    <tr>
-            <td>1005</td>
-            <td>SSL-005</td>
-            <td>Constructed Building</td>
-            <td><span style="color:green;font-weight:600;">Active</span></td>
-            <td>16-Nov-25</td>
-            <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
-            <td>Mhape-MIDC</td>
-            <td>3.3 Acre (13,156 sqm)</td>
-            <td>EOI Awaited</td>
-            <td><a href="#" target="_blank">Open Gmap</a></td>
-            <td>EOI Awaited</td>
-            <td>2-side Road</td>
-            <td>60 Feet</td>
-            <td>Yes</td>
-            <td>MIDC Water</td>
-            <td>No</td>
-            <td>MIDC IT</td>
-            <td>MIDC</td>
-            <td>4</td>
-            <td>140 m</td>
-            <td>Yes</td>
-            <td>Upon EOI</td>
-            <td>Lease Hold</td>
-            <td>Upon EOI</td>
-            <td>Company Sale</td>
-            <td>Outright</td>
-            <td>₹220 Cr (Negotiable)</td>
-            <td>Land + Constructed Building</td>
-          </tr>
-
-      
-
-          <tr>
-            <td>1005</td>
-            <td>SSL-005</td>
-            <td>Constructed Building</td>
-            <td><span style="color:green;font-weight:600;">Active</span></td>
-            <td>16-Nov-25</td>
-            <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
-            <td>Mhape-MIDC</td>
-            <td>3.3 Acre (13,156 sqm)</td>
-            <td>EOI Awaited</td>
-            <td><a href="#" target="_blank">Open Gmap</a></td>
-            <td>EOI Awaited</td>
-            <td>2-side Road</td>
-            <td>60 Feet</td>
-            <td>Yes</td>
-            <td>MIDC Water</td>
-            <td>No</td>
-            <td>MIDC IT</td>
-            <td>MIDC</td>
-            <td>4</td>
-            <td>140 m</td>
-            <td>Yes</td>
-            <td>Upon EOI</td>
-            <td>Lease Hold</td>
-            <td>Upon EOI</td>
-            <td>Company Sale</td>
-            <td>Outright</td>
-            <td>₹220 Cr (Negotiable)</td>
-            <td>Land + Constructed Building</td>
-          </tr>
-
+        <tr>
+          <td>1005</td>
+          <td>SSL-005</td>
+          <td>Constructed Building</td>
+          <td><span style="color:green;font-weight:600;">Active</span></td>
+          <td>16-Nov-25</td>
+          <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
+          <td>Mhape-MIDC</td>
+          <td>3.3 Acre (13,156 sqm)</td>
+          <td>EOI Awaited</td>
+          <td><a href="#" target="_blank">Open Gmap</a></td>
+          <td>EOI Awaited</td>
+          <td>2-side Road</td>
+          <td>60 Feet</td>
+          <td>Yes</td>
+          <td>MIDC Water</td>
+          <td>No</td>
+          <td>MIDC IT</td>
+          <td>MIDC</td>
+          <td>4</td>
+          <td>140 m</td>
+          <td>Yes</td>
+          <td>Upon EOI</td>
+          <td>Lease Hold</td>
+          <td>Upon EOI</td>
+          <td>Company Sale</td>
+          <td>Outright</td>
+          <td>₹220 Cr (Negotiable)</td>
+          <td>Land + Constructed Building</td>
+        </tr>
+        <!-- Additional rows can be duplicated here -->
+      </tbody>
+    </table>
 
 
   
@@ -245,7 +191,7 @@
       </tbody>
     </table>
   </div>
-</main>
+
 
     <!-- CTA SECTION -->
   <section class="cta-section">
