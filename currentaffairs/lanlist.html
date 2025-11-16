@@ -42,83 +42,111 @@
 <body>
   <div id="header-placeholder"></div>
 
-  <main>
-    <section class="ratecard-section">
-      <h2>Land / Property Listing</h2>
-    </section>
+<style>
+  .card {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .table-scroll {
+    overflow-x: auto;
+  }
+  table.land-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 1200px; /* keep full table width for many columns */
+  }
+  table.land-table th, table.land-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    text-align: left;
+  }
+  /* Optional: Adjust image size in table */
+  .image-thumb {
+    width: 60px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+</style>
 
-    <div class="card">
-      <div class="table-scroll">
-        <table class="land-table" role="table" aria-label="Land / Property Listing">
-          <thead>
-            <tr>
-              <th>S/N</th>
-              <th>Item Code</th>
-              <th>Item Type</th>
-              <th>Status</th>
-              <th>Listing Dt.</th>
-              <th>Image</th>
-              <th>Location Address</th>
-              <th>Area</th>
-              <th>Lat/Long</th>
-              <th>Google Maps</th>
-              <th>Layout</th>
-              <th>Road Sides</th>
-              <th>Road Frontage (ft)</th>
-              <th>Water Body Nearby</th>
-              <th>Water Body Inside</th>
-              <th>HT Lines Nearby</th>
-              <th>Zone</th>
-              <th>Dev Authority</th>
-              <th>what is FAR<br>available</th>
-              <th>Permissible Height</th>
-              <th>Is Title Clean</th>
-              <th>How many owners</th>
-              <th>Freehold / Leasehold</th>
-              <th>Balance Lease (Years)</th>
-              <th>Sale Type</th>
-              <th>Sale Condition</th>
-              <th>Tentative Price</th>
-              <th>Other Conditions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1005</td>
-              <td>SSL-005</td>
-              <td>Constructed Building</td>
-              <td><span style="color:green;font-weight:600;">Active</span></td>
-              <td>16-Nov-25</td>
-              <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
-              <td>Mhape-MIDC</td>
-              <td>3.3 Acre (13,156 sqm)</td>
-              <td>EOI Awaited</td>
-              <td><a href="#" target="_blank">Open Gmap</a></td>
-              <td>EOI Awaited</td>
-              <td>2-side Road</td>
-              <td>60 Feet</td>
-              <td>Yes</td>
-              <td>MIDC Water</td>
-              <td>No</td>
-              <td>MIDC IT</td>
-              <td>MIDC</td>
-              <td>4</td>
-              <td>140 m</td>
-              <td>Yes</td>
-              <td>Upon EOI</td>
-              <td>Lease Hold</td>
-              <td>Upon EOI</td>
-              <td>Company Sale</td>
-              <td>Outright</td>
-              <td>₹220 Cr (Negotiable)</td>
-              <td>Land + Constructed Building</td>
-            </tr>
-            <!-- Rows to be duplicated for additional listings -->
-          </tbody>
-        </table>
-      </div>
+  <main>
+  <section class="ratecard-section">
+    <h2>Land / Property Listing</h2>
+  </section>
+
+  <div class="card">
+    <div class="table-scroll">
+      <table class="land-table" role="table" aria-label="Land / Property Listing">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Item Code</th>
+            <th>Item Type</th>
+            <th>Status</th>
+            <th>Listing Dt.</th>
+            <th>Image</th>
+            <th>Location Address</th>
+            <th>Area</th>
+            <th>Lat/Long</th>
+            <th>Google Maps</th>
+            <th>Layout</th>
+            <th>Road Sides</th>
+            <th>Road Frontage (ft)</th>
+            <th>Water Body Nearby</th>
+            <th>Water Body Inside</th>
+            <th>HT Lines Nearby</th>
+            <th>Zone</th>
+            <th>Dev Authority</th>
+            <th>what is FAR<br>available</th>
+            <th>Permissible Height</th>
+            <th>Is Title Clean</th>
+            <th>How many owners</th>
+            <th>Freehold / Leasehold</th>
+            <th>Balance Lease (Years)</th>
+            <th>Sale Type</th>
+            <th>Sale Condition</th>
+            <th>Tentative Price</th>
+            <th>Other Conditions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1005</td>
+            <td>SSL-005</td>
+            <td>Constructed Building</td>
+            <td><span style="color:green;font-weight:600;">Active</span></td>
+            <td>16-Nov-25</td>
+            <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
+            <td>Mhape-MIDC</td>
+            <td>3.3 Acre (13,156 sqm)</td>
+            <td>EOI Awaited</td>
+            <td><a href="#" target="_blank">Open Gmap</a></td>
+            <td>EOI Awaited</td>
+            <td>2-side Road</td>
+            <td>60 Feet</td>
+            <td>Yes</td>
+            <td>MIDC Water</td>
+            <td>No</td>
+            <td>MIDC IT</td>
+            <td>MIDC</td>
+            <td>4</td>
+            <td>140 m</td>
+            <td>Yes</td>
+            <td>Upon EOI</td>
+            <td>Lease Hold</td>
+            <td>Upon EOI</td>
+            <td>Company Sale</td>
+            <td>Outright</td>
+            <td>₹220 Cr (Negotiable)</td>
+            <td>Land + Constructed Building</td>
+          </tr>
+          <!-- Additional rows -->
+        </tbody>
+      </table>
     </div>
-    </main>
+  </div>
+</main>
 
   
   <!-- CTA SECTION -->
