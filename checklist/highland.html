@@ -1,0 +1,328 @@
+<style>
+  .scrollable-table-container {
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px auto;
+  }
+  table.reference-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 1000px; /* ensure horizontal scroll for many columns */
+  }
+  table.reference-table th,
+  table.reference-table td {
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    vertical-align: top;
+    text-align: left;
+    white-space: nowrap;
+  }
+  table.reference-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+  }
+  /* For multiline query answers */
+  table.reference-table td p {
+    margin: 0 0 8px 0;
+  }
+</style>
+
+<div class="scrollable-table-container">
+  <table class="reference-table" role="table" aria-label="Reference Form for Industrial Use">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Particulars</th>
+        <th>Queries to Ask the Hyperscaler / Developer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="4">1. Land Title, Tenure & Legal Readiness</td>
+        <td>Ownership Type</td>
+        <td>
+          <p>• Is the land freehold, leasehold, or government-allotted?</p>
+          <p>• If leasehold, what is the lease duration and renewal terms?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Title & Clearances</td>
+        <td>
+          <p>• Is the land title clear, dispute-free, and encumbrance-free?</p>
+          <p>• Can you share title deeds, mutation certificates, and possession proof?</p>
+          <p>• Are there any litigations, liens, or rights-of-way issues?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Conversion & Zoning</td>
+        <td>
+          <p>• Has the land been converted to industrial or data center use?</p>
+          <p>• Is it located within a designated Data Center Park or IT/ITES zone?</p>
+          <p>• Are construction permissions and building plan approvals in place?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Regulatory Approvals</td>
+        <td>
+          <p>• What local/state authorities have approved the land for DC usage?</p>
+          <p>• Any environmental, telecom, or power NOCs already obtained?</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">2. Location & Geophysical Suitability</td>
+        <td>Seismic & Flood Zone</td>
+        <td>
+          <p>• What is the seismic zone rating (as per IS 1893)?</p>
+          <p>• Has a geotechnical or soil load-bearing test been performed?</p>
+          <p>• Is the land located in a flood-prone, cyclone, or low-lying area?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Elevation & Drainage</td>
+        <td>
+          <p>• What is the elevation above MSL (Mean Sea Level)?</p>
+          <p>• Are there proper drainage channels and flood mitigation systems?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Soil Quality</td>
+        <td>
+          <p>• What is the soil type and bearing capacity?</p>
+          <p>• Any soil contamination or landfill history?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Climatic Conditions</td>
+        <td>
+          <p>• What are the average temperature, humidity, and rainfall data?</p>
+          <p>• Any micro-climate impacts on cooling efficiency?</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">3. Power Availability & Electrical Infrastructure</td>
+        <td>Power Source</td>
+        <td>
+          <p>• What is the nearest substation capacity and distance?</p>
+          <p>• Is dual-feed power available from independent substations?</p>
+          <p>• What is the grid voltage level (33kV/132kV/220kV) at the site boundary?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Load Sanction</td>
+        <td>
+          <p>• Has the land been allocated sanctioned power load (in MW)?</p>
+          <p>• Can capacity scale up with future phases (Phase I to N)?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Right of Way (RoW)</td>
+        <td>• Are there RoW approvals for power cabling and utilities from substation to site?</td>
+      </tr>
+      <tr>
+        <td>Renewable Integration</td>
+        <td>• Is the site eligible for renewable energy wheeling (solar/wind PPA)?</td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">4. Connectivity & Network Access</td>
+        <td>Fiber & Telco Access</td>
+        <td>
+          <p>• Distance to nearest optical fiber PoP / IX node?</p>
+          <p>• Availability of multiple telco providers (diverse fiber paths)?</p>
+          <p>• Is dark fiber or carrier-neutral access possible at the site?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Backhaul Redundancy</td>
+        <td>
+          <p>• Are there two or more physically separated fiber routes to the site?</p>
+          <p>• Who are the current network providers available in that region?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Latency Metrics</td>
+        <td>• Average latency to major metro hubs (Mumbai, Chennai, Delhi)?</td>
+      </tr>
+      <tr>
+        <td>Edge Connectivity</td>
+        <td>• Are there edge or CDN nodes nearby to minimize round-trip latency?</td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">5. Water Supply & Cooling Support Feasibility</td>
+        <td>Water Source</td>
+        <td>• What are the available water sources (municipal, borewell, recycled)?</td>
+      </tr>
+      <tr>
+        <td>Water Rights & Permissions</td>
+        <td>• Are water extraction and reuse permissions in place?</td>
+      </tr>
+      <tr>
+        <td>Wastewater Management</td>
+        <td>• Is there a drainage/sewage system or STP requirement on-site?</td>
+      </tr>
+      <tr>
+        <td>Cooling Readiness</td>
+        <td>• Is the water supply capacity sufficient for chilled-water or hybrid cooling systems?</td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">6. Accessibility, Logistics & Infrastructure</td>
+        <td>Transportation Access</td>
+        <td>
+          <p>• What is the distance to nearest highway, airport, and railway?</p>
+          <p>• Are heavy-load vehicles (transformers, generators) accessible via all-weather roads?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Proximity to Urban Centers</td>
+        <td>
+          <p>• How far is the nearest city or logistics hub?</p>
+          <p>• Is there access to skilled workforce nearby?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Emergency Services</td>
+        <td>
+          <p>• Proximity to fire station, hospitals, and police station?</p>
+          <p>• Are there fire hydrant or water bodies within response reach?</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">7. Site Size, Shape & Expandability</td>
+        <td>Land Size</td>
+        <td>• What is the total plot area (acres or hectares)?</td>
+      </tr>
+      <tr>
+        <td>Usable vs Non-Usable Area</td>
+        <td>• How much is usable for DC construction vs setbacks, utilities, and green zones?</td>
+      </tr>
+      <tr>
+        <td>Shape & Layout</td>
+        <td>
+          <p>• Is the plot shape rectangular/square for efficient rack hall design?</p>
+          <p>• Are there topographical constraints (slopes, elevation variation)?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Future Expansion</td>
+        <td>
+          <p>• Is there contiguous land available for expansion?</p>
+          <p>• Are utility corridors and access roads pre-planned for Phase II / III?</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="4">8. ESG & Sustainability Considerations</td>
+        <td>Green Power Feasibility</td>
+        <td>• Can the site integrate onsite or nearby renewable power (solar/wind farm)?</td>
+      </tr>
+      <tr>
+        <td>Water & Waste Recycling</td>
+        <td>• Is there a greywater reuse or rainwater harvesting provision?</td>
+      </tr>
+      <tr>
+        <td>Environmental Impact Assessment (EIA)</td>
+        <td>• Has an EIA study been completed and approved by authorities?</td>
+      </tr>
+      <tr>
+        <td>Noise & Air Compliance</td>
+        <td>• Are local environmental noise and emission norms being met?</td>
+      </tr>
+
+      <tr>
+        <td rowspan="5">9. Regulatory & Incentive-Linked Queries</td>
+        <td>Industrial Zone Compliance</td>
+        <td>
+          <p>• Does the land fall under industrial or IT/ITES DC zoning?</p>
+          <p>• Are state data center policies applicable (e.g., Maharashtra, UP, TN, Telangana)?</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Incentives & Rebates</td>
+        <td>• Are there tax breaks, stamp duty waivers, or power tariff rebates for DC usage?</td>
+      </tr>
+      <tr>
+        <td>Single-Window Clearance</td>
+        <td>• Is there a dedicated DC facilitation cell (state IT department / MIDC / SIPCOT etc.)?</td>
+      </tr>
+      <tr>
+        <td>Building Code Compliance</td>
+        <td>• Is the DC design compliant with NBC, BIS, and fire norms?</td>
+      </tr>
+
+      <tr>
+        <td rowspan="5">10. Validation & Closure Queries (Pre-Land Freeze)</td>
+        <td>Technical Validation</td>
+        <td>• Has load flow and geotechnical study been completed?</td>
+      </tr>
+      <tr>
+        <td>Environmental Clearance</td>
+        <td>• Status of EIA and CRZ (if coastal) clearance?</td>
+      </tr>
+      <tr>
+        <td>Air and Noise Pollution Consent to Establish</td>
+        <td>• Air and noise pollution consent to establish?</td>
+      </tr>
+      <tr>
+        <td>Utility Readiness</td>
+        <td>• Confirm power, water, and telecom route drawings.</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td>• Request land ownership, zoning, and pre-approval document pack.</td>
+      </tr>
+      <tr>
+        <td>Site Visit & Survey</td>
+        <td>• When can the joint technical inspection be scheduled?</td>
+      </tr>
+
+      <tr>
+        <td>11. Summary: Key Land Selection Evaluation Parameters</td>
+        <td>Land Legal Readiness</td>
+        <td>Ownership, zoning, approvals, title</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Geophysical Suitability</td>
+        <td>Soil, seismic, flood, elevation</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Power Proximity</td>
+        <td>Dual feed, grid distance, MW scalability</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Connectivity</td>
+        <td>Fiber access, latency, redundancy</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Utilities</td>
+        <td>Water, cooling, drainage, access</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Expansion Potential</td>
+        <td>Contiguous area, phase planning</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>ESG Readiness</td>
+        <td>Renewable access, EIA, green infra</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Regulatory Advantage</td>
+        <td>Incentives, clearances, compliance</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
