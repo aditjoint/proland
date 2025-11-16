@@ -32,8 +32,76 @@
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
   <link rel="stylesheet" href="/css/protect.css" />
- 
+
   <style>
+    /* Card container styling */
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Container for horizontal scrolling */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Table styling */
+    table.land-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      table-layout: fixed;
+      min-width: 1200px;
+    }
+
+    table.land-table thead th {
+      background-color: #1a73e8;
+      color: #fff;
+      padding: 12px 8px;
+      text-align: left;
+      white-space: normal;
+      word-break: break-word;
+      border: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    table.land-table tbody td {
+      padding: 10px 8px;
+      border: 1px solid #ddd;
+      vertical-align: middle;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .image-thumb {
+      width: 60px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .image-thumb:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      table.land-table {
+        font-size: 12px;
+        min-width: 1000px;
+      }
+      table.land-table thead th, table.land-table tbody td {
+        padding: 6px 4px;
+      }
+    }
+
     html, body {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -47,168 +115,106 @@
       user-select: text;
     }
   </style>
-</head>
 
-   <style>
-    /* Container for horizontal scrolling on small screens */
-    .land-table-container {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 20px;
-      box-sizing: border-box;
-      -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
-    }
-
-    /* Table styling */
-    table.land-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      table-layout: fixed; /* fixed layout for consistent column widths */
-      min-width: 1200px; /* minimum width to fit all columns */
-    }
-
-    /* Header cells */
-    table.land-table thead th {
-      background-color: #1a73e8;
-      color: #fff;
-      padding: 12px 8px;
-      text-align: left;
-      white-space: normal; /* allow wrapping */
-      word-break: break-word; /* wrap long words */
-      border: 1px solid #ddd;
-      vertical-align: middle;
-    }
-
-    /* Body cells */
-    table.land-table tbody td {
-      padding: 10px 8px;
-      border: 1px solid #ddd;
-      vertical-align: middle;
-      white-space: normal;
-      word-break: break-word;
-    }
-
-    /* Image thumbnails in table */
-    .image-thumb {
-      width: 60px;
-      height: 45px;
-      object-fit: cover;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .image-thumb:hover {
-      transform: scale(1.05);
-    }
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 900px) {
-      table.land-table {
-        font-size: 12px;
-        min-width: 1000px; /* slightly narrower on small devices */
-      }
-      table.land-table thead th, table.land-table tbody td {
-        padding: 6px 4px;
-      }
-    }
-  </style>
 </head>
 <body>
-  <div class="land-table-container">
-    <table class="land-table" role="table" aria-label="Land / Property Listing">
-      <thead>
-        <tr>
-          <th>S/N</th>
-          <th>Item Code</th>
-          <th>Item Type</th>
-          <th>Status</th>
-          <th>Listing Dt.</th>
-          <th>Image</th>
-          <th>Location Address</th>
-          <th>Area</th>
-          <th>Lat/Long</th>
-          <th>Google Maps</th>
-          <th>Layout</th>
-          <th>Road Sides</th>
-          <th>Road Frontage (ft)</th>
-          <th>Water Body Nearby</th>
-          <th>Water Body Inside</th>
-          <th>HT Lines Nearby</th>
-          <th>Zone</th>
-          <th>Dev Authority</th>
-          <th>what is FAR<br>available</th>
-          <th>Permissible Height</th>
-          <th>Is Title Clean</th>
-          <th>How many owners</th>
-          <th>Freehold / Leasehold</th>
-          <th>Balance Lease (Years)</th>
-          <th>Sale Type</th>
-          <th>Sale Condition</th>
-          <th>Tentative Price</th>
-          <th>Other Conditions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1005</td>
-          <td>SSL-005</td>
-          <td>Constructed Building</td>
-          <td><span style="color:green;font-weight:600;">Active</span></td>
-          <td>16-Nov-25</td>
-          <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
-          <td>Mhape-MIDC</td>
-          <td>3.3 Acre (13,156 sqm)</td>
-          <td>EOI Awaited</td>
-          <td><a href="#" target="_blank">Open Gmap</a></td>
-          <td>EOI Awaited</td>
-          <td>2-side Road</td>
-          <td>60 Feet</td>
-          <td>Yes</td>
-          <td>MIDC Water</td>
-          <td>No</td>
-          <td>MIDC IT</td>
-          <td>MIDC</td>
-          <td>4</td>
-          <td>140 m</td>
-          <td>Yes</td>
-          <td>Upon EOI</td>
-          <td>Lease Hold</td>
-          <td>Upon EOI</td>
-          <td>Company Sale</td>
-          <td>Outright</td>
-          <td>₹220 Cr (Negotiable)</td>
-          <td>Land + Constructed Building</td>
-        </tr>
-        <!-- Additional rows can be duplicated here -->
-      </tbody>
-    </table>
+  <div id="header-placeholder"></div>
 
+  <main>
+    <section class="ratecard-section">
+      <h2>Land / Property Listing</h2>
+    </section>
 
-  
-        <!-- ROWS TO BE DUPLICATED FOR FUTURE LISTINGS -->
-      </tbody>
-    </table>
-  </div>
-
-
-    <!-- CTA SECTION -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Looking for Industrial or Commercial Land or Estate?</h2>
-        <p>Share your requirement—we will match the best verified properties and manage your end-to-end compliance.</p>
-        <a href="../contact.html" class="btn btn-primary">Get In Touch</a> <br>
-        <a href="https://wa.me/918779639965" target="_blank" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">
-          <i class="fab fa-whatsapp"></i> Chat with an Expert
-        </a>
+    <div class="card">
+      <div class="table-scroll">
+        <table class="land-table" role="table" aria-label="Land / Property Listing">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Item Code</th>
+              <th>Item Type</th>
+              <th>Status</th>
+              <th>Listing Dt.</th>
+              <th>Image</th>
+              <th>Location Address</th>
+              <th>Area</th>
+              <th>Lat/Long</th>
+              <th>Google Maps</th>
+              <th>Layout</th>
+              <th>Road Sides</th>
+              <th>Road Frontage (ft)</th>
+              <th>Water Body Nearby</th>
+              <th>Water Body Inside</th>
+              <th>HT Lines Nearby</th>
+              <th>Zone</th>
+              <th>Dev Authority</th>
+              <th>what is FAR<br>available</th>
+              <th>Permissible Height</th>
+              <th>Is Title Clean</th>
+              <th>How many owners</th>
+              <th>Freehold / Leasehold</th>
+              <th>Balance Lease (Years)</th>
+              <th>Sale Type</th>
+              <th>Sale Condition</th>
+              <th>Tentative Price</th>
+              <th>Other Conditions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1005</td>
+              <td>SSL-005</td>
+              <td>Constructed Building</td>
+              <td><span style="color:green;font-weight:600;">Active</span></td>
+              <td>16-Nov-25</td>
+              <td><img src="/assets/images/image1.png" class="image-thumb" alt="Land Image"></td>
+              <td>Mhape-MIDC</td>
+              <td>3.3 Acre (13,156 sqm)</td>
+              <td>EOI Awaited</td>
+              <td><a href="#" target="_blank">Open Gmap</a></td>
+              <td>EOI Awaited</td>
+              <td>2-side Road</td>
+              <td>60 Feet</td>
+              <td>Yes</td>
+              <td>MIDC Water</td>
+              <td>No</td>
+              <td>MIDC IT</td>
+              <td>MIDC</td>
+              <td>4</td>
+              <td>140 m</td>
+              <td>Yes</td>
+              <td>Upon EOI</td>
+              <td>Lease Hold</td>
+              <td>Upon EOI</td>
+              <td>Company Sale</td>
+              <td>Outright</td>
+              <td>₹220 Cr (Negotiable)</td>
+              <td>Land + Constructed Building</td>
+            </tr>
+            <!-- Rows to be duplicated for additional listings -->
+          </tbody>
+        </table>
       </div>
     </div>
-  </section>
 
-  <!-- ✅ Footer Placeholder -->
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Looking for Industrial or Commercial Land or Estate?</h2>
+          <p>Share your requirement—we will match the best verified properties and manage your end-to-end compliance.</p>
+          <a href="../contact.html" class="btn btn-primary">Get In Touch</a> <br>
+          <a href="https://wa.me/918779639965" target="_blank" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">
+            <i class="fab fa-whatsapp"></i> Chat with an Expert
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <div id="footer-placeholder"></div>    
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       fetch("/header.html")
@@ -244,11 +250,9 @@
       dropdown.src = "/js/dropdown.js";
       document.body.appendChild(dropdown);
     });
-    <!-- Other scripts loaded here -->
-    </script>
-  <div>
+  </script>
+
   <script src="/js/popup-image.js"></script>
   <script src="landpage.js"></script>
-  </div>
 </body>
 </html>
