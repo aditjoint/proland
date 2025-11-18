@@ -295,6 +295,10 @@ footer::after {
     font-size: 1.2rem;
 }
 
+.footer-logo {
+    filter: invert(1) brightness(2);
+}
+
 /* Navigation */
 .main-nav {
     display: flex;
