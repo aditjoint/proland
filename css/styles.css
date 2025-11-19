@@ -235,7 +235,7 @@ header {
   cursor: pointer;
 }
 
-.logo a img:nth-child(1) { 
+.logo a img:nth-child(1) {
   max-height: 45px;   /* Maximum height for logo1 */
   max-width: 100px;   /* Maximum width for logo1 */
   width: auto;
@@ -243,7 +243,7 @@ header {
   display: block;
 }
 
-.logo a img:nth-child(2) { 
+.logo a img:nth-child(2) {
   max-height: 90px;   /* Maximum height for logo2 */
   max-width: 200px;   /* Maximum width for logo2 */
 
@@ -287,8 +287,10 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  width: 1px;
-  height: 1px;
+  max-height: 5px;   /* Maximum height for logo1 */
+  max-width: 10px;   /* Maximum width for logo1 */
+  width: auto;
+  height: auto;
   border-radius: 4px;
   background-color: var(--primary-color);
   display: flex;
@@ -297,10 +299,11 @@ footer::after {
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 20
+  max-height: 5px;   /* Maximum height for logo1 */
+  max-width: 10px;   /* Maximum width for logo1 */
+  font-weight: 10
   font-size: 1rem;
 }
-
 
 /* Navigation */
 .main-nav {
