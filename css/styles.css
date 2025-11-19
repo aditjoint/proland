@@ -228,27 +228,31 @@ header {
 .logo a,
 .footer-logo a {
   position: relative;
-  z-index: 9999;        /* higher than nav, menus, overlays */
-  pointer-events: auto; /* allow clicks */
+  z-index: 9999;
+  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
 }
 
 .logo a img:nth-child(1) { 
-  height: 10px;   /* Size for logo1 images */
+  max-height: 45px;   /* Maximum height for logo1 */
+  max-width: 100px;   /* Maximum width for logo1 */
   width: auto;
+  height: auto;
   display: block;
 }
 
 .logo a img:nth-child(2) { 
-  height: 10px;  /* Different size for logo2 images */
+  max-height: 60px;   /* Maximum height for logo2 */
+  max-width: 150px;   /* Maximum width for logo2 */
   width: auto;
+  height: auto;
   display: block;
 }
 
 .logo, .logo a {
-  z-index: 2147483647 !important; /* max int to be sure */
+  z-index: 2147483647 !important;
   pointer-events: auto !important;
 }
 
@@ -264,15 +268,15 @@ footer::after {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  text-decoration: none; /* remove underline */
+  text-decoration: none;
 }
 
 .logo-text {
-  margin-left: 8px;         /* space between image and text */
+  margin-left: 8px;
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-color); /* or your preferred color */
-  user-select: none;        /* optional: prevent text selection */
+  color: var(--primary-color);
+  user-select: none;
 }
 
 /* ✅ Footer Logo */
@@ -284,8 +288,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  width: 5px;
-  height: 5px;
+  width: 30px;
+  height: 30px;
   border-radius: 4px;
   background-color: var(--primary-color);
   display: flex;
@@ -294,9 +298,10 @@ footer::after {
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 50;
+  font-weight: 700;
   font-size: 1.2rem;
 }
+
 
 /* Navigation */
 .main-nav {
