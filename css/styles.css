@@ -238,15 +238,16 @@ header {
 
 .logo a img:nth-child(1) {
   max-height: 45px;   /* Maximum height for logo1 */
-  max-width: 100px;   /* Maximum width for logo1 */
+  max-width: 120px;   /* Maximum width for logo1 */
   width: auto;
   height: auto;
   display: block;
 }
 
 .logo a img:nth-child(2) {
-  max-height: 20px;   /* Maximum height for logo2 */
-  max-width: 40px;   /* Maximum width for logo2 */
+  max-height: 16px;   /* Maximum height for logo2 */
+  max-width: 60px;   /* Maximum width for logo2 */
+  margin-left:8px
   width: auto;
   height: auto;
   display: block;
@@ -284,8 +285,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  max-height: 20px;   /* Maximum height for logo1 */
-  max-width: 30px;   /* Maximum width for logo1 */
+  max-height: 40px;   /* Maximum height for logo1 */
+  max-width: 60px;   /* Maximum width for logo1 */
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -295,8 +296,9 @@ footer::after {
   justify-content: center;
 }
 .footer-logo a img:nth-child(2) {
-  max-height: 5px;   /* Maximum height for logo2 */
-  max-width: 7.5px;  /* Maximum width for logo2 */
+  max-height: 6px;   /* Maximum height for logo2 */
+  max-width: 25px;  /* Maximum width for logo2 */
+  margin-left: 6px;
   width: auto;
   height: auto;
   display: block;
@@ -330,14 +332,15 @@ footer::after {
 
 .footer-qr {
   flex: 0 0 200px; /* QR code size */
+  min-width: 140px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
 
 .footer-qr img {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
 }
 
 .footer-bottom {
