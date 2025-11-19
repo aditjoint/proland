@@ -244,8 +244,8 @@ header {
 }
 
 .logo a img:nth-child(2) { 
-  max-height: 120px;   /* Maximum height for logo2 */
-  max-width: 250px;   /* Maximum width for logo2 */
+  max-height: 90px;   /* Maximum height for logo2 */
+  max-width: 200px;   /* Maximum width for logo2 */
 
   display: block;
 }
@@ -287,8 +287,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  width: 5px;
-  height: 5px;
+  width: 1px;
+  height: 1px;
   border-radius: 4px;
   background-color: var(--primary-color);
   display: flex;
@@ -297,8 +297,8 @@ footer::after {
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 200
-  font-size: 1.2rem;
+  font-weight: 20
+  font-size: 1rem;
 }
 
 
