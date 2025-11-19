@@ -75,11 +75,14 @@
     --container-padding: 1rem;
    
     /* Dual logo fade effect */
-  --header-logo-size: 80px;   /* change this to adjust both logos */
-  --footer-logo-size: 60px;
-  --logo-fade-opacity: 0.6;   /* how much fade on scroll */
-}
-
+ --header-height: 90px;
+  --header-logo-size: 70px;    /* adjust header logo size */
+  --footer-logo-size: 60px;    /* adjust footer logo size */
+  --logo-fade-opacity: 0.55;   /* fade when scrolled */
+  --nav-text-color: #222;
+  --nav-hover-color: #007bff;
+  --footer-bg: #101010;
+  --footer-text: #ffffff;
 
 /* Reset & Base Styles */
 * {
@@ -238,32 +241,199 @@ header {
 
 /* ✅ Header Logo */
 
-/* HEADER LOGO GROUP */
+/* ============================================================
+   FINAL HEADER + FOOTER CSS (Dual Logo Support)
+   Works with companylogo.png + productlogo.png
+   ============================================================ */
+
+/* ---------- Header Container ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to right, #eaf4ff, #ffffff);
+    box-shadow: var(--shadow-sm);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+/* ---------- Header Inner Wrapper ---------- */
+.header-content {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* ============================================================
+   LOGO GROUP (Two Logos Side-by-Side)
+============================================================ */
 .logo-group {
     display: flex;
     align-items: center;
-    gap: 20px;
-    z-index: 99999;
-    pointer-events: auto;
+    gap: 22px;
 }
 
-.logo-group .logo-item img {
+.logo-item img {
     height: var(--header-logo-size);
     width: auto;
     display: block;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-header.scrolled .logo-group .logo-item img {
+header.scrolled .logo-item img {
     opacity: var(--logo-fade-opacity);
-    transform: scale(0.95); /* optional slight shrink */
+    transform: scale(0.92);
 }
 
-/* Make logos clickable */
 .logo-item a {
     display: inline-flex;
     align-items: center;
+}
+
+/* ============================================================
+   NAVIGATION (Desktop)
+============================================================ */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--nav-text-color);
+    padding: 8px 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--nav-hover-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 230px;
+    background: var(--white);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    padding: 12px 18px;
+    color: var(--text-dark);
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--primary-light);
+}
+
+/* ---------- Mobile Menu Toggle ---------- */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 26px;
     cursor: pointer;
+}
+
+/* ============================================================
+   RESPONSIVE NAVIGATION
+============================================================ */
+@media (max-width: 900px) {
+
+    .main-nav {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 70%;
+        height: calc(100vh - var(--header-height));
+        background: #ffffff;
+        box-shadow: var(--shadow-lg);
+        flex-direction: column;
+        padding: 20px;
+        transition: 0.4s ease;
+    }
+
+    .main-nav.open {
+        right: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        box-shadow: none;
+        transform: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* ============================================================
+   FOOTER WITH LOGO GROUP
+============================================================ */
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 0;
+}
+
+footer .footer-content {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-logo-group {
@@ -275,7 +445,29 @@ header.scrolled .logo-group .logo-item img {
 .footer-logo-img {
     height: var(--footer-logo-size);
     width: auto;
-    filter: invert(1) brightness(2);
+    filter: invert(1) brightness(1.7); /* ensures white logo look */
+    transition: opacity 0.3s ease;
+}
+
+footer:hover .footer-logo-img {
+    opacity: 0.85;
+}
+
+/* Footer Navigation */
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
 }
 
 
