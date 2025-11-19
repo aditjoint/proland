@@ -290,7 +290,47 @@ footer::after {
   font-size: 1rem;
 }
 
+/* ✅ Footer QR */
 
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  flex: 1 1 300px; /* logo + description */
+}
+
+.footer-center {
+  flex: 2 1 500px; /* links columns */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-qr {
+  flex: 0 0 120px; /* QR code size */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.footer-qr img {
+  width: 100px;
+  height: 100px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
 
 /* Navigation */
 .main-nav {
