@@ -245,8 +245,8 @@ header {
 }
 
 .logo a img:nth-child(2) {
-  max-height: 16px;   /* Maximum height for logo2 */
-  max-width: 60px;   /* Maximum width for logo2 */
+  max-height: 60px;   /* Maximum height for logo2 */
+  max-width: 200px;   /* Maximum width for logo2 */
   margin-left:8px
   width: auto;
   height: auto;
@@ -285,8 +285,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  max-height: 40px;   /* Maximum height for logo1 */
-  max-width: 60px;   /* Maximum width for logo1 */
+  max-height: 400px;   /* Maximum height for logo1 */
+  max-width: 600px;   /* Maximum width for logo1 */
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -296,8 +296,8 @@ footer::after {
   justify-content: center;
 }
 .footer-logo a img:nth-child(2) {
-  max-height: 6px;   /* Maximum height for logo2 */
-  max-width: 25px;  /* Maximum width for logo2 */
+  max-height: 2px;   /* Maximum height for logo2 */
+  max-width: 8px;  /* Maximum width for logo2 */
   margin-left: 6px;
   width: auto;
   height: auto;
@@ -332,15 +332,15 @@ footer::after {
 
 .footer-qr {
   flex: 0 0 200px; /* QR code size */
-  min-width: 140px;
+  min-width: 120px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
 
 .footer-qr img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
 }
 
 .footer-bottom {
