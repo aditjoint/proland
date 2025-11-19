@@ -475,7 +475,7 @@ footer::after {
 .hero {
     position: relative;
     background-color: #0a2040;
-    background-image: linear-gradient(rgba(10, 32, 64, 0.85), rgba(10, 32, 64, 0.9)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-image: linear-gradient(rgba(10, 32, 64, 0.85), rgba(10, 32, 64, 0.9)), url('../images/sldproland-greenfield-image.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
