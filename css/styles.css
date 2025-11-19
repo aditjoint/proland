@@ -235,17 +235,19 @@ header {
   cursor: pointer;
 }
 
-
-
-.logo a img {
-  height: 40px;   /* Example: set a uniform height */
+.logo1 img {
+  height: 45px;   /* Size for logo1 images */
   width: auto;
+  display: block;
 }
 
-.logo a img:nth-child(2) {
-  height: 60px;   /* Larger height for PROLAND */
+.logo2 img {
+  height: 60px;   /* Different size for logo2 images */
   width: auto;
+  display: block;
 }
+
+
 
 
 .logo, .logo a {
