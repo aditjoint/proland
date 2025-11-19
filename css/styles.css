@@ -207,6 +207,7 @@ section {
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
+
 /* ✅ Header Logo */
 /* Ensure header & footer logos are clickable */
 .logo a,
@@ -228,10 +229,9 @@ section {
 }
 
 .logo a img:nth-child(2) {
-  max-height: 60px;   /* Maximum height for logo2 */
-  max-width: 150px;   /* Maximum width for logo2 */
-  width: auto;
-  height: auto;
+  max-height: 90px;   /* Maximum height for logo2 */
+  max-width: 200px;   /* Maximum width for logo2 */
+
   display: block;
 }
 
@@ -257,7 +257,7 @@ footer::after {
 
 .logo-text {
   margin-left: 8px;
-  font-weight: 700;
+  font-weight: 200;
   font-size: 1.2rem;
   color: var(--primary-color);
   user-select: none;
@@ -272,8 +272,10 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  width: 30px;
-  height: 30px;
+  max-height: 5px;   /* Maximum height for logo1 */
+  max-width: 10px;   /* Maximum width for logo1 */
+  width: auto;
+  height: auto;
   border-radius: 4px;
   background-color: var(--primary-color);
   display: flex;
@@ -282,8 +284,10 @@ footer::after {
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 700;
-  font-size: 1.2rem;
+  max-height: 5px;   /* Maximum height for logo1 */
+  max-width: 10px;   /* Maximum width for logo1 */
+  font-weight: 10
+  font-size: 1rem;
 }
 
 
