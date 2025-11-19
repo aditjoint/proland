@@ -294,15 +294,15 @@ footer::after {
   justify-content: center;
 }
 .footer-logo a img:nth-child(2) {
-  max-height: 2px;   /* Maximum height for logo2 */
-  max-width: 8px;  /* Maximum width for logo2 */
-  margin-left: 6px;
+  max-height: 1px;   /* Maximum height for logo2 */
+  max-width: 4px;  /* Maximum width for logo2 */
+  margin-left: 2px;
   display: block;
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 700;
-  font-size: 2.4rem;
+  font-weight: 900;
+  font-size: 5.4rem;
 }
 
 /* ✅ Footer QR */
