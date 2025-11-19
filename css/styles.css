@@ -235,18 +235,18 @@ header {
   cursor: pointer;
 }
 
-.logo1 img,
-.footer-logo img {
-  height: 45px;
+
+
+.logo a img {
+  height: 40px;   /* Example: set a uniform height */
   width: auto;
-  display: block;
 }
-.logo2 img,
-.footer-logo img {
-  height: 45px;
+
+.logo a img:nth-child(2) {
+  height: 60px;   /* Larger height for PROLAND */
   width: auto;
-  display: block;
 }
+
 
 .logo, .logo a {
   z-index: 2147483647 !important; /* max int to be sure */
