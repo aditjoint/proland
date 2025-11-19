@@ -301,6 +301,13 @@ footer::after {
   color: var(--white);
   max-height: 1px;   /* Maximum height for logo2 */
   max-width: 2px;   /* Maximum width for logo2 */
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 10
   font-size: 1rem;
 }
