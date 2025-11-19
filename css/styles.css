@@ -273,8 +273,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  max-height: 1px;   /* Maximum height for logo1 */
-  max-width: 2px;   /* Maximum width for logo1 */
+  max-height: 20px;   /* Maximum height for logo1 */
+  max-width: 30px;   /* Maximum width for logo1 */
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -285,10 +285,8 @@ footer::after {
 }
 .footer-logo .logo-text {
   color: var(--white);
-  max-height: 1px;   /* Maximum height for logo1 */
-  max-width: 2px;   /* Maximum width for logo1 */
-  font-weight: 10
-  font-size: 1rem;
+  font-weight: 700
+  font-size: 1.2rem;
 }
 
 /* ✅ Footer QR */
