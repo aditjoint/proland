@@ -235,7 +235,13 @@ header {
   cursor: pointer;
 }
 
-.logo img,
+.logo1 img,
+.footer-logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+.logo2 img,
 .footer-logo img {
   height: 45px;
   width: auto;
