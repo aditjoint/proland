@@ -247,7 +247,8 @@ header {
 .logo a img:nth-child(2) {
   max-height: 20px;   /* Maximum height for logo2 */
   max-width: 40px;   /* Maximum width for logo2 */
-
+  width: auto;
+  height: auto;
   display: block;
 }
 
