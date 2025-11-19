@@ -294,7 +294,7 @@ footer::after {
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 700;
+  font-weight: 50;
   font-size: 1.2rem;
 }
 
