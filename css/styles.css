@@ -269,8 +269,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  max-height: 20px;   /* Maximum height for logo1 */
-  max-width: 30px;   /* Maximum width for logo1 */
+  max-height: 10px;   /* Maximum height for logo1 */
+  max-width: 15px;   /* Maximum width for logo1 */
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -282,7 +282,7 @@ footer::after {
 .footer-logo .logo-text {
   color: var(--white);
   font-weight: 700
-  font-size: 1.2rem;
+  font-size: 2.4rem;
 }
 
 /* ✅ Footer QR */
@@ -308,15 +308,15 @@ footer::after {
 }
 
 .footer-qr {
-  flex: 0 0 10px; /* QR code size */
+  flex: 0 0 40px; /* QR code size */
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
 
 .footer-qr img {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 .footer-bottom {
