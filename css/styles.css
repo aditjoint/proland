@@ -242,7 +242,7 @@ header {
 }
 
 .logo a img:nth-child(2) { 
-  height: 400px;  /* Different size for logo2 images */
+  height: 200px;  /* Different size for logo2 images */
   width: auto;
   display: block;
 }
