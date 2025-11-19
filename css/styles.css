@@ -242,7 +242,7 @@ header {
 }
 
 .logo a img:nth-child(2) { 
-  height: 20px;  /* Different size for logo2 images */
+  height: 10px;  /* Different size for logo2 images */
   width: auto;
   display: block;
 }
@@ -284,8 +284,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  width: 30px;
-  height: 30px;
+  width: 5px;
+  height: 5px;
   border-radius: 4px;
   background-color: var(--primary-color);
   display: flex;
