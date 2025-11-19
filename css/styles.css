@@ -219,6 +219,7 @@ section {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  min-width:0; /* Prevents flex overflow */
 }
 
 .logo a img:nth-child(1) {
@@ -236,6 +237,7 @@ section {
   display: block;
 }
 
+/* Ensure logo container does not interfere with layout */
 .logo, .logo a {
   z-index: 2147483647 !important;
   pointer-events: auto !important;
@@ -249,13 +251,7 @@ footer::after {
   pointer-events: none;
 }
 
-.logo a {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-}
-
+/* Logo text styling */
 .logo-text {
   margin-left: 8px;
   font-weight: 700;
