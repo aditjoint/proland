@@ -231,8 +231,8 @@ section {
 }
 
 .logo a img:nth-child(2) {
-  max-height: 45px;   /* Maximum height for logo2 */
-  max-width: 100px;   /* Maximum width for logo2 */
+  max-height: 20px;   /* Maximum height for logo2 */
+  max-width: 40px;   /* Maximum width for logo2 */
 
   display: block;
 }
@@ -269,8 +269,8 @@ footer::after {
   background: none;
 }
 .footer-logo .logo-icon {
-  max-height: 10px;   /* Maximum height for logo1 */
-  max-width: 15px;   /* Maximum width for logo1 */
+  max-height: 20px;   /* Maximum height for logo1 */
+  max-width: 30px;   /* Maximum width for logo1 */
   width: auto;
   height: auto;
   border-radius: 4px;
@@ -278,6 +278,17 @@ footer::after {
   display: flex;
   align-items: center;
   justify-content: center;
+
+/* Footer: Product logo (image 2) - Reduce to 1/4 of current size /
+.footer-logo .logo-icon img:nth-child(2) {
+max-height: 5px;
+max-width: 7.5px
+width: auto;
+height: auto;
+display: block;
+}
+
+   
 }
 .footer-logo .logo-text {
   color: var(--white);
@@ -308,15 +319,15 @@ footer::after {
 }
 
 .footer-qr {
-  flex: 0 0 40px; /* QR code size */
+  flex: 0 0 200px; /* QR code size */
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
 
 .footer-qr img {
-  width: 20px;
-  height: 20px;
+  width: 100px;
+  height: 100px;
 }
 
 .footer-bottom {
