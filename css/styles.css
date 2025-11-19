@@ -235,19 +235,17 @@ header {
   cursor: pointer;
 }
 
-.logo1 img {
+.logo a img:nth-child(1) { 
   height: 45px;   /* Size for logo1 images */
   width: auto;
   display: block;
 }
 
-.logo2 img {
+.logo a img:nth-child(2) { 
   height: 60px;   /* Different size for logo2 images */
   width: auto;
   display: block;
 }
-
-
 
 
 .logo, .logo a {
