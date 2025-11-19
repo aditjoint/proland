@@ -73,7 +73,13 @@
     /* Container */
     --container-max-width: 1200px;
     --container-padding: 1rem;
+   
+    /* Dual logo fade effect */
+  --header-logo-size: 80px;   /* change this to adjust both logos */
+  --footer-logo-size: 60px;
+  --logo-fade-opacity: 0.6;   /* how much fade on scroll */
 }
+
 
 /* Reset & Base Styles */
 * {
@@ -226,78 +232,52 @@ header {
     padding: var(--spacing-sm) 0;
 }
 
+
+
+
+
 /* ✅ Header Logo */
-/* Ensure header & footer logos are clickable */
-.logo a,
-.footer-logo a {
-  position: relative;
-  z-index: 9999;        /* higher than nav, menus, overlays */
-  pointer-events: auto; /* allow clicks */
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-}
 
-.logo img,
-.footer-logo img {
-  height: 200px;
-  width: auto;
-  display: block;
-}
-
-.logo, .logo a {
-  z-index: 2147483647 !important; /* max int to be sure */
-  pointer-events: auto !important;
-}
-/* Make sure no overlays block clicks */
-header::before,
-header::after,
-footer::before,
-footer::after {
-  pointer-events: none;
-}
-.logo a {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none; /* remove underline */
-}
-
-.logo-text {
-  margin-left: 8px;         /* space between image and text */
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--primary-color); /* or your preferred color */
-  user-select: none;        /* optional: prevent text selection */
-}
-
-
-/* ✅ Footer Logo */
-.footer-logo {
+/* HEADER LOGO GROUP */
+.logo-group {
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    background: none;
-}
-.footer-logo .logo-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.footer-logo .logo-text {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1.2rem;
+    gap: 20px;
+    z-index: 99999;
+    pointer-events: auto;
 }
 
-.footer-logo {
+.logo-group .logo-item img {
+    height: var(--header-logo-size);
+    width: auto;
+    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+header.scrolled .logo-group .logo-item img {
+    opacity: var(--logo-fade-opacity);
+    transform: scale(0.95); /* optional slight shrink */
+}
+
+/* Make logos clickable */
+.logo-item a {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo-img {
+    height: var(--footer-logo-size);
+    width: auto;
     filter: invert(1) brightness(2);
 }
+
 
 /* Navigation */
 .main-nav {
