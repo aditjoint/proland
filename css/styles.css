@@ -293,26 +293,21 @@ footer::after {
   display: flex;
   align-items: center;
   justify-content: center;
-
-/* Footer: Product logo (image 2) - Reduce to 1/4 of current size /
-.footer-logo .logo-icon img:nth-child(2) {
-max-height: 5px;
-max-width: 7.5px
-width: auto;
-height: auto;
-display: block;
 }
-
-   
+.footer-logo a img:nth-child(2) {
+  max-height: 5px;   /* Maximum height for logo2 */
+  max-width: 7.5px;  /* Maximum width for logo2 */
+  width: auto;
+  height: auto;
+  display: block;
 }
 .footer-logo .logo-text {
   color: var(--white);
-  font-weight: 700
+  font-weight: 700;
   font-size: 2.4rem;
 }
 
 /* ✅ Footer QR */
-
 .footer-flex {
   display: flex;
   justify-content: space-between;
@@ -352,6 +347,7 @@ display: block;
   font-size: 14px;
   border-top: 1px solid #ddd;
 }
+   
 
 /* Navigation */
 .main-nav {
