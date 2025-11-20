@@ -247,7 +247,7 @@ header {
 .logo a img:nth-child(2) {
   max-height: 30px;   /* Maximum height for logo2 */
   max-width: 90px;   /* Maximum width for logo2 */
-  margin-left:8px
+  margin-left:10px
   display: block;
 }
 
@@ -285,8 +285,6 @@ footer::after {
 .footer-logo .logo-icon {
   max-height: 400px;   /* Maximum height for logo1 */
   max-width: 600px;   /* Maximum width for logo1 */
-  width: auto;
-  height: auto;
   border-radius: 4px;
   background-color: var(--primary-color);
   display: flex;
