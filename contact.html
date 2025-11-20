@@ -114,7 +114,50 @@
   </iframe>
 </section>
 
+<section class="contact-section">
+  <div class="container">
+    <form id="waRequirementForm" onsubmit="submitToWhatsApp(event)">
+      <div class="form-group">
+        <label for="wa_name">Name</label>
+        <input type="text" id="wa_name" name="name" placeholder="Name" required />
+      </div>
+      <div class="form-group">
+        <label for="wa_phone">Phone</label>
+        <input type="tel" id="wa_phone" name="phone" placeholder="Phone" required />
+      </div>
+      <div class="form-group">
+        <label for="wa_requirement">Technology or Service Requirement</label>
+        <textarea id="wa_requirement" name="requirement" placeholder="Technology or Service Requirement" required></textarea>
+      </div>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="wa_consent" name="consent" required />
+        <label for="wa_consent">I consent to ADAM Consult collecting and storing my data from this form.</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Quick Submit via WhatsApp</button>
+    </form>
+  </div>
+</section>
 
+<script>
+  function submitToWhatsApp(event) {
+    event.preventDefault();
+    const name = document.getElementById('wa_name').value.trim();
+    const phone = document.getElementById('wa_phone').value.trim();
+    const requirement = document.getElementById('wa_requirement').value.trim();
+    const consent = document.getElementById('wa_consent').checked;
+
+    if (!name || !phone || !requirement || !consent) {
+      alert('Please fill all fields and give your consent');
+      return;
+    }
+
+    const message = `Name: ${name}\nPhone: ${phone}\nRequirement: ${requirement}`;
+    const whatsappNumber = '918779639965'; 
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, '_blank').focus();
+  }
+</script>
 
 
    <!-- DO NOT TOUCH BELOW CODES -->
