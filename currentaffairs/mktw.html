@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
   <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Sustainability</title>
   <meta
     name="description"
-    content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industri>
+    content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors."
   />
 
   <!-- Stylesheets -->
@@ -47,7 +47,28 @@
       -ms-user-select: text;
       user-select: text;
     }
-  /* ✅ Project cards */
+
+    /* ✅ Projects section styles */
+    .projects-section {
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 50px 20px 30px;
+      text-align: center;
+      border-bottom: 5px solid #eee;
+      backdrop-filter: blur(5px);
+    }
+    .projects-section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* ✅ Project cards */
     .project-card {
       background-color: rgba(249, 249, 249, 0.85);
       padding: 20px;
@@ -81,7 +102,8 @@
       justify-content: center;
       gap: 20px;
     }
-.pip-card {
+
+    .pip-card {
       width: 200px;
       height: 150px;
       border-radius: 12px;
@@ -148,17 +170,100 @@
 <body>
   <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
+
+
+<div class="projects-container media-cards-container">
+  <div class="data-center-card" style="cursor:pointer; border:2px solid #28a745; border-radius:8px; padding:16px; margin:10px; max-width:400px; background:#f8fff8;">
+    <h3>🌿 Green Data Center Boom</h3>
+    <p>Rs 1.60 lakh Cr investment • Navi Mumbai land opportunities</p>
+    <button onclick="toggleDataCenter()" style="background:#28a745; color:white; border:none; padding:8px 16px; border-radius:4px;">Expand Opportunities</button>
+    
+    <div id="dataCenterContent" style="display:none; margin-top:16px; font-size:14px; line-height:1.6;">
+      <h4>Maharashtra Leads Data Center Revolution</h4>
+      <p>Maharashtra leads India's data center revolution with the nation's first Green Integrated Data Centre Park policy, approved by the state cabinet, targeting Rs 1.60 lakh crore investments from global players. This initiative addresses AI-driven storage demands through sustainable tech, creating 500 direct high-skill jobs and 3,000 indirect roles while aligning with India's 2070 carbon-neutral goal.</p>
+      
+      <h4>Prime Land Opportunities - Navi Mumbai</h4>
+      <ul>
+        <li><strong>Mhape:</strong> 50-200 acres, JNPT port proximity, power substations, MHADA IT/ITES zoning</li>
+        <li><strong>Taloja:</strong> 100+ acres, metro connectivity, MIDC Phase II</li>
+        <li><strong>MHADA Colonies:</strong> Redevelopment sites, fast approvals, fiber infrastructure</li>
+      </ul>
+       
+      <h4>ADAM Consult | PROLAND Partnership</h4>
+      <p>ADAM Consult specializes in end-to-end data center land acquisition, regulatory navigation (IT/ITeS policy compliance), and infrastructure partnerships for MSMEs projects. Services include site evaluation, MHADA/MIDC liaison, green certifications, and integration with WESIP Infra—leveraging 32+ years in enterprise solutions.</p>
+    </div>
+  </div>
+
+  <script>
+  function toggleDataCenter() {
+    const content = document.getElementById('dataCenterContent');
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  }
+  </script>
+</div>
+
+
+
+
+
+<div class="projects-container media-cards-container">
+  <div class="news-card" style="cursor:pointer; border:2px solid #28a745; border-radius:8px; padding:16px; margin:10px; max-width:400px; background:#f8fff8;">
+    <h3>🌿 Maharashtra Green Data Centre Park</h3>
+    <button onclick="toggleNews()" style="background:#28a745; color:white; border:none; padding:8px 16px; border-radius:4px;">Expand Details</button>
+    
+    <div id="newsContent" style="display:none; margin-top:16px; font-size:14px; line-height:1.5;">
+      <p><strong>Maharashtra Cabinet approves green integrated data centre park</strong> – expected to attract Rs 1.60 lakh crore investment, making it the first such policy in India.</p>
+      <p>Targets multinational data centre companies with USD 20 billion investments, creating 500 highly-skilled direct jobs and 3,000 indirect modern-tech roles.</p>
+      <p>Addresses AI-driven data demand while tackling energy consumption via green tech, supporting India's 2070 carbon-neutral goal.</p>
+    </div>
+  </div>
+
+  <script>
+  function toggleNews() {
+    const content = document.getElementById('newsContent');
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  }
+  </script>
+</div>
+
+
+<div class="projects-container media-cards-container">
+  <div class="pdf-card" style="cursor:pointer; border:2px solid #007bff; border-radius:8px; padding:16px; margin:10px; max-width:400px; background:#f8fff8;">
+    <h3>📄 Maharashtra IT/ITeS Policy</h3>
+    <p>Official incentives, land norms &amp; approvals for IT parks/data centers.</p>
+    <button onclick="togglePdf()" style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px;">Expand to Read</button>
+    
+    <div id="pdfViewer" style="display:none; margin-top:16px;">
+      <iframe src="https://maitri.maharashtra.gov.in/wp-content/uploads/pdf/IT%20and%20ITes.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+              width="100%" height="600" 
+              style="border:1px solid #ddd; border-radius:4px;">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+  function togglePdf() {
+    const viewer = document.getElementById('pdfViewer');
+    viewer.style.display = viewer.style.display === 'none' ? 'block' : 'none';
+  }
+  </script>
+</div>
+
 <!-- Media Cards Section -->
 
     <h2 style="margin-top: 50px;"></h2>
     <div class="projects-container media-cards-container">
 
-<iframe width="560" height="315"
-  src="https://www.youtube.com/embed/uUqAnQ1CrGY?rel=0&loop=1&playlist=uUqAnQ1CrGY&modestbranding=1&controls=1"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  style="pointer-events:auto;">
-</iframe>
+<div class="projects-container media-cards-container">
+  <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/PQitKZSStmk?rel=0&loop=1&playlist=PQitKZSStmk"
+          title="Navi Mumbai Industrial Land for Data Centers & Warehouses"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          style="pointer-events:auto;">
+  </iframe>
+</div>
 
 <div class="projects-container media-cards-container">
   <iframe width="560" height="315"
@@ -179,7 +284,7 @@
       <div class="pip-card" tabindex="0" onclick="toggleExpand(this)" title="Click to expand">
         <audio controls>
           <source src="/media/sample-audio.mp3" type="audio/mp3" />
- Your browser does not support the audio element.
+          Your browser does not support the audio element.
         </audio>
       </div>
 
@@ -191,7 +296,7 @@
   <!-- Image Cards Section -->
   <div class="card-container">
     <div class="image-card">
-      <img src="../images/bottling.png" alt="Plant" />
+      <img src="../images/bottling.png" alt="Navi Mumbai" />
     </div>
   </div>
 
@@ -208,6 +313,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- ✅ Footer Placeholder -->
   <div id="footer-placeholder"></div>
@@ -226,8 +332,7 @@
 
           if (toggle && nav) {
             toggle.addEventListener('click', function () {
-
- nav.classList.toggle('active');
+              nav.classList.toggle('active');
             });
           }
 
@@ -273,18 +378,13 @@
         card.focus();
       }
     }
+
     // Collapse expanded card on Escape key press
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
-        document.querySelectorAll('.pip-card.expanded').forEach((c) => c.classL>
+        document.querySelectorAll('.pip-card.expanded').forEach((c) => c.classList.remove('expanded'));
       }
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
