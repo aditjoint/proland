@@ -2022,3 +2022,75 @@ footer {
     background-color: #eaf0ff;
     transition: 0.3s;
 }
+/* Hide fullscreen button */
+iframe::-webkit-media-controls-fullscreen-button {
+  display:none !important;
+}
+/* Media Cards Styles */
+    .media-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pip-card {
+      width: 200px;
+      height: 150px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      background-color: rgba(249, 249, 249, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 5px;
+      box-sizing: border-box;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pip-card iframe,
+    .pip-card video {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .pip-card audio {
+      width: 100%;
+    }
+    .pip-card.expanded {
+      width: 600px;
+      height: 400px;
+      z-index: 20;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+ /* ✅ FIX: Align and resize industry images */
+    .card-container {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .image-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .image-card img {
+      max-width: 160px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .image-card img:hover {
+      transform: scale(1.05);
+
+
+/* Hide fullscreen button */
+iframe::-webkit-media-controls-fullscreen-button {
+  display:none !important;
+}
