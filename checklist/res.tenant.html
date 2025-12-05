@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESIDENTIAL TENANCY AGREEMENT - ADAM Consult Template</title>
+    <meta name="description" content="Professional Residential Tenancy Agreement Template for Apartment/Flat properties in India with strong owner protections.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            padding: 20px; 
+            min-height: 100vh;
+        }
+        .agreement-card { 
+            max-width: 950px; 
+            margin: 0 auto; 
+            background: white; 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1); 
+            border-radius: 15px; 
+            overflow: hidden;
+        }
+        .header { 
+            background: linear-gradient(135deg, #2c3e50, #3498db); 
+            color: white; 
+            text-align: center; 
+            padding: 40px 20px; 
+        }
+        .header h1 { font-size: 2.2em; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .header p { font-size: 1.1em; opacity: 0.95; }
+        .section { padding: 30px; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { 
+            color: #2c3e50; 
+            font-size: 1.6em; 
+            margin: 30px 0 20px; 
+            padding-bottom: 10px; 
+            border-bottom: 3px solid #3498db; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        .section h3 { color: #34495e; font-size: 1.3em; margin: 25px 0 15px; }
+        .field { margin-bottom: 15px; }
+        .field label { font-weight: 500; color: #555; display: block; margin-bottom: 5px; }
+        .field input, .field select { 
+            width: 100%; 
+            padding: 12px; 
+            border: 2px solid #e1e8ed; 
+            border-radius: 8px; 
+            font-size: 1em; 
+            transition: border-color 0.3s; 
+        }
+        .field input:focus { outline: none; border-color: #3498db; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        th { background: #f8f9fa; font-weight: 500; color: #2c3e50; }
+        .prohibited { 
+            background: linear-gradient(135deg, #fff5f5, #ffeaea); 
+            border-left: 5px solid #e74c3c; 
+            padding: 25px; 
+            border-radius: 10px; 
+            margin: 25px 0; 
+        }
+        .prohibited h4 { color: #c0392b; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        ul.prohibited-list { list-style: none; padding-left: 0; }
+        ul.prohibited-list li { padding: 12px 0; padding-left: 25px; position: relative; margin-bottom: 10px; }
+        ul.prohibited-list li:before { content: "✗"; position: absolute; left: 0; color: #e74c3c; font-weight: bold; font-size: 1.1em; }
+        .highlight-box { background: #e8f5e8; border-left: 5px solid #27ae60; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .signature-section { text-align: center; padding: 40px 20px; background: #f8f9fa; }
+        .signature-line { border-bottom: 2px solid #333; width: 250px; height: 60px; margin: 30px auto; position: relative; display: inline-block; }
+        .signature-line span { position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); background: #f8f9fa; padding: 0 10px; font-size: 0.9em; }
+        .download-section {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.6);
+        }
+        .print-btn {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .print-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.6);
+        }
+        .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; margin: 10px 0; }
+        .checkbox-item { display: flex; align-items: center; gap: 5px; }
+        .checkbox-item input[type="checkbox"] { width: auto; }
+        @media print {
+            .download-section { display: none !important; }
+            body { background: white; padding: 0; }
+            .agreement-card { box-shadow: none; border-radius: 0; max-width: none; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .section { padding: 20px; }
+            .header h1 { font-size: 1.8em; }
+            .download-section { position: static; margin: 20px auto; text-align: center; }
+            .party-details { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Download & Print Buttons -->
+    <div class="download-section">
+        <a href="#" onclick="downloadAgreement()" class="download-btn">
+            <i class="fas fa-download"></i>
+            Download PDF
+        </a>
+        <button onclick="window.print()" class="print-btn">
+            <i class="fas fa-print"></i>
+            Print for Stamp Paper
+        </button>
+    </div>
+
+    <div class="agreement-card">
+        <!-- HEADER -->
+        <div class="header">
+            <h1><i class="fas fa-file-contract"></i> RESIDENTIAL TENANCY AGREEMENT</h1>
+            <p>Standard Template for Apartment/Flat Properties in India<br><small>Prepared by ADAM Consult - Strong Owner Protections | Legally Compliant</small></p>
+        </div>
+
+        <!-- PREAMBLE -->
+        <div class="section">
+            <p style="font-size: 1.1em; font-weight: 500; margin-bottom: 20px;">
+                <strong>THIS AGREEMENT is made and entered into on</strong> <input type="text" placeholder="__________________ (Date)" style="width: 200px; display: inline-block;">
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 30px;">
+                <div>
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;"><strong>BETWEEN</strong></h3>
+                    <div class="field"><label>Mr./Ms. <input type="text" placeholder="__________________________________ (Full Name)"></label></div>
+                    <div class="field"><label>S/o/D/o <input type="text" placeholder="__________________________________ (Father's Name)"></label></div>
+                    <div class="field"><label>Resident of <input type="text" placeholder="__________________________________ (Permanent Address)"></label></div>
+                    <div class="field"><label>Contact: <input type="text" placeholder="__________________________________ (Phone/Email)"></label></div>
+                    <div class="field"><label>PAN/Aadhaar: <input type="text" placeholder="__________________________________ (Identification)"></label></div>
+                    <p><strong>HEREINAFTER REFERRED TO AS "THE OWNER/LANDLORD" (First Party)</strong></p>
+                </div>
+                <div>
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;"><strong>AND</strong></h3>
+                    <div class="field"><label>Mr./Ms. <input type="text" placeholder="__________________________________ (Full Name)"></label></div>
+                    <div class="field"><label>S/o/D/o <input type="text" placeholder="__________________________________ (Father's Name)"></label></div>
+                    <div class="field"><label>Resident of <input type="text" placeholder="__________________________________ (Current Address)"></label></div>
+                    <div class="field"><label>Contact: <input type="text" placeholder="__________________________________ (Phone/Email)"></label></div>
+                    <div class="field"><label>Aadhaar: <input type="text" placeholder="__________________________________ (Identification)"></label></div>
+                    <div class="field"><label>Guarantor Name: <input type="text" placeholder="__________________________________ (if applicable)"></label></div>
+                    <div class="field"><label>Guarantor Contact: <input type="text" placeholder="__________________________________"></label></div>
+                    <p><strong>HEREINAFTER REFERRED TO AS "THE TENANT/LESSEE" (Second Party)</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHEREAS CLAUSE -->
+        <div class="section">
+            <h2><i class="fas fa-gavel"></i> WHEREAS</h2>
+            <ol style="margin-left: 20px; font-size: 1em;">
+                <li>The Owner is the lawful owner of the residential property mentioned herein and has agreed to let out the said premises to the Tenant for residential purposes only;</li>
+                <li>The Tenant has expressed the desire to take on lease the said property on such terms and conditions as mentioned in this Agreement; and</li>
+                <li>Both parties have agreed to execute this Agreement on the terms and conditions mentioned herein.</li>
+            </ol>
+            <p style="font-weight: 700; margin-top: 20px; font-size: 1.1em;">
+                <strong>NOW THEREFORE</strong>, in consideration of the mutual covenants and agreements contained herein, the parties agree as follows:
+            </p>
+        </div>
+
+        <!-- PROPERTY DETAILS -->
+        <div class="section">
+            <h2><i class="fas fa-building"></i> 1. PROPERTY DETAILS</h2>
+            <h3>1.1 Description of the Demised Premises:</h3>
+            <table>
+                <tr><th>Field</th><th>Details</th></tr>
+                <tr><td><strong>Building/Complex Name</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>Apartment/Flat Number</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>Floor</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>Address</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>City/District</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>State</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>Postal Code</strong></td><td><input type="text" placeholder="_________________________________"></td></tr>
+                <tr><td><strong>Total Built-Up Area</strong></td><td><input type="text" placeholder="_________ Sq. Ft. / Sq. M."></td></tr>
+                <tr><td><strong>Category</strong></td><td>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item"><input type="checkbox"> Furnished</div>
+                        <div class="checkbox-item"><input type="checkbox"> Unfurnished</div>
+                        <div class="checkbox-item"><input type="checkbox" checked> Semi-Furnished</div>
+                    </div>
+                </td></tr>
+            </table>
+        </div>
+
+        <!-- STRICT PROHIBITIONS -->
+        <div class="section">
+            <h2><i class="fas fa-ban"></i> 5. ABSOLUTE PROHIBITION ON COMMERCIAL & RESTRICTED ACTIVITIES</h2>
+            <div class="prohibited">
+                <h4><i class="fas fa-exclamation-triangle"></i> STRICTLY PROHIBITED ACTIVITIES</h4>
+                <p><strong>The Tenant shall NOT, under any circumstances, and whether directly or indirectly:</strong></p>
+                <ul class="prohibited-list">
+                    <li><strong>Subletting & Unauthorized Occupancy:</strong> Sublet, license, share, assign, or part with possession of whole/any part of premises</li>
+                    <li><strong>Commercial Activities:</strong> Any business, profession, trade, office, storage, warehouse, industrial, commercial, techno-commercial activity (online/offline)</li>
+                    <li><strong>Registered Offices:</strong> Use premises as registered office or for GST, MSME, LLP/Company registration</li>
+                    <li><strong>Data Center Operations:</strong> Storage of servers, IT equipment, or data center hosting operations</li>
+                    <li><strong>Social Gatherings:</strong> Events/parties beyond normal family use causing nuisance/noise</li>
+                    <li><strong>Hazardous Storage:</strong> Goods, chemicals, inflammables, commercial inventory beyond household items</li>
+                </ul>
+                <div class="highlight-box">
+                    <strong>MATERIAL BREACH CONSEQUENCES:</strong> Immediate termination, full security deposit forfeiture, tenant indemnification.[file:1]
+                </div>
+            </div>
+        </div>
+
+        <!-- RENT & TERMS -->
+        <div class="section">
+            <h2><i class="fas fa-rupee-sign"></i> 3. RENT & FINANCIAL TERMS</h2>
+            <table style="width: 100%; margin-bottom: 20px;">
+                <tr><th colspan="2">3.1 Monthly Rent</th></tr>
+                <tr><td>Amount:</td><td>Rs. <input type="text" placeholder="_________________" style="width: 150px;"> (in words: <input type="text" placeholder="_________________________________">)</td></tr>
+                <tr><td>Due Date:</td><td>On or before <input type="text" placeholder="_____" style="width: 80px;"> of every month</td></tr>
+                <tr><td>Security Deposit:</td><td>Rs. <input type="text" placeholder="_________________" style="width: 150px;"> (____ months rent)</td></tr>
+            </table>
+        </div>
+
+        <!-- SIGNATURES -->
+        <div class="section">
+            <h2><i class="fas fa-signature"></i> ACKNOWLEDGEMENT & SIGNATURES</h2>
+            <div class="signature-section">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto 40px;">
+                    <div>
+                        <div class="signature-line"><span>Owner/Landlord</span></div>
+                        <p style="font-size: 0.9em;">Name: _________________________<br>Date: _________________</p>
+                    </div>
+                    <div>
+                        <div class="signature-line"><span>Tenant/Lessee</span></div>
+                        <p style="font-size: 0.9em;">Name: _________________________<br>Date: _________________</p>
+                    </div>
+                    <div>
+                        <div class="signature-line" style="width: 200px;"><span>Guarantor</span></div>
+                        <p style="font-size: 0.9em;">Name: _________________________<br>Date: _________________</p>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div>
+                        <div class="signature-line"><span>Witness 1</span></div>
+                        <p style="font-size: 0.85em;">Name: _________________________<br>Address: _________________________</p>
+                    </div>
+                    <div>
+                        <div class="signature-line"><span>Witness 2</span></div>
+                        <p style="font-size: 0.85em;">Name: _________________________<br>Address: _________________________</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; font-size: 0.85em; opacity: 0.8;">
+                <p><strong>Schedules Attached:</strong> ☐ A (Inventory) ☐ B (Inspection) ☐ C (Contacts)</p>
+                <p>Print on e-Stamp Paper | Notarization Recommended | Police Verification Required[web:2][web:3]</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadAgreement() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
