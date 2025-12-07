@@ -3,694 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Residential Rental Agreement - A4 Print Ready</title>
+    <title>Residential Leave and License Agreement - No Tenancy Rights</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        @page {
-            size: A4;
-            margin: 0.75in 0.75in 0.75in 0.75in;
-        }
-
-        html, body {
-            width: 210mm;
-            height: 297mm;
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Cambria', 'Times New Roman', serif;
-            font-size: 11pt;
-            line-height: 1.5;
-            color: #000;
-            background: #fff;
-            padding: 19.05mm;
-            box-sizing: border-box;
-        }
-
-        .page {
-            width: 170mm;
-            height: 257mm;
-            margin: 0 auto;
-            page-break-after: always;
-            position: relative;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 15pt;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10pt;
-        }
-
-        .header h1 {
-            font-size: 16pt;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5pt;
-        }
-
-        .header p {
-            font-size: 10pt;
-            margin: 2pt 0;
-        }
-
-        h2 {
-            font-size: 12pt;
-            font-weight: bold;
-            margin: 12pt 0 8pt 0;
-            text-align: center;
-            text-transform: uppercase;
-            border-bottom: 1px solid #000;
-            padding-bottom: 4pt;
-        }
-
-        h3 {
-            font-size: 11pt;
-            font-weight: bold;
-            margin: 10pt 0 6pt 0;
-        }
-
-        p {
-            margin-bottom: 6pt;
-            text-align: justify;
-        }
-
-        .field-row {
-            margin-bottom: 8pt;
-            display: flex;
-            gap: 20pt;
-        }
-
-        .field {
-            flex: 1;
-            margin-bottom: 6pt;
-        }
-
-        .field label {
-            font-weight: bold;
-            font-size: 10pt;
-            display: block;
-            margin-bottom: 2pt;
-        }
-
-        .field input,
-        .field select {
-            width: 100%;
-            border: none;
-            border-bottom: 1px solid #000;
-            padding: 2pt 4pt;
-            font-size: 11pt;
-            font-family: inherit;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10pt 0;
-            font-size: 10pt;
-        }
-
-        th, td {
-            border: 1px solid #000;
-            padding: 4pt 6pt;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        th {
-            background: #e8e8e8;
-            font-weight: bold;
-            font-size: 10pt;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        ul, ol {
-            margin: 6pt 0 8pt 20pt;
-            font-size: 11pt;
-        }
-
-        li {
-            margin-bottom: 4pt;
-        }
-
-        .inline-fields {
-            display: flex;
-            gap: 15pt;
-        }
-
-        .inline-fields .field {
-            flex: 1;
-        }
-
-        .checkbox-group {
-            margin: 6pt 0;
-            font-size: 11pt;
-        }
-
-        .checkbox-group label {
-            display: inline-block;
-            margin-right: 15pt;
-            cursor: pointer;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            margin-right: 4pt;
-            cursor: pointer;
-        }
-
-        .signature-section {
-            margin-top: 15pt;
-            padding-top: 10pt;
-            border-top: 1px solid #000;
-        }
-
-        .signature-block {
-            display: inline-block;
-            width: 48%;
-            vertical-align: top;
-            margin-bottom: 20pt;
-            margin-right: 4%;
-        }
-
-        .signature-block:nth-child(even) {
-            margin-right: 0;
-        }
-
-        .signature-line {
-            border-bottom: 1px solid #000;
-            height: 40pt;
-            margin: 8pt 0 4pt 0;
-        }
-
-        .sig-label {
-            font-size: 9pt;
-            font-weight: bold;
-            margin-top: 2pt;
-        }
-
-        .footer {
-            font-size: 9pt;
-            text-align: center;
-            margin-top: 10pt;
-            color: #666;
-        }
-
-        .control-panel {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: #007cba;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .control-panel button {
-            background: white;
-            color: #007cba;
-            border: none;
-            padding: 8px 12px;
-            margin-left: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 3px;
-            font-size: 12px;
-        }
-
-        .control-panel button:hover {
-            background: #f0f0f0;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .page {
-                page-break-after: always;
-                margin: 0;
-                padding: 0;
-                height: auto;
-                width: auto;
-            }
-
-            .control-panel {
-                display: none;
-            }
-
-            .field input,
-            .field select,
-            .checkbox-group input {
-                border: none;
-            }
-
-            input::placeholder {
-                color: transparent;
-            }
-        }
-
-        @media screen and (max-width: 800px) {
-            body {
-                width: 100%;
-                height: auto;
-                padding: 10px;
-            }
-
-            .page {
-                width: 100%;
-                height: auto;
-            }
-
-            .signature-block {
-                display: block;
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 20pt;
-            }
-        }
+        body { font-family: 'Times New Roman', serif; line-height: 1.6; margin: 20px; max-width: 1200px; }
+        .header { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 30px; }
+        .parties { font-size: 16px; margin-bottom: 20px; }
+        .section { margin-bottom: 25px; }
+        .section-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; text-decoration: underline; }
+        .subsection { margin-left: 20px; margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .checkbox { width: 20px; height: 20px; border: 1px solid #000; display: inline-block; margin-right: 5px; }
+        .signature-block { margin-top: 40px; }
+        .schedule { page-break-inside: avoid; margin-top: 30px; }
+        .no-tenancy-box { border: 2px solid #000; padding: 15px; background-color: #fff3cd; margin: 20px 0; }
+        .critical-clause { background-color: #ffebee; border-left: 5px solid #f44336; padding: 15px; margin: 15px 0; }
+        @media print { body { margin: 0; font-size: 12px; } }
     </style>
 </head>
 <body>
-    <div class="control-panel no-print">
-        <button onclick="window.print()">🖨️ Print</button>
-        <button onclick="downloadPDF()">📥 Download</button>
+
+<div class="header">
+    <h1>RESIDENTIAL LEAVE AND LICENSE AGREEMENT<br>
+    <span style="font-size: 14px; font-weight: normal;">(NO TENANCY RIGHTS CREATED)</span></h1>
+    <p><strong>THIS AGREEMENT</strong> is made and entered into on <u>__________________</u> (Date)</p>
+</div>
+
+<div class="parties">
+    <p><strong>BETWEEN</strong></p>
+    <p><strong>Mr./Ms.</strong> <u>__________________________________</u> (Full Name)<br>
+    S/o/D/o <u>__________________________________</u> (Father's Name)<br>
+    Resident of <u>__________________________________</u> (Permanent Address)<br>
+    Contact: <u>__________________________________</u> (Phone/Email)<br>
+    PAN/Aadhaar: <u>__________________________________</u> (Identification)<br>
+    <strong>HEREINAFTER REFERRED TO AS "THE LICENSOR"</strong> (First Party)</p>
+
+    <p><strong>AND</strong></p>
+    
+    <p><strong>Mr./Ms.</strong> <u>__________________________________</u> (Full Name)<br>
+    S/o/D/o <u>__________________________________</u> (Father's Name)<br>
+    Resident of <u>__________________________________</u> (Current Address)<br>
+    Contact: <u>__________________________________</u> (Phone/Email)<br>
+    Aadhaar: <u>__________________________________</u> (Identification)<br>
+    Guarantor Name: <u>__________________________________</u> (if applicable)<br>
+    Guarantor Contact: <u>__________________________________</u><br>
+    <strong>HEREINAFTER REFERRED TO AS "THE LICENSEE"</strong> (Second Party)</p>
+</div>
+
+<div class="section">
+    <div class="section-title">WHEREAS</div>
+    <ol style="margin-left: 20px;">
+        <li>The Licensor is the lawful owner of the residential property mentioned herein and has agreed to grant a <strong>temporary, personal, revocable license</strong> to the Licensee to use and occupy the said premises for residential purposes only;</li>
+        <li>The Licensee has expressed the desire to take on license the said property on such terms and conditions as mentioned in this Agreement; and</li>
+        <li>Both parties have agreed to execute this Agreement on the terms and conditions mentioned herein.</li>
+    </ol>
+</div>
+
+<!-- CRITICAL NO TENANCY RIGHTS SECTION -->
+<div class="no-tenancy-box">
+    <div class="section-title" style="color: #d32f2f;">NATURE OF AGREEMENT – LEAVE AND LICENSE ONLY (NO TENANCY RIGHTS)</div>
+    <div class="subsection">
+        <strong>1.1</strong> This Agreement creates <strong>ONLY a Leave and License</strong> under Section 52 of the Indian Easements Act, 1882 and <strong>DOES NOT create any tenancy, lease, sub-tenancy, or any right, title, or interest</strong> in the Licensed Premises in favour of the Licensee.
     </div>
-
-    <div class="page">
-        <div class="header">
-            <h1>RESIDENTIAL RENTAL AGREEMENT</h1>
-            <p>As per Indian Contract Act, 1872 & Maharashtra Rent Control Act, 1999</p>
-            <p>Date of Execution: <span style="border-bottom: 1px solid #000; display: inline-block; width: 150px; text-align: center;">________________</span></p>
-        </div>
-
-        <h2>PARTIES TO THE AGREEMENT</h2>
-
-        <h3>LANDLORD/OWNER:</h3>
-        <div class="field-row">
-            <div class="field">
-                <label>Name (Mr./Ms.)</label>
-                <input type="text" placeholder="Full Name">
-            </div>
-            <div class="field">
-                <label>Father's/Husband's Name</label>
-                <input type="text" placeholder="S/o or D/o">
-            </div>
-        </div>
-
-        <div class="field">
-            <label>Permanent Address</label>
-            <input type="text" placeholder="Address with City, State, PIN">
-        </div>
-
-        <div class="field-row">
-            <div class="field">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX">
-            </div>
-            <div class="field">
-                <label>Email</label>
-                <input type="email" placeholder="email@example.com">
-            </div>
-        </div>
-
-        <div class="field-row">
-            <div class="field">
-                <label>PAN Number</label>
-                <input type="text" placeholder="AAAAA0000A">
-            </div>
-            <div class="field">
-                <label>Aadhaar Number</label>
-                <input type="text" placeholder="XXXX XXXX XXXX XXXX">
-            </div>
-        </div>
-
-        <h3 style="margin-top: 12pt;">TENANT/LESSEE:</h3>
-        <div class="field-row">
-            <div class="field">
-                <label>Name (Mr./Ms.)</label>
-                <input type="text" placeholder="Full Name">
-            </div>
-            <div class="field">
-                <label>Father's/Husband's Name</label>
-                <input type="text" placeholder="S/o or D/o">
-            </div>
-        </div>
-
-        <div class="field">
-            <label>Current Address</label>
-            <input type="text" placeholder="Address with City, State, PIN">
-        </div>
-
-        <div class="field-row">
-            <div class="field">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX">
-            </div>
-            <div class="field">
-                <label>Email</label>
-                <input type="email" placeholder="email@example.com">
-            </div>
-        </div>
-
-        <div class="field">
-            <label>Aadhaar Number</label>
-            <input type="text" placeholder="XXXX XXXX XXXX XXXX">
-        </div>
-
-        <div class="field-row">
-            <div class="field">
-                <label>Guarantor Name</label>
-                <input type="text" placeholder="(if applicable)">
-            </div>
-            <div class="field">
-                <label>Guarantor Contact</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX">
-            </div>
-        </div>
-
-        <h2>PROPERTY DETAILS</h2>
-
-        <table>
-            <tr>
-                <th>Particulars</th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <td><strong>Building/Complex Name</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-            <tr>
-                <td><strong>Flat/Apartment Number</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-            <tr>
-                <td><strong>Floor</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-            <tr>
-                <td><strong>Complete Address</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-            <tr>
-                <td><strong>City / District</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;" value="Navi Mumbai"></td>
-            </tr>
-            <tr>
-                <td><strong>State</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;" value="Maharashtra"></td>
-            </tr>
-            <tr>
-                <td><strong>Postal Code</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-            <tr>
-                <td><strong>Built-up Area</strong></td>
-                <td><input type="text" style="width: 60%; border: none; border-bottom: 1px solid #000; padding: 2px;"> Sq.ft. / Sq.m.</td>
-            </tr>
-            <tr>
-                <td><strong>Property Type</strong></td>
-                <td>
-                    <label style="margin-right: 10px;"><input type="checkbox"> Furnished</label>
-                    <label style="margin-right: 10px;"><input type="checkbox"> Semi-Furnished</label>
-                    <label><input type="checkbox"> Unfurnished</label>
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Parking Slots</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-        </table>
-
-        <h2>LEASE TERM & COMMENCEMENT</h2>
-
-        <div class="inline-fields">
-            <div class="field">
-                <label>Lease Duration</label>
-                <input type="text" placeholder="Years">
-            </div>
-            <div class="field">
-                <label>Months</label>
-                <input type="text" placeholder="Months">
-            </div>
-        </div>
-
-        <div class="inline-fields">
-            <div class="field">
-                <label>Commencement Date</label>
-                <input type="date">
-            </div>
-            <div class="field">
-                <label>Expiry Date</label>
-                <input type="date">
-            </div>
-        </div>
-
-        <p><strong>Notice Period:</strong> <input type="text" style="width: 80px; border: none; border-bottom: 1px solid #000;"> days for termination/renewal notice required from either party.</p>
-
-        <h2>RENT & FINANCIAL TERMS</h2>
-
-        <table>
-            <tr>
-                <th>Particulars</th>
-                <th>Amount (Rs.)</th>
-                <th>Remarks</th>
-            </tr>
-            <tr>
-                <td><strong>Monthly Rent</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-                <td>Due on: <input type="text" style="width: 80%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-            </tr>
-            <tr>
-                <td><strong>Security Deposit</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-                <td>(<input type="text" style="width: 30%; border: none; border-bottom: 1px solid #000; padding: 2px;"> 5 months rent)</td>
-            </tr>
-            <tr>
-                <td><strong>Late Payment Penalty (per day)</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;"></td>
-                <td>After <input type="text" style="width: 50%; border: none; border-bottom: 1px solid #000; padding: 2px;"> days</td>
-            </tr>
-            <tr>
-                <td><strong>Annual Rent Increase</strong></td>
-                <td><input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000; padding: 2px;">%</td>
-                <td>Or as mutually agreed</td>
-            </tr>
-        </table>
-
-        <p><strong>Payment Method:</strong> 
-            <label style="margin-right: 15px;"><input type="checkbox"> Bank Transfer</label>
-            <label style="margin-right: 15px;"><input type="checkbox"> Cheque</label>
-            <label style="margin-right: 15px;"><input type="checkbox"> NEFT</label>
-            <label><input type="checkbox"> Other: <input type="text" style="width: 100px; border: none; border-bottom: 1px solid #000;"></label>
-        </p>
-
-        <p><strong>Note:</strong> Cash payments NOT accepted. Payee Name: <input type="text" style="width: 200px; border: none; border-bottom: 1px solid #000;"></p>
-
-        <p style="page-break-before: always;"><strong>Bank Account Details:</strong> <input type="text" style="width: 100%; border: none; border-bottom: 1px solid #000;"></p>
-
-        <h2>UTILITY & MAINTENANCE RESPONSIBILITY</h2>
-
-        <table>
-            <tr>
-                <th>Utility/Charge</th>
-                <th>Owner</th>
-                <th>Tenant</th>
-                <th>Shared</th>
-            </tr>
-            <tr>
-                <td>Electricity</td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-                <td style="text-align: center;"><input type="checkbox" checked></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td>Water</td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-                <td style="text-align: center;"><input type="checkbox" checked></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td>Gas/Internet</td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-                <td style="text-align: center;"><input type="checkbox" checked></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td>Society Maintenance Charges</td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td>Property Tax</td>
-                <td style="text-align: center;"><input type="checkbox" checked></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-                <td style="text-align: center;"><input type="checkbox"></td>
-            </tr>
-        </table>
-
-        <h2>PERMITTED USE & RESTRICTIONS</h2>
-
-        <h3>✓ Permitted:</h3>
-        <ul>
-            <li>Residential use only for family members declared in this Agreement</li>
-            <li>Maximum permanent occupants: <input type="text" style="width: 50px; border: none; border-bottom: 1px solid #000;"> persons</li>
-        </ul>
-
-        <h3>✗ STRICTLY PROHIBITED:</h3>
-        <ul>
-            <li>Subletting or sharing without written Owner permission</li>
-            <li>Commercial business, office, or professional practice</li>
-            <li>GST registration, MSME registration at this address</li>
-            <li>Server storage, data center, or IT infrastructure</li>
-            <li>Manufacturing, storage of goods, or inventory</li>
-            <li>Unauthorized structural changes</li>
-            <li>Nuisance or disturbance to neighbors (quiet hours 10 PM to 6 AM)</li>
-        </ul>
-
-        <p style="margin: 8pt 0; font-weight: bold; color: #c00;">⚠️ VIOLATION = IMMEDIATE TERMINATION + FORFEITURE OF SECURITY DEPOSIT</p>
-
-        <h2>OWNER'S RIGHT TO INSPECT</h2>
-
-        <p>Owner may enter premises with <strong>24-hour written notice</strong> for:</p>
-        <ul>
-            <li>Maintenance, repairs, or emergency response</li>
-            <li>Pest control or inspections</li>
-            <li>Showing property to prospective tenants (last 60 days of lease)</li>
-        </ul>
-
-        <p><strong>Emergency Entry (No Notice):</strong> Fire, flood, gas leak, or safety hazard.</p>
-
-        <h2>DEFAULT & EVICTION</h2>
-
-        <p><strong>Material Breach Grounds (Immediate Eviction):</strong></p>
-        <ul>
-            <li>Rent unpaid for 30 consecutive days</li>
-            <li>Commercial activity or GST registration at address</li>
-            <li>Subletting or unauthorized occupants discovered</li>
-            <li>Structural damage or safety hazards created</li>
-        </ul>
-
-        <p><strong>Overstaying:</strong> If Tenant remains after lease expiry, Owner may charge <strong>double rent</strong> for overstay period and pursue immediate eviction.</p>
-
-        <h2>DEPOSIT REFUND & FINAL SETTLEMENT</h2>
-
-        <p>Security deposit refundable within <strong>30 days</strong> after lease termination, deducting:</p>
-        <ul>
-            <li>Unpaid rent or utilities (with bills)</li>
-            <li>Damage beyond normal wear and tear (with repair receipts)</li>
-            <li>Outstanding society/HOA dues</li>
-            <li>Cleaning charges if property returned dirty</li>
-            <li>Tenant is liable to pay balance expenses if above charges exceed. due to property returned in cosmetically, physically damaged and dirty conditions</li>
-            
-        </ul>
-
-        <p>Itemized deduction invoice provided to Tenant. Excess refunded via bank transfer within 45 days.</p>
-
-        <h2>JURISDICTION & GOVERNING LAW</h2>
-
-        <p>This Agreement is governed by:</p>
-        <ul>
-            <li><strong>Indian Contract Act, 1872</strong></li>
-            <li><strong>Maharashtra Rent Control Act, 1999</strong></li>
-            <li><strong>Model Tenancy Act, 2021</strong> (where applicable)</li>
-            <li><strong>Local society/building bylaws</strong></li>
-        </ul>
-
-        <p><strong>Jurisdiction:</strong> Courts of Navi Mumbai / <input type="text" style="width: 150px; border: none; border-bottom: 1px solid #000;"> District, Maharashtra.</p>
-
-        <div class="signature-section">
-            <h2>SIGNATURES</h2>
-
-            <div class="signature-block">
-                <p><strong>LANDLORD/OWNER</strong></p>
-                <div class="signature-line"></div>
-                <p class="sig-label">Signature & Name</p>
-                <p>Aadhaar/PAN: <input type="text" style="border: none; border-bottom: 1px solid #000; width: 70%;"></p>
-                <p>Date: <input type="date"></p>
-            </div>
-
-            <div class="signature-block">
-                <p><strong>TENANT/LESSEE</strong></p>
-                <div class="signature-line"></div>
-                <p class="sig-label">Signature & Name</p>
-                <p>Aadhaar: <input type="text" style="border: none; border-bottom: 1px solid #000; width: 70%;"></p>
-                <p>Date: <input type="date"></p>
-            </div>
-
-            <div style="clear: both;"></div>
-
-            <div class="signature-block">
-                <p><strong>GUARANTOR (if applicable)</strong></p>
-                <div class="signature-line"></div>
-                <p class="sig-label">Signature & Name</p>
-                <p>Relation: <input type="text" style="border: none; border-bottom: 1px solid #000; width: 70%;"></p>
-                <p>Date: <input type="date"></p>
-            </div>
-
-            <div style="clear: both; margin-top: 15pt;"></div>
-
-            <p><strong>WITNESSES:</strong></p>
-            <div class="inline-fields">
-                <div class="field">
-                    <label>Witness 1 (Name & Signature)</label>
-                    <input type="text" style="border: none; border-bottom: 1px solid #000;">
-                </div>
-                <div class="field">
-                    <label>Witness 2 (Name & Signature)</label>
-                    <input type="text" style="border: none; border-bottom: 1px solid #000;">
-                </div>
-            </div>
-
-            <div class="footer">
-                <p>This Agreement is executed as per Indian Contract Act, 1872 & Maharashtra Rent Control Act, 1999</p>
-                <p><strong>Registration Recommended:</strong> For agreements exceeding 11 months, register via Maharashtra IGR e-filing portal (Aadhaar + Biometric)</p>
-            </div>
-        </div>
+    <div class="subsection">
+        <strong>1.2</strong> The Licensee is a <strong>permissive user only</strong> with personal, temporary permission to use the premises and shall <strong>NEVER claim protection</strong> under any Rent Control Act, Tenancy Act, or similar legislation.
     </div>
+    <div class="subsection">
+        <strong>1.3</strong> The Licensor retains <strong>ultimate possession and control</strong> of the Licensed Premises at all times. The Licensee's right is purely contractual and personal, non-transferable, and revocable.
+    </div>
+    <div class="subsection">
+        <strong>1.4</strong> Any continued occupation after expiry or termination shall be <strong>unauthorised trespass</strong> and shall <strong>NOT create tenancy rights</strong> by prescription, holding over, or any other legal doctrine.
+    </div>
+</div>
 
-    <script>
-        function downloadPDF() {
-            alert('Use browser Print → Save as PDF function (Ctrl+P or Cmd+P → Save as PDF)');
-            window.print();
-        }
+<div class="section">
+    <div class="section-title">2. PROPERTY DETAILS</div>
+    <div class="subsection">
+        <strong>2.1 Description of the Licensed Premises:</strong>
+    </div>
+    <table>
+        <tr><th>Field</th><th>Details</th></tr>
+        <tr><td>Building/Complex Name</td><td><u>_________________________________</u></td></tr>
+        <tr><td>Apartment/Flat Number</td><td><u>_________________________________</u></td></tr>
+        <tr><td>Floor</td><td><u>_________________________________</u></td></tr>
+        <tr><td>Address</td><td><u>_________________________________</u></td></tr>
+        <tr><td>City/District</td><td><u>_________________________________</u></td></tr>
+        <tr><td>State</td><td><u>_________________________________</u></td></tr>
+        <tr><td>Postal Code</td><td><u>_________________________________</u></td></tr>
+        <tr><td>Total Built-Up Area</td><td><u>_________ Sq. Ft. / Sq. M.</u></td></tr>
+        <tr><td>Category</td><td><span class="checkbox"></span> Furnished <span class="checkbox"></span> Unfurnished <span class="checkbox"></span> Semi-Furnished</td></tr>
+    </table>
 
-        // Auto-format phone numbers
-        document.querySelectorAll('input[type="tel"]').forEach(input => {
-            input.addEventListener('input', function() {
-                this.value = this.value.replace(/[^0-9+]/g, '');
-            });
-        });
+    <div class="subsection">
+        <strong>2.2 Fixtures, Fittings & Amenities:</strong> As per Schedule A (Inventory) attached.
+    </div>
+    <div class="subsection">
+        <strong>2.3 Parking:</strong> <u>______________</u> slots. Vehicle details to be provided by Licensee.
+    </div>
+</div>
 
-        // Auto-format Aadhaar
-        document.querySelectorAll('input[placeholder*="XXXX XXXX"]').forEach(input => {
-            input.addEventListener('input', function() {
-                let val = this.value.replace(/\s/g, '');
-                if (val.length > 12) val = val.slice(0, 12);
-                this.value = val.replace(/(\d{4})/g, '$1 ').trim();
-            });
-        });
+<div class="section">
+    <div class="section-title">3. LICENSE PERIOD & COMMENCEMENT</div>
+    <div class="subsection">
+        <strong>3.1 License Period:</strong> From <u>_________________________________</u> to <u>_________________________________</u>
+    </div>
+    <div class="subsection">
+        <strong>3.2</strong> Licensee shall take permitted use and occupation on commencement date as documented in Schedule B.
+    </div>
+    <div class="subsection critical-clause">
+        <strong>3.3 Early Termination:</strong> Licensee terminating early shall forfeit 2 months' license fee + 60 days notice.
+    </div>
+</div>
 
-        // Auto-format PAN
-        document.querySelectorAll('input[placeholder="AAAAA0000A"]').forEach(input => {
-            input.addEventListener('input', function() {
-                this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-                if (this.value.length > 10) this.value = this.value.slice(0, 10);
-            });
-        });
-    </script>
+<div class="section">
+    <div class="section-title">4. LICENSE FEE & FINANCIAL TERMS</div>
+    <div class="subsection">
+        <strong>4.1 Monthly License Fee:</strong> Rs. <u>_________________</u> (words: <u>_________________________________</u>)<br>
+        Due: <u>_____</u> of every month via <span class="checkbox"></span> Bank Transfer <span class="checkbox"></span> NEFT
+    </div>
+    <div class="subsection">
+        <strong>4.2 Late Fee:</strong> 5% of monthly fee or Rs. <u>____________</u>/day after due date.
+    </div>
+    <div class="subsection">
+        <strong>4.3 Security Deposit:</strong> Rs. <u>_________________</u> (<u>_____</u> months' fee), refundable within 30 days post-vacation.
+    </div>
+    <div class="subsection">
+        <strong>4.4 Annual Increase:</strong> 10% per annum with 30 days' notice.
+    </div>
+</div>
+
+<!-- Continue with remaining sections in similar format -->
+<div class="section">
+    <div class="section-title">5. ABSOLUTE PROHIBITION ON COMMERCIAL ACTIVITIES</div>
+    <div class="critical-clause">
+        <strong>5.1 STRICTLY PROHIBITED:</strong> Subletting, business operations, GST/MSME registration using premises address, server hosting, or any non-residential use.<br>
+        <strong>5.2 VIOLATION = IMMEDIATE LICENSE REVOCATION + FULL DEPOSIT FORFEITURE.</strong>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">6. LICENSEE OBLIGATIONS</div>
+    <ul style="margin-left: 20px;">
+        <li>Residential use only, maximum <u>_________</u> occupants</li>
+        <li>Pay all utilities, society charges</li>
+        <li>Maintain cleanliness, report repairs within 24hrs</li>
+        <li>No pets, no alterations without permission</li>
+    </ul>
+</div>
+
+<div class="section critical-clause">
+    <div class="section-title">11. TERMINATION & OVERSTAY (CRITICAL)</div>
+    <div class="subsection">
+        <strong>11.5 UNAUTHORISED OCCUPATION:</strong> Post-expiry occupation = <strong>DOUBLE LICENSE FEE DAILY</strong>. No tenancy rights created by holding over.
+    </div>
+</div>
+
+<div class="signature-block" style="page-break-before: always;">
+    <div class="section-title">SIGNATURES</div>
+    
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 45%; vertical-align: top;">
+                <strong>LICENSOR:</strong><br><br>
+                Signature: _________________________ Date: _________<br>
+                Name: ______________________________<br>
+                Aadhaar/PAN: _______________________
+            </td>
+            <td style="width: 10%;"></td>
+            <td style="width: 45%; vertical-align: top;">
+                <strong>LICENSEE:</strong><br><br>
+                Signature: _________________________ Date: _________<br>
+                Name: ______________________________<br>
+                Aadhaar: ___________________________
+            </td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 30px;">
+        <strong>WITNESS 1:</strong> ___________________ &nbsp;&nbsp;&nbsp;&nbsp; <strong>WITNESS 2:</strong> ___________________
+    </div>
+</div>
+
+<!-- SCHEDULES -->
+<div class="schedule">
+    <div class="section-title">SCHEDULE A: INVENTORY</div>
+    <!-- Table format for inventory -->
+</div>
+
+<div style="page-break-before: always; font-size: 12px; margin-top: 50px;">
+    <div style="text-align: center; font-weight: bold;">
+        END OF AGREEMENT<br>
+        <span style="font-size: 10px;">Governed by Indian Easements Act, 1882 & Indian Contract Act, 1872<br>
+        Register with local Sub-Registrar within 4 months</span>
+    </div>
+</div>
+
 </body>
 </html>
