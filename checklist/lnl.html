@@ -46,6 +46,7 @@
             transition: all 0.3s;
             font-size: 14px;
         }
+        .state
         .state-btn:hover { background: var(--color-bg); border-color: var(--color-primary); }
         .state-btn.active { 
             background: var(--color-primary); 
@@ -63,14 +64,10 @@
             margin-top: 0; 
             color: var(--color-success); 
             border-bottom: 3px solid var(--color-success);
-        padding-bottom: 10px;
+            padding-bottom: 10px;
         }
-        .legality-content {
-            display: none;
-        }
-        .legality-content.active {
-            display: block;
-        }
+        .legality-content { display: none; }
+        .legality-content.active { display: block; }
         .registration-required {
             background: #e7f3ff;
             border-left: 5px solid var(--color-primary);
@@ -92,12 +89,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
-        .tabs {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
+        .tabs { display: flex; gap: 5px; margin-bottom: 20px; flex-wrap: wrap; }
         .tab-btn {
             padding: 10px 15px;
             background: #e9ecef;
@@ -120,9 +112,7 @@
             border-radius: 0 5px 5px 5px;
             border: 2px solid #ddd;
         }
-        .tab-content.active {
-            display: block;
-        }
+        .tab-content.active { display: block; }
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -140,9 +130,7 @@
             color: var(--color-text);
             font-size: 14px;
         }
-        .form-group label .required {
-            color: var(--color-danger);
-        }
+        .form-group label .required { color: var(--color-danger); }
         input, select, textarea {
             padding: 12px;
             border: 2px solid #ddd;
@@ -156,10 +144,7 @@
             outline: none;
             box-shadow: 0 0 5px rgba(0,123,255,0.3);
         }
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
+        textarea { resize: vertical; min-height: 100px; }
         .member-section {
             background: #f8f9fa;
             padding: 15px;
@@ -173,10 +158,7 @@
             align-items: center;
             margin-bottom: 15px;
         }
-        .member-header h4 {
-            margin: 0;
-            color: var(--color-primary);
-        }
+        .member-header h4 { margin: 0; color: var(--color-primary); }
         .btn-remove {
             background: var(--color-danger);
             color: white;
@@ -198,31 +180,7 @@
             margin-top: 10px;
         }
         .btn-add-member:hover { background: #218838; }
-        .protection-clauses {
-            background: #f8d7da;
-            border: 2px solid var(--color-danger);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .protection-clauses h3 {
-            margin-top: 0;
-            color: var(--color-danger);
-        }
-        .protection-clauses ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        .protection-clauses li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
         .btn {
             padding: 12px 24px;
             border: none;
@@ -232,25 +190,14 @@
             font-size: 16px;
             transition: all 0.3s;
         }
-        .btn-primary {
-            background: var(--color-primary);
-            color: white;
-        }
+        .btn-primary { background: var(--color-primary); color: white; }
         .btn-primary:hover { background: #0056b3; }
-        .btn-success {
-            background: var(--color-success);
-            color: white;
-        }
+        .btn-success { background: var(--color-success); color: white; }
+        .btn-success:hover { background:
         .btn-success:hover { background: #218838; }
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
+        .btn-secondary { background: #6c757d; color: white; }
         .btn-secondary:hover { background: #5a6268; }
-        .btn-danger {
-            background: var(--color-danger);
-            color: white;
-        }
+        .btn-danger { background: var(--color-danger); color: white; }
         .btn-danger:hover { background: #c82333; }
         .preview-container {
             background: white;
@@ -260,34 +207,17 @@
             margin-bottom: 20px;
             display: none;
         }
-        .preview-container.active {
-            display: block;
-        }
-        .preview-controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
+        .preview-container.active { display: block; }
+        .preview-controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         .print-area {
             font-family: 'Times New Roman', serif;
             font-size: 12pt;
             line-height: 1.8;
             color: #000;
         }
-        .print-header {
-            text-align: center;
-            margin-bottom: 40px;
-            page-break-after: avoid;
-        .print-header h1 {
-            margin: 0;
-            font-size: 16pt;
-            font-weight: bold;
-        }
-        .print-header p {
-            margin: 5px 0;
-            font-size: 11pt;
-        }
+        .print-header { text-align: center; margin-bottom: 40px; page-break-after: avoid; }
+        .print-header h1 { margin: 0; font-size: 16pt; font-weight: bold; }
+        .print-header p { margin: 5px 0; font-size: 11pt; }
         .critical-box {
             border: 3px solid var(--color-danger);
             background: #fff5f5;
@@ -318,18 +248,9 @@
             padding: 10px;
             text-align: left;
         }
-        table.print-table th {
-            background: #f0f0f0;
-            font-weight: bold;
-        }
-        .signature-section {
-            margin-top: 60px;
-            page-break-inside: avoid;
-        }
-        .signature-table {
-            width: 100%;
-            margin-top: 50px;
-        }
+        table.print-table th { background: #f0f0f0; font-weight: bold; }
+        .signature-section { margin-top: 60px; page-break-inside: avoid; }
+        .signature-table { width: 100%; margin-top: 50px; }
         .signature-cell {
             width: 45%;
             vertical-align: bottom;
@@ -345,9 +266,7 @@
             body * { visibility: hidden; }
             .print-area, .print-area * { visibility: visible; }
             .print-area { position: absolute; left: 0; top: 0; width: 100%; }
-            .preview-controls { display: none !important; }
-            .main-grid { display: none !important; }
-            .container { display: none !important; }
+            .preview-controls, .main-grid, .container { display: none !important; }
             body { background: white !important; padding: 0; margin: 0; }
         }
         @page { margin: 0.75in; size: A4; }
@@ -359,9 +278,7 @@
             margin-bottom: 20px;
             display: none;
         }
-        .success-message.show {
-            display: block;
-        }
+        .success-message.show { display: block; }
         .error-message {
             background: #f8d7da;
             color: #721c24;
@@ -370,13 +287,20 @@
             margin-bottom: 20px;
             display: none;
         }
-        .error-message.show {
-            display: block;
+        .error-message.show { display: block; }
+        .protection-clauses {
+            background: #f8d7da;
+            border: 2px solid var(--color-danger);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
+        .protection-clauses h3 { margin-top: 0; color: var(--color-danger); }
+        .protection-clauses ul { margin: 10px 0; padding-left: 20px; }
+        .protection-clauses li { margin-bottom: 8px; line-height: 1.6; }
     </style>
 </head>
 <body>
-
 <div class="header">
     <h1>🏠 Leave & License Agreement - State Compliant & Legally Binding</h1>
     <p>✅ Comprehensive Legal Protections • State-Wise Compliance • Residential Occupancy Only • Immediate Termination Authority</p>
@@ -394,7 +318,6 @@
         <div class="state-buttons">
             <button class="state-btn active" data-state="maharashtra">🇲🇭 Maharashtra</button>
             <button class="state-btn" data-state="goa">🇬🇴 Goa</button>
-            <button class
             <button class="state-btn" data-state="odisha">🇴🇩 Odisha</button>
             <button class="state-btn" data-state="gujarat">🇬🇯 Gujarat</button>
             <button class="state-btn" data-state="delhi">🇩🇪 Delhi</button>
@@ -404,9 +327,10 @@
         </div>
     </div>
 
-    <!-- LEGALITY INFO DISPLAY -->
+    <!-- ALL STATE LEGALITY SECTIONS - FIXED -->
     <div class="legality-box">
         <h3>🔍 State Legal Framework</h3>
+        
         <div id="maharashtra-legality" class="legality-content active">
             <p><strong>Status:</strong> ✅ FULLY RECOGNIZED & RECOMMENDED</p>
             <p><strong>Governing Act:</strong> Indian Easements Act 1882 (Sec 52) + Maharashtra Rent Control Act 1999 (Sec 7(15)(d))</p>
@@ -461,6 +385,147 @@
         </div>
     </div>
 </div>
+<div class="header">
+    <h1>🏠 Leave & License Agreement - State Compliant & Legally Binding</h1>
+    <p>✅ Comprehensive Legal Protections • State-Wise Compliance • Residential Occupancy Only • Immediate Termination Authority</p>
+    <p><strong>RESIDENTIAL PURPOSE ONLY • FIXED OCCUPANTS • COMPREHENSIVE BREACH REMEDIES</strong></p>
+    <p style="font-size: 12px; background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 10px;">
+        ⚠️ <strong>PDF Access:</strong> Full PDF download requires license verification. Payment link: <a href="https://upi.pageurl.app/pay?upi=lalitendu.samantaray@ibl.com" target="_blank">Click to Pay ₹299 via UPI</a>
+    </p>
+</div>
+
+<div class="main-grid">
+    <!-- STATE LEGALITY INFO -->
+    <div class="state-selector">
+        <h2>📋 State Legality & Requirements</h2>
+        <p>Select your state to view applicable laws and requirements:</p>
+        <div class="state-buttons">
+            <button class="state-btn active" data-state="maharashtra">🇲🇭 Maharashtra</button>
+            <button class="state-btn" data-state="goa">🇬🇴 Goa</button>
+            <button class="state-btn" data-state="odisha">🇴🇩 Odisha</button>
+            <button class="state-btn" data-state="gujarat">🇬🇯 Gujarat</button>
+            <button class="state-btn" data-state="delhi">🇩🇪 Delhi</button>
+            <button class="state-btn" data-state="karnataka">🇰🇦 Karnataka</button>
+            <button class="state-btn" data-state="tamilnadu">🇹🇳 Tamil Nadu</button>
+            <button class="state-btn" data-state="westbengal">🇼🇧 West Bengal</button>
+        </div>
+    </div>
+
+    <!-- ALL STATE LEGALITY SECTIONS - FIXED -->
+    <div class="legality-box">
+        <h3>🔍 State Legal Framework</h3>
+        
+        <div id="maharashtra-legality" class="legality-content active">
+            <p><strong>Status:</strong> ✅ FULLY RECOGNIZED & RECOMMENDED</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 (Sec 52) + Maharashtra Rent Control Act 1999 (Sec 7(15)(d))</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> MANDATORY for all durations<br>
+                Online Portal: https://efilingigr.maharashtra.gov.in
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> ~0.25% of total consideration<br>
+                Formula: 0.25% × (Total monthly rent × duration in months + deposit)
+            </div>
+            <p><strong>Key Protection:</strong> NO TENANCY RIGHTS created. Licensor retains full possession.</p>
+        </div>
+
+        <div id="goa-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ RECOGNIZED (New L&L Act 2024)</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Goa Residential Premises L&L Act 2024</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> MANDATORY via Sub-Registrar<br>
+                Goa has specific statutory L&L framework
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> As per Goa Stamp Act (variable by district)
+            </div>
+            <p><strong>Key Protection:</strong> Modern statutory protection for owners post-2024 Act.</p>
+        </div>
+
+        <div id="odisha-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ VALID UNDER EASEMENTS ACT</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 (General contract law applies)</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> OPTIONAL (Recommended for >11 months)<br>
+                Sub-Registrar of respective district
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> ~0.5-1% (as per Odisha Stamp Act)
+            </div>
+            <p><strong>Key Protection:</strong> General contract law enforced by courts.</p>
+        </div>
+
+        <div id="gujarat-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ FULLY RECOGNIZED</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Gujarat Rent Control Act</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> MANDATORY via Garvi Portal / Sub-Registrar<br>
+                Portal: https://garvi.gujarat.gov.in
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> ~0.5-1% (varies by district & duration)
+            </div>
+            <p><strong>Key Protection:</strong> Garvi e-registration speeds up process.</p>
+        </div>
+    </div>
+</div>
+        <!-- REMAINING STATE LEGALITY SECTIONS -->
+        <div id="delhi-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ RECOGNIZED (Delhi Rent Control Act 1958 exempts L&L)</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 (New L&L exempt from rent control)</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> OPTIONAL (but recommended)<br>
+                Sub-Registrar / Online e-services
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> 2% of annual rent (₹100 min)<br>
+                Formula: 2% × (Monthly rent × 12)
+            </div>
+            <p><strong>Key Protection:</strong> Clear exemption from rent control benefits owners.</p>
+        </div>
+
+        <div id="karnataka-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ POPULAR IN BENGALURU</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Karnataka state contract law</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> MANDATORY if duration >11 months<br>
+                Sub-Registrar offices
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> 1% of total (Min ₹500)<br>
+                Applied to: Total rent + deposit
+            </div>
+            <p><strong>Key Protection:</strong> High compliance in Bengaluru real estate.</p>
+        </div>
+
+        <div id="tamilnadu-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ RECOGNIZED & REGISTERED</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Tamil Nadu contract law</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> MANDATORY if duration >11 months<br>
+                Sub-Registrar (Min stamp duty ₹20,000)
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> 1% of total value<br>
+                Minimum ₹20,000 (for properties >11 months)
+            </div>
+            <p><strong>Key Protection:</strong> Strict compliance regime with high minimum duty.</p>
+        </div>
+
+        <div id="westbengal-legality" class="legality-content">
+            <p><strong>Status:</strong> ✅ RECOGNIZED</p>
+            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + West Bengal contract law</p>
+            <div class="registration-required">
+                <strong>📍 Registration:</strong> MANDATORY if duration ≥ 1 year<br>
+                Sub-Registrar offices
+            </div>
+            <div class="stamp-duty">
+                <strong>💰 Stamp Duty:</strong> 2% of total consideration
+            </div>
+            <p><strong>Key Protection:</strong> Broad tenant protections make L&L safer alternative.</p>
+        </div>
+    </div>
+</div>
 
 <!-- MESSAGES -->
 <div class="success-message" id="success-msg"></div>
@@ -469,7 +534,6 @@
 <!-- FORM CONTAINER -->
 <div class="container">
     <h2>📝 Create Leave & License Agreement</h2>
-
     <!-- TABS -->
     <div class="tabs">
         <button class="tab-btn active" data-tab="owner">OWNER DETAILS</button>
@@ -477,6 +541,7 @@
         <button class="tab-btn" data-tab="property">PROPERTY</button>
         <button class="tab-btn" data-tab="terms">TERMS & CONDITIONS</button>
     </div>
+
     <!-- OWNER DETAILS TAB -->
     <div id="owner" class="tab-content active">
         <h3>Owner/Licensor Details</h3>
@@ -613,16 +678,17 @@
     </div>
 </div>
 
-<!-- LEGAL PROTECTIONS DISPLAY -->
+<!-- LEGAL PROTECTIONS -->
 <div class="container">
     <div class="protection-clauses">
         <h3>📋 Included Legal Provisions (50+ Clauses)</h3>
-        <p><strong>This agreement incorporates the following legally binding provisions:</strong></p>
+        <p><strong>This agreement incorporates comprehensive legally binding provisions including:</strong></p>
         <ul>
-            <li><strong>No Tenancy Creation:</strong> The arrangement creates a License only under Indian Easements Act 1882. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act.</li>
-            <li><strong>Ownership & Possession:</strong> The licensor retains absolute legal title, possession, and control of the premises. The licensee receives only a revocable right of occupation.</li>
-            <li><strong>Residential Use Covenant:</strong> The premises shall be used exclusively for residential purposes by the declared occupants only. Any commercial, business, or income-generating use is prohibited.</li>
-            <li><strong>Restricted Occupancy:</strong> Only the listed occupants are permitted to reside. No additional persons may occupy without prior written consent. Unauthorized occupation constitutes material breach.</li>
+            <li><strong>No Tenancy Creation</strong> - License only under Indian Easements Act 1882</li>
+            <li><strong>Owner Retains Full Possession</strong> - No tenant rights created</li>
+            <li><strong>Residential Use Only</strong> - Commercial use prohibited</li>
+            <li><strong>Fixed Occupants Only</strong> - Unauthorized persons = immediate eviction</li>
+            <li><strong>Immediate Termination</strong> for non-payment, nuisance, criminal activity</li>
         </ul>
     </div>
 </div>
@@ -644,80 +710,23 @@
     </div>
     <div class="print-area" id="print-area"></div>
 </div>
-
 <script>
-// Data storage
+// FIXED COMPLETE JAVASCRIPT
 let occupants = [];
 let currentState = 'maharashtra';
 
 const stateInfo = {
-    maharashtra: {
-        name: 'Maharashtra',
-        act: 'Maharashtra Rent Control Act 1999',
-        section: 'Section 7(15)(d)',
-        registration_mandatory: true,
-        stamp_duty_percent: 0.25,
-        jurisdiction: 'Mumbai Suburban/Urban District Courts'
-    },
-    goa: {
-        name: 'Goa',
-        act: 'Goa Residential Premises L&L Act 2024',
-        section: 'General provisions',
-        registration_mandatory: true,
-        stamp_duty_percent: 0.5,
-        jurisdiction: 'Goa District Courts'
-    },
-    odisha: {
-        name: 'Odisha',
-        act: 'Indian Easements Act 1882',
-        section: 'Section 52',
-        registration_mandatory: false,
-        stamp_duty_percent: 0.75,
-        jurisdiction: 'Odisha District Courts'
-    },
-    gujarat: {
-        name: 'Gujarat',
-        act: 'Gujarat Rent Control Act',
-        section: 'General provisions',
-        registration_mandatory: true,
-        stamp_duty_percent: 0.5,
-        jurisdiction: 'Gujarat District Courts'
-    },
-    delhi: {
-        name: 'Delhi',
-        act: 'Delhi Rent Control Act 1958 (EXEMPT)',
-        section: 'General contract law',
-        registration_mandatory: false,
-        stamp_duty_percent: 2,
-        jurisdiction: 'Delhi District Courts'
-    },
-    karnataka: {
-        name: 'Karnataka',
-        act: 'Indian Easements Act 1882',
-        section: 'Section 52',
-        registration_mandatory: false,
-        stamp_duty_percent: 1,
-        jurisdiction: 'Karnataka District Courts'
-    },
-    tamilnadu: {
-        name: 'Tamil Nadu',
-        act: 'Indian Easements Act 1882',
-        section: 'Section 52',
-        registration_mandatory: true,
-        stamp_duty_percent: 1,
-        jurisdiction: 'Tamil Nadu District Courts'
-    },
-    westbengal: {
-        name: 'West Bengal',
-        act: 'Indian Easements Act 1882',
-        section: 'Section 52',
-        registration_mandatory: true,
-        stamp_duty_percent: 2,
-        jurisdiction: 'West Bengal District Courts'
-    }
+    maharashtra: {name: 'Maharashtra', act: 'Maharashtra Rent Control Act 1999', section: 'Section 7(15)(d)', registration_mandatory: true, stamp_duty_percent: 0.25, jurisdiction: 'Mumbai Suburban/Urban District Courts'},
+    goa: {name: 'Goa', act: 'Goa Residential Premises L&L Act 2024', section: 'General provisions', registration_mandatory: true, stamp_duty_percent: 0.5, jurisdiction: 'Goa District Courts'},
+    odisha: {name: 'Odisha', act: 'Indian Easements Act 1882', section: 'Section 52', registration_mandatory: false, stamp_duty_percent: 0.75, jurisdiction: 'Odisha District Courts'},
+    gujarat: {name: 'Gujarat', act: 'Gujarat Rent Control Act', section: 'General provisions', registration_mandatory: true, stamp_duty_percent: 0.5, jurisdiction: 'Gujarat District Courts'},
+    delhi: {name: 'Delhi', act: 'Delhi Rent Control Act 1958 (EXEMPT)', section: 'General contract law', registration_mandatory: false, stamp_duty_percent: 2, jurisdiction: 'Delhi District Courts'},
+    karnataka: {name: 'Karnataka', act: 'Indian Easements Act 1882', section: 'Section 52', registration_mandatory: false, stamp_duty_percent: 1, jurisdiction: 'Karnataka District Courts'},
+    tamilnadu: {name: 'Tamil Nadu', act: 'Indian Easements Act 1882', section: 'Section 52', registration_mandatory: true, stamp_duty_percent: 1, jurisdiction: 'Tamil Nadu District Courts'},
+    westbengal: {name: 'West Bengal', act: 'Indian Easements Act 1882', section: 'Section 52', registration_mandatory: true, stamp_duty_percent: 2, jurisdiction: 'West Bengal District Courts'}
 };
 
-// Utility functions
+// UTILITY FUNCTIONS
 function showError(message) {
     const errorMsg = document.getElementById('error-msg');
     errorMsg.textContent = message;
@@ -732,47 +741,46 @@ function showSuccess(message) {
     setTimeout(() => successMsg.classList.remove('show'), 3000);
 }
 
-// STATE SELECTION - FIXED
+// STATE BUTTONS - FIXED
 document.addEventListener('DOMContentLoaded', function() {
+    // STATE SELECTION
     document.querySelectorAll('[data-state]').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentState = this.dataset.state;
             
-            // Show legality info
             document.querySelectorAll('.legality-content').forEach(el => el.classList.remove('active'));
             const legalityEl = document.getElementById(currentState + '-legality');
-            if (legalityEl) {
-                legalityEl.classList.add('active');
-            }
-            showSuccess('State changed to ' + stateInfo[currentState].name);
+            if (legalityEl) legalityEl.classList.add('active');
+            showSuccess('State: ' + stateInfo[currentState].name);
         });
     });
 
-    // TAB SWITCHING - FIXED
+    // TAB SWITCHING
     document.querySelectorAll('[data-tab]').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             this.classList.add('active');
-            const tabContent = document.getElementById(this.dataset.tab);
-            if (tabContent) {
-                tabContent.classList.add('active');
-            }
+            document.getElementById(this.dataset.tab).classList.add('active');
         });
     });
 
-    // Add first occupant by default
+    // DEFAULT DATES
+    document.getElementById('terms_date').valueAsDate = new Date();
+    document.getElementById('terms_start').valueAsDate = new Date();
+    
+    // ADD FIRST OCCUPANT
     addOccupant();
 });
-// ADD OCCUPANT FUNCTION - FIXED
+
+// OCCUPANTS FUNCTIONS
 function addOccupant() {
     if (occupants.length >= 4) {
         showError('Maximum 4 occupants allowed');
         return;
     }
-    
     const id = 'occ_' + Date.now() + '_' + occupants.length;
     occupants.push({id: id, index: occupants.length});
     renderOccupants();
@@ -781,13 +789,12 @@ function addOccupant() {
 function renderOccupants() {
     const container = document.getElementById('occupants-container');
     container.innerHTML = '';
-    
     occupants.forEach((occ, idx) => {
         const section = document.createElement('div');
         section.className = 'member-section';
         section.innerHTML = `
             <div class="member-header">
-                <h4>Occupant ${idx + 1} <span style="font-size:12px; font-weight:normal;">(Fixed - Cannot Change)</span></h4>
+                <h4>Occupant ${idx + 1} <span style="font-size:12px;font-weight:normal;">(Fixed)</span></h4>
                 <button class="btn-remove" onclick="removeOccupant(${idx})">Remove</button>
             </div>
             <div class="form-grid">
@@ -797,12 +804,12 @@ function renderOccupants() {
                 </div>
                 <div class="form-group">
                     <label>Age <span class="required">*</span></label>
-                    <input type="number" id="${occ.id}_age" placeholder="Age" min="18" max="100">
+                    <input type="number" id="${occ.id}_age" min="18" max="100" placeholder="Age">
                 </div>
                 <div class="form-group">
                     <label>ID Proof Type <span class="required">*</span></label>
                     <select id="${occ.id}_idtype">
-                        <option>-- Select --</option>
+                        <option value="">-- Select --</option>
                         <option>Aadhaar</option>
                         <option>PAN</option>
                         <option>Passport</option>
@@ -815,11 +822,10 @@ function renderOccupants() {
                     <input type="text" id="${occ.id}_idno" placeholder="ID number">
                 </div>
                 <div class="form-group">
-                    <label>Relationship to Primary Occupant</label>
+                    <label>Relationship</label>
                     <input type="text" id="${occ.id}_relation" placeholder="Spouse/Child/Parent/Other">
                 </div>
-            </div>
-        `;
+            </div>`;
         container.appendChild(section);
     });
 }
@@ -829,100 +835,84 @@ function removeOccupant(idx) {
     renderOccupants();
 }
 
-// VALIDATION & PREVIEW - FIXED
+// MAIN GENERATE FUNCTION - FIXED
 function validateAndPreview() {
-    // Clear previous messages
     document.getElementById('error-msg').classList.remove('show');
     
-    // Basic validation
-    if (!document.getElementById('owner_name').value.trim()) {
-        showError('Owner/Licensor name is required');
-        document.getElementById('owner').scrollIntoView();
-        return;
+    // REQUIRED FIELD VALIDATION
+    const requiredFields = {
+        'owner_name': 'Owner name',
+        'owner_address': 'Owner address', 
+        'owner_pan': 'PAN number',
+        'prop_flat': 'Flat number',
+        'prop_address': 'Property address',
+        'prop_ownership_doc': 'Ownership document'
+    };
+    
+    for (let [id, name] of Object.entries(requiredFields)) {
+        const el = document.getElementById(id);
+        if (!el.value.trim() || (id === 'prop_ownership_doc' && el.value === '-- Select proof of ownership --')) {
+            showError(name + ' is required');
+            document.getElementById(el.closest('.tab-content').id).scrollIntoView({behavior: 'smooth'});
+            el.focus();
+            return;
+        }
     }
-    if (!document.getElementById('owner_address').value.trim()) {
-        showError('Licensor permanent address is required');
-        document.getElementById('owner').scrollIntoView();
-        return;
-    }
-    if (!document.getElementById('owner_pan').value.trim()) {
-        showError('PAN number is required for verification');
-        document.getElementById('owner').scrollIntoView();
-        return;
-    }
-    if (!document.getElementById('prop_flat').value.trim()) {
-        showError('Premises unit/flat number is required');
-        document.getElementById('property').scrollIntoView({behavior: 'smooth'});
-        return;
-    }
-    if (!document.getElementById('prop_address').value.trim()) {
-        showError('Complete premises address is required');
-        document.getElementById('property').scrollIntoView({behavior: 'smooth'});
-        return;
-    }
-    if (document.getElementById('prop_ownership_doc').value === '-- Select proof of ownership --') {
-        showError('Ownership proof type is required');
-        document.getElementById('property').scrollIntoView({behavior: 'smooth'});
-        return;
-    }
+
     if (!document.getElementById('terms_date').value) {
-        showError('Agreement execution date is required');
-        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
+        showError('Agreement date required');
+        document.getElementById('terms').scrollIntoView();
         return;
     }
     if (!document.getElementById('terms_start').value) {
-        showError('License commencement date is required');
-        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
+        showError('Start date required');
+        document.getElementById('terms').scrollIntoView();
         return;
     }
-    if (!document.getElementById('terms_duration').value) {
-        showError('License duration in months is required');
-        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
+    if (!document.getElementById('terms_duration').value || document.getElementById('terms_duration').value < 1) {
+        showError('Duration required (min 1 month)');
+        document.getElementById('terms').scrollIntoView();
         return;
     }
-    if (!document.getElementById('terms_fee').value) {
-        showError('Monthly license fee amount is required');
-        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
+    if (!document.getElementById('terms_fee').value || document.getElementById('terms_fee').value <= 0) {
+        showError('License fee required');
+        document.getElementById('terms').scrollIntoView();
         return;
     }
-    if (!document.getElementById('terms_deposit').value) {
-        showError('Security deposit amount is required');
-        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
+    if (!document.getElementById('terms_deposit').value || document.getElementById('terms_deposit').value <= 0) {
+        showError('Security deposit required');
+        document.getElementById('terms').scrollIntoView();
         return;
     }
     if (occupants.length === 0) {
-        showError('At least one occupant must be declared');
-        document.getElementById('occupants').scrollIntoView({behavior: 'smooth'});
+        showError('Add at least one occupant');
+        document.getElementById('occupants').scrollIntoView();
         return;
     }
 
-    // Collect occupant data with validation
-    const occupantsList = occupants.map(occ => {
+    // OCCUPANT VALIDATION
+    const occupantsList = [];
+    for (let occ of occupants) {
         const name = document.getElementById(occ.id + '_name').value.trim();
-        const age = document.getElementById(occ.id + '_age').value.trim();
+        const age = document.getElementById(occ.id + '_age').value;
         const idtype = document.getElementById(occ.id + '_idtype').value;
         const idno = document.getElementById(occ.id + '_idno').value.trim();
         
         if (!name || !age || !idtype || !idno) {
-            showError(`Occupant ${occupants.indexOf(occ) + 1}: All fields (Name, Age, ID Type, ID Number) must be completed`);
-            return null;
+            showError(`Occupant ${occupants.indexOf(occ) + 1}: Complete all fields`);
+            return;
         }
         if (parseInt(age) < 18) {
-            showError(`Occupant ${occupants.indexOf(occ) + 1}: Age must be 18 or above`);
-            return null;
+            showError(`Occupant ${occupants.indexOf(occ) + 1}: Age must be 18+`);
+            return;
         }
-        return {
+        occupantsList.push({
             name, age, idtype, idno,
             relation: document.getElementById(occ.id + '_relation').value.trim()
-        };
-    }).filter(o => o !== null);
-
-    if (occupantsList.length === 0) {
-        showError('All occupant fields must be completed');
-        return;
+        });
     }
 
-    // Collect all data
+    // GENERATE DOCUMENT
     const data = {
         owner_name: document.getElementById('owner_name').value,
         owner_father: document.getElementById('owner_father').value,
@@ -952,137 +942,77 @@ function validateAndPreview() {
 
     generateAndShowPreview(data);
 }
-// GENERATE PREVIEW - FIXED
+
 function generateAndShowPreview(data) {
-    const html = generateAgreementDocument(data);
-    document.getElementById('print-area').innerHTML = html;
+    document.getElementById('print-area').innerHTML = generateAgreementDocument(data);
     document.getElementById('preview-section').classList.add('active');
-    document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth' });
-    showSuccess('✅ Preview generated successfully!');
+    document.getElementById('preview-section').scrollIntoView({behavior: 'smooth'});
+    showSuccess('✅ Document generated successfully!');
 }
 
 function generateAgreementDocument(data) {
-    const stateData = data.stateInfo;
-    const today = new Date().toLocaleDateString('en-IN');
     const endDate = new Date(data.terms_start);
     endDate.setMonth(endDate.getMonth() + parseInt(data.terms_duration));
+    const totalFees = parseInt(data.terms_fee) * parseInt(data.terms_duration);
+    const totalConsideration = totalFees + parseInt(data.terms_deposit);
+    const stampDuty = Math.ceil(totalConsideration * data.stateInfo.stamp_duty_percent / 100);
     
-    const totalConsideration = parseInt(data.terms_fee) * parseInt(data.terms_duration) + parseInt(data.terms_deposit);
-    const stampDuty = Math.ceil(totalConsideration * stateData.stamp_duty_percent / 100);
-    
-    const occupantsList = data.occupants.map((o, i) => 
-        `${i + 1}. ${o.name}<br>Age: ${o.age} years<br>${o.idtype}: ${o.idno}${o.relation ? `<br>Relationship: ${o.relation}` : ''}`
+    const occupantsHtml = data.occupants.map((o, i) => 
+        `${i+1}. ${o.name} (Age: ${o.age})<br>ID: ${o.idtype} - ${o.idno}${o.relation ? `<br>Relation: ${o.relation}` : ''}`
     ).join('<br><br>');
 
     return `
         <div class="print-header">
             <h1>LEAVE & LICENSE AGREEMENT</h1>
             <p><strong>Residential Premises - Strict Residential Use Only</strong></p>
-            <p>${stateData.name} - ${stateData.act}</p>
-            <p>Executed at ${data.prop_address} on ${data.terms_date}</p>
+            <p>${data.stateInfo.name} | ${data.stateInfo.act}</p>
+            <p>Executed: ${data.terms_date} | Premises: ${data.prop_address}</p>
         </div>
-        
         <div class="critical-box">
-            <strong>CRITICAL LEGAL NOTICE:</strong> This agreement creates a License of premises under Section 52 of the Indian Easements Act 1882 and applicable state laws. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act or Tenancy legislation. The licensor (owner) retains full legal possession and ownership. Termination may be effected immediately for any material breach including non-payment, commercial misuse, criminal activity, or nuisance. The occupant shall vacate within 24 hours of receiving termination notice.
+            <strong>LEGAL NOTICE:</strong> License under Indian Easements Act 1882 Sec 52. NO TENANCY RIGHTS. Owner retains full possession. Immediate termination for breach.
         </div>
-
-        <h2>PARTIES</h2>
-        <p><strong>LICENSOR (OWNER):</strong><br>
-        ${data.owner_name}, S/o ${data.owner_father || 'N/A'}<br>
-        Address: ${data.owner_address}<br>
-        PAN: ${data.owner_pan}<br>
-        Aadhaar: ${data.owner_aadhaar || 'N/A'}<br>
-        Contact: ${data.owner_contact || 'N/A'}</p>
-
-        <p><strong>LICENSED PREMISES:</strong><br>
-        ${data.prop_flat}, ${data.prop_building || 'N/A'}<br>
-        ${data.prop_address}<br>
-        Area: ${data.prop_area || 'N/A'} sq ft | Status: ${data.prop_furnishing}<br>
-        Ownership: ${data.prop_ownership_doc}</p>
-
-        <h2>AUTHORIZED OCCUPANTS (FIXED - CANNOT BE CHANGED)</h2>
-        <div class="protected-section">
-            <strong>Occupants Authorized to Reside:</strong><br>
-            <strong>The following identified persons are authorized to occupy the premises:</strong><br>
-            ${occupantsList}<br><br>
-            <strong>⚠️ Important:</strong> The above-listed occupants and ONLY such identified persons are permitted to reside in the premises. Any additional occupant, whether family member, guest, or otherwise, not listed herein, is not permitted to occupy or reside. Occupancy by any unauthorized person constitutes material breach of this agreement, and the licensor may terminate the license immediately without notice and proceed with recovery of premises.
-        </div>
-
-        <h2>TERMS OF LICENSE</h2>
+        <h2>1. PARTIES</h2>
+        <p><strong>Owner:</strong> ${data.owner_name}<br>${data.owner_address}<br>PAN: ${data.owner_pan}</p>
+        <h2>2. PREMISES</h2>
+        <p>${data.prop_flat}, ${data.prop_building || ''}<br>${data.prop_address}</p>
+        <h2>3. AUTHORIZED OCCUPANTS</h2>
+        <div class="protected-section">${occupantsHtml}</div>
+        <h2>4. TERMS</h2>
         <table class="print-table">
-            <tr><th>License Commencement Date</th><td>${data.terms_start}</td></tr>
-            <tr><th>License Expiry Date</th><td>${endDate.toISOString().split('T')[0]}</td></tr>
-            <tr><th>License Duration</th><td>${data.terms_duration} months</td></tr>
-            <tr><th>Monthly License Fee</th><td>₹${parseInt(data.terms_fee).toLocaleString('en-IN')}</td></tr>
-            <tr><th>Total License Fees for term</th><td>₹${(parseInt(data.terms_fee) * parseInt(data.terms_duration)).toLocaleString('en-IN')}</td></tr>
-            <tr><th>Security Deposit (refundable)</th><td>₹${parseInt(data.terms_deposit).toLocaleString('en-IN')} (forfeitable for breach/damage)</td></tr>
-            <tr><th>Payment Due Date (Each Month)</th><td>${data.terms_due_date}</td></tr>
-            <tr><th>Late Payment Penalty</th><td>2% per month on overdue amount + 18% annual interest</td></tr>
-            <tr><th>Total Consideration</th><td>₹${totalConsideration.toLocaleString('en-IN')}</td></tr>
-            <tr><th>Stamp Duty Payable</th><td>₹${stampDuty.toLocaleString('en-IN')} (${stateData.stamp_duty_percent}% of total)</td></tr>
+            <tr><th>Start Date</th><td>${data.terms_start}</td></tr>
+            <tr><th>End Date</th><td>${endDate.toISOString().split('T')[0]}</td></tr>
+            <tr><th>Duration</th><td>${data.terms_duration} months</td></tr>
+            <tr><th>Monthly Fee</th><td>₹${parseInt(data.terms_fee).toLocaleString('en-IN')}</td></tr>
+            <tr><th>Total Fees</th><td>₹${totalFees.toLocaleString('en-IN')}</td></tr>
+            <tr><th>Deposit</th><td>₹${parseInt(data.terms_deposit).toLocaleString('en-IN')}</td></tr>
+            <tr><th>Stamp Duty</th><td>₹${stampDuty.toLocaleString('en-IN')}</td></tr>
         </table>
-
-        <h2>SIGNATURES</h2>
         <div class="signature-section">
             <table class="signature-table">
                 <tr>
-                    <td class="signature-cell">
-                        <strong>Licensor (Owner)</strong><br>
-                        ${data.owner_name}<br>
-                        <div class="signature-line"></div>
-                        Date: ___________
-                    </td>
-                    <td class="signature-cell">
-                        <strong>Licensee (Occupant Representative)</strong><br>
-                        ________________________<br>
-                        <div class="signature-line"></div>
-                        Date: ___________
-                    </td>
+                    <td class="signature-cell"><strong>${data.owner_name}</strong><br><div class="signature-line"></div></td>
+                    <td class="signature-cell"><strong>Occupant</strong><br><div class="signature-line"></div></td>
                 </tr>
             </table>
-        </div>
-
-        <div style="margin-top: 40px; font-size: 10pt; color: #666;">
-            <p><strong>Jurisdiction:</strong> ${stateData.jurisdiction}</p>
-            <p><strong>Governing Law:</strong> Indian Easements Act 1882 + ${stateData.name} State Laws</p>
         </div>
     `;
 }
 
 // OTHER FUNCTIONS
 function resetAllForms() {
-    document.querySelectorAll('input, select, textarea').forEach(el => {
-        if (el.type === 'checkbox') el.checked = false;
-        else if (el.tagName === 'SELECT') el.selectedIndex = 0;
-        else el.value = '';
-    });
+    document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
     occupants = [];
     renderOccupants();
     document.getElementById('preview-section').classList.remove('active');
-    document.querySelectorAll('.state-btn')[0].click();
-    document.querySelectorAll('.tab-btn')[0].click();
-    showSuccess('All forms reset');
+    document.querySelector('.state-btn.active').click();
+    document.querySelector('.tab-btn.active').click();
+    showSuccess('Reset complete');
 }
 
-function printPDF() {
-    window.print();
-}
-
-function downloadPDF() {
-    showError('PDF Download requires payment verification (₹299)');
-}
-
-function closePreview() {
-    document.getElementById('preview-section').classList.remove('active');
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    // Set default dates
-    document.getElementById('terms_date').valueAsDate = new Date();
-    document.getElementById('terms_start').valueAsDate = new Date();
-});
-
+function printPDF() { window.print(); }
+function downloadPDF() { showError('Paid feature - ₹299'); }
+function closePreview() { document.getElementById('preview-section').classList.remove('active'); }
 </script>
 </body>
 </html>
+
