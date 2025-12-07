@@ -5,198 +5,913 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Residential Leave and License Agreement - No Tenancy Rights</title>
     <style>
-        body { font-family: 'Times New Roman', serif; line-height: 1.6; margin: 20px; max-width: 1200px; }
-        .header { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 30px; }
-        .parties { font-size: 16px; margin-bottom: 20px; }
-        .section { margin-bottom: 25px; }
-        .section-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; text-decoration: underline; }
-        .subsection { margin-left: 20px; margin-bottom: 8px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
-        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; font-weight: bold; }
-        .checkbox { width: 20px; height: 20px; border: 1px solid #000; display: inline-block; margin-right: 5px; }
-        .signature-block { margin-top: 40px; }
-        .schedule { page-break-inside: avoid; margin-top: 30px; }
-        .no-tenancy-box { border: 2px solid #000; padding: 15px; background-color: #fff3cd; margin: 20px 0; }
-        .critical-clause { background-color: #ffebee; border-left: 5px solid #f44336; padding: 15px; margin: 15px 0; }
-        @media print { body { margin: 0; font-size: 12px; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Times New Roman', 'Times', serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .header h2 {
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        .date-field {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .parties-section {
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+        .party {
+            margin: 20px 0;
+            padding: 10px 0;
+        }
+        .party-label {
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+        .party-field {
+            margin: 3px 0;
+        }
+        .party-field label {
+            min-width: 150px;
+            display: inline-block;
+        }
+        .underline {
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            min-width: 200px;
+            text-align: center;
+            padding: 2px 5px;
+        }
+        .section {
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 12px;
+            margin-top: 15px;
+        }
+        .subsection {
+            margin: 10px 20px;
+            text-align: justify;
+        }
+        .critical-box {
+            border: 3px solid #000;
+            padding: 15px;
+            background-color: #fff3cd;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        .critical-box .section-title {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+        .whereas-list {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        .whereas-list li {
+            margin: 10px 0;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        .checkbox {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        .signature-section {
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+        .signature-block {
+            margin: 30px 0;
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .signature-line {
+            border-top: 1px solid #000;
+            margin-top: 40px;
+            padding-top: 5px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .schedule {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #000;
+            page-break-before: always;
+        }
+        .schedule-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: underline;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 12px;
+            border-top: 1px solid #000;
+            padding-top: 20px;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .print-button:hover {
+            background-color: #1565c0;
+        }
+        @media print {
+            body { margin: 0; background: white; }
+            .container { margin: 0; padding: 20px; box-shadow: none; }
+            .print-button { display: none; }
+            .section, .schedule { page-break-inside: avoid; }
+            a { color: #000; text-decoration: none; }
+        }
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        .now-therefore {
+            font-weight: bold;
+            margin: 20px 0 15px 0;
+        }
+        ol { margin-left: 30px; }
+        ul { margin-left: 30px; }
+        li { margin: 8px 0; }
     </style>
 </head>
 <body>
 
+<button class="print-button" onclick="window.print()">🖨️ Print to PDF</button>
+
+<div class="container">
+
+<!-- HEADER -->
 <div class="header">
-    <h1>RESIDENTIAL LEAVE AND LICENSE AGREEMENT<br>
-    <span style="font-size: 14px; font-weight: normal;">(NO TENANCY RIGHTS CREATED)</span></h1>
-    <p><strong>THIS AGREEMENT</strong> is made and entered into on <u>__________________</u> (Date)</p>
+    <h1>RESIDENTIAL LEAVE AND LICENSE AGREEMENT</h1>
+    <h2>(NO TENANCY RIGHTS - LICENSE ONLY)</h2>
+    <div class="date-field">
+        This Leave and License Agreement ("Agreement") is made and entered into on <span class="underline" style="width: 150px;"></span> (Date)
+    </div>
 </div>
 
-<div class="parties">
-    <p><strong>BETWEEN</strong></p>
-    <p><strong>Mr./Ms.</strong> <u>__________________________________</u> (Full Name)<br>
-    S/o/D/o <u>__________________________________</u> (Father's Name)<br>
-    Resident of <u>__________________________________</u> (Permanent Address)<br>
-    Contact: <u>__________________________________</u> (Phone/Email)<br>
-    PAN/Aadhaar: <u>__________________________________</u> (Identification)<br>
-    <strong>HEREINAFTER REFERRED TO AS "THE LICENSOR"</strong> (First Party)</p>
-
-    <p><strong>AND</strong></p>
+<!-- PARTIES SECTION -->
+<div class="parties-section">
+    <div class="party-label">BETWEEN</div>
     
-    <p><strong>Mr./Ms.</strong> <u>__________________________________</u> (Full Name)<br>
-    S/o/D/o <u>__________________________________</u> (Father's Name)<br>
-    Resident of <u>__________________________________</u> (Current Address)<br>
-    Contact: <u>__________________________________</u> (Phone/Email)<br>
-    Aadhaar: <u>__________________________________</u> (Identification)<br>
-    Guarantor Name: <u>__________________________________</u> (if applicable)<br>
-    Guarantor Contact: <u>__________________________________</u><br>
-    <strong>HEREINAFTER REFERRED TO AS "THE LICENSEE"</strong> (Second Party)</p>
+    <div class="party">
+        <div class="party-field">Mr./Ms. <span class="underline" style="width: 300px;"></span> (Full Name)</div>
+        <div class="party-field">S/o/D/o <span class="underline" style="width: 300px;"></span> (Father's Name)</div>
+        <div class="party-field">Resident of <span class="underline" style="width: 300px;"></span> (Address)</div>
+        <div class="party-field">Contact: <span class="underline" style="width: 300px;"></span> (Phone/Email)</div>
+        <div class="party-field">PAN/Aadhaar: <span class="underline" style="width: 300px;"></span> (ID)</div>
+        <div class="party-label" style="margin-top: 10px;">HEREINAFTER REFERRED TO AS "THE LICENSOR" (First Party)</div>
+    </div>
+
+    <div class="party-label" style="margin-top: 20px;">AND</div>
+    
+    <div class="party">
+        <div class="party-field">Mr./Ms. <span class="underline" style="width: 300px;"></span> (Full Name)</div>
+        <div class="party-field">S/o/D/o <span class="underline" style="width: 300px;"></span> (Father's Name)</div>
+        <div class="party-field">Resident of <span class="underline" style="width: 300px;"></span> (Current Address)</div>
+        <div class="party-field">Contact: <span class="underline" style="width: 300px;"></span> (Phone/Email)</div>
+        <div class="party-field">Aadhaar: <span class="underline" style="width: 300px;"></span> (ID)</div>
+        <div class="party-field">Guarantor Name: <span class="underline" style="width: 300px;"></span> (if applicable)</div>
+        <div class="party-field">Guarantor Contact: <span class="underline" style="width: 300px;"></span></div>
+        <div class="party-label" style="margin-top: 10px;">HEREINAFTER REFERRED TO AS "THE LICENSEE" (Second Party)</div>
+    </div>
 </div>
 
+<!-- WHEREAS SECTION -->
 <div class="section">
     <div class="section-title">WHEREAS</div>
-    <ol style="margin-left: 20px;">
-        <li>The Licensor is the lawful owner of the residential property mentioned herein and has agreed to grant a <strong>temporary, personal, revocable license</strong> to the Licensee to use and occupy the said premises for residential purposes only;</li>
-        <li>The Licensee has expressed the desire to take on license the said property on such terms and conditions as mentioned in this Agreement; and</li>
+    <ol class="whereas-list">
+        <li>The Licensor is the lawful owner of the residential property mentioned herein and has agreed to grant a temporary, personal, non-transferable <strong>leave and license</strong> to the Licensee for residential purposes only;</li>
+        
+        <li><strong>The Licensee has expressed desire to obtain temporary permission (license) to use and occupy the Licensed Premises on leave and license basis</strong>, and acknowledges that <strong>no tenancy, lease, sub-tenancy, easement, or any other right, title, or interest in the property shall be created</strong> in favour of the Licensee;</li>
+        
+        <li>The Licensee acknowledges that the arrangement is <strong>purely contractual and permissive in nature</strong> and shall not be protected under any tenancy laws, rent control acts, or statutory protections applicable to tenants;</li>
+        
         <li>Both parties have agreed to execute this Agreement on the terms and conditions mentioned herein.</li>
     </ol>
 </div>
 
-<!-- CRITICAL NO TENANCY RIGHTS SECTION -->
-<div class="no-tenancy-box">
-    <div class="section-title" style="color: #d32f2f;">NATURE OF AGREEMENT – LEAVE AND LICENSE ONLY (NO TENANCY RIGHTS)</div>
+<div class="now-therefore">NOW THEREFORE, in consideration of the mutual covenants and agreements contained herein, the parties agree as follows:</div>
+
+<!-- SECTION 1: NATURE OF AGREEMENT -->
+<div class="critical-box">
+    <div class="section-title">1. NATURE OF AGREEMENT – LEAVE AND LICENSE ONLY</div>
+    
     <div class="subsection">
-        <strong>1.1</strong> This Agreement creates <strong>ONLY a Leave and License</strong> under Section 52 of the Indian Easements Act, 1882 and <strong>DOES NOT create any tenancy, lease, sub-tenancy, or any right, title, or interest</strong> in the Licensed Premises in favour of the Licensee.
+        <strong>1.1 No Tenancy or Leasehold Interest</strong><br><br>
+        <strong>The parties expressly agree and acknowledge that:</strong>
+        <ul>
+            <li>This Agreement is <strong>ONLY a leave and license</strong> under <strong>Section 52 of the Indian Easements Act, 1882</strong> and the <strong>Indian Contract Act, 1872</strong>.</li>
+            <li><strong>NO TENANCY, LEASE, SUB-TENANCY, or any right, title, or interest in the Licensed Premises</strong> shall be created in favour of the Licensee.</li>
+            <li>The Licensee is a <strong>mere licensee</strong> with personal, temporary, and revocable permission to use and occupy the Licensed Premises for residential purposes only.</li>
+            <li>The Licensee shall <strong>NOT</strong> acquire, claim, or be entitled to any protection under:
+                <ul>
+                    <li>Maharashtra Rent Control Act, 1999 (or applicable state tenancy laws)</li>
+                    <li>Model Tenancy Act, 2021</li>
+                    <li>Any local rent control or tenancy protection statutes</li>
+                    <li>Any statutory succession or inheritance rights</li>
+                    <li>Any right of renewal or continuation beyond the stated license period</li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <div class="subsection">
-        <strong>1.2</strong> The Licensee is a <strong>permissive user only</strong> with personal, temporary permission to use the premises and shall <strong>NEVER claim protection</strong> under any Rent Control Act, Tenancy Act, or similar legislation.
+
+    <div class="subsection" style="margin-top: 15px;">
+        <strong>1.2 Licensor Retains Possession and Control</strong>
+        <ul>
+            <li><strong>Ultimate possession, control, and ownership of the Licensed Premises remain with the Licensor at all times.</strong></li>
+            <li>The Licensee's right is <strong>purely contractual and personal</strong> and can be revoked by the Licensor as per the terms of this Agreement.</li>
+            <li>The Licensor may at any time revoke the license and recover vacant possession of the Licensed Premises without the Licensee claiming any tenancy protection or statutory rights.</li>
+        </ul>
     </div>
-    <div class="subsection">
-        <strong>1.3</strong> The Licensor retains <strong>ultimate possession and control</strong> of the Licensed Premises at all times. The Licensee's right is purely contractual and personal, non-transferable, and revocable.
+
+    <div class="subsection" style="margin-top: 15px;">
+        <strong>1.3 Non-Assignment and Non-Transferability</strong>
+        <ul>
+            <li>The Licensee <strong>shall NOT</strong> assign, transfer, sublet, share, or part with possession of the Licensed Premises or any part thereof to any person, firm, company, or entity.</li>
+            <li><strong>Any purported transfer or sublet shall be void and constitute material breach</strong> of this Agreement, entitling the Licensor to immediate revocation and recovery of possession.</li>
+        </ul>
     </div>
-    <div class="subsection">
-        <strong>1.4</strong> Any continued occupation after expiry or termination shall be <strong>unauthorised trespass</strong> and shall <strong>NOT create tenancy rights</strong> by prescription, holding over, or any other legal doctrine.
+
+    <div class="subsection" style="margin-top: 15px;">
+        <strong>1.4 Governing Law</strong>
+        <ul>
+            <li>This Agreement is governed by:
+                <ul>
+                    <li><strong>Indian Easements Act, 1882</strong> (primary statute for leave and license)</li>
+                    <li><strong>Indian Contract Act, 1872</strong></li>
+                    <li><strong>State law and local municipal bylaws</strong> applicable to the location of the Licensed Premises</li>
+                    <li><strong>Tenancy laws shall NOT apply</strong> to this leave and license arrangement</li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
 
+<!-- SECTION 2: PROPERTY DETAILS -->
 <div class="section">
-    <div class="section-title">2. PROPERTY DETAILS</div>
+    <div class="section-title">2. LICENSED PREMISES – PROPERTY DETAILS</div>
+    
     <div class="subsection">
-        <strong>2.1 Description of the Licensed Premises:</strong>
+        <strong>2.1 Description of the Licensed Premises</strong>
     </div>
+    
     <table>
         <tr><th>Field</th><th>Details</th></tr>
-        <tr><td>Building/Complex Name</td><td><u>_________________________________</u></td></tr>
-        <tr><td>Apartment/Flat Number</td><td><u>_________________________________</u></td></tr>
-        <tr><td>Floor</td><td><u>_________________________________</u></td></tr>
-        <tr><td>Address</td><td><u>_________________________________</u></td></tr>
-        <tr><td>City/District</td><td><u>_________________________________</u></td></tr>
-        <tr><td>State</td><td><u>_________________________________</u></td></tr>
-        <tr><td>Postal Code</td><td><u>_________________________________</u></td></tr>
-        <tr><td>Total Built-Up Area</td><td><u>_________ Sq. Ft. / Sq. M.</u></td></tr>
+        <tr><td>Building/Complex Name</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>Apartment/Flat Number</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>Floor</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>Address</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>City/District</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>State</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>Postal Code</td><td><span class="underline" style="width: 100%;"></span></td></tr>
+        <tr><td>Total Built-Up Area</td><td><span class="underline" style="width: 40%;"></span> Sq. Ft. / Sq. M.</td></tr>
         <tr><td>Category</td><td><span class="checkbox"></span> Furnished <span class="checkbox"></span> Unfurnished <span class="checkbox"></span> Semi-Furnished</td></tr>
     </table>
 
     <div class="subsection">
-        <strong>2.2 Fixtures, Fittings & Amenities:</strong> As per Schedule A (Inventory) attached.
+        <strong>2.2 Fixtures, Fittings & Amenities:</strong> As per Schedule A (Inventory) attached hereto.
     </div>
+
     <div class="subsection">
-        <strong>2.3 Parking:</strong> <u>______________</u> slots. Vehicle details to be provided by Licensee.
+        <strong>2.3 Parking & Access:</strong> Number of parking slots: <span class="underline" style="width: 50px;"></span>
     </div>
 </div>
 
+<!-- SECTION 3: LICENSE PERIOD -->
 <div class="section">
-    <div class="section-title">3. LICENSE PERIOD & COMMENCEMENT</div>
+    <div class="section-title">3. LICENSE PERIOD AND COMMENCEMENT</div>
+    
     <div class="subsection">
-        <strong>3.1 License Period:</strong> From <u>_________________________________</u> to <u>_________________________________</u>
+        <strong>3.1 Duration of License</strong>
+        <ul>
+            <li><strong>License Period:</strong> <span class="underline" style="width: 50px;"></span> Years / <span class="underline" style="width: 50px;"></span> Months</li>
+            <li><strong>Commencement Date:</strong> <span class="underline" style="width: 200px;"></span></li>
+            <li><strong>Expiry Date:</strong> <span class="underline" style="width: 200px;"></span></li>
+            <li><strong>Notice Period:</strong> 60 days written notice required from either party prior to license expiration</li>
+        </ul>
     </div>
+
     <div class="subsection">
-        <strong>3.2</strong> Licensee shall take permitted use and occupation on commencement date as documented in Schedule B.
+        <strong>3.2 Possession and Handover:</strong> The Licensor shall grant the Licensee <strong>temporary use and occupation</strong> of the Licensed Premises on the commencement date specified above.
     </div>
-    <div class="subsection critical-clause">
-        <strong>3.3 Early Termination:</strong> Licensee terminating early shall forfeit 2 months' license fee + 60 days notice.
+
+    <div class="subsection">
+        <strong>3.3 Early Termination by Licensee:</strong> If Licensee terminates before expiry, Licensee shall:
+        <ul>
+            <li>Provide 60 days written notice</li>
+            <li>Forfeit 2 months' license fee or remaining period, whichever is less</li>
+            <li>Pay all outstanding utilities and dues</li>
+            <li>Return Licensed Premises in good condition</li>
+        </ul>
     </div>
 </div>
 
+<!-- SECTION 4: LICENSE FEE -->
 <div class="section">
-    <div class="section-title">4. LICENSE FEE & FINANCIAL TERMS</div>
+    <div class="section-title">4. LICENSE FEE AND FINANCIAL TERMS</div>
+    
     <div class="subsection">
-        <strong>4.1 Monthly License Fee:</strong> Rs. <u>_________________</u> (words: <u>_________________________________</u>)<br>
-        Due: <u>_____</u> of every month via <span class="checkbox"></span> Bank Transfer <span class="checkbox"></span> NEFT
+        <strong>4.1 Monthly License Fee</strong>
+        <ul>
+            <li><strong>Amount:</strong> Rs. <span class="underline" style="width: 80px;"></span> per month</li>
+            <li><strong>Due Date:</strong> On or before <span class="underline" style="width: 50px;"></span> of every month</li>
+            <li><strong>Payment Mode:</strong> <span class="checkbox"></span> Bank Transfer <span class="checkbox"></span> NEFT <span class="checkbox"></span> Other</li>
+        </ul>
     </div>
+
     <div class="subsection">
-        <strong>4.2 Late Fee:</strong> 5% of monthly fee or Rs. <u>____________</u>/day after due date.
+        <strong>4.2 Late Payment Penalty:</strong> 5% of monthly fee or Rs. <span class="underline" style="width: 80px;"></span>/day, whichever is higher
     </div>
+
     <div class="subsection">
-        <strong>4.3 Security Deposit:</strong> Rs. <u>_________________</u> (<u>_____</u> months' fee), refundable within 30 days post-vacation.
+        <strong>4.3 Security Deposit:</strong> Rs. <span class="underline" style="width: 80px;"></span> (<span class="underline" style="width: 30px;"></span> months' fee, minimum 4-6 months)
     </div>
+
     <div class="subsection">
-        <strong>4.4 Annual Increase:</strong> 10% per annum with 30 days' notice.
+        <strong>4.4 Refund of Deposit:</strong> Within 30 days of license termination after deducting all liabilities (itemized with receipts)
+    </div>
+
+    <div class="subsection">
+        <strong>4.5 Annual License Fee Increase:</strong> 10% per annum with 30 days' notice
+    </div>
+
+    <div class="subsection">
+        <strong>4.6 Other Charges:</strong>
+        <ul>
+            <li><strong>Electricity, Water, Gas, Internet:</strong> Licensee's responsibility</li>
+            <li><strong>Society Maintenance:</strong> <span class="checkbox"></span> Licensor <span class="checkbox"></span> Licensee <span class="checkbox"></span> Shared</li>
+            <li><strong>Property Tax:</strong> Licensor's responsibility</li>
+        </ul>
     </div>
 </div>
 
-<!-- Continue with remaining sections in similar format -->
+<!-- SECTION 5: PERMITTED USE -->
 <div class="section">
-    <div class="section-title">5. ABSOLUTE PROHIBITION ON COMMERCIAL ACTIVITIES</div>
-    <div class="critical-clause">
-        <strong>5.1 STRICTLY PROHIBITED:</strong> Subletting, business operations, GST/MSME registration using premises address, server hosting, or any non-residential use.<br>
-        <strong>5.2 VIOLATION = IMMEDIATE LICENSE REVOCATION + FULL DEPOSIT FORFEITURE.</strong>
-    </div>
-</div>
-
-<div class="section">
-    <div class="section-title">6. LICENSEE OBLIGATIONS</div>
-    <ul style="margin-left: 20px;">
-        <li>Residential use only, maximum <u>_________</u> occupants</li>
-        <li>Pay all utilities, society charges</li>
-        <li>Maintain cleanliness, report repairs within 24hrs</li>
-        <li>No pets, no alterations without permission</li>
-    </ul>
-</div>
-
-<div class="section critical-clause">
-    <div class="section-title">11. TERMINATION & OVERSTAY (CRITICAL)</div>
+    <div class="section-title">5. PERMITTED USE AND OCCUPANCY</div>
+    
     <div class="subsection">
-        <strong>11.5 UNAUTHORISED OCCUPATION:</strong> Post-expiry occupation = <strong>DOUBLE LICENSE FEE DAILY</strong>. No tenancy rights created by holding over.
+        <strong>5.1 Residential Use Only:</strong> The Licensed Premises shall be used <strong>solely and exclusively for residential purposes</strong> for the occupancy of the Licensee and approved family members, and for <strong>no other purpose whatsoever</strong>.
+    </div>
+
+    <div class="subsection">
+        <strong>5.2 Occupancy Limit:</strong> Maximum permanent occupants: <span class="underline" style="width: 50px;"></span> persons. Additional occupants require Licensor's written consent.
+    </div>
+
+    <div class="subsection">
+        <strong>5.3 Guest Policy:</strong>
+        <ul>
+            <li>Guests must vacate by 11:00 PM unless prior approval granted</li>
+            <li>Long-term guests (15+ days) require written consent</li>
+            <li>Any relative staying 30+ days treated as additional occupant</li>
+        </ul>
     </div>
 </div>
 
-<div class="signature-block" style="page-break-before: always;">
+<!-- SECTION 6: PROHIBITED ACTIVITIES -->
+<div class="critical-box">
+    <div class="section-title">6. ABSOLUTE PROHIBITION ON COMMERCIAL AND RESTRICTED ACTIVITIES</div>
+    
+    <div class="subsection">
+        <strong>6.1 STRICTLY PROHIBITED:</strong>
+        <ul>
+            <li><strong>a) Subletting & Unauthorized Occupancy:</strong> Sublet, share, assign, or part with possession to any person/entity</li>
+            <li><strong>b) Commercial Activities:</strong> No business, profession, trade, office, coaching centers, call centers, or professional practice</li>
+            <li><strong>c) Techno-Commercial:</strong> <strong>STRICTLY PROHIBITED - NO servers, IT equipment, data center hosting, or commercial infrastructure</strong></li>
+            <li><strong>d) Registered Offices & GST/MSME:</strong> Cannot use address for business registration, GST, MSME, LLP, Company, Trust, Tax registration</li>
+            <li><strong>e) Storage & Hazardous Materials:</strong> No commercial inventory, hazardous materials, warehouse operations</li>
+            <li><strong>f) Social Gatherings & Nuisance:</strong> No parties, events, photography shoots, business meetings beyond family use</li>
+            <li><strong>g) Other:</strong> No unauthorized alterations, carpentry, pets without permission, loud music after 10 PM, smoking, vaping</li>
+        </ul>
+    </div>
+
+    <div class="subsection" style="margin-top: 15px;">
+        <strong>6.2 Material Breach Consequences:</strong> ANY violation = <strong>IMMEDIATE LICENSE REVOCATION + FULL DEPOSIT FORFEITURE + ADDITIONAL DAMAGES</strong>
+    </div>
+
+    <div class="subsection" style="margin-top: 15px;">
+        <strong>6.3 Licensee Indemnification:</strong> Licensee shall indemnify Licensor against all losses, penalties, government actions, legal costs, and any liability arising from breach.
+    </div>
+</div>
+
+<!-- SECTION 7: MAINTENANCE -->
+<div class="section">
+    <div class="section-title">7. MAINTENANCE AND REPAIR RESPONSIBILITIES</div>
+    
+    <div class="subsection">
+        <strong>7.1 Licensee's Obligations:</strong> Interior walls, flooring, electrical fixtures, windows, doors, sanitary fittings, AC units, kitchen appliances
+    </div>
+
+    <div class="subsection">
+        <strong>7.2 Licensor's Obligations:</strong> Structural integrity, external walls, roof, common areas, main utilities, lifts, building systems, parking
+    </div>
+
+    <div class="subsection">
+        <strong>7.3 Damage:</strong> Licensee liable for damage beyond normal wear. Repair costs deducted from deposit.
+    </div>
+
+    <div class="subsection">
+        <strong>7.4 Repair Timeline:</strong> Report within 24 hours; repairs within 7 days (non-emergency); immediate for emergencies
+    </div>
+</div>
+
+<!-- SECTION 8: UTILITIES -->
+<div class="section">
+    <div class="section-title">8. UTILITIES AND AMENITIES</div>
+    
+    <div class="subsection">
+        <strong>8.1 Utility Payment:</strong> Licensee responsible for electricity, water, gas, internet. <strong>Failure to pay may result in immediate license revocation.</strong>
+    </div>
+
+    <div class="subsection">
+        <strong>8.2 Meter Readings:</strong> Recorded at commencement and end of license. Licensee liable for consumption during license period.
+    </div>
+
+    <div class="subsection">
+        <strong>8.3 Society Rules:</strong> Licensee must comply with all building by-laws, parking, noise, pet, and occupancy rules. Licensee liable for fines.
+    </div>
+
+    <div class="subsection">
+        <strong>8.4 HOA Charges:</strong> Maintenance charges: <span class="checkbox"></span> Licensor <span class="checkbox"></span> Licensee <span class="checkbox"></span> Shared. Arrears recoverable from deposit.
+    </div>
+</div>
+
+<!-- SECTION 9: ENTRY AND INSPECTION -->
+<div class="section">
+    <div class="section-title">9. LICENSOR'S RIGHT OF ENTRY AND INSPECTION</div>
+    
+    <div class="subsection">
+        <strong>9.1 Notice-Based Entry (24 hours):</strong> Maintenance, pest control, meter readings, showing to prospective licensees (last 60 days)
+    </div>
+
+    <div class="subsection">
+        <strong>9.2 Emergency Access (No Notice):</strong> Fire, flood, gas leak, structural damage, police/emergency entry
+    </div>
+
+    <div class="subsection">
+        <strong>9.3 Inspection Schedule:</strong> Quarterly with 48-hour notice; final inspection before vacation; 9 AM - 5 PM Monday-Friday
+    </div>
+</div>
+
+<!-- SECTION 10: LICENSEE OBLIGATIONS -->
+<div class="section">
+    <div class="section-title">10. LICENSEE OBLIGATIONS AND CONDUCT</div>
+    
+    <div class="subsection">
+        <strong>10.1 Occupancy Details:</strong> Accurate disclosure; report changes; verify guarantor information
+    </div>
+
+    <div class="subsection">
+        <strong>10.2 Property Care:</strong> Clean, hygienic condition; proper waste disposal; report pest issues immediately
+    </div>
+
+    <div class="subsection">
+        <strong>10.3 Conduct:</strong> Peaceful coexistence; no loud music after 10 PM; no antisocial activities; comply with bylaws
+    </div>
+
+    <div class="subsection">
+        <strong>10.4 Documentation:</strong> Provide Aadhaar, PAN, voter ID, employment proof; police verification; emergency contacts
+    </div>
+
+    <div class="subsection">
+        <strong>10.5 Insurance:</strong> Licensee liable for personal belongings. Encouraged to obtain contents insurance. Liable for guest/third-party injury.
+    </div>
+</div>
+
+<!-- SECTION 11: DEFAULT AND REVOCATION -->
+<div class="critical-box">
+    <div class="section-title">11. DEFAULT, BREACH, AND REVOCATION OF LICENSE</div>
+    
+    <div class="subsection">
+        <strong>11.1 Material Breach Conditions:</strong> Rent unpaid 15+ days, non-residential use, unauthorized occupants, structural damage, violation of conduct, alterations, GST/MSME use, occupancy limit breach
+    </div>
+
+    <div class="subsection">
+        <strong>11.2 Notice of Default:</strong> Written notice issued; Licensee has 7 days to remedy; if not remedied, Licensor proceeds with revocation
+    </div>
+
+    <div class="subsection">
+        <strong>11.3 Immediate Revocation (Without Cure Period):</strong> Illegal activities, confirmed commercial use, subletting, structural damage, 30+ days non-payment, false documents, threatening/abusive conduct
+    </div>
+
+    <div class="subsection">
+        <strong>11.4 Recovery of Possession:</strong> After revocation, Licensor has unrestricted right to enter, repossess, change locks, re-let, recover dues and damages
+    </div>
+
+    <div class="subsection" style="background-color: #ffebee; border-left: 5px solid #f44336; padding: 12px;">
+        <strong>11.5 DOUBLE LICENSE FEE FOR OVERSTAY (NO TENANCY RIGHTS):</strong><br><br>
+        If Licensee remains after license expiry/termination/revocation without renewal:
+        <ul>
+            <li>Licensor may charge <strong>DOUBLE LICENSE FEE</strong> for overstay period</li>
+            <li><strong>Such overstay creates NO tenancy, lease, or statutory rights</strong></li>
+            <li>Licensor reserves <strong>IMMEDIATE right to evict</strong> without further notice</li>
+            <li><strong>All penalties, legal costs, recovery expenses borne by Licensee</strong></li>
+            <li><strong>NO statutory succession, renewal, or continuation rights</strong></li>
+        </ul>
+    </div>
+</div>
+
+<!-- SECTION 12: TERMINATION AND RENEWAL -->
+<div class="section">
+    <div class="section-title">12. LICENSE TERMINATION, RENEWAL, AND VACATION</div>
+    
+    <div class="subsection">
+        <strong>12.1 Termination Notice:</strong> Either party may terminate with 60 days written notice (in person or registered mail)
+    </div>
+
+    <div class="subsection">
+        <strong>12.2 License Renewal:</strong> On mutual written consent; new agreement executed; fee negotiated with 30 days' notice
+    </div>
+
+    <div class="subsection">
+        <strong>12.3 Holding Over (No Tenancy Creation):</strong> Post-expiry occupant becomes trespasser/wrongful occupant (NOT tenant). <strong>NO tenancy created through continued occupation.</strong>
+    </div>
+</div>
+
+<!-- SECTION 13: DEPOSIT REFUND -->
+<div class="section">
+    <div class="section-title">13. DEPOSIT REFUND AND FINAL SETTLEMENT</div>
+    
+    <div class="subsection">
+        <strong>13.1 Vacation Procedure:</strong> 60 days notice; clean condition; disconnect utilities; remove belongings; final inspection within 7 days
+    </div>
+
+    <div class="subsection">
+        <strong>13.2 Property Condition:</strong> Original condition (normal wear excepted); fixtures working; personal items removed; professional cleaning if needed; all dues cleared
+    </div>
+
+    <div class="subsection">
+        <strong>13.3 Deposit Refund Timeline:</strong> Within 30 days post-vacation; itemized deductions provided; disputes resolved within 15 days; Licensee liable for excess costs
+    </div>
+
+    <div class="subsection">
+        <strong>13.4 Permitted Deductions:</strong> Unpaid fees/utilities, property damage, maintenance, cleaning, society dues, penalties, overstay charges
+    </div>
+</div>
+
+<!-- SECTION 14: INSURANCE AND LIABILITY -->
+<div class="section">
+    <div class="section-title">14. INSURANCE AND LIABILITY</div>
+    
+    <div class="subsection">
+        <strong>14.1 Licensee Insurance:</strong> Licensee liable for belongings; encouraged to obtain contents insurance; may request building insurance inclusion
+    </div>
+
+    <div class="subsection">
+        <strong>14.2 Licensor Liability:</strong> Not liable for theft, neighboring damage, natural disasters, third-party damage, loss of income
+    </div>
+
+    <div class="subsection">
+        <strong>14.3 Third-Party Liability:</strong> Licensee liable for guest/third-party injury; Licensor not responsible for accidents
+    </div>
+</div>
+
+<!-- SECTION 15: GENERAL PROVISIONS -->
+<div class="section">
+    <div class="section-title">15. GENERAL PROVISIONS</div>
+    
+    <div class="subsection">
+        <strong>15.1 Documents:</strong> Schedule A (Inventory), Schedule B (Inspection), Schedule C (Contacts), Schedule D (Declarations)
+    </div>
+
+    <div class="subsection">
+        <strong>15.2 Stamp Duty & Registration:</strong> Agreement on stamp paper; value: Rs. <span class="underline" style="width: 100px;"></span>; registration recommended for 11+ months; costs: <span class="checkbox"></span> Licensor <span class="checkbox"></span> Licensee <span class="checkbox"></span> Shared
+    </div>
+
+    <div class="subsection">
+        <strong>15.3 Modifications:</strong> Only by written consent; no oral modifications valid; dated and signed amendments supersede previous terms
+    </div>
+
+    <div class="subsection">
+        <strong>15.4 Severability:</strong> Invalid provisions severed; remaining provisions continue in full force
+    </div>
+
+    <div class="subsection">
+        <strong>15.5 Confidentiality:</strong> Both parties maintain confidentiality; personal information for license administration only
+    </div>
+</div>
+
+<!-- SECTION 16: DISPUTE RESOLUTION -->
+<div class="section">
+    <div class="section-title">16. DISPUTE RESOLUTION AND JURISDICTION</div>
+    
+    <div class="subsection">
+        <strong>16.1 Arbitration & Mediation:</strong> Disputes resolved through mutual discussion (30 days); arbitration per Arbitration and Conciliation Act, 1996
+    </div>
+
+    <div class="subsection">
+        <strong>16.2 Jurisdiction:</strong> Governed by laws of <span class="underline" style="width: 150px;"></span> (State/UT); jurisdiction in <span class="underline" style="width: 150px;"></span> (District)
+    </div>
+
+    <div class="subsection">
+        <strong>16.3 Applicable Law:</strong>
+        <ul>
+            <li><strong>Indian Easements Act, 1882</strong> (PRIMARY - Leave and License)</li>
+            <li><strong>Indian Contract Act, 1872</strong></li>
+            <li>State law and local municipal bylaws</li>
+            <li><strong>Tenancy laws do NOT apply</strong></li>
+        </ul>
+    </div>
+</div>
+
+<!-- SECTION 17: NOTICE REQUIREMENTS -->
+<div class="section">
+    <div class="section-title">17. TERMINATION NOTICE REQUIREMENTS</div>
+    
+    <div class="subsection">
+        <strong>17.1 Notice Format:</strong> In writing (no oral notices); in person, registered mail, or email with read receipt
+    </div>
+
+    <div class="subsection">
+        <strong>17.2 Notice Addresses:</strong>
+        <table>
+            <tr><th>LICENSOR</th><th>LICENSEE</th></tr>
+            <tr>
+                <td>Name: <span class="underline"></span><br>Address: <span class="underline"></span><br>Email: <span class="underline"></span><br>Phone: <span class="underline"></span></td>
+                <td>Name: <span class="underline"></span><br>Address: <span class="underline"></span><br>Email: <span class="underline"></span><br>Phone: <span class="underline"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="subsection">
+        <strong>17.3 Notice Effective Date:</strong> In-person: immediately; registered mail: 5 business days; email: upon read receipt
+    </div>
+</div>
+
+<!-- SECTION 18: SPECIAL CLAUSES -->
+<div class="section">
+    <div class="section-title">18. SPECIAL CLAUSES AND CONDITIONS</div>
+    
+    <div class="subsection">
+        <strong>18.1 Force Majeure:</strong> No liability for failure due to Acts of God, war, terrorism, government actions, pandemics. License fee adjusted mutually if premises become uninhabitable.
+    </div>
+
+    <div class="subsection">
+        <strong>18.2 No Tenancy Creation Through Occupation:</strong>
+        <ul>
+            <li><strong>NO tenancy, lease, or statutory right shall be created</strong> through any length of occupation</li>
+            <li><strong>Continuous occupation does NOT create tenancy protection</strong></li>
+            <li><strong>Licensee shall NOT claim renewal, succession, or continuation rights</strong> based on occupation length</li>
+            <li>Any overstay creates <strong>use and occupation liability, NOT tenancy</strong></li>
+        </ul>
+    </div>
+
+    <div class="subsection">
+        <strong>18.3 Waiver:</strong> Waiver of any provision by Licensor is NOT deemed waiver of future breaches. Licensor's forbearance does NOT constitute acceptance of breach. Licensor may enforce any provision at any time.
+    </div>
+
+    <div class="subsection">
+        <strong>18.4 Entire Agreement:</strong> This document is the ENTIRE agreement. NO oral agreements or prior understandings supersede this written agreement. All negotiations merged into this Agreement.
+    </div>
+</div>
+
+<!-- ACKNOWLEDGEMENT -->
+<div class="section">
+    <div class="section-title">ACKNOWLEDGEMENT</div>
+    <div class="subsection">
+        <strong>The parties hereby acknowledge that:</strong>
+        <ul>
+            <li>They have read and understood all terms and conditions</li>
+            <li>They agree to abide by the terms of this Agreement</li>
+            <li>They have disclosed all material information</li>
+            <li><strong>This is a LEAVE AND LICENSE arrangement with NO tenancy rights created</strong></li>
+            <li><strong>The Licensee is NOT a tenant and shall not have protection under tenancy laws</strong></li>
+            <li>No duress or undue influence applied</li>
+            <li>This Agreement is executed out of free will</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SIGNATURES -->
+<div class="signature-section">
     <div class="section-title">SIGNATURES</div>
     
-    <table style="width: 100%;">
-        <tr>
-            <td style="width: 45%; vertical-align: top;">
-                <strong>LICENSOR:</strong><br><br>
-                Signature: _________________________ Date: _________<br>
-                Name: ______________________________<br>
-                Aadhaar/PAN: _______________________
-            </td>
-            <td style="width: 10%;"></td>
-            <td style="width: 45%; vertical-align: top;">
-                <strong>LICENSEE:</strong><br><br>
-                Signature: _________________________ Date: _________<br>
-                Name: ______________________________<br>
-                Aadhaar: ___________________________
-            </td>
-        </tr>
-    </table>
+    <div style="margin-bottom: 50px;">
+        <strong>LICENSOR (Property Owner):</strong><br><br>
+        Signature: <span class="underline" style="width: 150px;"></span> &nbsp;&nbsp;&nbsp; Date: <span class="underline" style="width: 100px;"></span><br><br>
+        Name (Print): <span class="underline" style="width: 250px;"></span><br><br>
+        Aadhaar/PAN: <span class="underline" style="width: 250px;"></span>
+    </div>
 
-    <div style="margin-top: 30px;">
-        <strong>WITNESS 1:</strong> ___________________ &nbsp;&nbsp;&nbsp;&nbsp; <strong>WITNESS 2:</strong> ___________________
+    <div style="margin-bottom: 50px;">
+        <strong>LICENSEE (License Holder):</strong><br><br>
+        Signature: <span class="underline" style="width: 150px;"></span> &nbsp;&nbsp;&nbsp; Date: <span class="underline" style="width: 100px;"></span><br><br>
+        Name (Print): <span class="underline" style="width: 250px;"></span><br><br>
+        Aadhaar: <span class="underline" style="width: 250px;"></span>
+    </div>
+
+    <div style="margin-bottom: 50px;">
+        <strong>GUARANTOR (if applicable):</strong><br><br>
+        Signature: <span class="underline" style="width: 150px;"></span> &nbsp;&nbsp;&nbsp; Date: <span class="underline" style="width: 100px;"></span><br><br>
+        Name (Print): <span class="underline" style="width: 250px;"></span><br><br>
+        Relationship: <span class="underline" style="width: 250px;"></span>
+    </div>
+
+    <div style="margin-bottom: 50px;">
+        <strong>WITNESS 1:</strong><br><br>
+        Signature: <span class="underline" style="width: 150px;"></span> &nbsp;&nbsp;&nbsp; Date: <span class="underline" style="width: 100px;"></span><br><br>
+        Name (Print): <span class="underline" style="width: 250px;"></span><br><br>
+        Address: <span class="underline" style="width: 250px;"></span>
+    </div>
+
+    <div>
+        <strong>WITNESS 2:</strong><br><br>
+        Signature: <span class="underline" style="width: 150px;"></span> &nbsp;&nbsp;&nbsp; Date: <span class="underline" style="width: 100px;"></span><br><br>
+        Name (Print): <span class="underline" style="width: 250px;"></span><br><br>
+        Address: <span class="underline" style="width: 250px;"></span>
     </div>
 </div>
 
 <!-- SCHEDULES -->
 <div class="schedule">
-    <div class="section-title">SCHEDULE A: INVENTORY</div>
-    <!-- Table format for inventory -->
+    <div class="schedule-title">SCHEDULE A: INVENTORY OF FIXTURES & FITTINGS</div>
+    
+    <table>
+        <tr><th>S.No</th><th>Item</th><th>Condition at Entry</th><th>Condition at Exit</th><th>Remarks</th></tr>
+        <tr><td>1</td><td>Bedroom 1 - Double Bed</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>Bedroom 1 - Almirah</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>Bedroom 2 - Cot</td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td>Living Room - Sofa</td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td>Kitchen - Refrigerator</td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td>Kitchen - Gas Stove</td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td>Bathroom Fixtures</td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td>Ceiling Fans</td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td>Lights & Switches</td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td>AC Unit (if applicable)</td><td></td><td></td><td></td></tr>
+    </table>
+    
+    <div style="margin-top: 20px;">
+        <strong>Condition Status:</strong> Good / Fair / Damaged / Non-Functional<br>
+        <strong>Photographs Attached:</strong> Yes <span class="checkbox"></span> No <span class="checkbox"></span><br>
+        <strong>Number of photographs:</strong> <span class="underline" style="width: 50px;"></span>
+    </div>
 </div>
 
-<div style="page-break-before: always; font-size: 12px; margin-top: 50px;">
-    <div style="text-align: center; font-weight: bold;">
-        END OF AGREEMENT<br>
-        <span style="font-size: 10px;">Governed by Indian Easements Act, 1882 & Indian Contract Act, 1872<br>
-        Register with local Sub-Registrar within 4 months</span>
+<div class="schedule">
+    <div class="schedule-title">SCHEDULE B: INITIAL INSPECTION REPORT</div>
+    
+    <div style="margin-bottom: 15px;">
+        <strong>Date of Inspection:</strong> <span class="underline" style="width: 250px;"></span><br>
+        <strong>Inspected by:</strong> <span class="underline" style="width: 250px;"></span>
     </div>
+
+    <table>
+        <tr><th>Room/Area</th><th>Condition</th><th>Remarks</th><th>Photographs</th></tr>
+        <tr><td>Entrance/Lobby</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Bedroom 1</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Bedroom 2</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Living Room</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Kitchen</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Bathroom 1</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Bathroom 2</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+        <tr><td>Balcony</td><td></td><td></td><td>☐ Yes ☐ No</td></tr>
+    </table>
+
+    <div style="margin-top: 20px;">
+        <strong>Utilities Status at Commencement:</strong><br>
+        Electricity Meter Reading: <span class="underline" style="width: 100px;"></span> Units<br>
+        Water Meter Reading: <span class="underline" style="width: 100px;"></span> Gallons/Liters<br>
+        Gas Connection: ☐ Connected ☐ Not Connected
+    </div>
+
+    <div style="margin-top: 20px;">
+        <strong>Known Defects/Damage:</strong><br>
+        <div style="border: 1px solid #000; padding: 10px; min-height: 60px;"></div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        Inspected by: <span class="underline" style="width: 150px;"></span> Date: <span class="underline" style="width: 100px;"></span><br>
+        Licensee Ack: <span class="underline" style="width: 150px;"></span> Date: <span class="underline" style="width: 100px;"></span><br>
+        Licensor Ack: <span class="underline" style="width: 150px;"></span> Date: <span class="underline" style="width: 100px;"></span>
+    </div>
+</div>
+
+<div class="schedule">
+    <div class="schedule-title">SCHEDULE C: IMPORTANT CONTACTS & RESOURCES</div>
+    
+    <strong>Property Management</strong><br>
+    <table>
+        <tr><th>Contact</th><th>Name</th><th>Phone</th><th>Email</th></tr>
+        <tr><td>Building Manager</td><td></td><td></td><td></td></tr>
+        <tr><td>Society Secretary</td><td></td><td></td><td></td></tr>
+        <tr><td>Maintenance Staff</td><td></td><td></td><td></td></tr>
+    </table>
+
+    <strong style="display: block; margin-top: 20px;">Utilities & Services</strong><br>
+    <table>
+        <tr><th>Service</th><th>Provider</th><th>Connection ID</th><th>Contact</th></tr>
+        <tr><td>Electricity</td><td></td><td></td><td></td></tr>
+        <tr><td>Water Supply</td><td></td><td></td><td></td></tr>
+        <tr><td>Internet</td><td></td><td></td><td></td></tr>
+        <tr><td>Gas</td><td></td><td></td><td></td></tr>
+    </table>
+
+    <strong style="display: block; margin-top: 20px;">Emergency Contacts</strong>
+    <div style="margin-top: 10px;">
+        Police: 100 | Fire: 101 | Ambulance: 102<br>
+        Electricity Emergency: <span class="underline" style="width: 100px;"></span><br>
+        Water Maintenance: <span class="underline" style="width: 100px;"></span><br>
+        Building Security: <span class="underline" style="width: 100px;"></span>
+    </div>
+</div>
+
+<div class="schedule">
+    <div class="schedule-title">SCHEDULE D: CRITICAL LEGAL DECLARATIONS</div>
+    
+    <div style="margin-bottom: 40px;">
+        <strong>Declaration of No Tenancy Rights - LICENSOR:</strong><br><br>
+        I hereby confirm that this is a <strong>LEAVE AND LICENSE agreement ONLY</strong>, granting temporary permission to use the Licensed Premises without creating any tenancy, leasehold, or statutory rights in favour of the Licensee.<br><br>
+        Licensor Signature: <span class="underline" style="width: 150px;"></span> &nbsp; Date: <span class="underline" style="width: 100px;"></span>
+    </div>
+
+    <div>
+        <strong>Declaration by LICENSEE:</strong><br><br>
+        I hereby acknowledge and confirm that:
+        <ul>
+            <li>I understand this is a <strong>LEAVE AND LICENSE arrangement ONLY</strong></li>
+            <li><strong>NO tenancy, lease, or interest in the property is created</strong> in my favour</li>
+            <li><strong>I am NOT a tenant</strong> and shall not claim protection under tenancy/rent control laws</li>
+            <li><strong>I shall NOT claim any renewal, succession, or continuation rights</strong> based on occupation</li>
+            <li>The Licensor retains full <strong>possession, control, and ownership</strong> at all times</li>
+            <li><strong>My occupation creates NO statutory rights</strong> whatsoever</li>
+            <li>I accept all terms and conditions in this Agreement</li>
+        </ul>
+
+        Licensee Signature: <span class="underline" style="width: 150px;"></span> &nbsp; Date: <span class="underline" style="width: 100px;"></span>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <strong>END OF LEAVE AND LICENSE AGREEMENT</strong><br><br>
+    This agreement has been prepared as per the <strong>Indian Easements Act, 1882, Indian Contract Act, 1872</strong>, and applicable state law.<br>
+    <strong>Tenancy laws do NOT apply to this leave and license arrangement.</strong><br><br>
+    Both parties are advised to consult with legal experts before execution to ensure compliance with local laws and registration requirements.<br><br>
+    Agreement prepared on: <span class="underline" style="width: 150px;"></span><br>
+    Agreement Registration: <span class="underline" style="width: 150px;"></span>
+</div>
+
 </div>
 
 </body>
