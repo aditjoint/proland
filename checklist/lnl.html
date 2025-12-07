@@ -1070,6 +1070,124 @@
             msg.classList.add('show');
             setTimeout(() => msg.classList.remove('show'), 3000);
         }
+
+        // ✅ MISSING FUNCTIONS - ADD THESE
+function printPDF() {
+    try {
+        window.print();
+        console.log('Print dialog opened successfully');
+    } catch (error) {
+        console.error('Print error:', error);
+        alert('Print failed. Try Ctrl+P or browser menu → Print → Save as PDF');
+    }
+}
+
+function downloadPDF() {
+    try {
+        const printArea = document.getElementById('print-area');
+        if (!printArea.innerHTML) {
+            alert('⚠️ Please generate the agreement first!');
+            return;
+        }
+        
+        // Create printable content
+        const printContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Leave & License Agreement</title>
+                <style>
+                    body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.8; margin: 1in; }
+                    .print-table { width: 100%; border-collapse: collapse; }
+                    .print-table th, .print-table td { border: 1px solid #000; padding: 8px; }
+                    .print-table th { background: #f0f0f0; }
+                    .signature-line { border-bottom: 2px solid #000; height: 30px; margin-top: 40px; }
+                    @media print { body { margin: 0.5in; } }
+                </style>
+            </head>
+            <body>${printArea.innerHTML}</body>
+            </html>
+        `;
+        
+        const win = window.open('', '_blank');
+        win.document.write(printContent);
+        win.document.close();
+        win.print();
+        win.close();
+    } catch (error) {
+        console.error('Download PDF error:', error);
+        alert('Download failed. Use PRINT → Save as PDF instead.');
+    }
+}
+
+function copyAgreement() {
+    try {
+        const printArea = document.getElementById('print-area');
+        if (!printArea.innerHTML) {
+            alert('⚠️ Please generate the agreement first!');
+            return;
+        }
+        
+        const text = printArea.innerText || printArea.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('✅ Agreement copied to clipboard!');
+        }).catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('✅ Agreement copied to clipboard!');
+        });
+    } catch (error) {
+        console.error('Copy error:', error);
+        alert('Copy failed. Select text manually.');
+    }
+}
+
+function closePreview() {
+    document.getElementById('preview-section').classList.remove('active');
+}
+
+function showSuccessMessage() {
+    const msg = document.getElementById('successMessage');
+    if (msg) {
+        msg.classList.add('show');
+        setTimeout(() => msg.classList.remove('show'), 3000);
+    }
+}
+
+function resetAllForms() {
+    if (confirm('Reset all form data?')) {
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') el.checked = false;
+            else el.value = '';
+        });
+        occupants = [];
+        renderOccupants();
+        document.getElementById('preview-section').classList.remove('active');
+        document.getElementById('termsdate').valueAsDate = new Date();
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('termsstart').valueAsDate = tomorrow;
+        document.getElementById('termsduration').value = 12;
+        addOccupant();
+    }
+}
+
+// ✅ Add error handling to main preview function
+const originalValidate = validateAndPreview;
+validateAndPreview = function() {
+    try {
+        originalValidate();
+    } catch (error) {
+        console.error('Validation error:', error);
+        alert('Error generating preview. Check console (F12) for details.');
+    }
+};
+
     </script>
 </body>
 </html>
