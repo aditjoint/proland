@@ -372,6 +372,8 @@
 
     <div class="main-grid">
         <!-- STATE LEGALITY INFO -->
+        <div class
+        <!-- STATE LEGALITY INFO -->
         <div class="state-selector">
             <h2>Leave and License Requirements</h2>
             <p>Select your state to view applicable laws and requirements</p>
@@ -415,7 +417,81 @@
                 </div>
                 <p><strong>Key Protection:</strong> Modern statutory protection for owners post-2024 Act.</p>
             </div>
-            <!-- Additional state content follows similar pattern -->
+            <div id="odisha-legality" class="legality-content">
+                <p><strong>Status:</strong> VALID UNDER EASEMENTS ACT</p>
+                <p><strong>Governing Act:</strong> Indian Easements Act 1882 (General contract law applies)</p>
+                <div class="registration-required">
+                    <strong>Registration:</strong> OPTIONAL (Recommended for 11+ months)<br>
+                    Sub-Registrar of respective district
+                </div>
+                <div class="stamp-duty">
+                    <strong>Stamp Duty:</strong> 0.5-1% as per Odisha Stamp Act
+                </div>
+                <p><strong>Key Protection:</strong> General contract law enforced by courts.</p>
+            </div>
+            <div id="gujarat-legality" class="legality-content">
+                <p><strong>Status:</strong> FULLY RECOGNIZED</p>
+                <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Gujarat Rent Control Act</p>
+                <div class="registration-required">
+                    <strong>Registration:</strong> MANDATORY via Garvi Portal / Sub-Registrar<br>
+                    Portal: <a href="https://garvi.gujarat.gov.in" target="_blank">https://garvi.gujarat.gov.in</a>
+                </div>
+                <div class="stamp-duty">
+                    <strong>Stamp Duty:</strong> 0.5-1% (varies by district/duration)
+                </div>
+                <p><strong>Key Protection:</strong> Garvi e-registration speeds up process.</p>
+            </div>
+            <div id="delhi-legality" class="legality-content">
+                <p><strong>Status:</strong> RECOGNIZED (Delhi Rent Control Act 1958 exempts LL)</p>
+                <p><strong>Governing Act:</strong> Indian Easements Act 1882 (New LL exempt from rent control)</p>
+                <div class="registration-required">
+                    <strong>Registration:</strong> OPTIONAL but recommended<br>
+                    Sub-Registrar Online e-services
+                </div>
+                <div class="stamp-duty">
+                    <strong>Stamp Duty:</strong> 2% of annual rent (₹100 min)<br>
+                    Formula: 2% × (Monthly rent × 12)
+                </div>
+                <p><strong>Key Protection:</strong> Clear exemption from rent control benefits owners.</p>
+            </div>
+            <div id="karnataka-legality" class="legality-content">
+                <p><strong>Status:</strong> POPULAR IN BENGALURU</p>
+                <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Karnataka state contract law</p>
+                <div class="registration-required">
+                    <strong>Registration:</strong> MANDATORY if duration 11+ months<br>
+                    Sub-Registrar offices
+                </div>
+                <div class="stamp-duty">
+                    <strong>Stamp Duty:</strong> 1% of total (Min ₹500)<br>
+                    Applied to Total rent + deposit
+                </div>
+                <p><strong>Key Protection:</strong> High compliance in Bengaluru real estate.</p>
+            </div>
+            <div id="tamilnadu-legality" class="legality-content">
+                <p><strong>Status:</strong> RECOGNIZED (REGISTERED)</p>
+                <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Tamil Nadu contract law</p>
+                <div class="registration-required">
+                    <strong>Registration:</strong> MANDATORY if duration 11+ months<br>
+                    Sub-Registrar (Min stamp duty ₹20,000)
+                </div>
+                <div class="stamp-duty">
+                    <strong>Stamp Duty:</strong> 1% of total value<br>
+                    Minimum ₹20,000 for properties 11+ months
+                </div>
+                <p><strong>Key Protection:</strong> Strict compliance regime with high minimum duty.</p>
+            </div>
+            <div id="westbengal-legality" class="legality-content">
+                <p><strong>Status:</strong> RECOGNIZED</p>
+                <p><strong>Governing Act:</strong> Indian Easements Act 1882 + West Bengal contract law</p>
+                <div class="registration-required">
+                    <strong>Registration:</strong> MANDATORY if duration 1+ year<br>
+                    Sub-Registrar offices
+                </div>
+                <div class="stamp-duty">
+                    <strong>Stamp Duty:</strong> 2% of total consideration
+                </div>
+                <p><strong>Key Protection:</strong> Broad tenant protections make LL safer alternative.</p>
+            </div>
         </div>
     </div>
 
@@ -472,9 +548,7 @@
             <p style="color: var(--color-danger); font-weight: bold;">
                 ONLY persons listed below permitted. ANY unauthorized person = IMMEDIATE EVICTION
             </p>
-            <div id="occupants-container">
-                <!-- Dynamically added -->
-            </div>
+            <div id="occupants-container"></div>
             <button class="btn-add-member" onclick="addOccupant()">Add Occupant</button>
         </div>
 
@@ -498,24 +572,142 @@
                     <label>Carpet Area (sq ft)</label>
                     <input type="number" id="proparea" placeholder="Built-up area in square feet">
                 </div>
-                <!-- Additional property fields -->
+                <div class="form-group">
+                    <label>Furnishing Status</label>
+                    <select id="propfurnishing">
+                        <option>Unfurnished</option>
+                        <option>Semi-Furnished</option>
+                        <option>Fully Furnished</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Property Ownership Document <span class="required">*</span></label>
+                    <select id="propownershipdoc">
+                        <option>-- Select proof of ownership --</option>
+                        <option>Registered Sale Deed</option>
+                        <option>Lease Deed (Long-term)</option>
+                        <option>General Power of Attorney with ownership proof</option>
+                        <option>Will or Succession Certificate with ownership proof</option>
+                        <option>Court Order granting ownership</option>
+                        <option>Certificate of Registration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Society/Community Name (if applicable)</label>
+                    <input type="text" id="propsociety" placeholder="Society/Community rules applicable">
+                </div>
+                <div class="form-group">
+                    <label>Annual Property Tax/Municipal Registration Number</label>
+                    <input type="text" id="proptax" placeholder="Property tax number if available">
+                </div>
             </div>
         </div>
 
-        <!-- TERMS TAB (abbreviated for brevity - full version in original) -->
+        <!-- TERMS TAB -->
         <div id="terms" class="tab-content">
-            <!-- Full terms form fields here -->
+            <h3>Agreement Terms</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Agreement Date <span class="required">*</span></label>
+                    <input type="date" id="termsdate">
+                </div>
+                <div class="form-group">
+                    <label>License Commencement Date <span class="required">*</span></label>
+                    <input type="date" id="termsstart">
+                </div>
+                <div class="form-group">
+                    <label>Duration (Months) <span class="required">*</span></label>
+                    <input type="number" id="termsduration" placeholder="e.g., 12" min="1" max="36">
+                </div>
+                <div class="form-group">
+                    <label>Monthly License Fee <span class="required">*</span></label>
+                    <input type="number" id="termsfee" placeholder="Amount">
+                </div>
+                <div class="form-group">
+                    <label>Security Deposit <span class="required">*</span></label>
+                    <input type="number" id="termsdeposit" placeholder="Amount">
+                </div>
+                <div class="form-group">
+                    <label>Payment Due Date (Each Month)</label>
+                    <select id="termsduedate">
+                        <option>5th of every month (default)</option>
+                        <option>1st of every month</option>
+                        <option>15th of every month</option>
+                        <option>Last day of every month</option>
+                    </select>
+                </div>
+            </div>
+            <h3>House Rules & Policies</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Pets Allowed?</label>
+                    <select id="rulespets">
+                        <option>NOT ALLOWED</option>
+                        <option>Allowed with written permission</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Parking Spaces Included</label>
+                    <input type="number" id="rulesparking" placeholder="Number of spaces (value=0)">
+                </div>
+                <div class="form-group">
+                    <label>Additional Terms/Restrictions</label>
+                    <textarea id="rulesadditional" placeholder="Any special conditions (max guests, quiet hours, etc.)"></textarea>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- LEGAL PROTECTIONS DISPLAY (abbreviated) -->
+    <!-- FULL LEGAL PROTECTIONS DISPLAY -->
     <div class="container">
         <div class="protection-clauses">
             <h3>Included Legal Provisions (50+ Clauses)</h3>
             <p><strong>This agreement incorporates the following legally binding provisions:</strong></p>
             <ul>
-                <li><strong>No Tenancy Creation:</strong> The arrangement creates a License only under Indian Easements Act 1882...</li>
-                <!-- Full 50+ clauses from original -->
+                <li><strong>No Tenancy Creation:</strong> The arrangement creates a License only under Indian Easements Act 1882. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act.</li>
+                <li><strong>Ownership & Possession:</strong> The licensor retains absolute legal title, possession, and control of the premises. The licensee receives only a revocable right of occupation.</li>
+                <li><strong>Residential Use Covenant:</strong> The premises shall be used exclusively for
+                <li><strong>Residential Use Covenant:</strong> The premises shall be used exclusively for residential purposes by the declared occupants only. Any commercial, business, or income-generating use is prohibited.</li>
+                <li><strong>Restricted Occupancy:</strong> Only the listed occupants are permitted to reside. No additional persons may occupy without prior written consent. Unauthorized occupation constitutes material breach.</li>
+                <li><strong>Identity Documentation:</strong> All occupants names, ages, identification proof, and relationship are declared and fixed. No substitution or change is permitted during the term.</li>
+                <li><strong>Guest Policy & Duration:</strong> Short-term overnight guests are permitted for maximum 7 consecutive days. Extended visits require written permission.</li>
+                <li><strong>Nuisance & Disturbances:</strong> Any noise, music, gathering, or activity causing disturbance to neighbors or society constitutes immediate breach. The licensor may terminate summarily.</li>
+                <li><strong>Criminal Activity Clause:</strong> If any occupant is subject to criminal complaint, FIR filing, arrest, or police investigation, the agreement shall terminate immediately without notice.</li>
+                <li><strong>Non-Compliance With Society Rules:</strong> Violation of society/community bylaws constitutes breach. The licensor may terminate if occupant receives complaints from authorities or management.</li>
+                <li><strong>Payment Obligations:</strong> The monthly license fee is due by the specified date. Late payment beyond 3 days incurs 2% monthly penalty plus 18% annual interest on overdue amount.</li>
+                <li><strong>Property Damage Liability:</strong> The occupant is liable for all damage beyond normal wear and tear. Willful damage results in forfeiture of 3x deposit amount plus repair costs.</li>
+                <li><strong>Security Deposit Terms:</strong> The deposit is held in trust. It is refundable subject to no damage, unpaid fees, or violations. Full or partial forfeiture applies for breaches.</li>
+                <li><strong>Utilities & Consumption:</strong> All electricity, water, gas, internet, and other consumption-based charges are the occupant's responsibility. Bills must be paid timely.</li>
+                <li><strong>Inspection & Access Rights:</strong> The licensor retains unrestricted right to enter for inspection, repairs, or viewing by prospective licensees, with 24 hours notice except emergencies.</li>
+                <li><strong>Lien on Occupant's Property:</strong> The licensor has paramount lien on all goods and chattels within the premises for unpaid fees and dues. Items may be seized after 15 days notice.</li>
+                <li><strong>Notice of Termination:</strong> The licensor may terminate with immediate effect for material breach. Occupant must vacate within 24 hours of termination notice.</li>
+                <li><strong>Holdover Charges:</strong> If occupant remains after termination, a penalty of ₹2,000 per day applies for each day of unauthorized occupation.</li>
+                <li><strong>Vacant Handover:</strong> Upon termination or expiry, occupant must deliver vacant, clean possession. All keys must be returned. Professional cleaning certification may be required.</li>
+                <li><strong>Sub-letting & Transfer Prohibition:</strong> The occupant may not sub-let, assign, or transfer the license. Any attempt is grounds for immediate termination.</li>
+                <li><strong>Prohibition on Statutory Registration:</strong> The occupant confirms no GST, professional tax, MSME, or commercial registration shall be obtained against the premises address.</li>
+                <li><strong>Indemnity for Statutory Violations:</strong> The occupant indemnifies the licensor against all GST demands, tax notices, municipal penalties, or statutory action arising from occupant's misuse.</li>
+                <li><strong>Insurance & Liability:</strong> The occupant maintains responsibility for contents insurance. The licensor is not liable for theft, loss, or damage to occupant's belongings.</li>
+                <li><strong>Society & Regulatory Compliance:</strong> The occupant shall comply with all society bylaws, municipal rules, and applicable building regulations. Violations are grounds for termination.</li>
+                <li><strong>Prohibited Activities (Auto-Termination):</strong> The following constitute immediate grounds for termination without notice: a) commercial activity, b) criminal conduct, c) nuisance, d) unauthorized occupants, e) property damage, f) non-payment, g) statutory violations.</li>
+                <li><strong>Pets & Animals:</strong> Pets are not permitted unless explicitly authorized in writing. Unauthorized animals result in breach and immediate eviction.</li>
+                <li><strong>Alterations & Modifications:</strong> No structural changes, alterations, or modifications are permitted without written consent. Unauthorized changes result in forfeiture of deposit.</li>
+                <li><strong>Default Interest:</strong> All overdue amounts attract interest at 18% per annum calculated monthly. This is in addition to late payment penalty.</li>
+                <li><strong>Dispute Resolution & Arbitration:</strong> Disputes shall be resolved through arbitration by a single arbitrator appointed by the licensor. Arbitration award is binding and enforceable.</li>
+                <li><strong>Governing Law & Jurisdiction:</strong> The agreement is governed by the laws of the respective state and Indian contract law. Jurisdiction vests exclusively in courts of the district where the premises is located.</li>
+                <li><strong>Waiver of Tenant Rights:</strong> The occupant expressly waives any claim to tenancy rights, statutory protection, rent control benefits, or succession rights under any law.</li>
+                <li><strong>Severability:</strong> If any clause is found invalid, remaining clauses remain enforceable. The invalid clause shall be replaced by closest valid alternative.</li>
+                <li><strong>Amendment & Modification:</strong> No modification is valid unless in writing and signed by both parties. Verbal modifications are not binding.</li>
+                <li><strong>Notice Provisions:</strong> All notices shall be delivered personally, by email, or by registered post to addresses mentioned. Notice is effective upon receipt.</li>
+                <li><strong>Renewal & Extension:</strong> Upon expiry, the agreement terminates automatically unless renewed in writing before expiration date. No automatic renewal occurs.</li>
+                <li><strong>Financial Responsibility:</strong> Occupant shall bear all expenses including but not limited to: a) utilities, b) society charges, c) property maintenance contribution, d) insurance.</li>
+                <li><strong>Medical & Injury Liability:</strong> The licensor is not liable for any injury, illness, or accident sustained by occupant within the premises. Occupant assumes full risk.</li>
+                <li><strong>Privacy & Surveillance:</strong> Installation of CCTV or recording devices in common areas is permitted. Occupant has no privacy rights in common areas.</li>
+                <li><strong>Communication Clause:</strong> The licensor may communicate notices via email, SMS, or post. Occupant acknowledges these are valid methods of notice.</li>
+                <li><strong>Force Majeure:</strong> Neither party is liable for non-performance due to natural disasters, government action, or circumstances beyond reasonable control.</li>
+                <li><strong>Right to Repossession:</strong> Upon termination, the licensor may repossess the premises and remove occupant's belongings if not vacated timely. Removal costs are occupant's liability.</li>
+                <li><strong>Escalation of Fees:</strong> The licensor may increase license fee on annual renewal by up to 10% with 60 days written notice.</li>
+                <li><strong>Legal Costs Recovery:</strong> In case of dispute, the losing party shall bear all legal costs, advocate fees, and court expenses incurred by the winning party.</li>
+                <li><strong>Records & Documentation:</strong> The occupant shall maintain records of payment and produce them upon demand. Failure to produce records is treated as non-payment.</li>
             </ul>
         </div>
     </div>
@@ -552,15 +744,62 @@
                 stampdutypercent: 0.25,
                 jurisdiction: 'Mumbai Suburban/Urban District Courts'
             },
-            goa: {
+                        goa: {
                 name: 'Goa',
                 act: 'Goa Residential Premises LL Act 2024',
                 section: 'General provisions',
                 registrationmandatory: true,
                 stampdutypercent: 0.5,
                 jurisdiction: 'Goa District Courts'
+            },
+            odisha: {
+                name: 'Odisha',
+                act: 'Indian Easements Act 1882',
+                section: 'Section 52',
+                registrationmandatory: false,
+                stampdutypercent: 0.75,
+                jurisdiction: 'Odisha District Courts'
+            },
+            gujarat: {
+                name: 'Gujarat',
+                act: 'Gujarat Rent Control Act',
+                section: 'General provisions',
+                registrationmandatory: true,
+                stampdutypercent: 0.5,
+                jurisdiction: 'Gujarat District Courts'
+            },
+            delhi: {
+                name: 'Delhi',
+                act: 'Delhi Rent Control Act 1958 EXEMPT',
+                section: 'General contract law',
+                registrationmandatory: false,
+                stampdutypercent: 2,
+                jurisdiction: 'Delhi District Courts'
+            },
+            karnataka: {
+                name: 'Karnataka',
+                act: 'Indian Easements Act 1882',
+                section: 'Section 52',
+                registrationmandatory: false,
+                stampdutypercent: 1,
+                jurisdiction: 'Karnataka District Courts'
+            },
+            tamilnadu: {
+                name: 'Tamil Nadu',
+                act: 'Indian Easements Act 1882',
+                section: 'Section 52',
+                registrationmandatory: true,
+                stampdutypercent: 1,
+                jurisdiction: 'Tamil Nadu District Courts'
+            },
+            westbengal: {
+                name: 'West Bengal',
+                act: 'Indian Easements Act 1882',
+                section: 'Section 52',
+                registrationmandatory: true,
+                stampdutypercent: 2,
+                jurisdiction: 'West Bengal District Courts'
             }
-            // Additional states...
         };
 
         // STATE SELECTION
@@ -572,7 +811,8 @@
                 
                 // Show legality info
                 document.querySelectorAll('.legality-content').forEach(el => el.classList.remove('active'));
-                document.getElementById(currentState + '-legality')?.classList.add('active');
+                const legalityEl = document.getElementById(currentState + '-legality');
+                if (legalityEl) legalityEl.classList.add('active');
             });
         });
 
@@ -648,26 +888,103 @@
             renderOccupants();
         }
 
-        // VALIDATION & PREVIEW (simplified - full validation in original)
+        // VALIDATION & PREVIEW
         function validateAndPreview() {
-            // Comprehensive validation checks...
-            if (!document.getElementById('ownername').value) {
+            // Comprehensive validation
+            if (!document.getElementById('ownername').value.trim()) {
                 showError('Owner/Licensor name is required');
                 return;
             }
-            // ... additional validations
+            if (!document.getElementById('owneraddress').value.trim()) {
+                showError('Licensor permanent address is required');
+                return;
+            }
+            if (!document.getElementById('ownerpan').value.trim()) {
+                showError('PAN number is required for verification');
+                return;
+            }
+            if (!document.getElementById('propflat').value.trim()) {
+                showError('Premises unit/flat number is required');
+                return;
+            }
+            if (!document.getElementById('propaddress').value.trim()) {
+                showError('Complete premises address is required');
+                return;
+            }
+            if (document.getElementById('propownershipdoc').value === '-- Select proof of ownership --') {
+                showError('Ownership proof type is required');
+                return;
+            }
+            if (!document.getElementById('termsdate').value) {
+                showError('Agreement execution date is required');
+                return;
+            }
+            if (!document.getElementById('termsstart').value) {
+                showError('License commencement date is required');
+                return;
+            }
+            if (!document.getElementById('termsduration').value) {
+                showError('License duration in months is required');
+                return;
+            }
+            if (!document.getElementById('termsfee').value) {
+                showError('Monthly license fee amount is required');
+                return;
+            }
+            if (!document.getElementById('termsdeposit').value) {
+                showError('Security deposit amount is required');
+                return;
+            }
+            if (occupants.length === 0) {
+                showError('At least one occupant must be declared');
+                return;
+            }
 
-            // Collect occupant data
-            const occupantsList = occupants.map(occ => ({
-                name: document.getElementById(occ.id + 'name').value,
-                age: document.getElementById(occ.id + 'age').value,
-                idtype: document.getElementById(occ.id + 'idtype').value,
-                idno: document.getElementById(occ.id + 'idno').value,
-                relation: document.getElementById(occ.id + 'relation').value
-            })).filter(o => o.name && o.age && o.idtype && o.idno);
+            // Collect occupant data with strict validation
+            const occupantsList = occupants.map(occ => {
+                const name = document.getElementById(occ.id + 'name').value.trim();
+                const age = document.getElementById(occ.id + 'age').value;
+                const idtype = document.getElementById(occ.id + 'idtype').value;
+                const idno = document.getElementById(occ.id + 'idno').value.trim();
+                const relation = document.getElementById(occ.id + 'relation').value.trim();
+                return { name, age, idtype, idno, relation };
+            }).filter(o => o.name && o.age && o.idtype && o.idno);
+
+            if (occupantsList.length === 0) {
+                showError('All occupant fields (Name, Age, ID Type, ID Number) must be completed');
+                return;
+            }
+
+            // Validate age
+            occupantsList.forEach((occ, idx) => {
+                if (parseInt(occ.age) < 18) {
+                    showError(`Occupant ${idx + 1} Age must be 18 or above`);
+                    return;
+                }
+            });
 
             const data = {
-                // Collect all form data...
+                ownername: document.getElementById('ownername').value,
+                ownerfather: document.getElementById('ownerfather').value,
+                owneraddress: document.getElementById('owneraddress').value,
+                ownerpan: document.getElementById('ownerpan').value,
+                owneraadhaar: document.getElementById('owneraadhaar').value,
+                ownercontact: document.getElementById('ownercontact').value,
+                propbuilding: document.getElementById('propbuilding').value,
+                propflat: document.getElementById('propflat').value,
+                propaddress: document.getElementById('propaddress').value,
+                proparea: document.getElementById('proparea').value,
+                propfurnishing: document.getElementById('propfurnishing').value,
+                propownership: document.getElementById('propownershipdoc').value,
+                termsdate: document.getElementById('termsdate').value,
+                termsstart: document.getElementById('termsstart').value,
+                termsduration: document.getElementById('termsduration').value,
+                termsfee: document.getElementById('termsfee').value,
+                termsdeposit: document.getElementById('termsdeposit').value,
+                termsduedate: document.getElementById('termsduedate').value,
+                rulespets: document.getElementById('rulespets').value,
+                rulesparking: document.getElementById('rulesparking').value,
+                rulesadditional: document.getElementById('rulesadditional').value,
                 occupants: occupantsList,
                 state: currentState,
                 stateInfo: stateInfo[currentState]
@@ -683,6 +1000,85 @@
             document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth' });
         }
 
+        function generateAgreementDocument(data) {
+            const stateData = data.stateInfo;
+            const today = new Date().toLocaleDateString('en-IN');
+            const endDate = new Date(data.termsstart);
+            endDate.setMonth(endDate.getMonth() + parseInt(data.termsduration));
+            const totalConsideration = parseInt(data.termsfee) * parseInt(data.termsduration) + parseInt(data.termsdeposit);
+            const stampDuty = Math.ceil(totalConsideration * stateData.stampdutypercent / 100);
+            
+            const occupantsList = data.occupants.map((o, i) => 
+                `${i + 1}. ${o.name}, Age: ${o.age} years, ${o.idtype}: ${o.idno}${o.relation ? ', Relationship: ' + o.relation : ''}`
+            ).join('<br>');
+
+            return `
+                <div class="print-header">
+                    <h1>LEAVE & LICENSE AGREEMENT</h1>
+                    <p><strong>Residential Premises - Strict Residential Use Only</strong></p>
+                    <p>${stateData.name} - ${stateData.act}</p>
+                    <p>Executed at ${data.propaddress} on ${data.termsdate}</p>
+                </div>
+                
+                <div class="critical-box">
+                    <strong>CRITICAL LEGAL NOTICE:</strong> This agreement creates a License of premises under Section 52 of the Indian Easements Act 1882 and applicable state laws. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act or Tenancy legislation. The licensor (owner) retains full legal possession and ownership. Termination may be effected immediately for any material breach including non-payment, commercial misuse, criminal activity, or nuisance. The occupant shall vacate within 24 hours of receiving termination notice.
+                </div>
+
+                <h2>PARTIES</h2>
+                <p><strong>LICENSOR (OWNER):</strong><br>
+                ${data.ownername}, S/o ${data.ownerfather || 'N/A'}<br>
+                Address: ${data.owneraddress}<br>
+                PAN: ${data.ownerpan}<br>
+                Aadhaar: ${data.owneraadhaar || 'N/A'}<br>
+                Contact: ${data.ownercontact || 'N/A'}</p>
+
+                <p><strong>LICENSED PREMISES:</strong><br>
+                ${data.propflat}, ${data.propbuilding || 'N/A'}<br>
+                ${data.propaddress}<br>
+                Area: ${data.proparea || 'N/A'} sq ft | Status: ${data.propfurnishing}</p>
+
+                <h2>AUTHORIZED OCCUPANTS (FIXED - CANNOT BE CHANGED)</h2>
+                <div class="protected-section">
+                    <strong>Occupants Authorized to Reside:</strong><br>
+                    <strong>The following identified persons are authorized to occupy the premises:</strong><br>
+                    ${occupantsList}<br><br>
+                    <strong>Important:</strong> The above-listed occupants and ONLY such identified persons are permitted to reside in the premises. Any additional occupant, whether family member, guest, or otherwise, not listed herein, is not permitted to occupy or reside. Occupancy by any unauthorized person constitutes material breach of this agreement, and the licensor may terminate the license immediately without notice and proceed with recovery of premises.
+                </div>
+
+                <h2>TERMS OF LICENSE</h2>
+                <table class="print-table">
+                    <tr><th>License Commencement Date</th><td>${data.termsstart}</td></tr>
+                    <tr><th>License Expiry Date</th><td>${endDate.toISOString().split('T')[0]}</td></tr>
+                    <tr><th>License Duration</th><td>${data.termsduration} months</td></tr>
+                    <tr><th>Monthly License Fee</th><td>₹${parseInt(data.termsfee).toLocaleString('en-IN')}</td></tr>
+                    <tr><th>Total License Fees for term</th><td>₹${(parseInt(data.termsfee) * parseInt(data.termsduration)).toLocaleString('en-IN')}</td></tr>
+                    <tr><th>Security Deposit (refundable)</th><td>₹${parseInt(data.termsdeposit).toLocaleString('en-IN')} (forfeitable for breach/damage)</td></tr>
+                    <tr><th>Payment Due Date (Each Month)</th><td>${data.termsduedate}</td></tr>
+                    <tr><th>Late Payment Penalty</th><td>2% per month on overdue amount + 18% annual interest</td></tr>
+                    <tr><th>Total Consideration</th><td>₹${totalConsideration.toLocaleString('en-IN')}</td></tr>
+                    <tr><th>Stamp Duty Payable</th><td>₹${stampDuty.toLocaleString('en-IN')} (${stateData.stampdutypercent}% of total)</td></tr>
+                </table>
+
+                <h2>SIGNATURES</h2>
+                <div class="signature-section">
+                    <table class="signature-table">
+                        <tr>
+                            <td class="signature-cell">
+                                <div>Licensor (Owner)</div>
+                                <div class="signature-line"></div>
+                                <div>Date: __________</div>
+                            </td>
+                            <td class="signature-cell">
+                                <div>Licensee (Occupant - Primary)</div>
+                                <div class="signature-line"></div>
+                                <div>Date: __________</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+        }
+
         // Utility functions
         function showError(msg) {
             const errorEl = document.getElementById('error-msg');
@@ -691,19 +1087,38 @@
             setTimeout(() => errorEl.classList.remove('show'), 5000);
         }
 
+        function showSuccess(msg) {
+            const successEl = document.getElementById('success-msg');
+            successEl.textContent = msg;
+            successEl.classList.add('show');
+            setTimeout(() => successEl.classList.remove('show'), 3000);
+        }
+
         function resetAllForms() {
             document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
             occupants = [];
             renderOccupants();
             document.getElementById('preview-section').classList.remove('active');
+            document.getElementById('error-msg').classList.remove('show');
+            document.getElementById('success-msg').classList.remove('show');
+            showSuccess('All forms reset successfully');
         }
 
-        // Print and download functions (implement as needed)
-        function printPDF() { window.print(); }
-        function downloadPDF() { /* Implement PDF download */ }
+        function printPDF() {
+            window.print();
+        }
+
+        function downloadPDF() {
+            showError('PDF Download feature requires license verification (₹299)');
+        }
+
         function closePreview() {
             document.getElementById('preview-section').classList.remove('active');
         }
+
+        // Initialize
+        renderOccupants();
     </script>
 </body>
 </html>
+
