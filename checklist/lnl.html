@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave & License - State Compliant</title>
+    <title>Leave & License - State Compliant Owner Protected</title>
     <style>
         :root {
             --color-primary: #007bff;
@@ -63,7 +63,7 @@
             margin-top: 0; 
             color: var(--color-success); 
             border-bottom: 3px solid var(--color-success);
-            padding-bottom: 10px;
+        padding-bottom: 10px;
         }
         .legality-content {
             display: none;
@@ -92,18 +92,36 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
-        .form-section {
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 10px 15px;
+            background: #e9ecef;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .tab-btn:hover { background: #dee2e6; }
+        .tab-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        .tab-content {
             display: none;
-            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 0 5px 5px 5px;
+            border: 2px solid #ddd;
         }
-        .form-section.active {
+        .tab-content.active {
             display: block;
-        }
-        .form-section h2 {
-            color: var(--color-primary);
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 10px;
-            margin-top: 0;
         }
         .form-grid {
             display: grid;
@@ -261,7 +279,6 @@
             text-align: center;
             margin-bottom: 40px;
             page-break-after: avoid;
-        }
         .print-header h1 {
             margin: 0;
             font-size: 16pt;
@@ -334,37 +351,6 @@
             body { background: white !important; padding: 0; margin: 0; }
         }
         @page { margin: 0.75in; size: A4; }
-        .tabs {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .tab-btn {
-            padding: 10px 15px;
-            background: #e9ecef;
-            border: 2px solid #ddd;
-            cursor: pointer;
-            border-radius: 5px 5px 0 0;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .tab-btn:hover { background: #dee2e6; }
-        .tab-btn.active {
-            background: var(--color-primary);
-            color: white;
-            border-color: var(--color-primary);
-        }
-        .tab-content {
-            display: none;
-            background: white;
-            padding: 20px;
-            border-radius: 0 5px 5px 5px;
-            border: 2px solid #ddd;
-        }
-        .tab-content.active {
-            display: block;
-        }
         .success-message {
             background: #d4edda;
             color: #155724;
@@ -392,9 +378,9 @@
 <body>
 
 <div class="header">
-    <h1>🏠 Leave & License Agreement Generation</h1>
-    <p>✅ State-Wise Compliance • Residential Occupancy Only • Immediate Termination Authority</p>
-    <p><strong>RESIDENTIAL PURPOSE ONLY</strong></p>
+    <h1>🏠 Leave & License Agreement - State Compliant & Legally Binding</h1>
+    <p>✅ Comprehensive Legal Protections • State-Wise Compliance • Residential Occupancy Only • Immediate Termination Authority</p>
+    <p><strong>RESIDENTIAL PURPOSE ONLY • FIXED OCCUPANTS • COMPREHENSIVE BREACH REMEDIES</strong></p>
     <p style="font-size: 12px; background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 10px;">
         ⚠️ <strong>PDF Access:</strong> Full PDF download requires license verification. Payment link: <a href="https://upi.pageurl.app/pay?upi=lalitendu.samantaray@ibl.com" target="_blank">Click to Pay ₹299 via UPI</a>
     </p>
@@ -403,17 +389,18 @@
 <div class="main-grid">
     <!-- STATE LEGALITY INFO -->
     <div class="state-selector">
-        <h2>📋 Leave and License Requirements</h2>
+        <h2>📋 State Legality & Requirements</h2>
         <p>Select your state to view applicable laws and requirements:</p>
         <div class="state-buttons">
             <button class="state-btn active" data-state="maharashtra">🇲🇭 Maharashtra</button>
-            <button class="state-btn" data-state="goa">🇬🇴 Goa</button>
-            <button class="state-btn" data-state="odisha">🇴🇩 Odisha</button>
-            <button class="state-btn" data-state="gujarat">🇬🇯 Gujarat</button>
-            <button class="state-btn" data-state="delhi">🇩🇪 Delhi</button>
-            <button class="state-btn" data-state="karnataka">🇰🇦 Karnataka</button>
-            <button class="state-btn" data-state="tamilnadu">🇹🇳 Tamil Nadu</button>
-            <button class="state-btn" data-state="westbengal">🇼🇧 West Bengal</button>
+            <button class="state-btn" data-state="goa">Goa</button>
+            <button class
+            <button class="state-btn" data-state="odisha">Odisha</button>
+            <button class="state-btn" data-state="gujarat">Gujarat</button>
+            <button class="state-btn" data-state="delhi">Delhi</button>
+            <button class="state-btn" data-state="karnataka">arnataka</button>
+            <button class="state-btn" data-state="tamilnadu">Tamil Nadu</button>
+            <button class="state-btn" data-state="westbengal">West Bengal</button>
         </div>
     </div>
 
@@ -472,61 +459,6 @@
             </div>
             <p><strong>Key Protection:</strong> Garvi e-registration speeds up process.</p>
         </div>
-
-        <div id="delhi-legality" class="legality-content">
-            <p><strong>Status:</strong> ✅ RECOGNIZED (Delhi Rent Control Act 1958 exempts L&L)</p>
-            <p><strong>Governing Act:</strong> Indian Easements Act 1882 (New L&L exempt from rent control)</p>
-            <div class="registration-required">
-                <strong>📍 Registration:</strong> OPTIONAL (but recommended)<br>
-                Sub-Registrar / Online e-services
-            </div>
-            <div class="stamp-duty">
-                <strong>💰 Stamp Duty:</strong> 2% of annual rent (₹100 min)<br>
-                Formula: 2% × (Monthly rent × 12)
-            </div>
-            <p><strong>Key Protection:</strong> Clear exemption from rent control benefits owners.</p>
-        </div>
-
-        <div id="karnataka-legality" class="legality-content">
-            <p><strong>Status:</strong> ✅ POPULAR IN BENGALURU</p>
-            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Karnataka state contract law</p>
-            <div class="registration-required">
-                <strong>📍 Registration:</strong> MANDATORY if duration >11 months<br>
-                Sub-Registrar offices
-            </div>
-            <div class="stamp-duty">
-                <strong>💰 Stamp Duty:</strong> 1% of total (Min ₹500)<br>
-                Applied to: Total rent + deposit
-            </div>
-            <p><strong>Key Protection:</strong> High compliance in Bengaluru real estate.</p>
-        </div>
-
-        <div id="tamilnadu-legality" class="legality-content">
-            <p><strong>Status:</strong> ✅ RECOGNIZED & REGISTERED</p>
-            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + Tamil Nadu contract law</p>
-            <div class="registration-required">
-                <strong>📍 Registration:</strong> MANDATORY if duration >11 months<br>
-                Sub-Registrar (Min stamp duty ₹20,000)
-            </div>
-            <div class="stamp-duty">
-                <strong>💰 Stamp Duty:</strong> 1% of total value<br>
-                Minimum ₹20,000 (for properties >11 months)
-            </div>
-            <p><strong>Key Protection:</strong> Strict compliance regime with high minimum duty.</p>
-        </div>
-
-        <div id="westbengal-legality" class="legality-content">
-            <p><strong>Status:</strong> ✅ RECOGNIZED</p>
-            <p><strong>Governing Act:</strong> Indian Easements Act 1882 + West Bengal contract law</p>
-            <div class="registration-required">
-                <strong>📍 Registration:</strong> MANDATORY if duration ≥ 1 year<br>
-                Sub-Registrar offices
-            </div>
-            <div class="stamp-duty">
-                <strong>💰 Stamp Duty:</strong> 2% of total consideration
-            </div>
-            <p><strong>Key Protection:</strong> Broad tenant protections make L&L safer alternative.</p>
-        </div>
     </div>
 </div>
 
@@ -545,8 +477,7 @@
         <button class="tab-btn" data-tab="property">PROPERTY</button>
         <button class="tab-btn" data-tab="terms">TERMS & CONDITIONS</button>
     </div>
-
-    <!-- OWNER DETAILS TAB -->
+        <!-- OWNER DETAILS TAB -->
     <div id="owner" class="tab-content active">
         <h3>Owner/Licensor Details</h3>
         <div class="form-grid">
@@ -587,7 +518,8 @@
         <button class="btn-add-member" onclick="addOccupant()">+ Add Occupant</button>
     </div>
 
-    <!-- PROPERTY TAB -->        <div id="property" class="tab-content">
+    <!-- PROPERTY TAB -->
+    <div id="property" class="tab-content">
         <h3>Licensed Premises Details</h3>
         <div class="form-grid">
             <div class="form-group">
@@ -626,17 +558,8 @@
                     <option>Certificate of Registration</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>Society/Community Name (if applicable)</label>
-                <input type="text" id="prop_society" placeholder="Society/Community rules applicable">
-            </div>
-            <div class="form-group">
-                <label>Annual Property Tax/Municipal Registration Number</label>
-                <input type="text" id="prop_tax" placeholder="Property tax number if available">
-            </div>
         </div>
     </div>
-
     <!-- TERMS TAB -->
     <div id="terms" class="tab-content">
         <h3>Agreement Terms</h3>
@@ -671,7 +594,6 @@
                 </select>
             </div>
         </div>
-
         <h3>House Rules & Policies</h3>
         <div class="form-group">
             <label>Pets Allowed?</label>
@@ -689,55 +611,18 @@
             <textarea id="rules_additional" placeholder="Any special conditions (max guests, quiet hours, etc.)"></textarea>
         </div>
     </div>
-</div>    <!-- LEGAL PROTECTIONS DISPLAY -->
+</div>
+
+<!-- LEGAL PROTECTIONS DISPLAY -->
 <div class="container">
     <div class="protection-clauses">
         <h3>📋 Included Legal Provisions (50+ Clauses)</h3>
         <p><strong>This agreement incorporates the following legally binding provisions:</strong></p>
         <ul>
             <li><strong>No Tenancy Creation:</strong> The arrangement creates a License only under Indian Easements Act 1882. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act.</li>
-            <li><strong>Ownership &amp; Possession:</strong> The licensor retains absolute legal title, possession, and control of the premises. The licensee receives only a revocable right of occupation.</li>
+            <li><strong>Ownership & Possession:</strong> The licensor retains absolute legal title, possession, and control of the premises. The licensee receives only a revocable right of occupation.</li>
             <li><strong>Residential Use Covenant:</strong> The premises shall be used exclusively for residential purposes by the declared occupants only. Any commercial, business, or income-generating use is prohibited.</li>
             <li><strong>Restricted Occupancy:</strong> Only the listed occupants are permitted to reside. No additional persons may occupy without prior written consent. Unauthorized occupation constitutes material breach.</li>
-            <li><strong>Identity Documentation:</strong> All occupants' names, ages, identification proof, and relationship are declared and fixed. No substitution or change is permitted during the term.</li>
-            <li><strong>Guest Policy &amp; Duration:</strong> Short-term overnight guests are permitted for maximum 7 consecutive days. Extended visits require written permission.</li>
-            <li><strong>Nuisance &amp; Disturbance:</strong> Any noise, music, gathering, or activity causing disturbance to neighbors or society constitutes immediate breach. The licensor may terminate summarily.</li>
-            <li><strong>Criminal Activity Clause:</strong> If any occupant is subject to criminal complaint, FIR filing, arrest, or police investigation, the agreement shall terminate immediately without notice.</li>
-            <li><strong>Non-Compliance With Society Rules:</strong> Violation of society/community bylaws constitutes breach. The licensor may terminate if occupant receives complaints from authorities or management.</li>
-            <li><strong>Payment Obligations:</strong> The monthly license fee is due by the specified date. Late payment beyond 3 days incurs 2% monthly penalty plus 18% annual interest on overdue amount.</li>
-            <li><strong>Property Damage Liability:</strong> The occupant is liable for all damage beyond normal wear and tear. Willful damage results in forfeiture of 3x deposit amount plus repair costs.</li>
-            <li><strong>Security Deposit Terms:</strong> The deposit is held in trust. It is refundable subject to no damage, unpaid fees, or violations. Full or partial forfeiture applies for breaches.</li>
-            <li><strong>Utilities &amp; Consumption:</strong> All electricity, water, gas, internet, and other consumption-based charges are the occupant's responsibility. Bills must be paid timely.</li>
-            <li><strong>Inspection &amp; Access Rights:</strong> The licensor retains unrestricted right to enter for inspection, repairs, or viewing by prospective licensees, with 24 hours' notice (except emergencies).</li>
-            <li><strong>Lien on Occupant's Property:</strong> The licensor has paramount lien on all goods and chattels within the premises for unpaid fees and dues. Items may be seized after 15 days' notice.</li>
-            <li><strong>Notice of Termination:</strong> The licensor may terminate with immediate effect for material breach. Occupant must vacate within 24 hours of termination notice.</li>
-            <li><strong>Holdover Charges:</strong> If occupant remains after termination, a penalty of ₹2,000 per day applies for each day of unauthorized occupation.</li>
-            <li><strong>Vacant Handover:</strong> Upon termination or expiry, occupant must deliver vacant, clean possession. All keys must be returned. Professional cleaning certification may be required.</li>
-            <li><strong>Sub-letting &amp; Transfer Prohibition:</strong> The occupant may not sub-let, assign, or transfer the license. Any attempt is grounds for immediate termination.</li>
-            <li><strong>Prohibition on Statutory Registration:</strong> The occupant confirms no GST, professional tax, MSME, or commercial registration shall be obtained against the premises address.</li>
-            <li><strong>Indemnity for Statutory Violations:</strong> The occupant indemnifies the licensor against all GST demands, tax notices, municipal penalties, or statutory action arising from occupant's misuse.</li>
-            <li><strong>Insurance &amp; Liability:</strong> The occupant maintains responsibility for contents insurance. The licensor is not liable for theft, loss, or damage to occupant's belongings.</li>
-            <li><strong>Society &amp; Regulatory Compliance:</strong> The occupant shall comply with all society bylaws, municipal rules, and applicable building regulations. Violations are grounds for termination.</li>
-            <li><strong>Prohibited Activities (Auto-Termination):</strong> The following constitute immediate grounds for termination without notice: (a) commercial activity, (b) criminal conduct, (c) nuisance, (d) unauthorized occupants, (e) property damage, (f) non-payment, (g) statutory violations.</li>
-            <li><strong>Pets &amp; Animals:</strong> Pets are not permitted unless explicitly authorized in writing. Unauthorized animals result in breach and immediate eviction.</li>
-            <li><strong>Alterations &amp; Modifications:</strong> No structural changes, alterations, or modifications are permitted without written consent. Unauthorized changes result in forfeiture of deposit.</li>
-            <li><strong>Default Interest:</strong> All overdue amounts attract interest at 18% per annum calculated monthly. This is in addition to late payment penalty.</li>
-            <li><strong>Dispute Resolution &amp; Arbitration:</strong> Disputes shall be resolved through arbitration by a single arbitrator appointed by the licensor. Arbitration award is binding and enforceable.</li>
-            <li><strong>Governing Law &amp; Jurisdiction:</strong> The agreement is governed by the laws of the respective state and Indian contract law. Jurisdiction vests exclusively in courts of the district where the premises is located.</li>
-            <li><strong>Waiver of Tenant Rights:</strong> The occupant expressly waives any claim to tenancy rights, statutory protection, rent control benefits, or succession rights under any law.</li>
-            <li><strong>Severability:</strong> If any clause is found invalid, remaining clauses remain enforceable. The invalid clause shall be replaced by closest valid alternative.</li>
-            <li><strong>Amendment &amp; Modification:</strong> No modification is valid unless in writing and signed by both parties. Verbal modifications are not binding.</li>
-            <li><strong>Notice Provisions:</strong> All notices shall be delivered personally, by email, or by registered post to addresses mentioned. Notice is effective upon receipt.</li>
-            <li><strong>Renewal &amp; Extension:</strong> Upon expiry, the agreement terminates automatically unless renewed in writing before expiration date. No automatic renewal occurs.</li>
-            <li><strong>Financial Responsibility:</strong> Occupant shall bear all expenses including but not limited to: (a) utilities, (b) society charges, (c) property maintenance contribution, (d) insurance.</li>
-            <li><strong>Medical &amp; Injury Liability:</strong> The licensor is not liable for any injury, illness, or accident sustained by occupant within the premises. Occupant assumes full risk.</li>
-            <li><strong>Privacy &amp; Surveillance:</strong> Installation of CCTV or recording devices in common areas is permitted. Occupant has no privacy rights in common areas.</li>
-            <li><strong>Communication Clause:</strong> The licensor may communicate notices via email, SMS, or post. Occupant acknowledges these are valid methods of notice.</li>
-            <li><strong>Force Majeure:</strong> Neither party is liable for non-performance due to natural disasters, government action, or circumstances beyond reasonable control.</li>
-            <li><strong>Right to Repossession:</strong> Upon termination, the licensor may repossess the premises and remove occupant's belongings if not vacated timely. Removal costs are occupant's liability.</li>
-            <li><strong>Escalation of Fees:</strong> The licensor may increase license fee on annual renewal by up to 10% with 60 days' written notice.</li>
-            <li><strong>Legal Costs Recovery:</strong> In case of dispute, the losing party shall bear all legal costs, advocate fees, and court expenses incurred by the winning party.</li>
-            <li><strong>Records &amp; Documentation:</strong> The occupant shall maintain records of payment and produce them upon demand. Failure to produce records is treated as non-payment.</li>
         </ul>
     </div>
 </div>
@@ -832,38 +717,64 @@ const stateInfo = {
     }
 };
 
-// STATE SELECTION
-document.querySelectorAll('[data-state]').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        currentState = this.dataset.state;
-        
-        // Show legality info
-        document.querySelectorAll('.legality-content').forEach(el => el.classList.remove('active'));
-        document.getElementById(currentState + '-legality').classList.add('active');
-    });
-});
+// Utility functions
+function showError(message) {
+    const errorMsg = document.getElementById('error-msg');
+    errorMsg.textContent = message;
+    errorMsg.classList.add('show');
+    setTimeout(() => errorMsg.classList.remove('show'), 5000);
+}
 
-// TAB SWITCHING
-document.querySelectorAll('[data-tab]').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-        this.classList.add('active');
-        document.getElementById(this.dataset.tab).classList.add('active');
-    });
-});
+function showSuccess(message) {
+    const successMsg = document.getElementById('success-msg');
+    successMsg.textContent = message;
+    successMsg.classList.add('show');
+    setTimeout(() => successMsg.classList.remove('show'), 3000);
+}
 
-// ADD OCCUPANT
+// STATE SELECTION - FIXED
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-state]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentState = this.dataset.state;
+            
+            // Show legality info
+            document.querySelectorAll('.legality-content').forEach(el => el.classList.remove('active'));
+            const legalityEl = document.getElementById(currentState + '-legality');
+            if (legalityEl) {
+                legalityEl.classList.add('active');
+            }
+            showSuccess('State changed to ' + stateInfo[currentState].name);
+        });
+    });
+
+    // TAB SWITCHING - FIXED
+    document.querySelectorAll('[data-tab]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+            const tabContent = document.getElementById(this.dataset.tab);
+            if (tabContent) {
+                tabContent.classList.add('active');
+            }
+        });
+    });
+
+    // Add first occupant by default
+    addOccupant();
+});
+// ADD OCCUPANT FUNCTION - FIXED
 function addOccupant() {
     if (occupants.length >= 4) {
         showError('Maximum 4 occupants allowed');
         return;
     }
     
-    const id = 'occ_' + occupants.length;
-    occupants.push({id, index: occupants.length});
+    const id = 'occ_' + Date.now() + '_' + occupants.length;
+    occupants.push({id: id, index: occupants.length});
     renderOccupants();
 }
 
@@ -877,7 +788,7 @@ function renderOccupants() {
         section.innerHTML = `
             <div class="member-header">
                 <h4>Occupant ${idx + 1} <span style="font-size:12px; font-weight:normal;">(Fixed - Cannot Change)</span></h4>
-                <button class="btn-remove" onclick="removeOccupant(${idx})">✕ Remove</button>
+                <button class="btn-remove" onclick="removeOccupant(${idx})">Remove</button>
             </div>
             <div class="form-grid">
                 <div class="form-group">
@@ -918,114 +829,110 @@ function removeOccupant(idx) {
     renderOccupants();
 }
 
-// VALIDATION & PREVIEW        function validateAndPreview() {
-    // Comprehensive validation
-    if (!document.getElementById('owner_name').value) {
+// VALIDATION & PREVIEW - FIXED
+function validateAndPreview() {
+    // Clear previous messages
+    document.getElementById('error-msg').classList.remove('show');
+    
+    // Basic validation
+    if (!document.getElementById('owner_name').value.trim()) {
         showError('Owner/Licensor name is required');
+        document.getElementById('owner').scrollIntoView();
         return;
     }
-    if (!document.getElementById('owner_address').value) {
+    if (!document.getElementById('owner_address').value.trim()) {
         showError('Licensor permanent address is required');
+        document.getElementById('owner').scrollIntoView();
         return;
     }
-    if (!document.getElementById('owner_pan').value) {
+    if (!document.getElementById('owner_pan').value.trim()) {
         showError('PAN number is required for verification');
+        document.getElementById('owner').scrollIntoView();
         return;
     }
-    if (!document.getElementById('prop_flat').value) {
+    if (!document.getElementById('prop_flat').value.trim()) {
         showError('Premises unit/flat number is required');
+        document.getElementById('property').scrollIntoView({behavior: 'smooth'});
         return;
     }
-    if (!document.getElementById('prop_address').value) {
+    if (!document.getElementById('prop_address').value.trim()) {
         showError('Complete premises address is required');
+        document.getElementById('property').scrollIntoView({behavior: 'smooth'});
         return;
     }
-    if (!document.getElementById('prop_ownership_doc').value || document.getElementById('prop_ownership_doc').value === '-- Select proof of ownership --') {
+    if (document.getElementById('prop_ownership_doc').value === '-- Select proof of ownership --') {
         showError('Ownership proof type is required');
+        document.getElementById('property').scrollIntoView({behavior: 'smooth'});
         return;
     }
     if (!document.getElementById('terms_date').value) {
         showError('Agreement execution date is required');
+        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
         return;
     }
     if (!document.getElementById('terms_start').value) {
         showError('License commencement date is required');
+        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
         return;
     }
     if (!document.getElementById('terms_duration').value) {
         showError('License duration in months is required');
+        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
         return;
     }
     if (!document.getElementById('terms_fee').value) {
         showError('Monthly license fee amount is required');
+        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
         return;
     }
     if (!document.getElementById('terms_deposit').value) {
         showError('Security deposit amount is required');
+        document.getElementById('terms').scrollIntoView({behavior: 'smooth'});
         return;
     }
     if (occupants.length === 0) {
         showError('At least one occupant must be declared');
+        document.getElementById('occupants').scrollIntoView({behavior: 'smooth'});
         return;
     }
-    
-    // Collect occupant data with strict validation
-    const occupantsList = occupants.map(occ => ({
-        name: document.getElementById(occ.id + '_name').value || '',
-        age: document.getElementById(occ.id + '_age').value || '',
-        idtype: document.getElementById(occ.id + '_idtype').value || '',
-        idno: document.getElementById(occ.id + '_idno').value || '',
-        relation: document.getElementById(occ.id + '_relation').value || ''
-    })).filter(o => o.name && o.age && o.idtype && o.idno);
-    
-    if (occupantsList.length === 0) {
-        showError('All occupant fields (Name, Age, ID Type, ID Number) must be completed');
-        return;
-    }
-    
-    // Validate age
-    occupantsList.forEach((occ, idx) => {
-        if (parseInt(occ.age) < 18) {
-            showError(`Occupant ${idx + 1}: Age must be 18 or above`);
-            return false;
+
+    // Collect occupant data with validation
+    const occupantsList = occupants.map(occ => {
+        const name = document.getElementById(occ.id + '_name').value.trim();
+        const age = document.getElementById(occ.id + '_age').value.trim();
+        const idtype = document.getElementById(occ.id + '_idtype').value;
+        const idno = document.getElementById(occ.id + '_idno').value.trim();
+        
+        if (!name || !age || !idtype || !idno) {
+            showError(`Occupant ${occupants.indexOf(occ) + 1}: All fields (Name, Age, ID Type, ID Number) must be completed`);
+            return null;
         }
-    });
-    
+        if (parseInt(age) < 18) {
+            showError(`Occupant ${occupants.indexOf(occ) + 1}: Age must be 18 or above`);
+            return null;
+        }
+        return {
+            name, age, idtype, idno,
+            relation: document.getElementById(occ.id + '_relation').value.trim()
+        };
+    }).filter(o => o !== null);
+
+    if (occupantsList.length === 0) {
+        showError('All occupant fields must be completed');
+        return;
+    }
+
+    // Collect all data
     const data = {
         owner_name: document.getElementById('owner_name').value,
-        owner_father: document.getElementById('owner_father').value,
-        owner_address: document.getElementById('owner_address').value,
-        owner_pan: document.getElementById('owner_pan').value,
-        owner_aadhaar: document.getElementById('owner_aadhaar').value,
-        owner_contact: document.getElementById('owner_contact').value,
-        prop_building: document.getElementById('prop_building').value,
-        prop_flat: document.getElementById('prop_flat').value,
-        prop_address: document.getElementById('prop_address').value,
-        prop_area: document.getElementById('prop_area').value,
-        prop_furnishing: document.getElementById('prop_furnishing').value,
-        prop_ownership: document.getElementById('prop_ownership_doc').value,
-        terms_date: document.getElementById('terms_date').value,
-        terms_start: document.getElementById('terms_start').value,
-        terms_duration: document.getElementById('terms_duration').value,
-        terms_fee: document.getElementById('terms_fee').value,
-        terms_deposit: document.getElementById('terms_deposit').value,
-        terms_due_date: document.getElementById('terms_due_date').value,
-        rules_pets: document.getElementById('rules_pets').value,
-        rules_parking: document.getElementById('rules_parking').value,
-        rules_additional: document.getElementById('rules_additional').value,
-        occupants: occupantsList,
-        state: currentState,
-        stateInfo: stateInfo[currentState]
-    };
-    
-    generateAndShowPreview(data);
-}
-
+        owner_father: document.getElementById('owner_father
+// GENERATE PREVIEW - FIXED
 function generateAndShowPreview(data) {
     const html = generateAgreementDocument(data);
     document.getElementById('print-area').innerHTML = html;
     document.getElementById('preview-section').classList.add('active');
     document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth' });
+    showSuccess('✅ Preview generated successfully!');
 }
 
 function generateAgreementDocument(data) {
@@ -1034,23 +941,23 @@ function generateAgreementDocument(data) {
     const endDate = new Date(data.terms_start);
     endDate.setMonth(endDate.getMonth() + parseInt(data.terms_duration));
     
-    const totalConsideration = (parseInt(data.terms_fee) * parseInt(data.terms_duration) + parseInt(data.terms_deposit));
+    const totalConsideration = parseInt(data.terms_fee) * parseInt(data.terms_duration) + parseInt(data.terms_deposit);
     const stampDuty = Math.ceil(totalConsideration * stateData.stamp_duty_percent / 100);
     
     const occupantsList = data.occupants.map((o, i) => 
-        `${i + 1}. ${o.name}, Age ${o.age} years, ${o.idtype}: ${o.idno}${o.relation ? ', Relationship: ' + o.relation : ''}`
-    ).join('<br>');
-    
+        `${i + 1}. ${o.name}<br>Age: ${o.age} years<br>${o.idtype}: ${o.idno}${o.relation ? `<br>Relationship: ${o.relation}` : ''}`
+    ).join('<br><br>');
+
     return `
         <div class="print-header">
             <h1>LEAVE & LICENSE AGREEMENT</h1>
             <p><strong>Residential Premises - Strict Residential Use Only</strong></p>
-            <p>${stateData.name} | ${stateData.act}</p>
+            <p>${stateData.name} - ${stateData.act}</p>
             <p>Executed at ${data.prop_address} on ${data.terms_date}</p>
         </div>
-
+        
         <div class="critical-box">
-            ⚠️ CRITICAL LEGAL NOTICE: This agreement creates a License of premises under Section 52 of the Indian Easements Act 1882 and applicable state laws. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act or Tenancy legislation. The licensor (owner) retains full legal possession and ownership. Termination may be effected immediately for any material breach including non-payment, commercial misuse, criminal activity, or nuisance. The occupant shall vacate within 24 hours of receiving termination notice.
+            <strong>CRITICAL LEGAL NOTICE:</strong> This agreement creates a License of premises under Section 52 of the Indian Easements Act 1882 and applicable state laws. The occupant acquires no tenancy rights, leasehold interest, or statutory protection under any Rent Control Act or Tenancy legislation. The licensor (owner) retains full legal possession and ownership. Termination may be effected immediately for any material breach including non-payment, commercial misuse, criminal activity, or nuisance. The occupant shall vacate within 24 hours of receiving termination notice.
         </div>
 
         <h2>PARTIES</h2>
@@ -1064,243 +971,11 @@ function generateAgreementDocument(data) {
         <p><strong>LICENSED PREMISES:</strong><br>
         ${data.prop_flat}, ${data.prop_building || 'N/A'}<br>
         ${data.prop_address}<br>
-        Area: ${data.prop_area || 'N/A'} sq ft | Status: ${data.prop_furnishing}</p>
+        Area: ${data.prop_area || 'N/A'} sq ft | Status: ${data.prop_furnishing}<br>
+        Ownership: ${data.prop_ownership_doc}</p>
 
         <h2>AUTHORIZED OCCUPANTS (FIXED - CANNOT BE CHANGED)</h2>
         <div class="protected-section">
             <strong>Occupants Authorized to Reside:</strong><br>
-            <strong>The following identified persons are authorized to occupy the premises:</strong><br>
-            ${occupantsList}<br>
-            <br>
-            <strong>Important: </strong> The above-listed occupants and ONLY such identified persons are permitted to reside in the premises. Any additional occupant, whether family member, guest, or otherwise, not listed herein, is not permitted to occupy or reside. Occupancy by any unauthorized person constitutes material breach of this agreement, and the licensor may terminate the license immediately without notice and proceed with recovery of premises.
-        </div>
+            <strong>The following identified persons are authorized
 
-        <h2>TERMS OF LICENSE</h2>
-        <table class="print-table">
-            <tr><th>License Commencement Date</th><td>${data.terms_start}</td></tr>
-            <tr><th>License Expiry Date</th><td>${endDate.toISOString().split('T')[0]}</td></tr>
-            <tr><th>License Duration</th><td>${data.terms_duration} months</td></tr>
-            <tr><th>Monthly License Fee</th><td>₹ ${parseInt(data.terms_fee).toLocaleString('en-IN')}</td></tr>
-            <tr><th>Total License Fees (for term)</th><td>₹ ${(parseInt(data.terms_fee) * parseInt(data.terms_duration)).toLocaleString('en-IN')}</td></tr>
-            <tr><th>Security Deposit (refundable)</th><td>₹ ${parseInt(data.terms_deposit).toLocaleString('en-IN')} (forfeitable for breach/damage)</td></tr>
-            <tr><th>Payment Due Date Each Month</th><td>${data.terms_due_date}</td></tr>
-            <tr><th>Late Payment Penalty</th><td>2% per month on overdue amount + 18% annual interest</td></tr>
-            <tr><th>Total Consideration</th><td>₹ ${totalConsideration.toLocaleString('en-IN')}</td></tr>
-            <tr><th>Stamp Duty Payable</th><td>₹ ${stampDuty.toLocaleString('en-IN')} (${stateData.stamp_duty_percent}% of total)</td></tr>
-        </table>
-
-        <h2>PERMITTED USE OF PREMISES</h2>
-        <div class="protected-section">
-            <strong>The premises is licensed for the following purpose:</strong><br>
-            • Personal residential occupation by the declared occupants and no others<br>
-            • Domestic living, sleeping, and daily household activities<br>
-            • No commercial, professional, or business-related activity of any nature<br>
-            • No use for income generation, trading, manufacturing, or business operations<br>
-            • No registration with GST, MSME, tax, or municipal authorities for any business purpose<br>
-            • No operation of offices, clinics, consulting rooms, or professional services<br>
-            • No paid occupancy arrangements including guest accommodation, PG, hostel, or homestay operations<br>
-            • No online selling, e-commerce, marketplace operations, or inventory storage<br>
-            • No food preparation or delivery services (cloud kitchen, catering, Zomato/Swiggy operations)<br>
-            • No coaching, tuition, classes, or educational services with external students<br>
-            • No workshop, studio, or manufacturing activity<br>
-            • No commercial goods storage or receiving of business-related deliveries<br>
-            • Exclusively residential domestic use only
-        </div>
-
-        <h2>MATERIAL BREACHES & TERMINATION EVENTS</h2>
-        <div class="prohibited-section">
-            <strong>Any of the following shall constitute material breach and grounds for immediate termination of this license without prior notice:</strong><br>
-            • Registration of premises with GST, professional tax, MSME, commercial tax, or any statutory authority for business/income purposes<br>
-            • Conduct of any commercial, trading, professional, or income-generating activity from the premises<br>
-            • Occupation by any person not listed in the authorized occupants section<br>
-            • Creation of nuisance by way of noise, music, gatherings, or activities causing disturbance or annoyance to neighbors or society<br>
-            • Lodging of any criminal complaint, filing of FIR, arrest, or police investigation involving any occupant<br>
-            • Participation in illegal, immoral, or antisocial activities by occupant<br>
-            • Willful or negligent damage to premises beyond normal wear and tear<br>
-            • Non-payment of license fee for more than 3 days after due date<br>
-            • Non-payment of utility bills or society charges<br>
-            • Overnight occupancy by guests for periods exceeding 7 consecutive days without permission<br>
-            • Structural modifications, alterations, or demolition of any part without written permission<br>
-            • Violation of society or community bylaws or receipt of complaints from society/authorities<br>
-            • Non-compliance with any term or condition of this agreement<br>
-            • Attempted sub-letting or assignment of the license to any third party<br>
-            • Keeping of prohibited animals or pets without written permission<br>
-            • Installation of unauthorized locks, modifications to entrance, or security changes<br>
-            • Obstruction of common areas or violation of common area usage rules
-        </div>
-
-        <h2>LICENSOR'S RIGHTS & REMEDIES</h2>
-        <div class="protected-section">
-            <strong>Legal Rights Granted to Licensor (Owner):</strong><br>
-            <strong>Possession &amp; Control:</strong><br>
-            • The licensor retains complete legal title, ownership, and possession of the premises at all times<br>
-            • The license creates no tenancy, leasehold, or proprietary right in the licensee<br>
-            • Immediate repossession and recovery of premises is granted upon termination<br>
-            • The licensor may change locks and exclude occupant if license is terminated for material breach<br>
-            <strong>Termination Rights:</strong><br>
-            • Immediate termination without notice is permitted for any material breach listed herein<br>
-            • Termination is effective upon service of notice (email, SMS, registered post, or personal delivery)<br>
-            • Occupant must vacate within 24 hours of termination notice<br>
-            • The licensor may recover premises using police assistance if occupant refuses to vacate<br>
-            <strong>Financial Rights:</strong><br>
-            • The security deposit is held as security and is fully or partially forfeitable for any breach, damage, or unpaid dues<br>
-            • Interest at 18% per annum is charged on all overdue license fees<br>
-            • Late payment penalty of 2% monthly is charged on amounts overdue beyond 3 days<br>
-            • Property damage results in 3x deposit amount as liquidated damages in addition to actual repair costs<br>
-            • Holdover charge of ₹2,000 per day applies for each day occupant remains after termination date<br>
-            • All repair, legal, and eviction costs are recovered from occupant<br>
-            <strong>Lien &amp; Seizure:</strong><br>
-            • The licensor has paramount lien on all goods, chattels, and possessions within the premises for unpaid dues<br>
-            • Upon 15 days' notice, the licensor may seize and sell occupant's belongings to recover outstanding amounts<br>
-            <strong>Inspection &amp; Access:</strong><br>
-            • The licensor may enter the premises for inspection, repairs, viewing by prospective licensees, or enforcement, with 24 hours' notice<br>
-            • Emergency entry is permitted without notice for repairs, safety concerns, or recovery of premises<br>
-            • The licensor may inspect occupancy status, guest numbers, and activity type<br>
-            <strong>Remedies Against Statutory Violations:</strong><br>
-            • The occupant indemnifies the licensor against all GST assessments, tax demands, municipal penalties, or statutory action arising from commercial misuse<br>
-            • The licensor is not liable for occupant's statutory violations or business registrations<br>
-            • All penalties and fines imposed by authorities due to occupant's breach are recoverable from occupant<br>
-            <strong>Dispute Resolution:</strong><br>
-            • Disputes are resolved through arbitration by single arbitrator appointed by the licensor<br>
-            • The arbitration award is binding and may be enforced through courts<br>
-            • The occupant bears arbitration costs and legal fees if adjudged liable
-        </div>
-
-        <h2>HOUSE RULES</h2>
-        <table class="print-table">
-            <tr><th>Pets</th><td>${data.rules_pets}</td></tr>
-            <tr><th>Parking Spaces</th><td>${data.rules_parking}</td></tr>
-            <tr><th>Additional Rules</th><td>${data.rules_additional || 'None specified'}</td></tr>
-        </table>
-
-        <h2>STATE-SPECIFIC COMPLIANCE</h2>
-        <p><strong>State:</strong> ${stateData.name}<br>
-        <strong>Governing Act:</strong> ${stateData.act} (${stateData.section})<br>
-        <strong>Registration Required:</strong> ${stateData.registration_mandatory ? 'YES - MANDATORY' : 'NO - Optional'}<br>
-        <strong>Stamp Duty Rate:</strong> ${stateData.stamp_duty_percent}% of total consideration<br>
-        <strong>Stamp Duty Payable:</strong> ₹ ${Math.ceil((parseInt(data.terms_fee) * parseInt(data.terms_duration) + parseInt(data.terms_deposit)) * stateData.stamp_duty_percent / 100)}<br>
-        <strong>Jurisdiction:</strong> ${stateData.jurisdiction}
-        </p>
-
-        <div class="signature-section">
-            <h2>SIGNATURES</h2>
-            <table class="signature-table">
-                <tr>
-                    <td class="signature-cell">
-                        <strong>LICENSOR</strong><br>
-                        <div class="signature-line"></div>
-                        ${data.owner_name}
-                    </td>
-                    <td class="signature-cell" style="text-align: right;">
-                        <strong>DATED:</strong><br>
-                        <div class="signature-line"></div>
-                        Date: ${today}
-                    </td>
-                </tr>
-                <tr style="height: 80px;">
-                    <td colspan="2" style="border: none;"></td>
-                </tr>
-                <tr>
-                    <td class="signature-cell" colspan="2">
-                        <strong>OCCUPANTS (ALL MUST SIGN):</strong><br>
-                        ${data.occupants.map((o, i) => `${i + 1}. ${o.name}: <span style="display: inline-block; width: 200px; border-bottom: 1px solid #000;"></span>`).join('<br>')}<br>
-                    </td>
-                </tr>
-                <tr style="height: 60px;">
-                    <td colspan="2" style="border: none;"></td>
-                </tr>
-                <tr>
-                    <td class="signature-cell" colspan="2">
-                        <strong>WITNESSES:</strong><br>
-                        1. Name: <span style="display: inline-block; width: 250px; border-bottom: 1px solid #000;"></span> Signature: <span style="display: inline-block; width: 150px; border-bottom: 1px solid #000;"></span><br><br>
-                        2. Name: <span style="display: inline-block; width: 250px; border-bottom: 1px solid #000;"></span> Signature: <span style="display: inline-block; width: 150px; border-bottom: 1px solid #000;"></span>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #000; font-size: 10pt;">
-            <p><strong>STAMP DUTY &amp; REGISTRATION:</strong><br>
-            This agreement must be executed on proper stamp paper of denomination ₹${stampDuty}. Stamp duty and registration must be completed as per applicable ${stateData.name} laws before or immediately after execution. Registration is ${stateData.registration_mandatory ? 'MANDATORY' : 'OPTIONAL but RECOMMENDED'} with the Sub-Registrar office.</p>
-            
-            <p><strong>LEGAL NOTICE &amp; DISCLAIMER:</strong><br>
-            This agreement is a template prepared for informational purposes. While comprehensive, it should be reviewed and customized by a qualified lawyer based on specific circumstances and latest applicable laws in ${stateData.name}. The licensor and licensee acknowledge they have read and understood all terms. This agreement is binding and enforceable in courts of law. Both parties are advised to obtain independent legal counsel before execution. The licensor accepts no liability for improper execution or registration. This document becomes legally binding upon signature by both parties.</p>
-            
-            <p><strong>Document Generated:</strong> ${today}<br>
-            <strong>For any disputes or clarifications:</strong> Please contact the licensor or seek legal advice</p>
-        </div>
-    `;
-}        // PRINT & DOWNLOAD WITH PAYMENT VERIFICATION
-function printPDF() {
-    const paymentLink = 'https://upi.pageurl.app/pay?upi=lalitendu.samantaray@ibl.com&tn=Leave%20License%20Agreement%20PDF';
-    const userConfirm = confirm('PDF download requires payment verification.\n\nClick OK to proceed to payment (₹299)\n\nAfter payment, the PDF download will be enabled.');
-    
-    if (userConfirm) {
-        window.open(paymentLink, '_blank');
-        showSuccess('Payment window opened. After successful payment, return here to download PDF.');
-        
-        // Alternative: Simulate payment verification (in production, use backend verification)
-        setTimeout(() => {
-            const paidConfirm = confirm('Have you completed the payment?\n\nClick OK to download PDF\nClick Cancel to continue editing');
-            if (paidConfirm) {
-                window.print();
-                showSuccess('PDF generator opened. Use Print → Save as PDF');
-            }
-        }, 2000);
-    }
-}
-
-function downloadPDF() {
-    const paymentLink = 'https://upi.pageurl.app/pay?upi=lalitendu.samantaray@ibl.com&tn=Leave%20License%20Agreement%20PDF';
-    const userConfirm = confirm('Download PDF (₹299)\n\nClick OK to pay and download\nClick Cancel to continue');
-    
-    if (userConfirm) {
-        window.open(paymentLink, '_blank');
-        showSuccess('Payment link opened. Please complete payment to access PDF download.');
-    }
-}
-
-function closePreview() {
-    document.getElementById('preview-section').classList.remove('active');
-    document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
-}
-
-function resetAllForms() {
-    if (confirm('Reset all form data?')) {
-        occupants = [];
-        document.querySelectorAll('input, select, textarea').forEach(el => {
-            if (el.type === 'date') el.valueAsDate = new Date();
-            else el.value = '';
-        });
-        renderOccupants();
-        document.getElementById('owner').classList.add('active');
-        document.querySelector('[data-tab="owner"]').classList.add('active');
-        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-        document.getElementById('owner').classList.add('active');
-    }
-}
-
-function showError(msg) {
-    const el = document.getElementById('error-msg');
-    el.textContent = msg;
-    el.classList.add('show');
-    setTimeout(() => el.classList.remove('show'), 5000);
-}
-
-function showSuccess(msg) {
-    const el = document.getElementById('success-msg');
-    el.textContent = msg;
-    el.classList.add('show');
-    setTimeout(() => el.classList.remove('show'), 5000);
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('terms_date').valueAsDate = new Date();
-    document.getElementById('terms_start').valueAsDate = new Date();
-    addOccupant();
-});
-</script>
-
-</body>
-</html>
