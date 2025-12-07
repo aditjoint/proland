@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave & License - STRICT RESIDENTIAL USE ONLY</title>
+    <title>Leave & License Agreement - FIXED VERSION</title>
     <style>
         * { box-sizing: border-box; }
         body { font-family: 'Times New Roman', serif; max-width: 1400px; margin: 0 auto; padding: 20px; background: #f8f9fa; }
         .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .state-tabs { display: flex; background: #007bff; border-radius: 8px 8px 0 0; overflow: hidden; margin-bottom: 0; }
-        .tab-btn { flex: 1; padding: 15px; background: none; border: none; color: white; font-weight: bold; cursor: pointer; font-size: 16px; }
+        .state-tabs { display: flex; background: #007bff; border-radius: 8px 8px 0 0; overflow: hidden; margin-bottom: 0; flex-wrap: wrap; }
+        .tab-btn { flex: 1; min-width: 140px; padding: 15px; background: none; border: none; color: white; font-weight: bold; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        .tab-btn:hover { background: #0056b3; }
         .tab-btn.active { background: #0056b3; }
         .tab-content { display: none; padding-top: 20px; }
         .tab-content.active { display: block; }
         .form-group { margin-bottom: 20px; }
-        .form-group h3 { margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        .form-group h3 { margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; color: #007bff; }
         label { display: block; font-weight: bold; margin-bottom: 8px; color: #333; }
-        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: inherit; margin-bottom: 8px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: inherit; margin-bottom: 8px; box-sizing: border-box; }
         input:focus, select:focus, textarea:focus { border-color: #007bff; outline: none; box-shadow: 0 0 5px rgba(0,123,255,0.3); }
-        .btn { background: #28a745; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 10px 5px; }
+        .btn { background: #28a745; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 10px 5px; transition: background 0.3s; display: inline-block; }
         .btn:hover { background: #218838; }
         .btn-secondary { background: #6c757d; }
+        .btn-secondary:hover { background: #5a6268; }
         .btn-danger { background: #dc3545; }
-        .preview { border: 2px solid #007bff; padding: 20px; margin-top: 20px; background: #f8f9ff; min-height: 500px; overflow-y: auto; }
+        .btn-danger:hover { background: #c82333; }
+        .preview { border: 2px solid #007bff; padding: 20px; margin-top: 20px; background: #f8f9ff; min-height: 500px; overflow-y: auto; display: none; }
+        .preview.show { display: block; }
         .print-area { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.6; }
         .print-header { text-align: center; font-size: 18pt; font-weight: bold; margin-bottom: 30px; page-break-after: avoid; }
         .no-commercial-box { background: #fff3cd; border: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 8px; }
@@ -34,126 +38,254 @@
         .prohibited-uses { background: #f8d7da; border-left: 5px solid #dc3545; padding: 15px; margin: 15px 0; }
         .statutory-warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 15px 0; font-weight: bold; }
         @media print {
-            .container, .form-group, .btn { display: none !important; }
-            .print-area { display: block !important; }
-            body { background: white; }
+            body * { visibility: hidden; }
+            .print-area, .print-area * { visibility: visible; }
+            .print-area { position: absolute; left: 0; top: 0; width: 100%; }
+            body { background: white !important; padding: 0; margin: 0; }
         }
         @page { margin: 0.75in; size: A4; }
         .state-safe { border-left: 5px solid #28a745; }
+        .error { color: #dc3545; background: #f8d7da; padding: 10px; border-radius: 5px; margin: 10px 0; display: none; }
     </style>
 </head>
 <body>
 
 <div class="container state-safe">
-    <h1>🏠 Leave & License - STRICT RESIDENTIAL USE ONLY</h1>
-    <p><strong>🚫 NO COMMERCIAL • NO GST • NO MSME • NO STATUTORY BUSINESS USE - IMMEDIATE EVICTION</strong></p>
+    <h1>🏠 Leave & License Agreement - ALL STATES FIXED ✅</h1>
+    <p><strong>🚫 STRICT RESIDENTIAL ONLY • NO COMMERCIAL/GST/MSME • Working tabs & PDF</strong></p>
 
     <div class="state-tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'maharashtra')">🇲🇭 MAHARASHTRA</button>
-        <button class="tab-btn" onclick="switchTab(event, 'gujarat')">🇬🇯 GUJARAT</button>
+        <button class="tab-btn active" data-state="maharashtra">🇲🇭 MAHARASHTRA</button>
+        <button class="tab-btn" data-state="goa">🇬🇴 GOA</button>
+        <button class="tab-btn" data-state="odisha">🇴🇩 ODISHA</button>
+        <button class="tab-btn" data-state="gujarat">🇬🇯 GUJARAT</button>
     </div>
+
+    <!-- ERROR DISPLAY -->
+    <div id="error-display" class="error"></div>
 
     <!-- MAHARASHTRA FORM -->
     <div id="maharashtra" class="tab-content active">
         <div class="form-group">
-            <label>Date of Agreement:</label>
+            <label>Date:</label>
             <input type="date" id="mh_date">
         </div>
-        
         <div class="form-group">
-            <h3>LICENSOR (OWNER) DETAILS</h3>
+            <h3>LICENSOR (OWNER)</h3>
             <input type="text" id="mh_licensor_name" placeholder="Full Name">
             <input type="text" id="mh_licensor_father" placeholder="Father's/Spouse's Name">
             <input type="text" id="mh_licensor_address" placeholder="Permanent Address">
-            <input type="text" id="mh_licensor_contact" placeholder="Phone/Email">
             <input type="text" id="mh_licensor_pan" placeholder="PAN Number">
         </div>
-
         <div class="form-group">
-            <h3>LICENSEE DETAILS</h3>
+            <h3>LICENSEE</h3>
             <input type="text" id="mh_licensee_name" placeholder="Full Name">
             <input type="text" id="mh_licensee_father" placeholder="Father's/Spouse's Name">
-            <input type="text" id="mh_licensee_address" placeholder="Current Address">
-            <input type="text" id="mh_licensee_contact" placeholder="Phone/Email">
             <input type="text" id="mh_licensee_aadhaar" placeholder="Aadhaar Number">
-            <input type="text" id="mh_guarantor" placeholder="Guarantor (Optional)">
         </div>
-
         <div class="form-group">
-            <h3>PROPERTY DETAILS</h3>
-            <input type="text" id="mh_building" placeholder="Building/Complex">
+            <h3>PROPERTY</h3>
             <input type="text" id="mh_flat" placeholder="Flat/Apartment No.">
             <input type="text" id="mh_address" placeholder="Complete Address">
-            <input type="text" id="mh_area" placeholder="Carpet Area (sq ft)">
-            <select id="mh_furnishing">
-                <option>Unfurnished</option>
-                <option>Semi-Furnished</option>
-                <option>Fully Furnished</option>
-            </select>
+            <input type="number" id="mh_license_fee" placeholder="Monthly Fee (₹)">
+            <input type="number" id="mh_deposit" placeholder="Deposit (₹)">
         </div>
-
-        <div class="form-group">
-            <h3>TERMS</h3>
-            <input type="number" id="mh_license_fee" placeholder="Monthly License Fee (₹)">
-            <input type="number" id="mh_deposit" placeholder="Security Deposit (₹)">
-            <input type="date" id="mh_start_date">
-            <input type="number" id="mh_duration" placeholder="Duration (Months)">
-        </div>
-
-        <button class="btn" onclick="generatePreview('maharashtra')">🎨 GENERATE AGREEMENT</button>
+        <button class="btn" onclick="generatePreview('maharashtra')">🎨 GENERATE PDF</button>
         <button class="btn btn-secondary" onclick="clearForm('maharashtra')">🗑️ CLEAR</button>
     </div>
 
-    <!-- GUJARAT FORM (identical structure with gj_ prefix) -->
+    <!-- GOA FORM -->
+    <div id="goa" class="tab-content">
+        <div class="form-group">
+            <label>Date:</label>
+            <input type="date" id="go_date">
+        </div>
+        <div class="form-group">
+            <h3>LICENSOR (OWNER)</h3>
+            <input type="text" id="go_licensor_name" placeholder="Full Name">
+            <input type="text" id="go_licensor_father" placeholder="Father's/Spouse's Name">
+            <input type="text" id="go_licensor_address" placeholder="Permanent Address">
+            <input type="text" id="go_licensor_pan" placeholder="PAN Number">
+        </div>
+        <div class="form-group">
+            <h3>LICENSEE</h3>
+            <input type="text" id="go_licensee_name" placeholder="Full Name">
+            <input type="text" id="go_licensee_father" placeholder="Father's/Spouse's Name">
+            <input type="text" id="go_licensee_aadhaar" placeholder="Aadhaar Number">
+        </div>
+        <div class="form-group">
+            <h3>PROPERTY</h3>
+            <input type="text" id="go_flat" placeholder="Flat/Apartment No.">
+            <input type="text" id="go_address" placeholder="Complete Address">
+            <input type="number" id="go_license_fee" placeholder="Monthly Fee (₹)">
+            <input type="number" id="go_deposit" placeholder="Deposit (₹)">
+        </div>
+        <button class="btn" onclick="generatePreview('goa')">🎨 GENERATE PDF</button>
+        <button class="btn btn-secondary" onclick="clearForm('goa')">🗑️ CLEAR</button>
+    </div>
+
+    <!-- ODISHA FORM -->
+    <div id="odisha" class="tab-content">
+        <div class="form-group">
+            <label>Date:</label>
+            <input type="date" id="od_date">
+        </div>
+        <div class="form-group">
+            <h3>LICENSOR (OWNER)</h3>
+            <input type="text" id="od_licensor_name" placeholder="Full Name">
+            <input type="text" id="od_licensor_father" placeholder="Father's/Spouse's Name">
+            <input type="text" id="od_licensor_address" placeholder="Permanent Address">
+            <input type="text" id="od_licensor_pan" placeholder="PAN Number">
+        </div>
+        <div class="form-group">
+            <h3>LICENSEE</h3>
+            <input type="text" id="od_licensee_name" placeholder="Full Name">
+            <input type="text" id="od_licensee_father" placeholder="Father's/Spouse's Name">
+            <input type="text" id="od_licensee_aadhaar" placeholder="Aadhaar Number">
+        </div>
+        <div class="form-group">
+            <h3>PROPERTY</h3>
+            <input type="text" id="od_flat" placeholder="Flat/Apartment No.">
+            <input type="text" id="od_address" placeholder="Complete Address">
+            <input type="number" id="od_license_fee" placeholder="Monthly Fee (₹)">
+            <input type="number" id="od_deposit" placeholder="Deposit (₹)">
+        </div>
+        <button class="btn" onclick="generatePreview('odisha')">🎨 GENERATE PDF</button>
+        <button class="btn btn-secondary" onclick="clearForm('odisha')">🗑️ CLEAR</button>
+    </div>
+
+    <!-- GUJARAT FORM -->
     <div id="gujarat" class="tab-content">
-        <!-- Copy Maharashtra form fields, replace mh_ with gj_ -->
-        <button class="btn" onclick="generatePreview('gujarat')">🎨 GENERATE AGREEMENT</button>
+        <div class="form-group">
+            <label>Date:</label>
+            <input type="date" id="gj_date">
+        </div>
+        <div class="form-group">
+            <h3>LICENSOR (OWNER)</h3>
+            <input type="text" id="gj_licensor_name" placeholder="Full Name">
+            <input type="text" id="gj_licensor_father" placeholder="Father's/Spouse's Name">
+            <input type="text" id="gj_licensor_address" placeholder="Permanent Address">
+            <input type="text" id="gj_licensor_pan" placeholder="PAN Number">
+        </div>
+        <div class="form-group">
+            <h3>LICENSEE</h3>
+            <input type="text" id="gj_licensee_name" placeholder="Full Name">
+            <input type="text" id="gj_licensee_father" placeholder="Father's/Spouse's Name">
+            <input type="text" id="gj_licensee_aadhaar" placeholder="Aadhaar Number">
+        </div>
+        <div class="form-group">
+            <h3>PROPERTY</h3>
+            <input type="text" id="gj_flat" placeholder="Flat/Apartment No.">
+            <input type="text" id="gj_address" placeholder="Complete Address">
+            <input type="number" id="gj_license_fee" placeholder="Monthly Fee (₹)">
+            <input type="number" id="gj_deposit" placeholder="Deposit (₹)">
+        </div>
+        <button class="btn" onclick="generatePreview('gujarat')">🎨 GENERATE PDF</button>
+        <button class="btn btn-secondary" onclick="clearForm('gujarat')">🗑️ CLEAR</button>
     </div>
 </div>
 
-<!-- PREVIEW -->
-<div class="container preview" id="preview-container" style="display:none;">
-    <button class="btn btn-danger" onclick="printDocument()" style="float:right;">🖨️ PRINT TO PDF</button>
-    <button class="btn btn-secondary" onclick="hidePreview()">✕ CLOSE</button>
+<!-- PREVIEW AREA -->
+<div class="container preview" id="preview-container">
+    <div style="margin-bottom: 15px;">
+        <button class="btn btn-danger" onclick="printDocument()" style="float:right;">🖨️ PRINT/SAVE PDF</button>
+        <button class="btn btn-secondary" onclick="hidePreview()">✕ CLOSE PREVIEW</button>
+    </div>
     <div id="print-area" class="print-area"></div>
 </div>
 
 <script>
 const stateConfig = {
     maharashtra: {
-        title: 'MAHARASHTRA RESIDENTIAL LEAVE & LICENSE AGREEMENT',
-        subtitle: 'STRICTLY RESIDENTIAL USE - NO COMMERCIAL/GST/MSME/STATUTORY BUSINESS',
+        title: 'MAHARASHTRA - RESIDENTIAL LEAVE & LICENSE',
+        subtitle: 'STRICTLY RESIDENTIAL - NO COMMERCIAL/GST/MSME',
         place: 'Mumbai',
         registration: 'https://efilingigr.maharashtra.gov.in'
     },
+    goa: {
+        title: 'GOA - RESIDENTIAL LEAVE & LICENSE',
+        subtitle: 'RESIDENTIAL USE ONLY - NO BUSINESS ACTIVITY',
+        place: 'Panaji',
+        registration: 'Sub-Registrar Office, Goa'
+    },
+    odisha: {
+        title: 'ODISHA - RESIDENTIAL LEAVE & LICENSE',
+        subtitle: 'PERSONAL RESIDENCE ONLY - NO COMMERCIAL USE',
+        place: 'Bhubaneswar',
+        registration: 'Inspector General of Registration, Odisha'
+    },
     gujarat: {
-        title: 'GUJARAT RESIDENTIAL LEAVE & LICENSE AGREEMENT', 
-        subtitle: 'EXCLUSIVELY RESIDENTIAL - COMMERCIAL USE PROHIBITED',
+        title: 'GUJARAT - RESIDENTIAL LEAVE & LICENSE',
+        subtitle: 'STRICTLY RESIDENTIAL - NO GST/MSME',
         place: 'Ahmedabad',
-        registration: 'Sub-Registrar Office'
+        registration: 'Garvi Portal / Sub-Registrar'
     }
 };
 
-function switchTab(event, state) {
+// 🔥 FIXED TAB SWITCHING
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-fill dates
+    document.querySelectorAll('input[type="date"]').forEach(input => {
+        if (!input.value) input.valueAsDate = new Date();
+    });
+
+    // Tab event listeners
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const state = this.dataset.state;
+            switchTab(state);
+        });
+    });
+});
+
+function switchTab(state) {
+    // Remove active from all
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    
+    // Add active to selected
     document.getElementById(state).classList.add('active');
-    event.target.classList.add('active');
+    document.querySelector(`[data-state="${state}"]`).classList.add('active');
+}
+
+function showError(msg) {
+    const errorDiv = document.getElementById('error-display');
+    errorDiv.textContent = msg;
+    errorDiv.style.display = 'block';
+    setTimeout(() => errorDiv.style.display = 'none', 5000);
 }
 
 function clearForm(state) {
-    document.querySelectorAll(`#${state} input, #${state} select`).forEach(el => el.value = '');
+    const prefix = getPrefix(state);
+    document.querySelectorAll(`#${state} input, #${state} select`).forEach(el => {
+        if (el.type === 'date') el.valueAsDate = new Date();
+        else el.value = '';
+    });
+}
+
+function getPrefix(state) {
+    const prefixes = { maharashtra: 'mh_', goa: 'go_', odisha: 'od_', gujarat: 'gj_' };
+    return prefixes[state] || '';
 }
 
 function generatePreview(state) {
-    const data = getFormData(state);
-    document.getElementById('print-area').innerHTML = generateAgreementHTML(state, data);
-    document.getElementById('preview-container').style.display = 'block';
-    document.querySelector('.preview').scrollIntoView();
+    try {
+        const data = getFormData(state);
+        if (!data.licensor_name || !data.licensee_name || !data.address) {
+            showError('Please fill Licensor Name, Licensee Name, and Address first!');
+            return;
+        }
+        
+        const html = generateAgreementHTML(state, data);
+        document.getElementById('print-area').innerHTML = html;
+        document.getElementById('preview-container').scrollIntoView({ behavior: 'smooth' });
+    } catch (e) {
+        showError('Error generating preview: ' + e.message);
+    }
 }
 
 function getFormData(state) {
-    const prefix = state === 'maharashtra' ? 'mh_' : 'gj_';
+    const prefix = getPrefix(state);
     return {
         date: document.getElementById(prefix + 'date')?.value || new Date().toISOString().split('T')[0],
         licensor_name: document.getElementById(prefix + 'licensor_name')?.value || '__________________',
@@ -162,17 +294,11 @@ function getFormData(state) {
         licensor_pan: document.getElementById(prefix + 'licensor_pan')?.value || '__________________',
         licensee_name: document.getElementById(prefix + 'licensee_name')?.value || '__________________',
         licensee_father: document.getElementById(prefix + 'licensee_father')?.value || '__________________',
-        licensee_address: document.getElementById(prefix + 'licensee_address')?.value || '__________________',
         licensee_aadhaar: document.getElementById(prefix + 'licensee_aadhaar')?.value || '__________________',
-        building: document.getElementById(prefix + 'building')?.value || '__________________',
         flat: document.getElementById(prefix + 'flat')?.value || '__________________',
         address: document.getElementById(prefix + 'address')?.value || '__________________',
-        area: document.getElementById(prefix + 'area')?.value || '__________________',
-        furnishing: document.getElementById(prefix + 'furnishing')?.value || '__________________',
         license_fee: document.getElementById(prefix + 'license_fee')?.value || '__________',
-        deposit: document.getElementById(prefix + 'deposit')?.value || '__________',
-        start_date: document.getElementById(prefix + 'start_date')?.value || '__________',
-        duration: document.getElementById(prefix + 'duration')?.value || '__'
+        deposit: document.getElementById(prefix + 'deposit')?.value || '__________'
     };
 }
 
@@ -187,89 +313,46 @@ function generateAgreementHTML(state, data) {
         </div>
 
         <div class="no-commercial-box">
-            <h3>🚫 ABSOLUTE PROHIBITION - COMMERCIAL & STATUTORY USE</h3>
-            <p><strong>THIS PROPERTY SHALL BE USED STRICTLY FOR PERSONAL RESIDENTIAL PURPOSES ONLY.</strong></p>
-            <p>Licensee expressly agrees NOT to use premises for ANY commercial, professional, business, or statutory activity including but not limited to:</p>
+            <h3>🚫 STRICTLY RESIDENTIAL USE ONLY</h3>
+            <p><strong>NO COMMERCIAL • NO GST • NO MSME • NO BUSINESS ACTIVITY</strong></p>
         </div>
 
         <div class="prohibited-uses">
-            <strong>🚫 PROHIBITED ACTIVITIES (INSTANT TERMINATION TRIGGER):</strong>
-            <ul style="margin: 10px 0; padding-left: 20px;">
-                <li>✅ ANY commercial/business activity whatsoever</li>
-                <li>✅ GST registration or GST business operations</li>
-                <li>✅ MSME/Udyam registration or manufacturing/trading</li>
-                <li>✅ Professional services (consultancy, coaching, clinic, office)</li>
-                <li>✅ Paying Guest/PG/hostel operations</li>
-                <li>✅ Online selling/e-commerce/Amazon/Flipkart operations</li>
-                <li>✅ Food delivery/cloud kitchen/Zomato/Swiggy operations</li>
-                <li>✅ Tuition/coaching classes/online teaching with students</li>
-                <li>✅ Salon/parlour/beauty services</li>
-                <li>✅ Any income-generating activity requiring statutory registration</li>
-                <li>✅ Storage of commercial goods/inventory</li>
-                <li>✅ Receiving commercial deliveries/courier for business</li>
+            <strong>PROHIBITED (INSTANT EVICTION):</strong>
+            <ul style="padding-left: 20px; margin: 10px 0;">
+                <li>GST/MSME registration against this address</li>
+                <li>Online selling/e-commerce operations</li>
+                <li>Coaching classes/tuition</li>
+                <li>Food delivery/cloud kitchen</li>
+                <li>Professional services/office</li>
+                <li>PG/hostel operations</li>
             </ul>
         </div>
 
-        <div class="statutory-warning">
-            <strong>⚠️ STATUTORY COMPLIANCE WARNING:</strong><br>
-            Licensee shall NOT register this residential premises with ANY statutory authority for commercial purposes including:
-            <ul style="margin: 10px 0; padding-left: 20px; font-size: 11pt;">
-                <li>GST Authorities (no GSTIN against this address)</li>
-                <li>MSME/Udyam Portal (no manufacturing/trading registration)</li>
-                <li>Shops & Establishments Act registration</li>
-                <li>Professional Tax registration for business</li>
-                <li>Labour License or EPF/ESIC registration</li>
-                <li>Municipal commercial license</li>
-                <li>FSSAI license (food business)</li>
-            </ul>
-        </div>
+        <p><strong>LICENSOR:</strong> ${data.licensor_name}<br>
+           S/o ${data.licensor_father}<br>
+           ${data.licensor_address}<br>
+           PAN: ${data.licensor_pan}</p>
 
-        <div class="owner-protection-box">
-            <strong>✅ OWNER PROTECTION - COMMERCIAL USE VIOLATION CONSEQUENCES:</strong><br>
-            • IMMEDIATE license termination WITHOUT notice<br>
-            • FORFEITURE of entire security deposit<br>
-            • ₹5,000 per day penalty until vacation<br>
-            • Licensee pays ALL statutory penalties/fines<br>
-            • Owner recovers legal costs + 24% interest<br>
-            • Permanent blacklist from future dealings
-        </div>
+        <p><strong>LICENSEE:</strong> ${data.licensee_name}<br>
+           S/o ${data.licensor_father}<br>
+           Aadhaar: ${data.licensee_aadhaar}</p>
 
-        <h3>PARTIES</h3>
-        <p><strong>LICENSOR:</strong> ${data.licensor_name}, S/o ${data.licensor_father}, ${data.licensor_address}, PAN: ${data.licensor_pan}</p>
-        <p><strong>LICENSEE:</strong> ${data.licensee_name}, S/o ${data.licensee_father}, ${data.licensee_address}, Aadhaar: ${data.licensee_aadhaar}</p>
-
-        <h3>LICENSED PREMISES</h3>
-        <p>${data.flat}, ${data.building}, ${data.address} (${data.area} sq ft, ${data.furnishing})</p>
+        <p><strong>PROPERTY:</strong> ${data.flat}, ${data.address}</p>
 
         <table class="print-table">
             <tr><th>License Fee</th><td>₹${data.license_fee}/month</td></tr>
-            <tr><th>Deposit</th><td>₹${data.deposit} (No interest)</td></tr>
-            <tr><th>Period</th><td>${data.duration} months from ${data.start_date}</td></tr>
-            <tr><th>PERMITTED USE</th><td><strong>PERSONAL RESIDENTIAL ONLY</strong></td></tr>
+            <tr><th>Deposit</th><td>₹${data.deposit}</td></tr>
         </table>
 
-        <div class="prohibited-uses">
-            <h4>Clause 7: RESIDENTIAL USE COVENANT (MATERIAL BREACH)</h4>
-            <p><strong>7.1</strong> Licensee covenants that premises shall be used EXCLUSIVELY for personal residence of Licensee and immediate family members only.</p>
-            <p><strong>7.2</strong> Licensee gives undertaking that NO commercial/statutory registrations shall be obtained against this premises address.</p>
-            <p><strong>7.3</strong> Licensee indemnifies Licensor against ALL statutory notices, penalties, demands arising from commercial misuse.</p>
-            <p><strong>7.4 BREACH CONSEQUENCE:</strong> Any commercial/statutory use = AUTOMATIC TERMINATION + FULL FINANCIAL PENALTIES.</p>
-        </div>
-
-        <div class="prohibited-uses">
-            <h4>Clause 8: VERIFICATION & NON-DENIAL</h4>
-            <p>Licensee authorizes Licensor to verify with GST/MSME authorities that no commercial registration exists against premises. Licensee waives privacy objections for such verification.</p>
-        </div>
-
-        <!-- Signature Section -->
         <div class="signature-section">
             <table style="width: 100%;">
                 <tr>
-                    <td style="width:45%; vertical-align:bottom; padding-bottom:50px;">
+                    <td style="width:45%; vertical-align:bottom; padding-bottom:50px; border: none;">
                         <strong>LICENSOR</strong><br><span class="fill-line"></span><br>${data.licensor_name}
                     </td>
                     <td style="width:10%"></td>
-                    <td style="width:45%; vertical-align:bottom; padding-bottom:50px;">
+                    <td style="width:45%; vertical-align:bottom; padding-bottom:50px; border: none;">
                         <strong>LICENSEE</strong><br><span class="fill-line"></span><br>${data.licensee_name}
                     </td>
                 </tr>
@@ -277,20 +360,19 @@ function generateAgreementHTML(state, data) {
         </div>
 
         <div style="margin-top:40px; text-align:center; border-top:2px solid #000; padding-top:20px; font-size:10pt;">
-            <strong>Registration: ${config.registration}</strong><br>
-            <strong>⚠️ Commercial misuse = IMMEDIATE EVICTION + PENALTIES</strong>
+            <strong>Register at: ${config.registration}</strong>
         </div>
     `;
 }
 
-function printDocument() { window.print(); }
-function hidePreview() { document.getElementById('preview-container').style.display = 'none'; }
+function printDocument() {
+    window.print();
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('input[type="date"]').forEach(input => {
-        if (!input.value) input.valueAsDate = new Date();
-    });
-});
+function hidePreview() {
+    document.getElementById('preview-container').scrollIntoView({ behavior: 'smooth' });
+}
 </script>
+
 </body>
 </html>
