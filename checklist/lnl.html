@@ -1108,9 +1108,18 @@
         }
 
         function downloadPDF() {
-            showError('PDF Download feature requires license verification (₹299)');
-        }
+    const printArea = document.getElementById('print-area').innerHTML;
+    const win = window.open('', '_blank');
+    win.document.write(`
+        <html><head><title>Leave License Agreement</title>
+        <style>${document.querySelector('style').innerHTML}</style></head>
+        <body>${printArea}</body></html>
+    `);
+    win.document.close();
+    win.print();
+}
 
+        
         function closePreview() {
             document.getElementById('preview-section').classList.remove('active');
         }
