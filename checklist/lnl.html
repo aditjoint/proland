@@ -393,14 +393,14 @@
         <p>Select your state to view applicable laws and requirements:</p>
         <div class="state-buttons">
             <button class="state-btn active" data-state="maharashtra">🇲🇭 Maharashtra</button>
-            <button class="state-btn" data-state="goa">Goa</button>
+            <button class="state-btn" data-state="goa">🇬🇴 Goa</button>
             <button class
-            <button class="state-btn" data-state="odisha">Odisha</button>
-            <button class="state-btn" data-state="gujarat">Gujarat</button>
-            <button class="state-btn" data-state="delhi">Delhi</button>
-            <button class="state-btn" data-state="karnataka">arnataka</button>
-            <button class="state-btn" data-state="tamilnadu">Tamil Nadu</button>
-            <button class="state-btn" data-state="westbengal">West Bengal</button>
+            <button class="state-btn" data-state="odisha">🇴🇩 Odisha</button>
+            <button class="state-btn" data-state="gujarat">🇬🇯 Gujarat</button>
+            <button class="state-btn" data-state="delhi">🇩🇪 Delhi</button>
+            <button class="state-btn" data-state="karnataka">🇰🇦 Karnataka</button>
+            <button class="state-btn" data-state="tamilnadu">🇹🇳 Tamil Nadu</button>
+            <button class="state-btn" data-state="westbengal">🇼🇧 West Bengal</button>
         </div>
     </div>
 
@@ -477,7 +477,7 @@
         <button class="tab-btn" data-tab="property">PROPERTY</button>
         <button class="tab-btn" data-tab="terms">TERMS & CONDITIONS</button>
     </div>
-        <!-- OWNER DETAILS TAB -->
+    <!-- OWNER DETAILS TAB -->
     <div id="owner" class="tab-content active">
         <h3>Owner/Licensor Details</h3>
         <div class="form-grid">
@@ -925,7 +925,33 @@ function validateAndPreview() {
     // Collect all data
     const data = {
         owner_name: document.getElementById('owner_name').value,
-        owner_father: document.getElementById('owner_father
+        owner_father: document.getElementById('owner_father').value,
+        owner_address: document.getElementById('owner_address').value,
+        owner_pan: document.getElementById('owner_pan').value,
+        owner_aadhaar: document.getElementById('owner_aadhaar').value,
+        owner_contact: document.getElementById('owner_contact').value,
+        prop_building: document.getElementById('prop_building').value,
+        prop_flat: document.getElementById('prop_flat').value,
+        prop_address: document.getElementById('prop_address').value,
+        prop_area: document.getElementById('prop_area').value,
+        prop_furnishing: document.getElementById('prop_furnishing').value,
+        prop_ownership_doc: document.getElementById('prop_ownership_doc').value,
+        terms_date: document.getElementById('terms_date').value,
+        terms_start: document.getElementById('terms_start').value,
+        terms_duration: document.getElementById('terms_duration').value,
+        terms_fee: document.getElementById('terms_fee').value,
+        terms_deposit: document.getElementById('terms_deposit').value,
+        terms_due_date: document.getElementById('terms_due_date').value,
+        rules_pets: document.getElementById('rules_pets').value,
+        rules_parking: document.getElementById('rules_parking').value,
+        rules_additional: document.getElementById('rules_additional').value,
+        occupants: occupantsList,
+        state: currentState,
+        stateInfo: stateInfo[currentState]
+    };
+
+    generateAndShowPreview(data);
+}
 // GENERATE PREVIEW - FIXED
 function generateAndShowPreview(data) {
     const html = generateAgreementDocument(data);
@@ -977,5 +1003,86 @@ function generateAgreementDocument(data) {
         <h2>AUTHORIZED OCCUPANTS (FIXED - CANNOT BE CHANGED)</h2>
         <div class="protected-section">
             <strong>Occupants Authorized to Reside:</strong><br>
-            <strong>The following identified persons are authorized
+            <strong>The following identified persons are authorized to occupy the premises:</strong><br>
+            ${occupantsList}<br><br>
+            <strong>⚠️ Important:</strong> The above-listed occupants and ONLY such identified persons are permitted to reside in the premises. Any additional occupant, whether family member, guest, or otherwise, not listed herein, is not permitted to occupy or reside. Occupancy by any unauthorized person constitutes material breach of this agreement, and the licensor may terminate the license immediately without notice and proceed with recovery of premises.
+        </div>
 
+        <h2>TERMS OF LICENSE</h2>
+        <table class="print-table">
+            <tr><th>License Commencement Date</th><td>${data.terms_start}</td></tr>
+            <tr><th>License Expiry Date</th><td>${endDate.toISOString().split('T')[0]}</td></tr>
+            <tr><th>License Duration</th><td>${data.terms_duration} months</td></tr>
+            <tr><th>Monthly License Fee</th><td>₹${parseInt(data.terms_fee).toLocaleString('en-IN')}</td></tr>
+            <tr><th>Total License Fees for term</th><td>₹${(parseInt(data.terms_fee) * parseInt(data.terms_duration)).toLocaleString('en-IN')}</td></tr>
+            <tr><th>Security Deposit (refundable)</th><td>₹${parseInt(data.terms_deposit).toLocaleString('en-IN')} (forfeitable for breach/damage)</td></tr>
+            <tr><th>Payment Due Date (Each Month)</th><td>${data.terms_due_date}</td></tr>
+            <tr><th>Late Payment Penalty</th><td>2% per month on overdue amount + 18% annual interest</td></tr>
+            <tr><th>Total Consideration</th><td>₹${totalConsideration.toLocaleString('en-IN')}</td></tr>
+            <tr><th>Stamp Duty Payable</th><td>₹${stampDuty.toLocaleString('en-IN')} (${stateData.stamp_duty_percent}% of total)</td></tr>
+        </table>
+
+        <h2>SIGNATURES</h2>
+        <div class="signature-section">
+            <table class="signature-table">
+                <tr>
+                    <td class="signature-cell">
+                        <strong>Licensor (Owner)</strong><br>
+                        ${data.owner_name}<br>
+                        <div class="signature-line"></div>
+                        Date: ___________
+                    </td>
+                    <td class="signature-cell">
+                        <strong>Licensee (Occupant Representative)</strong><br>
+                        ________________________<br>
+                        <div class="signature-line"></div>
+                        Date: ___________
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 10pt; color: #666;">
+            <p><strong>Jurisdiction:</strong> ${stateData.jurisdiction}</p>
+            <p><strong>Governing Law:</strong> Indian Easements Act 1882 + ${stateData.name} State Laws</p>
+        </div>
+    `;
+}
+
+// OTHER FUNCTIONS
+function resetAllForms() {
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+        if (el.type === 'checkbox') el.checked = false;
+        else if (el.tagName === 'SELECT') el.selectedIndex = 0;
+        else el.value = '';
+    });
+    occupants = [];
+    renderOccupants();
+    document.getElementById('preview-section').classList.remove('active');
+    document.querySelectorAll('.state-btn')[0].click();
+    document.querySelectorAll('.tab-btn')[0].click();
+    showSuccess('All forms reset');
+}
+
+function printPDF() {
+    window.print();
+}
+
+function downloadPDF() {
+    showError('PDF Download requires payment verification (₹299)');
+}
+
+function closePreview() {
+    document.getElementById('preview-section').classList.remove('active');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    // Set default dates
+    document.getElementById('terms_date').valueAsDate = new Date();
+    document.getElementById('terms_start').valueAsDate = new Date();
+});
+
+</script>
+</body>
+</html>
