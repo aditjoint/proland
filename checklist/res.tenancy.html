@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave & License Agreement Generator</title>
+    <title>Leave & License Agreement Generator - State Compliant</title>
     <style>
         * { box-sizing: border-box; }
         
@@ -256,6 +256,15 @@
             color: #667eea;
         }
         
+        .state-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
         @media print {
             body { background: white; }
             .container { box-shadow: none; }
@@ -263,6 +272,7 @@
             .content { grid-template-columns: 1fr; }
             .preview-panel { padding: 0; background: white; max-height: none; }
             button { display: none; }
+            .state-info { display: none; }
         }
     </style>
 </head>
@@ -270,20 +280,20 @@
     <div class="container">
         <div class="header">
             <h1>📋 Leave & License Agreement Generator</h1>
-            <p>Auto-generate, copy & print professional agreements in seconds</p>
+            <p>State-Compliant • Auto-generates mandatory clauses • Ready for registration & print</p>
         </div>
         
         <div class="content">
             <!-- FORM PANEL -->
             <div class="form-panel">
                 <div class="success-message" id="successMessage">
-                    ✓ Agreement generated successfully!
+                    ✓ State-compliant agreement generated successfully!
                 </div>
                 
                 <div class="template-selector">
                     <h4>Quick Templates</h4>
-                    <button type="button" onclick="loadTemplate('residential')" class="btn-generate" style="width: 100%; margin-bottom: 10px;">Load Residential Template</button>
-                    <button type="button" onclick="loadTemplate('commercial')" class="btn-generate" style="width: 100%;">Load Commercial Template</button>
+                    <button type="button" onclick="loadTemplate('residential')" class="btn-generate" style="width: 100%; margin-bottom: 10px;">🏠 Residential (MH)</button>
+                    <button type="button" onclick="loadTemplate('commercial')" class="btn-generate" style="width: 100%;">🏢 Commercial (MH)</button>
                 </div>
                 
                 <h3>👤 Licensor Details</h3>
@@ -383,20 +393,20 @@
                 </div>
                 
                 <h3>⚙️ Additional Terms</h3>
-                <div class="form-grid form-grid-full">
+                <div class="form-grid">
                     <div class="form-group">
                         <label>Maintenance Charges (Optional)</label>
                         <input type="number" id="maintenanceCharges" placeholder="e.g., 2000" min="0" step="100">
                     </div>
                     <div class="form-group">
                         <label>State/UT <span class="required">*</span></label>
-                        <select id="state">
+                        <select id="state" onchange="updateStateInfo()">
                             <option value="">Select State</option>
                             <option value="Maharashtra">Maharashtra</option>
                             <option value="Karnataka">Karnataka</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Delhi">Delhi</option>
                             <option value="Gujarat">Gujarat</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Uttar Pradesh">Uttar Pradesh</option>
                             <option value="Rajasthan">Rajasthan</option>
                             <option value="Telangana">Telangana</option>
@@ -405,19 +415,33 @@
                             <option value="Haryana">Haryana</option>
                             <option value="Madhya Pradesh">Madhya Pradesh</option>
                             <option value="Goa">Goa</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
                             <option value="Kerala">Kerala</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Ladakh">Ladakh</option>
-                            <option value="Jammu & Kashmir">Jammu & Kashmir</option>
                         </select>
                     </div>
+                </div>
+
+                <h3>📋 State Compliance</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Police Verification</label>
+                        <select id="policeVerification">
+                            <option value="No">No</option>
+                            <option value="Yes (within 15 days)">Yes (within 15 days)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Lock-in Period</label>
+                        <select id="lockInPeriod">
+                            <option value="None">None</option>
+                            <option value="3 months">3 months</option>
+                            <option value="6 months">6 months</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="stateInfo" class="state-info" style="display: none;">
+                    <strong id="stateName"></strong>: <span id="stateDetails"></span>
                 </div>
                 
                 <div class="button-group">
@@ -437,6 +461,42 @@
     </div>
     
     <script>
+        // State-specific compliance info
+        const stateInfo = {
+            'Maharashtra': 'Mandatory registration within 2 months. Stamp duty 0.25%. Police verification required.',
+            'Karnataka': 'Registration >11 months. Stamp duty 1%. Karnataka Rent Act applies.',
+            'Delhi': 'Registration recommended. Stamp duty ~2%. No tenancy rights created.',
+            'Gujarat': 'Registration >12 months. Follow Gujarat Rent Control Act.',
+            'Tamil Nadu': 'Registration via tenancy portal. Stamp duty 0.25%. TN Tenancy Act 2017.'
+        };
+
+        const stateClauses = {
+            'Maharashtra': `
+                <h3>14. MAHARASHTRA SPECIFIC COMPLIANCE</h3>
+                <p>This agreement shall be registered under Section 55 of Maharashtra Rent Control Act, 1999 within 2 months from execution date. Licensor shall initiate registration process. Licensee shall cooperate with biometric verification at Sub-Registrar office. Stamp duty @ 0.25% of total license fee + deposit payable by Licensee. Police verification mandatory within 15 days of occupation.</p>
+            `,
+            'Karnataka': `
+                <h3>14. KARNATAKA REGULATIONS</h3>
+                <p>Registration mandatory for agreements exceeding 11 months under Karnataka Rent Act, 1999. Stamp duty @ 1% of total rent + deposit (minimum ₹500). Licensee responsible for utilities and compliance with state maintenance standards. No tenancy rights created under this license agreement.</p>
+            `,
+            'Delhi': `
+                <h3>14. DELHI REGULATIONS</h3>
+                <p>Registration recommended for enforceability under Delhi Rent Control Act. Stamp duty approximately 2% of average annual rent. This creates license rights only, no tenancy or leasehold rights. Police verification advised for residential properties. Governed by laws of National Capital Territory of Delhi.</p>
+            `,
+            'Gujarat': `
+                <h3>14. GUJARAT REGULATIONS</h3>
+                <p>Subject to Gujarat Rent Control Act, 1999. Registration compulsory for agreements exceeding 12 months. Stamp duty as per Gujarat Stamp Act schedule. Clear vacation mandatory on expiry date. No automatic renewal or tenancy rights created.</p>
+            `,
+            'Tamil Nadu': `
+                <h3>14. TAMIL NADU REGULATIONS</h3>
+                <p>Compliant with Tamil Nadu Regulation of Rights and Responsibilities of Landlords and Tenants Act, 2017. Registration recommended via state tenancy portal. Stamp duty @ 0.25% of total rent + deposit. Licensee to maintain property as per state standards. Digital registration preferred.</p>
+            `,
+            'default': `
+                <h3>14. STATE COMPLIANCE</h3>
+                <p>Parties shall register this agreement as required by ${data ? data.state : 'state'} laws (mandatory for duration ≥12 months in most states). Licensee to complete police verification if applicable under local police regulations. Stamp duty payable as per respective state stamp duty schedule on total consideration amount.</p>
+            `
+        };
+
         // Auto-set today's date
         document.getElementById('agreementDate').valueAsDate = new Date();
         
@@ -444,12 +504,27 @@
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         document.getElementById('licenseStartDate').valueAsDate = tomorrow;
+
+        function updateStateInfo() {
+            const state = document.getElementById('state').value;
+            const stateInfoDiv = document.getElementById('stateInfo');
+            const stateName = document.getElementById('stateName');
+            const stateDetails = document.getElementById('stateDetails');
+            
+            if (state && stateInfo[state]) {
+                stateName.textContent = state;
+                stateDetails.textContent = stateInfo[state];
+                stateInfoDiv.style.display = 'block';
+            } else {
+                stateInfoDiv.style.display = 'none';
+            }
+        }
         
         function loadTemplate(type) {
             if (type === 'residential') {
                 document.getElementById('licensorName').value = 'Mr./Ms. [Owner Name]';
                 document.getElementById('licensorAge').value = '45';
-                document.getElementById('licensorAddress').value = '[Property Address], Maharashtra';
+                document.getElementById('licensorAddress').value = '[Owner Address], Navi Mumbai, Maharashtra';
                 document.getElementById('licensorPhone').value = '+91-9876543210';
                 
                 document.getElementById('licenseeName').value = 'Mr./Ms. [Tenant Name]';
@@ -457,36 +532,41 @@
                 document.getElementById('licenseeAddress').value = '[Current Address]';
                 document.getElementById('licenseePhone').value = '+91-9988776655';
                 
-                document.getElementById('propertyAddress').value = 'Flat No. [__], Wing [__], Society Name, Area Name, City, State - 400000';
+                document.getElementById('propertyAddress').value = 'Flat No. [__], Wing [__], Society Name, Navi Mumbai, Maharashtra - 400706';
                 document.getElementById('propertyType').value = 'Residential Apartment';
                 document.getElementById('carpetArea').value = '1500';
                 
                 document.getElementById('duration').value = '12';
-                document.getElementById('monthlyFee').value = '15000';
-                document.getElementById('securityDeposit').value = '45000';
-                document.getElementById('maintenanceCharges').value = '2000';
+                document.getElementById('monthlyFee').value = '25000';
+                document.getElementById('securityDeposit').value = '75000';
+                document.getElementById('maintenanceCharges').value = '3000';
                 document.getElementById('state').value = 'Maharashtra';
+                document.getElementById('policeVerification').value = 'Yes (within 15 days)';
+                document.getElementById('lockInPeriod').value = '3 months';
             } else if (type === 'commercial') {
-                document.getElementById('licensorName').value = 'Mr./Ms. [Property Owner]';
-                document.getElementById('licensorAge').value = '50';
-                document.getElementById('licensorAddress').value = '[Owner Address], Maharashtra';
+                document.getElementById('licensorName').value = 'M/s. [Company Name]';
+                document.getElementById('licensorAge').value = 'N/A';
+                document.getElementById('licensorAddress').value = '[Office Address], Mumbai, Maharashtra';
                 document.getElementById('licensorPhone').value = '+91-9876543210';
                 
-                document.getElementById('licenseeName').value = 'Company Name / [Business Owner Name]';
-                document.getElementById('licenseeAge').value = '40';
+                document.getElementById('licenseeName').value = 'M/s. [Business Name]';
+                document.getElementById('licenseeAge').value = 'N/A';
                 document.getElementById('licenseeAddress').value = '[Business Address]';
                 document.getElementById('licenseePhone').value = '+91-9988776655';
                 
-                document.getElementById('propertyAddress').value = 'Office No. [__], Building Name, Commercial Complex, City, State - 400000';
+                document.getElementById('propertyAddress').value = 'Office No. [__], [Building Name], Commercial Complex, Navi Mumbai, Maharashtra - 400706';
                 document.getElementById('propertyType').value = 'Commercial Office';
                 document.getElementById('carpetArea').value = '2500';
                 
                 document.getElementById('duration').value = '24';
-                document.getElementById('monthlyFee').value = '50000';
-                document.getElementById('securityDeposit').value = '150000';
-                document.getElementById('maintenanceCharges').value = '5000';
+                document.getElementById('monthlyFee').value = '80000';
+                document.getElementById('securityDeposit').value = '240000';
+                document.getElementById('maintenanceCharges').value = '8000';
                 document.getElementById('state').value = 'Maharashtra';
+                document.getElementById('policeVerification').value = 'No';
+                document.getElementById('lockInPeriod').value = '6 months';
             }
+            updateStateInfo();
             generateAgreement();
         }
         
@@ -513,7 +593,9 @@
                 securityDeposit: document.getElementById('securityDeposit').value || '0',
                 paymentDueDate: document.getElementById('paymentDueDate').value || '5th of every month',
                 maintenanceCharges: document.getElementById('maintenanceCharges').value || '0',
-                state: document.getElementById('state').value || '[State]'
+                state: document.getElementById('state').value || '[State]',
+                policeVerification: document.getElementById('policeVerification').value || 'No',
+                lockInPeriod: document.getElementById('lockInPeriod').value || 'None'
             };
             
             const licenseEndDate = calculateEndDate(data.licenseStartDate, parseInt(data.duration));
@@ -537,7 +619,11 @@
                 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                 return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} (${days[date.getDay()]})`;
             };
-            
+
+            const stateClause = stateClauses[data.state] || stateClauses['default'];
+            const lockInClause = data.lockInPeriod !== 'None' ? `<p><strong>Lock-in Period:</strong> Licensee cannot terminate during first ${data.lockInPeriod}. Notice period applies thereafter.</p>` : '';
+            const policeClause = data.policeVerification === 'Yes (within 15 days)' ? `<p><strong>Police Verification:</strong> Licensee shall obtain police verification within 15 days of occupation and provide attested copy to Licensor.</p>` : '';
+
             return `
 <h2>LEAVE AND LICENSE AGREEMENT</h2>
 
@@ -545,108 +631,97 @@
 
 <p><strong>BETWEEN</strong></p>
 
-<p><strong>${data.licensorName}</strong>, aged ${data.licensorAge} years, son/daughter of [Father's Name], residing at ${data.licensorAddress}, hereinafter referred to as the <strong>"LICENSOR"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators and permitted assigns)</p>
+<p><strong>${data.licensorName}</strong>, aged ${data.licensorAge} years, residing at ${data.licensorAddress}, hereinafter referred to as the <strong>"LICENSOR"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators and permitted assigns)</p>
 
 <p><strong>AND</strong></p>
 
-<p><strong>${data.licenseeName}</strong>, aged ${data.licenseeAge} years, son/daughter of [Father's Name], residing at ${data.licenseeAddress}, hereinafter referred to as the <strong>"LICENSEE"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators and permitted assigns)</p>
+<p><strong>${data.licenseeName}</strong>, aged ${data.licenseeAge} years, residing at ${data.licenseeAddress}, hereinafter referred to as the <strong>"LICENSEE"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators and permitted assigns)</p>
 
 <p><strong>WHEREAS</strong>:</p>
 
-<p>The Licensor is the owner of a ${data.propertyType} with an approximate carpet area of ${data.carpetArea} Sq. Ft., situated at ${data.propertyAddress}, in the State of ${data.state} (hereinafter referred to as the "said property").</p>
+<p>The Licensor is the absolute owner of ${data.propertyType} admeasuring approximately ${data.carpetArea} Sq. Ft. carpet area, situated at ${data.propertyAddress} (hereinafter referred to as the "said premises").</p>
 
-<h3>NOW IT IS HEREBY AGREED AS FOLLOWS:</h3>
+<h3>NOW THIS AGREEMENT WITNESSETH AS FOLLOWS:</h3>
 
 <h3>1. GRANT OF LICENSE</h3>
-<p>In consideration of the terms and conditions contained in this agreement and in return for the monetary consideration mentioned hereunder, the Licensor hereby grants to the Licensee a non-exclusive license to occupy and use the said property for residential/commercial purposes only, for the period mentioned hereinafter, subject to the terms and conditions of this agreement.</p>
+<p>The Licensor hereby grants to the Licensee an irrevocable license (but not tenancy rights) to occupy and use the said premises for ${data.propertyType.toLowerCase()} purposes only, for the license period mentioned hereinafter, subject to terms herein.</p>
 
-<h3>2. DURATION OF LICENSE</h3>
-<p>The license is granted for a period of ${data.duration} months commencing from ${formatDate(data.licenseStartDate)} and ending on ${formatDate(licenseEndDate)} (both days inclusive), unless sooner terminated in accordance with the terms of this agreement.</p>
+<h3>2. PERIOD OF LICENSE</h3>
+<p>License granted for ${data.duration} months from ${formatDate(data.licenseStartDate)} to ${formatDate(licenseEndDate)} (both days inclusive), unless terminated earlier as per this agreement.</p>
 
-<h3>3. LICENSE FEE AND SECURITY DEPOSIT</h3>
-<p>
-  <strong>3.1</strong> The Licensee shall pay to the Licensor a monthly license fee of ₹ ${parseInt(data.monthlyFee).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.monthlyFee))} only) payable on the ${data.paymentDueDate}.<br>
-  <strong>Total License Fee for ${data.duration} months: ₹ ${totalRent.toLocaleString('en-IN')}</strong><br><br>
-  
-  <strong>3.2</strong> The Licensee shall deposit a security deposit of ₹ ${parseInt(data.securityDeposit).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.securityDeposit))} only) with the Licensor before occupation of the said property. This security deposit shall be refundable after the expiry/determination of this license, subject to deduction of any damages or outstanding dues.<br><br>
-  
-  <strong>3.3</strong> ${data.maintenanceCharges && parseInt(data.maintenanceCharges) > 0 ? `The Licensee shall pay maintenance charges of ₹ ${parseInt(data.maintenanceCharges).toLocaleString('en-IN')} per month separately.` : 'No separate maintenance charges are applicable.'}
-</p>
+<h3>3. CONSIDERATION</h3>
+<p><strong>3.1</strong> Monthly License Fee: ₹ ${parseInt(data.monthlyFee).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.monthlyFee))} only) payable on ${data.paymentDueDate}. Total for ${data.duration} months: ₹ ${totalRent.toLocaleString('en-IN')}.</p>
+<p><strong>3.2</strong> Refundable Security Deposit: ₹ ${parseInt(data.securityDeposit).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.securityDeposit))} only) payable before occupation.</p>
+<p><strong>3.3</strong> ${data.maintenanceCharges && parseInt(data.maintenanceCharges) > 0 ? `Maintenance: ₹ ${parseInt(data.maintenanceCharges).toLocaleString('en-IN')} per month.` : 'No separate maintenance charges.'}</p>
 
-<h3>4. MODE OF PAYMENT</h3>
-<p>Payment of license fee, maintenance charges, and other dues shall be made in cash/bank transfer to the Licensor or to such person/entity as may be authorized by the Licensor. All payments shall be made without any deduction or set-off.</p>
+<h3>4. PAYMENT MODE</h3>
+<p>All payments via NEFT/RTGS/cheque to Licensor's designated account. No cash transactions above ₹2 lakhs permitted.</p>
 
-<h3>5. USE OF PROPERTY</h3>
-<p>The Licensee shall use the property solely for residential/commercial purposes and shall not:</p>
+<h3>5. USE & OCCUPANCY</h3>
 <ul>
-<li>Sub-license, share, or transfer the license to any third party</li>
-<li>Use the property for any illegal activities</li>
-<li>Cause any nuisance or annoyance to neighbors</li>
-<li>Make any structural modifications without prior written consent</li>
-<li>Keep any hazardous or inflammable materials in the property</li>
-<li>Carry on any business activity (if residential) without permission</li>
+<li>Solely for ${data.propertyType.toLowerCase()} purposes</li>
+<li>No sub-letting/sharing permitted</li>
+<li>No illegal/hazardous activities</li>
+<li>No structural alterations without consent</li>
+<li>Maximum ${data.propertyType.includes('Residential') ? '4 occupants' : 'as per fire norms'} allowed</li>
 </ul>
 
-<h3>6. MAINTENANCE AND REPAIRS</h3>
-<p>The Licensor shall be responsible for structural repairs and maintenance of the property. The Licensee shall maintain the property in good condition and shall be responsible for day-to-day maintenance and minor repairs.</p>
+<h3>6. REPAIRS & MAINTENANCE</h3>
+<p>Licensor: structural repairs. Licensee: day-to-day maintenance, fixtures, appliances. Licensee liable for damages beyond fair wear & tear.</p>
 
-<h3>7. UTILITIES AND EXPENSES</h3>
-<p>The Licensee shall bear all costs for utilities such as electricity, water, gas, internet, and other services consumed during the license period.</p>
+<h3>7. UTILITIES</h3>
+<p>Licensee bears all charges for electricity, water, gas, internet, property tax (if applicable during license period).</p>
 
-<h3>8. ENTRY AND INSPECTION</h3>
-<p>The Licensor reserves the right to enter the property for inspection, repairs, or maintenance purposes with reasonable notice (minimum 24 hours) to the Licensee.</p>
+<h3>8. INSPECTION RIGHTS</h3>
+<p>Licensor may inspect premises with 24 hours notice for maintenance/renewal discussions.</p>
 
-<h3>9. TERMINATION OF LICENSE</h3>
-<p>
-  <strong>9.1</strong> This license shall automatically terminate on the expiry date mentioned in Clause 2 unless renewed by mutual written agreement.<br><br>
-  <strong>9.2</strong> The Licensor may terminate this license with 30 days' written notice if:<br>
-  • License fee or other charges remain unpaid for more than 30 days<br>
-  • The Licensee breaches any material term of this agreement<br>
-  • The Licensee uses the property for illegal purposes<br>
-  • The Licensor intends to use the property for personal/family purposes<br><br>
-  <strong>9.3</strong> The Licensee may terminate this license with 30 days' written notice.<br><br>
-  <strong>9.4</strong> Upon termination, the Licensee shall vacate the property in clean condition and return possession to the Licensor.
-</p>
+<h3>9. TERMINATION</h3>
+<p><strong>9.1</strong> Automatic termination on ${formatDate(licenseEndDate)}.<br>
+<strong>9.2</strong> Licensor termination: 30 days notice for default/illegal use.<br>
+<strong>9.3</strong> Licensee termination: 30 days notice post lock-in.${lockInClause}<br>
+<strong>9.4</strong> Vacation in broom clean condition mandatory.${policeClause}</p>
 
-<h3>10. SECURITY DEPOSIT REFUND</h3>
-<p>The security deposit shall be refunded within 30 days of vacating the property, after deducting any damages, unpaid dues, or breakage of fixtures.</p>
+<h3>10. SECURITY DEPOSIT</h3>
+<p>Refund within 15 days of vacation after deductions for damages/dues. No interest payable.</p>
 
-<h3>11. COMPLIANCE WITH LAWS</h3>
-<p>Both parties shall comply with all applicable laws, regulations, and bye-laws of local and state authorities. Any legal action or notice served by authorities shall be complied with within the stipulated time.</p>
+<h3>11. FORCE MAJEURE</h3>
+<p>Neither party liable for delays due to acts of God, government orders, natural calamities.</p>
 
-<h3>12. GENERAL CONDITIONS</h3>
-<p>
-  <strong>12.1</strong> This agreement constitutes the entire agreement between the parties.<br><br>
-  <strong>12.2</strong> No modification, amendment, or variation shall be valid unless made in writing and signed by both parties.<br><br>
-  <strong>12.3</strong> If any provision of this agreement is found to be invalid or unenforceable, the remaining provisions shall continue to be valid.<br><br>
-  <strong>12.4</strong> This agreement is governed by the laws of ${data.state} and is subject to the jurisdiction of the courts in ${data.state}.
-</p>
+<h3>12. JURISDICTION</h3>
+<p>Subject to exclusive jurisdiction of courts in ${data.state}. Governed by laws of India.</p>
 
-<h3>13. DISCLAIMER</h3>
-<p>The Licensor disclaims liability for any injury, loss, or damage to person or property due to theft, accident, natural calamity, or any unforeseen circumstances.</p>
+${stateClause}
+
+<h3>15. ARBITRATION</h3>
+<p>Disputes resolved by sole arbitrator appointed mutually, as per Arbitration & Conciliation Act, 1996.</p>
 
 <div class="signature-section">
   <div>
-    <p style="margin-bottom: 50px;">Signature of Licensor: _______________</p>
+    <p style="margin-bottom: 50px;">Signature of Licensor: ________________</p>
     <div class="signature-line">
       <strong>${data.licensorName}</strong><br>
-      Licensor<br>
+      LICENSOR<br>
       Date: ___________
     </div>
   </div>
   <div>
-    <p style="margin-bottom: 50px;">Signature of Licensee: _______________</p>
+    <p style="margin-bottom: 50px;">Signature of Licensee: ________________</p>
     <div class="signature-line">
       <strong>${data.licenseeName}</strong><br>
-      Licensee<br>
+      LICENSEE<br>
       Date: ___________
     </div>
   </div>
 </div>
 
-<p style="margin-top: 40px; text-align: center; font-size: 10pt; color: #666;">
-<strong>Generated on:</strong> ${new Date().toLocaleDateString('en-IN')} at ${new Date().toLocaleTimeString('en-IN')}<br>
-<strong>Agreement ID:</strong> ${generateAgreementID()}
+<p style="margin-top: 40px; text-align: center; font-size: 10pt; color: #666; border-top: 1px solid #ccc; padding-top: 20px;">
+<strong>⚠️ IMPORTANT LEGAL NOTICE:</strong><br>
+✅ Register at Sub-Registrar Office within statutory period<br>
+✅ Pay applicable Stamp Duty (MH: 0.25%, KA: 1%, etc.)<br>
+✅ Complete Police Verification if required<br>
+✅ Consult local lawyer before execution<br>
+<strong>Generated:</strong> ${new Date().toLocaleDateString('en-IN')} ${new Date().toLocaleTimeString('en-IN')}<br>
+<strong>ID:</strong> ${generateAgreementID()}
 </p>
             `;
         }
@@ -677,7 +752,6 @@
                 num = Math.floor(num / 1000);
                 scaleIndex++;
             }
-            
             return result;
             
             function getHundreds(n) {
@@ -689,7 +763,7 @@
                 }
                 if (n >= 20) {
                     str += tens[Math.floor(n / 10)];
-                    if (n % 10 > 0) str += ' ' + words[n % 10];
+                    if (n % 10 > 0) str += '-' + words[n % 10];
                 } else if (n > 0) {
                     str += words[n];
                 }
@@ -698,18 +772,15 @@
         }
         
         function generateAgreementID() {
-            return 'AGR-' + new Date().getFullYear() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            return 'LLA-' + new Date().getFullYear() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
         }
         
         function copyToClipboard() {
             const text = document.getElementById('agreementPreview').innerText;
-            
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
-                    alert('✓ Agreement copied to clipboard!\nYou can paste it in Word, Google Docs, or any text editor.');
-                }).catch(() => {
-                    fallbackCopy(text);
-                });
+                    alert('✓ Agreement copied to clipboard!\nPaste in Word/Google Docs for final formatting.');
+                }).catch(() => fallbackCopy(text));
             } else {
                 fallbackCopy(text);
             }
@@ -720,27 +791,24 @@
             textarea.value = text;
             document.body.appendChild(textarea);
             textarea.select();
-            try {
-                document.execCommand('copy');
-                alert('✓ Agreement copied to clipboard!');
-            } catch (err) {
-                alert('Could not copy. Please try again.');
-            }
+            document.execCommand('copy');
             document.body.removeChild(textarea);
+            alert('✓ Agreement copied to clipboard!');
         }
         
         function printAgreement() {
-            if (!document.getElementById('agreementPreview').innerText.includes('[Licensor Name]') === false) {
+            const preview = document.getElementById('agreementPreview').innerText;
+            if (!preview.includes('[Licensor Name]')) {
                 window.print();
             } else {
-                alert('Please generate the agreement first before printing.');
+                alert('Please generate the agreement first!');
             }
         }
         
         function showSuccessMessage() {
             const msg = document.getElementById('successMessage');
             msg.classList.add('show');
-            setTimeout(() => msg.classList.remove('show'), 3000);
+            setTimeout(() => msg.classList.remove('show'), 4000);
         }
     </script>
 </body>
