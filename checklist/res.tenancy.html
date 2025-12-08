@@ -187,21 +187,13 @@
             text-align: justify;
         }
         
-        .agreement-preview table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
+        .agreement-preview ul {
+            margin: 10px 0;
+            padding-left: 20px;
         }
         
-        .agreement-preview th, .agreement-preview td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: left;
-        }
-        
-        .agreement-preview th {
-            background: #f0f0f0;
-            font-weight: bold;
+        .agreement-preview li {
+            margin: 5px 0;
         }
         
         .signature-section {
@@ -365,6 +357,7 @@
                         <label>Agreement Date <span class="required">*</span></label>
                         <input type="date" id="agreementDate">
                     </div>
+                    <div class="form-group
                     <div class="form-group">
                         <label>License Start Date <span class="required">*</span></label>
                         <input type="date" id="licenseStartDate">
@@ -467,7 +460,10 @@
             'Karnataka': 'Registration >11 months. Stamp duty 1%. Karnataka Rent Act applies.',
             'Delhi': 'Registration recommended. Stamp duty ~2%. No tenancy rights created.',
             'Gujarat': 'Registration >12 months. Follow Gujarat Rent Control Act.',
-            'Tamil Nadu': 'Registration via tenancy portal. Stamp duty 0.25%. TN Tenancy Act 2017.'
+            'Tamil Nadu': 'Registration via tenancy portal. Stamp duty 0.25%. TN Tenancy Act 2017.',
+            'Uttar Pradesh': 'Stamp duty 2-4%. Registration mandatory >11 months.',
+            'Telangana': 'Stamp duty 0.5-1%. Registration compulsory.',
+            'default': 'Check state-specific registration & stamp duty requirements.'
         };
 
         const stateClauses = {
@@ -493,7 +489,7 @@
             `,
             'default': `
                 <h3>14. STATE COMPLIANCE</h3>
-                <p>Parties shall register this agreement as required by ${data ? data.state : 'state'} laws (mandatory for duration ≥12 months in most states). Licensee to complete police verification if applicable under local police regulations. Stamp duty payable as per respective state stamp duty schedule on total consideration amount.</p>
+                <p>Parties shall register this agreement as required by state laws (mandatory for duration ≥12 months in most states). Licensee to complete police verification if applicable under local police regulations. Stamp duty payable as per respective state stamp duty schedule on total consideration amount.</p>
             `
         };
 
@@ -571,56 +567,61 @@
         }
         
         function generateAgreement() {
-            const data = {
-                licensorName: document.getElementById('licensorName').value || '[Licensor Name]',
-                licensorAge: document.getElementById('licensorAge').value || '[Age]',
-                licensorAddress: document.getElementById('licensorAddress').value || '[Address]',
-                licensorPhone: document.getElementById('licensorPhone').value || '[Phone]',
+            try {
+                const data = {
+                    licensorName: document.getElementById('licensorName').value || '[Licensor Name]',
+                    licensorAge: document.getElementById('licensorAge').value || '[Age]',
+                    licensorAddress: document.getElementById('licensorAddress').value || '[Address]',
+                    licensorPhone: document.getElementById('licensorPhone').value || '[Phone]',
+                    
+                    licenseeName: document.getElementById('licenseeName').value || '[Licensee Name]',
+                    licenseeAge: document.getElementById('licenseeAge').value || '[Age]',
+                    licenseeAddress: document.getElementById('licenseeAddress').value || '[Address]',
+                    licenseePhone: document.getElementById('licenseePhone').value || '[Phone]',
+                    
+                    propertyAddress: document.getElementById('propertyAddress').value || '[Property Address]',
+                    propertyType: document.getElementById('propertyType').value || '[Property Type]',
+                    carpetArea: document.getElementById('carpetArea').value || '[Area]',
+                    
+                    agreementDate: document.getElementById('agreementDate').value || new Date().toISOString().split('T')[0],
+                    licenseStartDate: document.getElementById('licenseStartDate').value || '[Date]',
+                    duration: document.getElementById('duration').value || '12',
+                    monthlyFee: document.getElementById('monthlyFee').value || '0',
+                    securityDeposit: document.getElementById('securityDeposit').value || '0',
+                    paymentDueDate: document.getElementById('paymentDueDate').value || '5th of every month',
+                    maintenanceCharges: document.getElementById('maintenanceCharges').value || '0',
+                    state: document.getElementById('state').value || '[State]',
+                    policeVerification: document.getElementById('policeVerification').value || 'No',
+                    lockInPeriod: document.getElementById('lockInPeriod').value || 'None'
+                };
                 
-                licenseeName: document.getElementById('licenseeName').value || '[Licensee Name]',
-                licenseeAge: document.getElementById('licenseeAge').value || '[Age]',
-                licenseeAddress: document.getElementById('licenseeAddress').value || '[Address]',
-                licenseePhone: document.getElementById('licenseePhone').value || '[Phone]',
+                const licenseEndDate = calculateEndDate(data.licenseStartDate, parseInt(data.duration));
+                const totalRent = parseInt(data.monthlyFee) * parseInt(data.duration);
                 
-                propertyAddress: document.getElementById('propertyAddress').value || '[Property Address]',
-                propertyType: document.getElementById('propertyType').value || '[Property Type]',
-                carpetArea: document.getElementById('carpetArea').value || '[Area]',
+                window.agreementData = data;
+                window.licenseEndDate = licenseEndDate;
+                window.totalRent = totalRent;
                 
-                agreementDate: document.getElementById('agreementDate').value || new Date().toISOString().split('T')[0],
-                licenseStartDate: document.getElementById('licenseStartDate').value || '[Date]',
-                duration: document.getElementById('duration').value || '12',
-                monthlyFee: document.getElementById('monthlyFee').value || '0',
-                securityDeposit: document.getElementById('securityDeposit').value || '0',
-                paymentDueDate: document.getElementById('paymentDueDate').value || '5th of every month',
-                maintenanceCharges: document.getElementById('maintenanceCharges').value || '0',
-                state: document.getElementById('state').value || '[State]',
-                policeVerification: document.getElementById('policeVerification').value || 'No',
-                lockInPeriod: document.getElementById('lockInPeriod').value || 'None'
-            };
-            
-            const licenseEndDate = calculateEndDate(data.licenseStartDate, parseInt(data.duration));
-            const totalRent = parseInt(data.monthlyFee) * parseInt(data.duration);
-            
-            window.agreementData = data;
-            window.licenseEndDate = licenseEndDate;
-            window.totalRent = totalRent;
-            
-            const html = generateHTML(data, licenseEndDate, totalRent);
-            document.getElementById('agreementPreview').innerHTML = html;
-            
-            showSuccessMessage();
+                const html = generateHTML(data, licenseEndDate, totalRent);
+                document.getElementById('agreementPreview').innerHTML = html;
+                
+                showSuccessMessage();
+            } catch (error) {
+                console.error('Generation error:', error);
+                alert('Error generating agreement. Please check all required fields.');
+            }
         }
         
         function generateHTML(data, licenseEndDate, totalRent) {
             const formatDate = (dateStr) => {
-                if (!dateStr) return '[Date]';
+                if (!dateStr || dateStr === '[Date]') return '[Date]';
                 const date = new Date(dateStr);
                 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                 return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} (${days[date.getDay()]})`;
             };
 
-            const stateClause = stateClauses[data.state] || stateClauses['default'];
+            const stateClause = stateClauses[data.state] || stateClauses['default'].replace('${data.state}', data.state);
             const lockInClause = data.lockInPeriod !== 'None' ? `<p><strong>Lock-in Period:</strong> Licensee cannot terminate during first ${data.lockInPeriod}. Notice period applies thereafter.</p>` : '';
             const policeClause = data.policeVerification === 'Yes (within 15 days)' ? `<p><strong>Police Verification:</strong> Licensee shall obtain police verification within 15 days of occupation and provide attested copy to Licensor.</p>` : '';
 
@@ -662,7 +663,7 @@
 <li>Solely for ${data.propertyType.toLowerCase()} purposes</li>
 <li>No sub-letting/sharing permitted</li>
 <li>No illegal/hazardous activities</li>
-<li>No structural alterations without consent</li>
+<li>No structuralalterations without consent</li>
 <li>Maximum ${data.propertyType.includes('Residential') ? '4 occupants' : 'as per fire norms'} allowed</li>
 </ul>
 
@@ -727,6 +728,7 @@ ${stateClause}
         }
         
         function calculateEndDate(startDate, months) {
+            if (!startDate || startDate === '[Date]') return '[End Date]';
             const date = new Date(startDate);
             date.setMonth(date.getMonth() + months);
             date.setDate(date.getDate() - 1);
@@ -734,12 +736,11 @@ ${stateClause}
         }
         
         function numberToWords(num) {
+            if (!num || num === 0) return 'Zero';
             const words = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
                 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
             const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
             const scales = ['', 'Thousand', 'Lakh', 'Crore'];
-            
-            if (num === 0) return 'Zero';
             
             let result = '';
             let scaleIndex = 0;
@@ -776,7 +777,8 @@ ${stateClause}
         }
         
         function copyToClipboard() {
-            const text = document.getElementById('agreementPreview').innerText;
+            const preview = document.getElementById('agreementPreview');
+            const text = preview.innerText;
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
                     alert('✓ Agreement copied to clipboard!\nPaste in Word/Google Docs for final formatting.');
@@ -798,10 +800,10 @@ ${stateClause}
         
         function printAgreement() {
             const preview = document.getElementById('agreementPreview').innerText;
-            if (!preview.includes('[Licensor Name]')) {
+            if (!preview.includes('[Licensor Name]') && preview.includes('LEAVE AND LICENSE AGREEMENT')) {
                 window.print();
             } else {
-                alert('Please generate the agreement first!');
+                alert('Please generate the agreement first by filling required fields and clicking Generate!');
             }
         }
         
@@ -813,3 +815,4 @@ ${stateClause}
     </script>
 </body>
 </html>
+
