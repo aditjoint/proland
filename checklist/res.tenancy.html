@@ -627,6 +627,224 @@
             const policeClause = data.policeVerification === 'Yes (within 15 days)' ? `<p><strong>Police Verification:</strong> Licensee shall obtain police verification within 15 days of occupation and provide attested copy to Licensor.</p>` : '';
 
             return `
+
+
+<h2>LEAVE AND LICENSE AGREEMENT</h2>
+
+<p><strong>This Agreement is made on ${formatDate(data.agreementDate)} (hereinafter referred to as the "date of agreement")</strong></p>
+
+<p><strong>BETWEEN</strong></p>
+
+<p><strong>${data.licensorName}</strong>, aged ${data.licensorAge} years, residing at ${data.licensorAddress}, hereinafter referred to as the <strong>"LICENSOR"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators, and permitted assigns).</p>
+
+<p><strong>AND</strong></p>
+
+<p><strong>${data.licenseeName}</strong>, aged ${data.licenseeAge} years, residing at ${data.licenseeAddress}, hereinafter referred to as the <strong>"LICENSEE"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators, and permitted assigns).</p>
+
+<p><strong>WHEREAS</strong>:</p>
+<p>The Licensor is the absolute owner of ${data.propertyType} admeasuring approximately ${data.carpetArea} Sq. Ft. carpet area, situated at ${data.propertyAddress} (hereinafter referred to as the "said premises").</p>
+
+<h3>NOW THIS AGREEMENT WITNESSETH AS FOLLOWS:</h3>
+
+<h3>1. GRANT OF LICENSE</h3>
+<p>The Licensor hereby grants to the Licensee an irrevocable license (but not tenancy rights) to occupy and use the said premises for ${data.propertyType.toLowerCase()} purposes only, for the license period mentioned hereinafter, subject to terms herein.</p>
+
+<h3>2. PERIOD OF LICENSE</h3>
+<p>License granted for ${data.duration} months from ${formatDate(data.licenseStartDate)} to ${formatDate(licenseEndDate)} (both days inclusive), unless terminated earlier as per this agreement.</p>
+
+<h3>3. CONSIDERATION</h3>
+<p><strong>3.1</strong> Monthly License Fee: ₹ ${parseInt(data.monthlyFee).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.monthlyFee))} only) payable on ${data.paymentDueDate}. Total for ${data.duration} months: ₹ ${totalRent.toLocaleString('en-IN')}.</p>
+<p><strong>3.2</strong> Refundable Security Deposit: ₹ ${parseInt(data.securityDeposit).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.securityDeposit))} only) payable before occupation.</p>
+<p><strong>3.3</strong> ${data.maintenanceCharges && parseInt(data.maintenanceCharges) > 0 ? `Maintenance: ₹ ${parseInt(data.maintenanceCharges).toLocaleString('en-IN')} per month.` : 'No separate maintenance charges.'}</p>
+
+<h3>4. PAYMENT MODE</h3>
+<p>All payments via NEFT/RTGS/cheque to Licensor's designated account. No cash transactions permitted.</p>
+
+<h3>5. USE & OCCUPANCY</h3>
+<ul>
+<li>Solely for ${data.propertyType.toLowerCase()} purposes</li>
+<li>No sub-letting/sharing permitted</li>
+<li>No illegal/hazardous activities</li>
+<li>No structural alterations without consent</li>
+<li>Maximum ${data.propertyType.includes('Residential') ? '4 occupants' : 'as per fire norms'} allowed</li>
+</ul>
+
+<h3>6. REPAIRS & MAINTENANCE</h3>
+<p>Licensor: structural repairs. Licensee: day-to-day maintenance, fixtures, appliances. Licensee liable for damages beyond fair wear & tear.</p>
+
+<h3>7. UTILITIES</h3>
+<p>Licensee bears all charges for electricity, water, gas, internet, property tax (if applicable during license period).</p>
+
+<h3>8. INSPECTION RIGHTS</h3>
+<ul>
+<li>24-hour notice for maintenance, inspections, or showing property (during last 60 days of contract period).</li>
+<li>Immediate access for emergencies (fire, flood, gas leak).</li>
+<li>Quarterly inspections with 48-hour notice.</li>
+</ul>
+
+<h3>9. TERMINATION</h3>
+<p><strong>9.1</strong> Automatic termination on ${formatDate(licenseEndDate)}.<br>
+<strong>9.2</strong> Licensor termination: 30 days notice for default/illegal use.<br>
+<strong>9.3</strong> Licensee termination: 30 days notice post lock-in.${lockInClause}<br>
+<strong>9.4</strong> Vacation in broom clean condition mandatory.${policeClause}</p>
+
+<h3>10. SECURITY DEPOSIT</h3>
+<p>Refund within 15 days of vacation after deductions for damages/dues. No interest payable.</p>
+
+<h3>11. LICENSEE OBLIGATIONS</h3>
+<ul>
+<li><strong>Occupancy Limit:</strong> Maximum 4 persons (family members only).</li>
+<li><strong>Guests:</strong> Must vacate by 11:00 PM. Long-term guests (>15 days) require written approval.</li>
+<li>No sub-licensing or sharing.</li>
+<li>No illegal activities.</li>
+<li>Day-to-day maintenance responsibility.</li>
+<li><strong>No Pets/Smoking:</strong> Strictly prohibited without written consent.</li>
+<li><strong>Utilities:</strong> Tenant responsible for electricity, water, gas, internet, maintenance charges.</li>
+<li><strong>Maintenance:</strong> Tenant maintains interior cleaning, minor repairs, AC servicing. Owner maintains structure, external areas.</li>
+<li><strong>Quiet Hours:</strong> No noise/disturbance 10:00 PM - 6:00 AM.</li>
+</ul>
+
+<h3>12. IMMEDIATE EVICTION GROUNDS (No Notice)</h3>
+<table>
+<tr><th>Violation</th><th>Action</th></tr>
+<tr><td>Non-residential use / Business activity</td><td>Immediate termination + Deposit forfeiture</td></tr>
+<tr><td>Subletting / Unauthorized occupants</td><td>Police eviction + Legal costs</td></tr>
+<tr><td>Rent unpaid >30 days</td><td>Lockout + Double rent penalty</td></tr>
+<tr><td>Property damage / Safety hazard</td><td>Immediate vacation required</td></tr>
+</table>
+
+<h3>13. TERMINATION & DEPOSIT REFUND</h3>
+<ul>
+<li><strong>Notice Period:</strong> 30 days written notice from either party.</li>
+<li><strong>Overstay Penalty:</strong> Double rent per day until vacation.</li>
+<li><strong>Deposit Refund:</strong> Within 30 days after deductions (itemized invoice provided).</li>
+<li><strong>Deductions:</strong> Unpaid rent/utilities, damages, cleaning, society dues.</li>
+</ul>
+
+<h3>14. FORCE MAJEURE</h3>
+<p>Neither party liable for delays due to acts of God, government orders, natural calamities.</p>
+
+<h3>15. JURISDICTION</h3>
+<p>Subject to exclusive jurisdiction of courts in ${data.state}. Governed by laws of India.</p>
+${stateClause}
+
+<h3>16. PERMITTED USE & ABSOLUTE PROHIBITIONS</h3>
+<p><strong>The Licensee shall use the Demised Premises SOLELY AND EXCLUSIVELY for residential purposes and approved family members ONLY.</strong></p>
+<p><strong>ABSOLUTE PROHIBITION on the following activities (Material Breach):</strong></p>
+<ul>
+<li>Subletting, licensing, sharing, assigning or parting with possession of whole/any part.</li>
+<li>Any business, profession, trade, office, storage, warehouse or commercial activities (online/offline).</li>
+<li>Using premises as registered/branch/liaison office or business address for any entity.</li>
+<li>Using address for GST/MSME/LLP/Company/Shop Act registrations or similar statutory purposes.</li>
+<li>Social gatherings, events, parties beyond normal family use causing nuisance.</li>
+<li>Storage of goods, IT/network equipment, or commercial inventory.</li>
+</ul>
+<p><strong>CONSEQUENCES:</strong> Immediate termination, security deposit forfeiture, withdrawal of all registrations, and full indemnification to the Licensor.</p>
+
+<h3>17. INDEMNITY & LIABILITY PROTECTION</h3>
+<p><strong>17.1 COMPLETE INDEMNITY:</strong> Licensee shall indemnify, defend, and hold harmless Licensor from all claims, damages, or losses arising from:</p>
+<ul>
+<li>Licensee's use or misuse of premises.</li>
+<li>Injury/death to Licensee, guests, or family.</li>
+<li>Third-party claims or property damage.</li>
+<li>Non-compliance with laws.</li>
+</ul>
+<p><strong>17.2 NO LICENSOR LIABILITY:</strong> Licensor not liable for injuries, theft, fire, water, or structural defects.</p>
+
+<h3>18. INSURANCE & RISK ALLOCATION</h3>
+<ul>
+<li>Licensee shall maintain contents and liability insurance (₹10 lakhs minimum).</li>
+<li>Health insurance mandatory for all occupants.</li>
+<li>Licensor not liable for uninsured losses. Licensee waives all claims.</li>
+</ul>
+
+<h3>19. COMMERCIAL USE PROHIBITION</h3>
+<p><strong>19.1 STRICTLY RESIDENTIAL ONLY:</strong> Premises use solely for residential purposes of Licensee and family.</p>
+<ul>
+<li>No business/trade/office activity (online or offline).</li>
+<li>No GST/MSME/Company registration using address.</li>
+<li>No commercial inventory or equipment storage.</li>
+</ul>
+<p><strong>19.2 CONSEQUENCES:</strong> Immediate termination + 6 months license fee as liquidated damages + withdrawal of registrations.</p>
+
+<h3>20. PROPERTY PROTECTION & REINSTATEMENT</h3>
+<ul>
+<li>Premises to be returned in painted, broom-clean condition with all fittings restored.</li>
+<li>No alterations without consent; deep cleaning mandatory.</li>
+<li><strong>Holding Charges:</strong> ₹5,000 per day post-expiry until reinstatement.</li>
+</ul>
+
+<h3>21. LEGAL EXPENSES & RECOVERY</h3>
+<ul>
+<li>Licensee liable for all Licensor legal/recovery costs.</li>
+<li>Includes legal fees, court costs, and registration expenses.</li>
+</ul>
+
+<h3>22. MEDICAL EMERGENCY PROTOCOL</h3>
+<p>Licensor not responsible for medical emergencies. Licensee bears full cost of health coverage, quarantine, or illness.</p>
+
+<h3>23. ENVIRONMENTAL & SAFETY COMPLIANCE</h3>
+<p>No storage or use of inflammables, chemicals, or heavy gas cylinders beyond household use. Licensee follows all fire safety regulations.</p>
+
+<h3>24. PERSONAL GUARANTEE (Optional)</h3>
+<p>${data.personalGuarantee ? '<strong>[Guarantor Name]</strong> personally guarantees all Licensee obligations including payments, damages, legal costs.' : ''}</p>
+
+<h3>25. SUB-LETTING & OCCUPANCY VERIFICATION</h3>
+<ul>
+<li>Licensor may verify Licensee identity documents annually.</li>
+<li>Unannounced occupancy verification permitted. Unauthorized occupants = termination + ₹50,000 penalty.</li>
+<li>Licensee to provide two emergency contacts.</li>
+</ul>
+
+<h3>26. UTILITY & SOCIETY DUES PROTECTION</h3>
+<ul>
+<li>Licensee responsible for all utility arrears post-vacation.</li>
+<li>No Dues Certificate from Society mandatory before refund.</li>
+<li>Joint meter readings at check-in and check-out (photographic evidence required).</li>
+</ul>
+
+<h3>27. BANK GUARANTEE OPTION</h3>
+<p>Licensee may provide bank guarantee equivalent to six months’ license fee (valid 3 months post-expiry) in lieu of deposit.</p>
+
+<h3>28. RENOVATION & MODIFICATION CONTROL</h3>
+<p>No alterations (painting, flooring, etc.) without written approval. Restoration bond ₹2 lakh for approved works.</p>
+
+<h3>29. DIGITAL VERIFICATION & POLICE COMPLIANCE</h3>
+<ul>
+<li>Aadhaar-linked verification required.</li>
+<li>Police verification certificate within 15 days of occupation.</li>
+</ul>
+
+<h3>30. HOLDOVER</h3>
+<p>Post-expiry possession = triple license fee per day + immediate eviction. Licensor may recover via locksmith/police.</p>
+
+<h3>31. IT & CYBERCRIME RESTRICTIONS</h3>
+<ul>
+<li>No server hosting, VPN, crypto mining, call centers, or bulk SMS activities.</li>
+<li>No dark web access or illegal file sharing.</li>
+<li>Max 2 WiFi routers with residential internet only.</li>
+<li>Licensee fully liable for cybercrime violations and associated legal costs.</li>
+</ul>
+
+<h3>32. PET & ALLERGY POLICY</h3>
+<p>No pets allowed (except service animals with valid certificate). Avoid odor, incense, and activities causing neighbor complaints.</p>
+
+<h3>33. PARKING & VEHICLE POLICY</h3>
+<ul>
+<li>Parking only in allotted spots. No overnight visitor parking.</li>
+<li>Licensee liable for any parking-area damage.</li>
+</ul>
+
+<h3>34. SUCCESSORS & ASSIGNS</h3>
+<p>All terms binding upon heirs, executors, and successors of both Licensor and Licensee. Licensor may transfer ownership without affecting validity.</p>
+
+<h3>35. ARBITRATION</h3>
+<p>Disputes to be resolved under Arbitration and Conciliation Act, 1996, by a sole arbitrator mutually appointed by both parties.</p>
+
+
+
+
+            
 <h2>LEAVE AND LICENSE AGREEMENT</h2>
 
 <p><strong>This Agreement is made on ${formatDate(data.agreementDate)} (hereinafter referred to as the "date of agreement")</strong></p>
@@ -686,8 +904,7 @@
 <h3>10. SECURITY DEPOSIT</h3>
 <p>Refund within 15 days of vacation after deductions for damages/dues. No interest payable.</p>
 
-
-<h3>10. LICENSEE OBLIGATIONS</h3>
+<h3>11. LICENSEE OBLIGATIONS</h3>
             <ul>
                 <li><strong>Occupancy Limit:</strong> Maximum 4 persons (family members only).</li>
                 <li><strong>Guests:</strong> Must vacate by 11:00 PM. Long-term guests (>15 days) require written approval.</li>
@@ -699,40 +916,15 @@
                 <li><strong>Maintenance:</strong> Tenant maintains interior cleaning, minor repairs, AC servicing. Owner maintains structure, external areas.</li>
                 <li><strong>Quiet Hours:</strong> No noise/disturbance 10:00 PM - 6:00 AM.</li>
             </ul>
-<h3>11.  INSPECTION RIGHTS </h3>
+<h3>12.  INSPECTION RIGHTS </h3>
             <ul
                 <li>24-hour notice for maintenance, inspections, or showing property (during last 60 days of contract period).</li>
                 <li>Immediate access for emergencies (fire, flood, gas leak).</li>
                 <li>Quarterly inspections with 48-hour notice.</li>
             </ul>
-<h3>12. IMMEDIATE EVICTION Grounds (No Notice):</h3>
-            <table>
-                <tr><th>Violation</th><th>Action</th></tr>
-                <tr><td>Non-residential use / Business activity</td><td>Immediate termination + Deposit forfeiture</td></tr>
-                <tr><td>Subletting / Unauthorized occupants</td><td>Police eviction + Legal costs</td></tr>
-                <tr><td>Rent unpaid >30 days</td><td>Lockout + Double rent penalty</td></tr>
-                <tr><td>Property damage / Safety hazard</td><td>Immediate vacation required</td></tr>
-            </table>
-<h3>13.   TERMINATION & DEPOSIT REFUND</h3>
-            <ul class="list">
-                <li><strong>Notice Period:</strong> 30 days written notice from either party.</li>
-                <li><strong>Overstay Penalty:</strong> Double rent per day until vacation.</li>
-                <li><strong>Deposit Refund:</strong> Within 30 days after deductions (itemized invoice provided).</li>
-                <li><strong>Deductions:</strong> Unpaid rent/utilities, damages, cleaning, society dues.</li>
-            </ul>
-<h3>14. FORCE MAJEURE</h3>
-<p>Neither party liable for delays due to acts of God, government orders, natural calamities.</p>
-
-<h3>15. JURISDICTION</h3>
-<p>Subject to exclusive jurisdiction of courts in ${data.state}. Governed by laws of India.</p>
-${stateClause}
-
-<h3>16. FORCE MAJEURE</h3>
-<div class="section">
-            <h2><i class="fas fa-ban"></i> PERMITTED USE & ABSOLUTE PROHIBITIONS</h2>
-            <div class="prohibited">
-                <h4><i class="fas fa-exclamation-triangle"></i> STRICTLY RESIDENTIAL USE ONLY</h4>
-                <p><strong>The Tenant shall use the Demised Premises SOLELY AND EXCLUSIVELY for residential purposes of the Tenant and approved family members ONLY.</strong></p>
+            
+<h3>17. PERMITTED USE & ABSOLUTE PROHIBITIONS</h3>
+                <p><strong>The Licensee shall use the Demised Premises SOLELY AND EXCLUSIVELY for residential purposes and approved family members ONLY.</strong></p>
                 <p><strong>ABSOLUTE PROHIBITION on the following activities (Material Breach):</strong></p>
                 <ul class="list">
                     <li>Subletting, licensing, sharing, assigning or parting with possession of whole/any part of premises.</li>
@@ -851,7 +1043,6 @@ ${stateClause}
 <p><strong>31.5 INTERNET LIMITS:</strong> Maximum 2 WiFi routers, residential bandwidth only. No dedicated leased lines/servers/racks.</p>
 <p><strong>31.6 POLICE LIABILITY:</strong> Licensee solely liable for any cybercrime/police investigation. Licensor fully indemnified. Immediate termination + full legal costs recoverable.</p>
 
-
 <h3>32. PET & ALLERGY POLICY</h3>
 <p><strong>32.1 PET PROHIBITION:</strong> No pets/animals permitted (except service animals with medical certificate).
 <strong>32.2 ALLERGEN CONTROL:</strong> No fish tanks, heavy cooking odors, incense causing neighbor complaints.</p>
@@ -864,38 +1055,30 @@ ${stateClause}
 <p><strong>35.1 BINDING ON HEIRS:</strong> All obligations binding on Licensee's heirs, executors, administrators, successors.
 <strong>35.2 LICENSOR SUCCESSORS:</strong> Licensor may assign/sell property (Licensee bound to new owner).</p>
 
-<h3>35. ABSOLUTE PROHIBITION - GST/MSME/BUSINESS USE</h3>
-<p><strong>35.1 STATUTORY REGISTRATION BAN:</strong> Licensee <strong>STRICTLY PROHIBITED</strong> from using premises/property address for:</p>
-<ul>
-<li>GST registration/permanent address</li>
-<li>MSME/Udyam registration</li>
-<li>Shops & Establishments license</li>
-<li>Company/LLP/Partnership incorporation</li>
-<li>PAN address proof</li>
-<li>Any statutory authority registration</li>
-</ul>
-<p><strong>20.2 COMMERCIAL ACTIVITY BAN:</strong> No business/trade/profession/consultancy/coaching/server hosting/data center/social media monetization/IT services using premises.</p>
-<p><strong>20.3 PENALTY:</strong> Immediate termination + <strong>₹6 lakhs liquidated damages** + Licensee withdraws all registrations using premises address at own cost.</p>
+<h3>13. IMMEDIATE EVICTION Grounds (No Notice):</h3>
+            <table>
+                <tr><th>Violation</th><th>Action</th></tr>
+                <tr><td>Non-residential use / Business activity</td><td>Immediate termination + Deposit forfeiture</td></tr>
+                <tr><td>Subletting / Unauthorized occupants</td><td>Police eviction + Legal costs</td></tr>
+                <tr><td>Rent unpaid >30 days</td><td>Lockout + Double rent penalty</td></tr>
+                <tr><td>Property damage / Safety hazard</td><td>Immediate vacation required</td></tr>
+            </table>
+<h3>14.   TERMINATION & DEPOSIT REFUND</h3>
+            <ul class="list">
+                <li><strong>Notice Period:</strong> 30 days written notice from either party.</li>
+                <li><strong>Overstay Penalty:</strong> Double rent per day until vacation.</li>
+                <li><strong>Deposit Refund:</strong> Within 30 days after deductions (itemized invoice provided).</li>
+                <li><strong>Deductions:</strong> Unpaid rent/utilities, damages, cleaning, society dues.</li>
+            </ul>
+<h3>15. FORCE MAJEURE</h3>
+<p>Neither party liable for delays due to acts of God, government orders, natural calamities.</p>
 
-<h3>21. IT/CYBERCRIME & INTERNET MISUSE PROHIBITION</h3>
-<p><strong>21.1 CYBERCRIME ABSOLUTE BAN:</strong> Licensee <strong>STRICTLY PROHIBITED</strong> from:</p>
-<ul>
-<li>Server hosting/VPN services/cryptocurrency mining/call centers/bulk SMS</li>
-<li>Cybercrime/fraud/phishing/hacking/malware distribution</li>
-<li>Dark web/tor hosting/illegal downloads/file sharing</li>
-<li>Spamming/telemarketing/illegal streaming/P2P torrents</li>
-<li>High-bandwidth commercial internet misuse</li>
-</ul>
-<p><strong>21.2 INTERNET LIMITS:</strong> Maximum 2 WiFi routers, residential bandwidth only. No dedicated leased lines/servers/racks.</p>
-<p><strong>21.3 POLICE LIABILITY:</strong> Licensee solely liable for any cybercrime/police investigation. Licensor fully indemnified. Immediate termination + full legal costs recoverable.</p>
-
-
+<h3>16. JURISDICTION</h3>
+<p>Subject to exclusive jurisdiction of courts in ${data.state}. Governed by laws of India.</p>
+${stateClause}
 
 <h3>35. ARBITRATION</h3>
 <p>Disputes resolved by sole arbitrator appointed mutually, as per Arbitration & Conciliation Act, 1996.</p>
-
-
-
 
 <div class="signature-section">
   <div>
