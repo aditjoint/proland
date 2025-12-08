@@ -649,6 +649,7 @@
 <p><strong>3.3</strong> ${data.maintenanceCharges && parseInt(data.maintenanceCharges) > 0 ? `Maintenance: ₹ ${parseInt(data.maintenanceCharges).toLocaleString('en-IN')} per month.` : 'No separate maintenance charges.'}</p>
 <p><strong>3.4</strong> Escalation of Fees: Licensor may increase license fee on annual renewal by up to 10-15% with 60 days written notice.</p>
 <p><strong>3.5</strong> Any maintenance charges are SEPARATE from license fee and are non-refundable.</p>
+
 <h3>4. PAYMENT MODE</h3>
 <p>All payments via NEFT/RTGS/cheque to Licensor's designated account. No cash transactions permitted.</p>
 
@@ -681,7 +682,7 @@
 <strong>9.4</strong> Vacation in broom clean condition mandatory.${policeClause}</p>
 
 <h3>10. SECURITY DEPOSIT</h3>
-<p>Refund within 15 days of vacation after deductions for damages/dues. No interest payable.</p>
+<p>Refund within 30 days of vacation after deductions for damages/dues. No interest payable.</p>
 
 <h3>11. LICENSEE OBLIGATIONS</h3>
 <ul>
@@ -731,7 +732,7 @@ ${stateClause}
 <li>Social gatherings, events, parties beyond normal family use causing nuisance.</li>
 <li>Storage of goods, IT/network equipment, or commercial inventory.</li>
 </ul>
-<p><strong>CONSEQUENCES:</strong> Immediate termination, security deposit forfeiture, withdrawal of all registrations, and full indemnification to the Licensor.</p>
+<p><strong>CONSEQUENCES:</strong> Immediate termination, + 6 months license fee as liquidated damages, security deposit forfeiture, withdrawal of all registrations, and full indemnification to the Licensor.</p>
 
 <h3>17. INDEMNITY & LIABILITY PROTECTION</h3>
 <p><strong>17.1 COMPLETE INDEMNITY:</strong> Licensee shall indemnify, defend, and hold harmless Licensor from all claims, damages, or losses arising from:</p>
@@ -750,67 +751,55 @@ ${stateClause}
 <li>Licensor not liable for uninsured losses. Licensee waives all claims.</li>
 </ul>
 
-<h3>19. COMMERCIAL USE PROHIBITION</h3>
-<p><strong>19.1 STRICTLY RESIDENTIAL ONLY:</strong> Premises use solely for residential purposes of Licensee and family.</p>
-<ul>
-<li>No business/trade/office activity (online or offline).</li>
-<li>No GST/MSME/Company registration using address.</li>
-<li>No commercial inventory or equipment storage.</li>
-</ul>
-<p><strong>19.2 CONSEQUENCES:</strong> Immediate termination + 6 months license fee as liquidated damages + withdrawal of registrations.</p>
-
-<h3>20. PROPERTY PROTECTION & REINSTATEMENT</h3>
+<h3>19. PROPERTY PROTECTION & REINSTATEMENT</h3>
 <ul>
 <li>Premises to be returned in painted, broom-clean condition with all fittings restored.</li>
 <li>No alterations without consent; deep cleaning mandatory.</li>
 <li><strong>Holding Charges:</strong> ₹5,000 per day post-expiry until reinstatement.</li>
 </ul>
 
-<h3>21. LEGAL EXPENSES & RECOVERY</h3>
+<h3>20. LEGAL EXPENSES & RECOVERY</h3>
 <ul>
 <li>Licensee liable for all Licensor legal/recovery costs.</li>
 <li>Includes legal fees, court costs, and registration expenses.</li>
 </ul>
 
-<h3>22. MEDICAL EMERGENCY PROTOCOL</h3>
+<h3>21. MEDICAL EMERGENCY PROTOCOL</h3>
 <p>Licensor not responsible for medical emergencies. Licensee bears full cost of health coverage, quarantine, or illness.</p>
 
-<h3>23. ENVIRONMENTAL & SAFETY COMPLIANCE</h3>
+<h3>22. ENVIRONMENTAL & SAFETY COMPLIANCE</h3>
 <p>No storage or use of inflammables, chemicals, or heavy gas cylinders beyond household use. Licensee follows all fire safety regulations.</p>
 
-<h3>24. PERSONAL GUARANTEE (Optional)</h3>
+<h3>23. PERSONAL GUARANTEE (Optional)</h3>
 <p>${data.personalGuarantee ? '<strong>[Guarantor Name]</strong> personally guarantees all Licensee obligations including payments, damages, legal costs.' : ''}</p>
 
-<h3>25. SUB-LETTING & OCCUPANCY VERIFICATION</h3>
+<h3>24. SUB-LETTING & OCCUPANCY VERIFICATION</h3>
 <ul>
 <li>Licensor may verify Licensee identity documents annually.</li>
 <li>Unannounced occupancy verification permitted. Unauthorized occupants = termination + ₹50,000 penalty.</li>
 <li>Licensee to provide two emergency contacts.</li>
 </ul>
 
-<h3>26. UTILITY & SOCIETY DUES PROTECTION</h3>
+<h3>25. UTILITY & SOCIETY DUES PROTECTION</h3>
 <ul>
 <li>Licensee responsible for all utility arrears post-vacation.</li>
 <li>No Dues Certificate from Society mandatory before refund.</li>
 <li>Joint meter readings at check-in and check-out (photographic evidence required).</li>
 </ul>
 
-<h3>27. BANK GUARANTEE OPTION</h3>
+<h3>26. BANK GUARANTEE OPTION</h3>
 <p>Licensee may provide bank guarantee equivalent to six months’ license fee (valid 3 months post-expiry) in lieu of deposit.</p>
 
-<h3>28. RENOVATION & MODIFICATION CONTROL</h3>
+<h3>27. RENOVATION & MODIFICATION CONTROL</h3>
 <p>No alterations (painting, flooring, etc.) without written approval. Restoration bond ₹2 lakh for approved works.</p>
 
-<h3>29. DIGITAL VERIFICATION & POLICE COMPLIANCE</h3>
+<h3>28. DIGITAL VERIFICATION & POLICE COMPLIANCE</h3>
 <ul>
 <li>Aadhaar-linked verification required.</li>
 <li>Police verification certificate within 15 days of occupation.</li>
 </ul>
 
-<h3>30. HOLDOVER</h3>
-<p>Post-expiry possession = triple license fee per day + immediate eviction. Licensor may recover via locksmith/police.</p>
-
-<h3>31. IT & CYBERCRIME RESTRICTIONS</h3>
+<h3>29. IT & CYBERCRIME RESTRICTIONS</h3>
 <ul>
 <li>No server hosting, VPN, crypto mining, call centers, or bulk SMS activities.</li>
 <li>No dark web access or illegal file sharing.</li>
@@ -818,51 +807,48 @@ ${stateClause}
 <li>Licensee fully liable for cybercrime violations and associated legal costs.</li>
 </ul>
 
-<h3>32. PET & ALLERGY POLICY</h3>
+<h3>30. PET & ALLERGY POLICY</h3>
 <p>No pets allowed (except service animals with valid certificate). Avoid odor, incense, and activities causing neighbor complaints.</p>
 
-<h3>33. PARKING & VEHICLE POLICY</h3>
+<h3>31. PARKING & VEHICLE POLICY</h3>
 <ul>
 <li>Parking only in allotted spots. No overnight visitor parking.</li>
 <li>Licensee liable for any parking-area damage.</li>
 </ul>
 
-<h3>34. SUCCESSORS & ASSIGNS</h3>
+<h3>32. SUCCESSORS & ASSIGNS</h3>
 <p>All terms binding upon heirs, executors, and successors of both Licensor and Licensee. Licensor may transfer ownership without affecting validity.</p>
 
-<h3>35. ARBITRATION</h3>
-<p>Disputes to be resolved under Arbitration and Conciliation Act, 1996, by a sole arbitrator mutually appointed by both parties.</p>
+<h3>33. NO TENANCY CREATION & OWNERSHIP</h3>
+<p><strong>33.1 LICENSE ONLY:</strong> This arrangement creates License ONLY under Indian Easements Act 1882. Licensee acquires NO tenancy rights, leasehold interest, or statutory protection under any Rent Control Act.</p>
+<p><strong>33.2 ABSOLUTE OWNERSHIP:</strong> Licensor retains absolute legal title, possession, and control over premises throughout license period and beyond.</p>
 
-<h3>37. NO TENANCY CREATION & OWNERSHIP</h3>
-<p><strong>37.1 LICENSE ONLY:</strong> This arrangement creates License ONLY under Indian Easements Act 1882. Licensee acquires NO tenancy rights, leasehold interest, or statutory protection under any Rent Control Act.</p>
-<p><strong>37.2 ABSOLUTE OWNERSHIP:</strong> Licensor retains absolute legal title, possession, and control over premises throughout license period.</p>
+<h3>34. IDENTITY DOCUMENTATION & FIXED OCCUPANTS</h3>
+<p><strong>34.1 FIXED OCCUPANTS:</strong> ONLY declared occupants permitted. Names, ages, identification proofs, and relationships FIXED. NO substitution permitted during term.</p>
+<p><strong>34.2 GUEST POLICY:</strong> Short-term overnight guests maximum 7 consecutive days. Extended visits require prior written permission.</p>
 
-<h3>38. IDENTITY DOCUMENTATION & FIXED OCCUPANTS</h3>
-<p><strong>38.1 FIXED OCCUPANTS:</strong> ONLY declared occupants permitted. Names, ages, identification proofs, and relationships FIXED. NO substitution permitted during term.</p>
-<p><strong>38.2 GUEST POLICY:</strong> Short-term overnight guests maximum 7 consecutive days. Extended visits require prior written permission.</p>
+<h3>35. CRIMINAL ACTIVITY & NUISANCE</h3>
+<p><strong>35.1 CRIMINAL TERMINATION:</strong> If any occupant subject to criminal complaint, FIR, arrest, or police investigation = agreement terminates IMMEDIATELY without notice.</p>
+<p><strong>35.2 NUISANCE CLAUSE:</strong> ANY noise, music, gathering, or activity causing neighbor disturbance = immediate breach and summary termination.</p>
 
-<h3>39. CRIMINAL ACTIVITY & NUISANCE</h3>
-<p><strong>39.1 CRIMINAL TERMINATION:</strong> If any occupant subject to criminal complaint, FIR, arrest, or police investigation = agreement terminates IMMEDIATELY without notice.</p>
-<p><strong>39.2 NUISANCE CLAUSE:</strong> ANY noise, music, gathering, or activity causing neighbor disturbance = immediate breach and summary termination.</p>
+<h3>36. PAYMENT PENALTIES & INTEREST</h3>
+<p><strong>36.1 LATE PAYMENT:</strong> License fee due by specified date. Late payment beyond 3 days = 2% monthly penalty PLUS 18% annual interest on overdue amount.</p>
+<p><strong>36.2 DEFAULT INTEREST:</strong> ALL overdue amounts attract 18% per annum interest calculated monthly, IN ADDITION to late payment penalty.</p>
 
-<h3>40. PAYMENT PENALTIES & INTEREST</h3>
-<p><strong>40.1 LATE PAYMENT:</strong> License fee due by specified date. Late payment beyond 3 days = 2% monthly penalty PLUS 18% annual interest on overdue amount.</p>
-<p><strong>40.2 DEFAULT INTEREST:</strong> ALL overdue amounts attract 18% per annum interest calculated monthly, IN ADDITION to late payment penalty.</p>
+<h3>37. LIEN & REPOSSESSION RIGHTS</h3>
+<p><strong>37.1 PARAMOUNT LIEN:</strong> Licensor has paramount lien on ALL goods and chattels within premises for unpaid fees/dues. Items may be seized after 15 days notice.</p>
+<p><strong>37.2 RIGHT TO REPOSSESS:</strong> Upon termination, Licensor may repossess premises and remove belongings if not vacated timely. Removal costs borne by Licensee.</p>
 
-<h3>41. LIEN & REPOSSESSION RIGHTS</h3>
-<p><strong>41.1 PARAMOUNT LIEN:</strong> Licensor has paramount lien on ALL goods and chattels within premises for unpaid fees/dues. Items may be seized after 15 days notice.</p>
-<p><strong>41.2 RIGHT TO REPOSSESS:</strong> Upon termination, Licensor may repossess premises and remove belongings if not vacated timely. Removal costs borne by Licensee.</p>
+<h3>38. HOLDOVER & VACATION TERMS</h3>
+<p>38.1 Post-expiry possession = triple license fee per day penalty for unauthorized days of occupation + immediate eviction. Licensor may recover via locksmith/police.</p>
+<p><strong>38.2 VACANT HANDOVER:</strong> Premises must be delivered vacant, broom-clean with ALL keys returned. Professional cleaning certification may be required.</p>
 
-<h3>42. HOLDOVER & VACATION TERMS</h3>
-<p><strong>42.1 HOLDOVER CHARGES:</strong> Post-termination occupation = ₹2,000 per day penalty for unauthorized occupation (in addition to Clause 30).</p>
-<p><strong>42.2 VACANT HANDOVER:</strong> Premises must be delivered vacant, broom-clean with ALL keys returned. Professional cleaning certification may be required.</p>
+<h3>39. SOCIETY & REGULATORY COMPLIANCE</h3>
+<p><strong>39.1 SOCIETY RULES:</strong> Licensee complies with ALL society bylaws. Violations or complaints from management = grounds for termination.</p>
+<p><strong>39.2 GOVERNMENT NOTIFICATION:</strong> Both parties comply with all government notifications, guidelines, and circulars issued from time to time.</p>
 
-<h3>43. SOCIETY & REGULATORY COMPLIANCE</h3>
-<p><strong>43.1 SOCIETY RULES:</strong> Licensee complies with ALL society bylaws. Violations or complaints from management = grounds for termination.</p>
-<p><strong>43.2 GOVERNMENT NOTIFICATION:</strong> Both parties comply with all government notifications, guidelines, and circulars issued from time to time.</p>
-
-<h3>44. PROHIBITED ACTIVITIES (AUTO-TERMINATION)</h3>
-<p><strong>44.1 IMMEDIATE TERMINATION:</strong> Following constitute grounds for termination WITHOUT notice:</p>
+<h3>40. PROHIBITED ACTIVITIES (AUTO-TERMINATION)</h3>
+<p><strong>40.1 IMMEDIATE TERMINATION:</strong> Following constitute grounds for termination WITHOUT notice:</p>
 <ul>
 <li>(a) Commercial activity or statutory registrations</li>
 <li>(b) Criminal conduct or police involvement</li>
@@ -873,24 +859,24 @@ ${stateClause}
 <li>(g) Society/municipal violations</li>
 </ul>
 
-<h3>45. WAIVER & LEGAL PROTECTIONS</h3>
-<p><strong>45.1 TENANT RIGHTS WAIVER:</strong> Licensee expressly waives ANY claim to tenancy rights, statutory protection, rent control benefits, or succession rights under ANY law.</p>
-<p><strong>45.2 LEGAL COSTS:</strong> Losing party bears ALL legal costs, advocate fees, court expenses of winning party in any dispute.</p>
+<h3>41. WAIVER & LEGAL PROTECTIONS</h3>
+<p><strong>41.1 Licensee RIGHTS WAIVER:</strong> Licensee expressly waives ANY claim to anykinds of rights, statutory protection, rent control benefits, or succession rights under ANY law.</p>
+<p><strong>41.2 LEGAL COSTS:</strong> Licensee bears ALL legal costs, advocate fees, court expenses of winning party in any dispute.</p>
 
-<h3>46. RECORDS & ESCALATION</h3>
-<p><strong>46.1 RECORDS MAINTENANCE:</strong> Licensee maintains payment records and produces upon demand. Failure = treated as non-payment.</p>
-<p><strong>46.2 FEE ESCALATION:</strong> Licensor may increase license fee by up to 10% on annual renewal with 60 days written notice.</p>
+<h3>42. RECORDS & ESCALATION</h3>
+<p><strong>42.1 RECORDS MAINTENANCE:</strong> Licensee maintains payment records and produces upon demand. Failure = treated as non-payment.</p>
+<p><strong>42.2 FEE ESCALATION:</strong> Licensor may increase license fee by up to 10% on annual renewal with 60 days written notice.</p>
 
-<h3>47. MISCELLANEOUS PROVISIONS</h3>
-<p><strong>47.1 SEVERABILITY:</strong> If any clause invalid, remaining clauses enforceable. Invalid clause replaced by closest valid alternative.</p>
-<p><strong>47.2 AMENDMENT:</strong> NO modification valid unless in WRITING and signed by both parties. Verbal modifications NOT binding.</p>
-<p><strong>47.3 NOTICE METHODS:</strong> Notices valid via personal delivery, email, SMS, or registered post. Effective upon receipt.</p>
-<p><strong>47.4 ENTIRE AGREEMENT:</strong> This constitutes complete agreement. Prior negotiations/understandings NOT binding.</p>
-<p><strong>47.5 BINDING EFFECT:</strong> Binding on heirs, executors, administrators, and permitted assigns of both parties.</p>
+<h3>43. MISCELLANEOUS PROVISIONS</h3>
+<p><strong>43.1 SEVERABILITY:</strong> If any clause invalid, remaining clauses enforceable. Invalid clause replaced by closest valid alternative.</p>
+<p><strong>43.2 AMENDMENT:</strong> NO modification valid unless in WRITING and signed by both parties. Verbal modifications NOT binding.</p>
+<p><strong>43.3 NOTICE METHODS:</strong> Notices valid via personal delivery, email, SMS, or registered post. Effective upon receipt.</p>
+<p><strong>43.4 ENTIRE AGREEMENT:</strong> This constitutes complete agreement. Prior negotiations/understandings NOT binding.</p>
+<p><strong>43.5 BINDING EFFECT:</strong> Binding on heirs, executors, administrators, and permitted assigns of both parties.</p>
 
-<h3>48. PANDEMIC & LOCKDOWN CLAUSE</h3>
-<p><strong>48.1 LICENSE FEE CONTINUOUS:</strong> During government-imposed lockdowns or force majeure events, license fee REMAINS DUE AND PAYABLE.</p>
-<p><strong>48.2 OCCUPANT REPRESENTATIONS:</strong> Licensee represents being of sound mind, NOT under legal disability, with authority to execute this agreement.</p>
+<h3>44. PANDEMIC & LOCKDOWN CLAUSE</h3>
+<p><strong>44.1 LICENSE FEE CONTINUOUS:</strong> During government-imposed lockdowns or force majeure events, license fee REMAINS DUE AND PAYABLE.</p>
+<p><strong>44.2 OCCUPANT REPRESENTATIONS:</strong> Licensee represents being of sound mind, NOT under legal disability, with authority to execute this agreement.</p>
 
 
 <div class="signature-section">
@@ -1012,4 +998,3 @@ ${stateClause}
     </script>
 </body>
 </html>
-
