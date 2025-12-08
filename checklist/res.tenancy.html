@@ -3,450 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave & License Agreement Generator - Fill & PDF</title>
+    <title>Leave & License Agreement Generator</title>
     <style>
         * { box-sizing: border-box; }
-        body { font-family: 'Times New Roman', serif; max-width: 1400px; margin: 0 auto; padding: 20px; background: #f8f9fa; }
-        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .state-tabs { display: flex; background: #007bff; border-radius: 8px 8px 0 0; overflow: hidden; margin-bottom: 0; }
-        .tab-btn { flex: 1; padding: 15px; background: none; border: none; color: white; font-weight: bold; cursor: pointer; font-size: 16px; }
-        .tab-btn.active { background: #0056b3; }
-        .tab-content { display: none; padding-top: 20px; }
-        .tab-content.active { display: block; }
-        .form-group { margin-bottom: 20px; }
-        .form-group h3 { margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; color: #333; }
-        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; font-family: inherit; margin-bottom: 8px; }
-        input:focus, select:focus, textarea:focus { border-color: #007bff; outline: none; box-shadow: 0 0 5px rgba(0,123,255,0.3); }
-        .checkbox-group { display: flex; align-items: center; margin: 10px 0; }
-        .checkbox-group input[type="checkbox"] { width: auto; margin-right: 10px; }
-        .btn { background: #28a745; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 10px 5px; }
-        .btn:hover { background: #218838; }
-        .btn-secondary { background: #6c757d; }
-        .btn-danger { background: #dc3545; }
-        .preview { border: 2px solid #007bff; padding: 20px; margin-top: 20px; background: #f8f9ff; min-height: 500px; overflow-y: auto; }
-        .print-area { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.6; }
-        .print-header { text-align: center; font-size: 18pt; font-weight: bold; margin-bottom: 30px; page-break-after: avoid; }
-        .no-tenancy-box { background: #fff5f5; border: 3px solid #dc3545; padding: 20px; margin: 20px 0; border-radius: 8px; }
-        table.print-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        table.print-table th, table.print-table td { border: 1px solid #333; padding: 8px; text-align: left; }
-        .fill-line { border-bottom: 2px solid #000; min-height: 25px; display: inline-block; width: 100%; margin: 5px 0; }
-        .signature-section { margin-top: 60px; page-break-inside: avoid; }
-        @media print {
-            .container, .form-group, .btn { display: none !important; }
-            .print-area { display: block !important; }
-            body { background: white; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-        @page { margin: 0.75in; size: A4; }
-        .state-safe { border-left: 5px solid #28a745; }
-        .state-caution { border-left: 5px solid #ffc107; }
-        .state-danger { border-left: 5px solid #dc3545; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 { margin: 0; font-size: 32px; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 600px;
+        }
+        
+        @media (max-width: 1024px) {
+            .content { grid-template-columns: 1fr; }
+        }
+        
+        .form-panel {
+            padding: 40px;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        
+        @media (max-width: 1024px) {
+            .form-panel { border-right: none; border-bottom: 1px solid #e0e0e0; }
+        }
+        
+        .preview-panel {
+            padding: 40px;
+            background: #f5f5f5;
+            overflow-y: auto;
+            max-height: 90vh;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .form-grid-full {
+            grid-column: 1 / -1;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            font-size: 16px;
+        }
+        
+        h3:first-child {
+            margin-top: 0;
+        }
+        
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .btn-generate {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-generate:hover {
+            background: #5568d3;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-copy {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .btn-copy:hover {
+            background: #45a049;
+        }
+        
+        .btn-print {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .btn-print:hover {
+            background: #e68900;
+        }
+        
+        .agreement-preview {
+            line-height: 1.8;
+            color: #333;
+            font-size: 12pt;
+        }
+        
+        .agreement-preview h2 {
+            text-align: center;
+            font-size: 18pt;
+            margin: 20px 0 10px 0;
+        }
+        
+        .agreement-preview h3 {
+            font-size: 14pt;
+            margin: 15px 0 10px 0;
+            border: none;
+            padding: 0;
+            color: #000;
+        }
+        
+        .agreement-preview p {
+            margin: 8px 0;
+            text-align: justify;
+        }
+        
+        .agreement-preview table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .agreement-preview th, .agreement-preview td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .agreement-preview th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .signature-section {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 11pt;
+        }
+        
+        .required {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .template-selector {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .template-selector h4 {
+            margin: 0 0 10px 0;
+            color: #667eea;
+        }
+        
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .form-panel { display: none; }
+            .content { grid-template-columns: 1fr; }
+            .preview-panel { padding: 0; background: white; max-height: none; }
+            button { display: none; }
+        }
     </style>
 </head>
 <body>
-
-<div class="container state-safe">
-    <h1>🏠 Leave & License Agreement Generator</h1>
-    <p><strong>FILL DETAILS → PREVIEW → PRINT TO PDF → Stamp Paper Ready (after review with your lawyer)</strong></p>
-
-    <div class="state-tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'maharashtra')">🇲🇭 MAHARASHTRA</button>
-        <button class="tab-btn" onclick="switchTab(event, 'gujarat')">🇬🇯 GUJARAT</button>
-        <!-- To add more states, add more buttons here and corresponding tab-content divs -->
+    <div class="container">
+        <div class="header">
+            <h1>📋 Leave & License Agreement Generator</h1>
+            <p>Auto-generate, copy & print professional agreements in seconds</p>
+        </div>
+        
+        <div class="content">
+            <!-- FORM PANEL -->
+            <div class="form-panel">
+                <div class="success-message" id="successMessage">
+                    ✓ Agreement generated successfully!
+                </div>
+                
+                <div class="template-selector">
+                    <h4>Quick Templates</h4>
+                    <button type="button" onclick="loadTemplate('residential')" class="btn-generate" style="width: 100%; margin-bottom: 10px;">Load Residential Template</button>
+                    <button type="button" onclick="loadTemplate('commercial')" class="btn-generate" style="width: 100%;">Load Commercial Template</button>
+                </div>
+                
+                <h3>👤 Licensor Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" id="licensorName" placeholder="e.g., Rajesh Kumar Singh">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="licensorAge" placeholder="e.g., 45" min="18">
+                    </div>
+                    <div class="form-group">
+                        <label>Address <span class="required">*</span></label>
+                        <input type="text" id="licensorAddress" placeholder="Full address">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="licensorPhone" placeholder="+91-XXXXXXXXXX">
+                    </div>
+                </div>
+                
+                <h3>👥 Licensee Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" id="licenseeName" placeholder="e.g., Priya Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="licenseeAge" placeholder="e.g., 35" min="18">
+                    </div>
+                    <div class="form-group">
+                        <label>Address <span class="required">*</span></label>
+                        <input type="text" id="licenseeAddress" placeholder="Full address">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="licenseePhone" placeholder="+91-XXXXXXXXXX">
+                    </div>
+                </div>
+                
+                <h3>🏠 Property Details</h3>
+                <div class="form-grid">
+                    <div class="form-group form-grid-full">
+                        <label>Property Address <span class="required">*</span></label>
+                        <input type="text" id="propertyAddress" placeholder="Complete property address with area, city, state, pincode">
+                    </div>
+                    <div class="form-group">
+                        <label>Property Type <span class="required">*</span></label>
+                        <select id="propertyType">
+                            <option value="">Select Type</option>
+                            <option value="Residential Apartment">Residential Apartment</option>
+                            <option value="Commercial Office">Commercial Office</option>
+                            <option value="Shop/Retail">Shop/Retail Space</option>
+                            <option value="Warehouse">Warehouse</option>
+                            <option value="Individual House">Individual House</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Carpet Area (Sq. Ft.)</label>
+                        <input type="number" id="carpetArea" placeholder="e.g., 1500" min="0">
+                    </div>
+                </div>
+                
+                <h3>📅 Agreement Terms</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Agreement Date <span class="required">*</span></label>
+                        <input type="date" id="agreementDate">
+                    </div>
+                    <div class="form-group">
+                        <label>License Start Date <span class="required">*</span></label>
+                        <input type="date" id="licenseStartDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Duration (Months) <span class="required">*</span></label>
+                        <input type="number" id="duration" placeholder="e.g., 12" min="1" max="60" value="12">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly License Fee (₹) <span class="required">*</span></label>
+                        <input type="number" id="monthlyFee" placeholder="e.g., 15000" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Security Deposit (₹) <span class="required">*</span></label>
+                        <input type="number" id="securityDeposit" placeholder="e.g., 45000" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Due Date <span class="required">*</span></label>
+                        <select id="paymentDueDate">
+                            <option value="5th of every month">5th of every month</option>
+                            <option value="1st of every month">1st of every month</option>
+                            <option value="15th of every month">15th of every month</option>
+                            <option value="Last day of every month">Last day of every month</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <h3>⚙️ Additional Terms</h3>
+                <div class="form-grid form-grid-full">
+                    <div class="form-group">
+                        <label>Maintenance Charges (Optional)</label>
+                        <input type="number" id="maintenanceCharges" placeholder="e.g., 2000" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label>State/UT <span class="required">*</span></label>
+                        <select id="state">
+                            <option value="">Select State</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-generate" onclick="generateAgreement()">Generate Agreement</button>
+                    <button class="btn-copy" onclick="copyToClipboard()">📋 Copy Text</button>
+                    <button class="btn-print" onclick="printAgreement()">🖨️ Print/PDF</button>
+                </div>
+            </div>
+            
+            <!-- PREVIEW PANEL -->
+            <div class="preview-panel">
+                <div class="agreement-preview" id="agreementPreview">
+                    <p style="color: #999; text-align: center;">Agreement preview will appear here...</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- MAHARASHTRA FORM -->
-    <div id="maharashtra" class="tab-content active">
-        <div class="form-group">
-            <label>Date of Agreement:</label>
-            <input type="date" id="mh_date">
-        </div>
-
-        <div class="form-group">
-            <h3>LICENSOR DETAILS</h3>
-            <input type="text" id="mh_licensor_name" placeholder="Full Name of Licensor">
-            <input type="text" id="mh_licensor_father" placeholder="Father's / Spouse's Name">
-            <input type="text" id="mh_licensor_address" placeholder="Permanent Address of Licensor">
-            <input type="text" id="mh_licensor_contact" placeholder="Phone / Email">
-            <input type="text" id="mh_licensor_id" placeholder="PAN / Aadhaar / Other ID">
-        </div>
-
-        <div class="form-group">
-            <h3>LICENSEE DETAILS</h3>
-            <input type="text" id="mh_licensee_name" placeholder="Full Name of Licensee">
-            <input type="text" id="mh_licensee_father" placeholder="Father's / Spouse's Name">
-            <input type="text" id="mh_licensee_address" placeholder="Current Residential Address">
-            <input type="text" id="mh_licensee_contact" placeholder="Phone / Email">
-            <input type="text" id="mh_licensee_aadhaar" placeholder="Aadhaar Number">
-            <input type="text" id="mh_guarantor" placeholder="Guarantor Name (Optional)">
-        </div>
-
-        <div class="form-group">
-            <h3>PROPERTY DETAILS</h3>
-            <input type="text" id="mh_building" placeholder="Building / Complex Name">
-            <input type="text" id="mh_flat" placeholder="Flat / Apartment Number">
-            <input type="text" id="mh_address" placeholder="Full Postal Address of Premises">
-            <input type="text" id="mh_area" placeholder="Built-up / Carpet Area (sq ft)">
-            <select id="mh_furnishing">
-                <option value="Unfurnished">Unfurnished</option>
-                <option value="Semi-Furnished">Semi-Furnished</option>
-                <option value="Fully Furnished">Fully Furnished</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>FINANCIAL & TERM DETAILS</h3>
-            <input type="number" id="mh_license_fee" placeholder="Monthly License Fee (₹)">
-            <input type="number" id="mh_deposit" placeholder="Security Deposit (₹)">
-            <input type="date" id="mh_start_date" placeholder="Commencement Date">
-            <input type="number" id="mh_duration_months" placeholder="Duration (Months)">
-        </div>
-
-        <div class="form-group">
-            <h3>EXTRA TERMS (Optional)</h3>
-            <textarea id="mh_special_terms" rows="3" placeholder="Any special conditions, parking, pet policy, etc."></textarea>
-        </div>
-
-        <button class="btn" onclick="generatePreview('maharashtra')">🎨 GENERATE PREVIEW</button>
-        <button class="btn btn-secondary" onclick="clearForm('maharashtra')">🗑️ CLEAR FORM</button>
-    </div>
-
-    <!-- GUJARAT FORM -->
-    <div id="gujarat" class="tab-content">
-        <div class="form-group">
-            <label>Date of Agreement:</label>
-            <input type="date" id="gj_date">
-        </div>
-
-        <div class="form-group">
-            <h3>LICENSOR DETAILS</h3>
-            <input type="text" id="gj_licensor_name" placeholder="Full Name of Licensor">
-            <input type="text" id="gj_licensor_father" placeholder="Father's / Spouse's Name">
-            <input type="text" id="gj_licensor_address" placeholder="Permanent Address of Licensor">
-            <input type="text" id="gj_licensor_contact" placeholder="Phone / Email">
-            <input type="text" id="gj_licensor_id" placeholder="PAN / Aadhaar / Other ID">
-        </div>
-
-        <div class="form-group">
-            <h3>LICENSEE DETAILS</h3>
-            <input type="text" id="gj_licensee_name" placeholder="Full Name of Licensee">
-            <input type="text" id="gj_licensee_father" placeholder="Father's / Spouse's Name">
-            <input type="text" id="gj_licensee_address" placeholder="Current Residential Address">
-            <input type="text" id="gj_licensee_contact" placeholder="Phone / Email">
-            <input type="text" id="gj_licensee_aadhaar" placeholder="Aadhaar Number">
-            <input type="text" id="gj_guarantor" placeholder="Guarantor Name (Optional)">
-        </div>
-
-        <div class="form-group">
-            <h3>PROPERTY DETAILS</h3>
-            <input type="text" id="gj_building" placeholder="Building / Complex Name">
-            <input type="text" id="gj_flat" placeholder="Flat / Apartment Number">
-            <input type="text" id="gj_address" placeholder="Full Postal Address of Premises">
-            <input type="text" id="gj_area" placeholder="Built-up / Carpet Area (sq ft)">
-            <select id="gj_furnishing">
-                <option value="Unfurnished">Unfurnished</option>
-                <option value="Semi-Furnished">Semi-Furnished</option>
-                <option value="Fully Furnished">Fully Furnished</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>FINANCIAL & TERM DETAILS</h3>
-            <input type="number" id="gj_license_fee" placeholder="Monthly License Fee (₹)">
-            <input type="number" id="gj_deposit" placeholder="Security Deposit (₹)">
-            <input type="date" id="gj_start_date" placeholder="Commencement Date">
-            <input type="number" id="gj_duration_months" placeholder="Duration (Months)">
-        </div>
-
-        <div class="form-group">
-            <h3>EXTRA TERMS (Optional)</h3>
-            <textarea id="gj_special_terms" rows="3" placeholder="Any special conditions, parking, pet policy, etc."></textarea>
-        </div>
-
-        <button class="btn" onclick="generatePreview('gujarat')">🎨 GENERATE PREVIEW</button>
-        <button class="btn btn-secondary" onclick="clearForm('gujarat')">🗑️ CLEAR FORM</button>
-    </div>
-</div>
-
-<!-- PRINT PREVIEW AREA -->
-<div class="container preview" id="preview-container" style="display:none;">
-    <button class="btn btn-danger" onclick="printDocument()" style="float:right;">🖨️ PRINT TO PDF</button>
-    <button class="btn btn-secondary" onclick="hidePreview()">✕ CLOSE PREVIEW</button>
-    <div id="print-area" class="print-area"></div>
-</div>
-
-<script>
-let currentState = 'maharashtra';
-
-const stateConfig = {
-    maharashtra: {
-        title: 'MAHARASHTRA - RESIDENTIAL LEAVE & LICENSE AGREEMENT',
-        subtitle: 'Indian Easements Act 1882 License • Read with Maharashtra Rent Control Act, 1999 (No tenancy rights)',
-        place_label: 'Mumbai',
-        registration: 'Online registration: https://efilingigr.maharashtra.gov.in',
-        stamp_duty_note: 'Indicative: about 0.25% of total consideration (total rent for term + notional interest on refundable deposit + any non‑refundable deposit), as per Maharashtra Stamp Act and current IGR circulars.',
-        extra_warning: 'Check latest IGR Maharashtra calculator and circulars before paying stamp duty or registering.'
-    },
-    gujarat: {
-        title: 'GUJARAT - RESIDENTIAL LEAVE & LICENSE AGREEMENT',
-        subtitle: 'Indian Easements Act 1882 License • Subject to Gujarat Stamp Act and Registration Act',
-        place_label: 'Ahmedabad',
-        registration: 'Register with Jurisdictional Sub‑Registrar Office or Garvi / state e‑services, as applicable.',
-        stamp_duty_note: 'Indicative: state schedule prescribes specific slabs for leave & license / lease based on term and property type (e.g. certain categories around 0.5% of total amount or fixed minimum).',
-        extra_warning: 'Verify applicable article and slab under the Gujarat Stamp Act / Garvi before finalising stamp duty.'
-    }
-    // Add more states here in same structure if needed
-};
-
-function switchTab(ev, state) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById(state).classList.add('active');
-    if (ev && ev.target) {
-        ev.target.classList.add('active');
-    }
-    currentState = state;
-}
-
-function clearForm(state) {
-    document.querySelectorAll('#' + state + ' input, #' + state + ' select, #' + state + ' textarea')
-        .forEach(el => {
-            if (el.type === 'checkbox' || el.type === 'radio') el.checked = false;
-            else el.value = '';
-        });
-}
-
-function generatePreview(state) {
-    const data = getFormData(state);
-    const html = generateAgreementHTML(state, data);
-    document.getElementById('print-area').innerHTML = html;
-    document.getElementById('preview-container').style.display = 'block';
-    document.querySelector('.preview').scrollIntoView({behavior: 'smooth'});
-}
-
-function getFormData(state) {
-    const prefix = (state === 'maharashtra') ? 'mh_' : 'gj_';
-
-    const getVal = (id, fallback = '__________________') => {
-        const el = document.getElementById(prefix + id);
-        if (!el) return fallback;
-        const v = (el.value || '').trim();
-        return v ? v : fallback;
-    };
-
-    return {
-        date: document.getElementById(prefix + 'date')?.value || new Date().toISOString().split('T')[0],
-        licensor_name: getVal('licensor_name'),
-        licensor_father: getVal('licensor_father'),
-        licensor_address: getVal('licensor_address'),
-        licensor_contact: getVal('licensor_contact'),
-        licensor_id: getVal('licensor_id'),
-        licensee_name: getVal('licensee_name'),
-        licensee_father: getVal('licensee_father'),
-        licensee_address: getVal('licensee_address'),
-        licensee_contact: getVal('licensee_contact'),
-        licensee_aadhaar: getVal('licensee_aadhaar'),
-        guarantor: getVal('guarantor', '__________________'),
-        building: getVal('building'),
-        flat: getVal('flat'),
-        address: getVal('address'),
-        area: getVal('area'),
-        furnishing: document.getElementById(prefix + 'furnishing')?.value || '__________________',
-        license_fee: getVal('license_fee', '__________'),
-        deposit: getVal('deposit', '__________'),
-        start_date: document.getElementById(prefix + 'start_date')?.value || '__________',
-        duration: document.getElementById(prefix + 'duration_months')?.value || '__',
-        special_terms: document.getElementById(prefix + 'special_terms')?.value || ''
-    };
-}
-
-function generateAgreementHTML(state, data) {
-    const config = stateConfig[state];
-
-    const formattedDate = data.date;
-    const today = new Date().toLocaleDateString('en-IN');
-
-    const specialTermsBlock = data.special_terms
-        ? `<p><strong>13. Special conditions:</strong> The parties additionally agree as follows: ${escapeHtml(data.special_terms)}.</p>`
-        : '';
-
-    return `
-        <div class="print-header">
-            <div>${config.title}</div>
-            <p><strong>${config.subtitle}</strong><br>
-            <small>Date of Agreement: ${formattedDate}</small></p>
-        </div>
-
-        <div class="no-tenancy-box">
-            <strong>⚠️ CRITICAL LEGAL NOTE:</strong><br>
-            This document records a <strong>Leave & License</strong> arrangement under the Indian Easements Act, 1882 and applicable state laws and expressly does <strong>NOT</strong> create any tenancy, leasehold interest, or statutory tenancy rights in favour of the Licensee.<br>
-            The Licensor continues to remain in legal possession and control of the premises, and the Licensee has only a permissive right to occupy for the limited purpose and period described here.
-        </div>
-
-        <p>
-            THIS LEAVE & LICENSE AGREEMENT is executed at ${config.place_label || '__________'} on
-            ${formattedDate} between:
-        </p>
-
-        <p>
-            <strong>1. LICENSOR:</strong> ${data.licensor_name}, son / daughter / spouse of ${data.licensor_father},
-            residing at ${data.licensor_address}, contact: ${data.licensor_contact},
-            identification: ${data.licensor_id}
-            (hereinafter referred to as the "Licensor", which expression shall, unless repugnant to the context,
-            include his / her heirs, legal representatives and assigns),
-        </p>
-
-        <p>
-            <strong>AND</strong>
-        </p>
-
-        <p>
-            <strong>2. LICENSEE:</strong> ${data.licensee_name}, son / daughter / spouse of ${data.licensee_father},
-            presently residing at ${data.licensee_address}, contact: ${data.licensee_contact},
-            Aadhaar: ${data.licensee_aadhaar}
-            (hereinafter referred to as the "Licensee", which expression shall, unless repugnant to the context,
-            include his / her heirs, legal representatives and permitted assigns).
-        </p>
-
-        <p>
-            <strong>3. GUARANTOR (if any):</strong> ${data.guarantor}.
-        </p>
-
-        <h3>DESCRIPTION OF LICENSED PREMISES</h3>
-        <p>
-            The Licensor is the lawful owner / occupant of residential premises being ${data.flat} in
-            ${data.building}, situated at ${data.address}, admeasuring approximately ${data.area} sq ft,
-            presently ${data.furnishing} (hereinafter referred to as the "Licensed Premises").
-        </p>
-
-        <h3>KEY COMMERCIAL TERMS</h3>
-        <table class="print-table">
-            <tr>
-                <th>Particular</th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <td>Monthly License Fee</td>
-                <td>₹ ${data.license_fee} (Rupees __________________ only)</td>
-            </tr>
-            <tr>
-                <td>Security Deposit</td>
-                <td>₹ ${data.deposit} (interest‑free, refundable subject to terms)</td>
-            </tr>
-            <tr>
-                <td>License Period</td>
-                <td>${data.duration} months commencing from ${data.start_date}</td>
-            </tr>
-            <tr>
-                <td>Purpose of Use</td>
-                <td>Personal residential use of the Licensee and immediate family only, and not for commercial activity.</td>
-            </tr>
-        </table>
-
-        <h3>OPERATIVE CLAUSES</h3>
-
-        <p><strong>4. Grant of license:</strong> The Licensor hereby grants to the Licensee a non‑exclusive, personal and revocable license to use and occupy the Licensed Premises strictly for residential purposes for the period and on the terms set out in this Agreement. Legal possession and overall control of the Licensed Premises shall at all times remain with the Licensor.</p>
-
-        <p><strong>5. License fee & payments:</strong> The Licensee shall pay the monthly license fee of ₹ ${data.license_fee} in advance on or before the 5th day of each calendar month, by bank transfer / cheque / other agreed mode, without set‑off or deduction. Any delay beyond the due date may attract late charges as mutually agreed separately or as permitted by law.</p>
-
-        <p><strong>6. Security deposit:</strong> The Licensee has paid / shall pay to the Licensor a security deposit of ₹ ${data.deposit}, which shall be held as a security for due performance of the Licensee’s obligations and for making good any damage, unpaid license fee, utilities or charges. Subject to adjustments, the balance deposit (if any) shall be refunded to the Licensee within a reasonable time after peaceful handover of vacant possession.</p>
-
-        <p><strong>7. Outgoings & utilities:</strong> Unless otherwise agreed in writing, routine electricity, piped gas, internet, cable TV and other consumption‑based utilities for the Licensee’s use shall be borne and paid by the Licensee as per actual bills, while society charges relating to ownership (e.g. property tax and basic society maintenance) shall ordinarily be borne by the Licensor.</p>
-
-        <p><strong>8. Use and conduct:</strong> The Licensee shall use the Licensed Premises only as a private residence, shall not carry out any commercial, industrial or illegal activity, and shall comply with all applicable laws, society bye‑laws and building rules. The Licensee shall not cause nuisance, annoyance or disturbance to neighbours or the housing society.</p>
-
-        <p><strong>9. No transfer or sub‑license:</strong> The Licensee shall not assign this Agreement, create any sub‑license, paying‑guest arrangement, or part with possession of the Licensed Premises or any part thereof in favour of any third party, without prior written consent of the Licensor.</p>
-
-        <p><strong>10. Repairs and damages:</strong> The Licensee shall take reasonable care of the Licensed Premises and fixtures and shall be responsible for day‑to‑day minor repairs arising from normal use. Structural repairs and major repairs due to normal wear and tear shall be the responsibility of the Licensor. Any damage caused by misuse or negligence of the Licensee or visitors shall be repaired or compensated by the Licensee.</p>
-
-        <p><strong>11. Inspection and access:</strong> The Licensor and authorised representatives shall be entitled, upon reasonable prior notice (except in emergencies), to inspect the Licensed Premises to verify condition, carry out repairs, or show the premises to prospective purchasers / future licensees.</p>
-
-        <p><strong>12. Termination and handover:</strong> This license shall automatically expire on the last day of the agreed period unless extended in writing by both parties. Either party may, if agreed mutually, terminate earlier by giving customary written notice (for example 30 days) to the other party. Upon expiry or earlier termination, the Licensee shall peacefully vacate and hand over vacant possession along with all keys, in the same condition as received, subject to normal wear and tear.</p>
-
-        ${specialTermsBlock}
-
-        <p><strong>14. No tenancy rights and waiver:</strong> The Licensee confirms that he / she has fully understood that this arrangement is of Leave & License only, does not create any tenancy or lease, and does not confer protection under rent control legislation, except to the limited extent specifically applicable by law. The Licensee agrees not to set up a contrary claim before any authority or court.</p>
-
-        <p><strong>15. Registration and stamp duty:</strong> The parties agree that this Agreement shall be duly stamped and, where required or desired, registered with the competent registering authority for the relevant state, with stamp duty and registration fees being borne in the proportions mutually agreed. The parties understand that stamp duty and registration requirements are determined by the local Stamp Act and Registration Act in force in the concerned state, and may change over time; they shall therefore verify the latest official schedule before execution.</p>
-
-        <p><strong>16. Governing law and jurisdiction:</strong> This Agreement shall be governed by the laws of India and the local laws in force in the State / Union Territory where the Licensed Premises are situated. Subject to applicable law, courts and authorities having territorial jurisdiction over the location of the Licensed Premises shall have jurisdiction over disputes arising out of this Agreement.</p>
-
-        <p style="font-size: 10pt; border-top: 1px dashed #000; padding-top: 10px; margin-top: 30px;">
-            <strong>NOTE:</strong> This is a generic template generated for convenience and does not replace customised legal drafting.
-            Parties are strongly advised to consult a qualified advocate / legal advisor before relying on this document.
-        </p>
-
-        <div class="signature-section">
-            <h3 style="text-align: center; margin-top: 40px;">SIGNATURES</h3>
-            <table style="width: 100%; margin-top: 40px;">
-                <tr>
-                    <td style="width: 45%; vertical-align: bottom; padding-bottom: 50px;">
-                        <strong>LICENSOR</strong><br>
-                        <span class="fill-line"></span><br>
-                        ${data.licensor_name}
-                    </td>
-                    <td style="width: 10%;"></td>
-                    <td style="width: 45%; vertical-align: bottom; padding-bottom: 50px;">
-                        <strong>LICENSEE</strong><br>
-                        <span class="fill-line"></span><br>
-                        ${data.licensee_name}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 45%; vertical-align: bottom; padding-top: 40px;">
-                        <strong>WITNESS 1</strong><br>
-                        <span class="fill-line"></span><br>
-                        Name: __________________
-                    </td>
-                    <td></td>
-                    <td style="width: 45%; vertical-align: bottom; padding-top: 40px;">
-                        <strong>WITNESS 2</strong><br>
-                        <span class="fill-line"></span><br>
-                        Name: __________________
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div style="margin-top: 40px; font-size: 10pt; text-align: center; border-top: 2px solid #000; padding-top: 15px;">
-            <strong>${config.registration}</strong><br>
-            <strong>Stamp Duty Paid / To be Paid: ₹ __________</strong><br>
-            <span>${config.stamp_duty_note}</span><br>
-            <span><em>${config.extra_warning}</em></span><br>
-            <span>Generated on: ${today}</span>
-        </div>
-    `;
-}
-
-function escapeHtml(str) {
-    return str.replace(/[&<>"']/g, function (m) {
-        switch (m) {
-            case '&': return '&amp;';
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '"': return '&quot;';
-            case "'": return '&#039;';
-            default: return m;
+    
+    <script>
+        // Auto-set today's date
+        document.getElementById('agreementDate').valueAsDate = new Date();
+        
+        // Set tomorrow as default license start date
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('licenseStartDate').valueAsDate = tomorrow;
+        
+        function loadTemplate(type) {
+            if (type === 'residential') {
+                document.getElementById('licensorName').value = 'Mr./Ms. [Owner Name]';
+                document.getElementById('licensorAge').value = '45';
+                document.getElementById('licensorAddress').value = '[Property Address], Maharashtra';
+                document.getElementById('licensorPhone').value = '+91-9876543210';
+                
+                document.getElementById('licenseeName').value = 'Mr./Ms. [Tenant Name]';
+                document.getElementById('licenseeAge').value = '30';
+                document.getElementById('licenseeAddress').value = '[Current Address]';
+                document.getElementById('licenseePhone').value = '+91-9988776655';
+                
+                document.getElementById('propertyAddress').value = 'Flat No. [__], Wing [__], Society Name, Area Name, City, State - 400000';
+                document.getElementById('propertyType').value = 'Residential Apartment';
+                document.getElementById('carpetArea').value = '1500';
+                
+                document.getElementById('duration').value = '12';
+                document.getElementById('monthlyFee').value = '15000';
+                document.getElementById('securityDeposit').value = '45000';
+                document.getElementById('maintenanceCharges').value = '2000';
+                document.getElementById('state').value = 'Maharashtra';
+            } else if (type === 'commercial') {
+                document.getElementById('licensorName').value = 'Mr./Ms. [Property Owner]';
+                document.getElementById('licensorAge').value = '50';
+                document.getElementById('licensorAddress').value = '[Owner Address], Maharashtra';
+                document.getElementById('licensorPhone').value = '+91-9876543210';
+                
+                document.getElementById('licenseeName').value = 'Company Name / [Business Owner Name]';
+                document.getElementById('licenseeAge').value = '40';
+                document.getElementById('licenseeAddress').value = '[Business Address]';
+                document.getElementById('licenseePhone').value = '+91-9988776655';
+                
+                document.getElementById('propertyAddress').value = 'Office No. [__], Building Name, Commercial Complex, City, State - 400000';
+                document.getElementById('propertyType').value = 'Commercial Office';
+                document.getElementById('carpetArea').value = '2500';
+                
+                document.getElementById('duration').value = '24';
+                document.getElementById('monthlyFee').value = '50000';
+                document.getElementById('securityDeposit').value = '150000';
+                document.getElementById('maintenanceCharges').value = '5000';
+                document.getElementById('state').value = 'Maharashtra';
+            }
+            generateAgreement();
         }
-    });
-}
+        
+        function generateAgreement() {
+            const data = {
+                licensorName: document.getElementById('licensorName').value || '[Licensor Name]',
+                licensorAge: document.getElementById('licensorAge').value || '[Age]',
+                licensorAddress: document.getElementById('licensorAddress').value || '[Address]',
+                licensorPhone: document.getElementById('licensorPhone').value || '[Phone]',
+                
+                licenseeName: document.getElementById('licenseeName').value || '[Licensee Name]',
+                licenseeAge: document.getElementById('licenseeAge').value || '[Age]',
+                licenseeAddress: document.getElementById('licenseeAddress').value || '[Address]',
+                licenseePhone: document.getElementById('licenseePhone').value || '[Phone]',
+                
+                propertyAddress: document.getElementById('propertyAddress').value || '[Property Address]',
+                propertyType: document.getElementById('propertyType').value || '[Property Type]',
+                carpetArea: document.getElementById('carpetArea').value || '[Area]',
+                
+                agreementDate: document.getElementById('agreementDate').value || new Date().toISOString().split('T')[0],
+                licenseStartDate: document.getElementById('licenseStartDate').value || '[Date]',
+                duration: document.getElementById('duration').value || '12',
+                monthlyFee: document.getElementById('monthlyFee').value || '0',
+                securityDeposit: document.getElementById('securityDeposit').value || '0',
+                paymentDueDate: document.getElementById('paymentDueDate').value || '5th of every month',
+                maintenanceCharges: document.getElementById('maintenanceCharges').value || '0',
+                state: document.getElementById('state').value || '[State]'
+            };
+            
+            const licenseEndDate = calculateEndDate(data.licenseStartDate, parseInt(data.duration));
+            const totalRent = parseInt(data.monthlyFee) * parseInt(data.duration);
+            
+            window.agreementData = data;
+            window.licenseEndDate = licenseEndDate;
+            window.totalRent = totalRent;
+            
+            const html = generateHTML(data, licenseEndDate, totalRent);
+            document.getElementById('agreementPreview').innerHTML = html;
+            
+            showSuccessMessage();
+        }
+        
+        function generateHTML(data, licenseEndDate, totalRent) {
+            const formatDate = (dateStr) => {
+                if (!dateStr) return '[Date]';
+                const date = new Date(dateStr);
+                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} (${days[date.getDay()]})`;
+            };
+            
+            return `
+<h2>LEAVE AND LICENSE AGREEMENT</h2>
 
-function printDocument() {
-    window.print();
-}
+<p><strong>This Agreement is made on ${formatDate(data.agreementDate)} (hereinafter referred to as the "date of agreement")</strong></p>
 
-function hidePreview() {
-    document.getElementById('preview-container').style.display = 'none';
-}
+<p><strong>BETWEEN</strong></p>
 
-// Auto-fill today's date for blank date fields
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('input[type="date"]').forEach(input => {
-        if (!input.value) input.valueAsDate = new Date();
-    });
-});
-</script>
+<p><strong>${data.licensorName}</strong>, aged ${data.licensorAge} years, son/daughter of [Father's Name], residing at ${data.licensorAddress}, hereinafter referred to as the <strong>"LICENSOR"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators and permitted assigns)</p>
 
+<p><strong>AND</strong></p>
+
+<p><strong>${data.licenseeName}</strong>, aged ${data.licenseeAge} years, son/daughter of [Father's Name], residing at ${data.licenseeAddress}, hereinafter referred to as the <strong>"LICENSEE"</strong> (which term shall, unless repugnant to the context, include his/her heirs, executors, administrators and permitted assigns)</p>
+
+<p><strong>WHEREAS</strong>:</p>
+
+<p>The Licensor is the owner of a ${data.propertyType} with an approximate carpet area of ${data.carpetArea} Sq. Ft., situated at ${data.propertyAddress}, in the State of ${data.state} (hereinafter referred to as the "said property").</p>
+
+<h3>NOW IT IS HEREBY AGREED AS FOLLOWS:</h3>
+
+<h3>1. GRANT OF LICENSE</h3>
+<p>In consideration of the terms and conditions contained in this agreement and in return for the monetary consideration mentioned hereunder, the Licensor hereby grants to the Licensee a non-exclusive license to occupy and use the said property for residential/commercial purposes only, for the period mentioned hereinafter, subject to the terms and conditions of this agreement.</p>
+
+<h3>2. DURATION OF LICENSE</h3>
+<p>The license is granted for a period of ${data.duration} months commencing from ${formatDate(data.licenseStartDate)} and ending on ${formatDate(licenseEndDate)} (both days inclusive), unless sooner terminated in accordance with the terms of this agreement.</p>
+
+<h3>3. LICENSE FEE AND SECURITY DEPOSIT</h3>
+<p>
+  <strong>3.1</strong> The Licensee shall pay to the Licensor a monthly license fee of ₹ ${parseInt(data.monthlyFee).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.monthlyFee))} only) payable on the ${data.paymentDueDate}.<br>
+  <strong>Total License Fee for ${data.duration} months: ₹ ${totalRent.toLocaleString('en-IN')}</strong><br><br>
+  
+  <strong>3.2</strong> The Licensee shall deposit a security deposit of ₹ ${parseInt(data.securityDeposit).toLocaleString('en-IN')} (Rupees ${numberToWords(parseInt(data.securityDeposit))} only) with the Licensor before occupation of the said property. This security deposit shall be refundable after the expiry/determination of this license, subject to deduction of any damages or outstanding dues.<br><br>
+  
+  <strong>3.3</strong> ${data.maintenanceCharges && parseInt(data.maintenanceCharges) > 0 ? `The Licensee shall pay maintenance charges of ₹ ${parseInt(data.maintenanceCharges).toLocaleString('en-IN')} per month separately.` : 'No separate maintenance charges are applicable.'}
+</p>
+
+<h3>4. MODE OF PAYMENT</h3>
+<p>Payment of license fee, maintenance charges, and other dues shall be made in cash/bank transfer to the Licensor or to such person/entity as may be authorized by the Licensor. All payments shall be made without any deduction or set-off.</p>
+
+<h3>5. USE OF PROPERTY</h3>
+<p>The Licensee shall use the property solely for residential/commercial purposes and shall not:</p>
+<ul>
+<li>Sub-license, share, or transfer the license to any third party</li>
+<li>Use the property for any illegal activities</li>
+<li>Cause any nuisance or annoyance to neighbors</li>
+<li>Make any structural modifications without prior written consent</li>
+<li>Keep any hazardous or inflammable materials in the property</li>
+<li>Carry on any business activity (if residential) without permission</li>
+</ul>
+
+<h3>6. MAINTENANCE AND REPAIRS</h3>
+<p>The Licensor shall be responsible for structural repairs and maintenance of the property. The Licensee shall maintain the property in good condition and shall be responsible for day-to-day maintenance and minor repairs.</p>
+
+<h3>7. UTILITIES AND EXPENSES</h3>
+<p>The Licensee shall bear all costs for utilities such as electricity, water, gas, internet, and other services consumed during the license period.</p>
+
+<h3>8. ENTRY AND INSPECTION</h3>
+<p>The Licensor reserves the right to enter the property for inspection, repairs, or maintenance purposes with reasonable notice (minimum 24 hours) to the Licensee.</p>
+
+<h3>9. TERMINATION OF LICENSE</h3>
+<p>
+  <strong>9.1</strong> This license shall automatically terminate on the expiry date mentioned in Clause 2 unless renewed by mutual written agreement.<br><br>
+  <strong>9.2</strong> The Licensor may terminate this license with 30 days' written notice if:<br>
+  • License fee or other charges remain unpaid for more than 30 days<br>
+  • The Licensee breaches any material term of this agreement<br>
+  • The Licensee uses the property for illegal purposes<br>
+  • The Licensor intends to use the property for personal/family purposes<br><br>
+  <strong>9.3</strong> The Licensee may terminate this license with 30 days' written notice.<br><br>
+  <strong>9.4</strong> Upon termination, the Licensee shall vacate the property in clean condition and return possession to the Licensor.
+</p>
+
+<h3>10. SECURITY DEPOSIT REFUND</h3>
+<p>The security deposit shall be refunded within 30 days of vacating the property, after deducting any damages, unpaid dues, or breakage of fixtures.</p>
+
+<h3>11. COMPLIANCE WITH LAWS</h3>
+<p>Both parties shall comply with all applicable laws, regulations, and bye-laws of local and state authorities. Any legal action or notice served by authorities shall be complied with within the stipulated time.</p>
+
+<h3>12. GENERAL CONDITIONS</h3>
+<p>
+  <strong>12.1</strong> This agreement constitutes the entire agreement between the parties.<br><br>
+  <strong>12.2</strong> No modification, amendment, or variation shall be valid unless made in writing and signed by both parties.<br><br>
+  <strong>12.3</strong> If any provision of this agreement is found to be invalid or unenforceable, the remaining provisions shall continue to be valid.<br><br>
+  <strong>12.4</strong> This agreement is governed by the laws of ${data.state} and is subject to the jurisdiction of the courts in ${data.state}.
+</p>
+
+<h3>13. DISCLAIMER</h3>
+<p>The Licensor disclaims liability for any injury, loss, or damage to person or property due to theft, accident, natural calamity, or any unforeseen circumstances.</p>
+
+<div class="signature-section">
+  <div>
+    <p style="margin-bottom: 50px;">Signature of Licensor: _______________</p>
+    <div class="signature-line">
+      <strong>${data.licensorName}</strong><br>
+      Licensor<br>
+      Date: ___________
+    </div>
+  </div>
+  <div>
+    <p style="margin-bottom: 50px;">Signature of Licensee: _______________</p>
+    <div class="signature-line">
+      <strong>${data.licenseeName}</strong><br>
+      Licensee<br>
+      Date: ___________
+    </div>
+  </div>
+</div>
+
+<p style="margin-top: 40px; text-align: center; font-size: 10pt; color: #666;">
+<strong>Generated on:</strong> ${new Date().toLocaleDateString('en-IN')} at ${new Date().toLocaleTimeString('en-IN')}<br>
+<strong>Agreement ID:</strong> ${generateAgreementID()}
+</p>
+            `;
+        }
+        
+        function calculateEndDate(startDate, months) {
+            const date = new Date(startDate);
+            date.setMonth(date.getMonth() + months);
+            date.setDate(date.getDate() - 1);
+            return date.toISOString().split('T')[0];
+        }
+        
+        function numberToWords(num) {
+            const words = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+                'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+            const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+            const scales = ['', 'Thousand', 'Lakh', 'Crore'];
+            
+            if (num === 0) return 'Zero';
+            
+            let result = '';
+            let scaleIndex = 0;
+            
+            while (num > 0) {
+                let chunk = num % 1000;
+                if (chunk !== 0) {
+                    result = getHundreds(chunk) + (scales[scaleIndex] ? ' ' + scales[scaleIndex] : '') + (result ? ' ' + result : '');
+                }
+                num = Math.floor(num / 1000);
+                scaleIndex++;
+            }
+            
+            return result;
+            
+            function getHundreds(n) {
+                let str = '';
+                if (n >= 100) {
+                    str += words[Math.floor(n / 100)] + ' Hundred';
+                    n = n % 100;
+                    if (n > 0) str += ' ';
+                }
+                if (n >= 20) {
+                    str += tens[Math.floor(n / 10)];
+                    if (n % 10 > 0) str += ' ' + words[n % 10];
+                } else if (n > 0) {
+                    str += words[n];
+                }
+                return str;
+            }
+        }
+        
+        function generateAgreementID() {
+            return 'AGR-' + new Date().getFullYear() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        }
+        
+        function copyToClipboard() {
+            const text = document.getElementById('agreementPreview').innerText;
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('✓ Agreement copied to clipboard!\nYou can paste it in Word, Google Docs, or any text editor.');
+                }).catch(() => {
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+        
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alert('✓ Agreement copied to clipboard!');
+            } catch (err) {
+                alert('Could not copy. Please try again.');
+            }
+            document.body.removeChild(textarea);
+        }
+        
+        function printAgreement() {
+            if (!document.getElementById('agreementPreview').innerText.includes('[Licensor Name]') === false) {
+                window.print();
+            } else {
+                alert('Please generate the agreement first before printing.');
+            }
+        }
+        
+        function showSuccessMessage() {
+            const msg = document.getElementById('successMessage');
+            msg.classList.add('show');
+            setTimeout(() => msg.classList.remove('show'), 3000);
+        }
+    </script>
 </body>
 </html>
-
