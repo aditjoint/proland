@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROLAND Consult</title>
+  <meta name="description" content="We provide integrated solutions in Land Acquistion and Industrial Infrastrucutre Build and Solutions" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- 🔒 Inline Protection Fallback -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
+  
+
+<!-- Contact Banner -->
+<section class="contact-banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1>Looking for Expert Land & Property Consulting?</h1>
+    </div>
+  </div>
+  <style>
+    .contact-banner {
+      min-height: 80px; /* reduced from 150px */
+      display: flex;
+      align-items: center;
+      padding: 0 15px; /* optional horizontal padding */
+    }
+    .contact-banner .container {
+      width: 100%;
+    }
+    .banner-content h1 {
+      margin: 0;
+      line-height: 1.2;
+      font-weight: 700;
+      font-size: 1.8rem; /* adjust size as needed */
+    }
+  </style>
+</section>
+
+
+<!-- Contact Info & Business Hours Section -->
+<section style="max-width: 600px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3>Contact Information</h3>
+  <div class="info-item" style="margin-bottom: 20px;">
+    <i class="fas fa-map-marker-alt" style="color:#ff8c00; margin-right: 10px;"></i>
+    <div>
+      <h4>Address</h4>
+      <p>ADIT JOINT LLP<br />Navi Mumbai-400706<br />Maharashtra, India</p>
+    </div>
+  </div>
+  <div class="info-item" style="margin-bottom: 20px;">
+    <i class="fas fa-phone-alt" style="color:#ff8c00; margin-right: 10px;"></i>
+    <div>
+      <h4>Phone</h4>
+      <p>+91-2235667733</p>
+    </div>
+  </div>
+  <div class="info-item" style="margin-bottom: 20px;">
+    <i class="fas fa-envelope" style="color:#ff8c00; margin-right: 10px;"></i>
+    <div>
+      <h4>Email</h4>
+      <p>sales@adamconsult.com</p>
+    </div>
+  </div>
+  <h3>Business Hours</h3>
+  <ul style="list-style-type: none; padding-left: 0;">
+    <li><strong>Monday - Friday:</strong> 10:00 AM - 6:00 PM</li>
+    <li><strong>Saturday:</strong> Closed</li>
+    <li><strong>Sunday:</strong> Closed</li>
+  </ul>
+</section>
+  
+
+<section class="contact-section">
+  <div class="container">
+    <form id="waRequirementForm" onsubmit="submitToWhatsApp(event)">
+      <div class="form-group">
+        <label for="wa_name">Name</label>
+        <input type="text" id="wa_name" name="name" placeholder="Name" required />
+      </div>
+      <div class="form-group">
+        <label for="wa_phone">Phone</label>
+        <input type="tel" id="wa_phone" name="phone" placeholder="Phone" required />
+      </div>
+      <div class="form-group">
+        <label for="wa_requirement">Land or Estate Requirement</label>
+        <textarea id="wa_requirement" name="requirement" placeholder="Land or Estate Requirement" required></textarea>
+      </div>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="wa_consent" name="consent" required />
+        <label for="wa_consent">I consent to ADAM Consult collecting and storing my data from this form.</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Easy Submit via WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  function submitToWhatsApp(event) {
+    event.preventDefault();
+    const name = document.getElementById('wa_name').value.trim();
+    const phone = document.getElementById('wa_phone').value.trim();
+    const requirement = document.getElementById('wa_requirement').value.trim();
+    const consent = document.getElementById('wa_consent').checked;
+
+    if (!name || !phone || !requirement || !consent) {
+      alert('Please fill all fields and give your consent');
+      return;
+    }
+
+    const message = `Name: ${name}\nPhone: ${phone}\nRequirement: ${requirement}`;
+    const whatsappNumber = '918779639965'; 
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, '_blank').focus();
+  }
+</script>
+
+<!-- Google Form Section -->
+<section class="contact-section" style="max-width: 600px; margin: auto; padding: 20px 0;">
+  <h2>Do you want to submit your requirement details? Fill out below Google Form </h2>
+  <p>By submitting this you agree to our <a href="/privacy-policy.html" target="_blank">Terms of Use and Data Privacy Policy</a> and consent to your data being used solely for service-related purposes.</p>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfy3tmFXH8wBhEQpnRLDRmluPNoHrQPFx36RbB8my30P4cz4w/viewform?embedded=true" 
+          width="100%" 
+          height="900" 
+          frameborder="0" marginheight="0" marginwidth="0" style="border:none;">
+    Loading…
+  </iframe>
+</section>
+
+
+
+   <!-- DO NOT TOUCH BELOW CODES -->
+    
+   <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // ✅ Optional: re-run dropdown initialization if needed
+        if (typeof initDropdowns === "function") initDropdowns();
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
+
+    // ✅ Load core scripts after all above
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
+    document.body.appendChild(main);
+
+    const dropdown = document.createElement("script");
+    dropdown.src = "/js/dropdown.js";
+    document.body.appendChild(dropdown);
+  });
+</script>
+
+</body>
+</html>
