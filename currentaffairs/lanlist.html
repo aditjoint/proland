@@ -43,44 +43,25 @@
   <div id="header-placeholder"></div>
 
 <style>
-  /* This wrapper limits the card width and centers it */
-  .container-center {
-    max-width: 1400px; /* Limits how wide the card can get */
-    margin: 40px auto; /* Centers it horizontally and adds vertical space */
-    padding: 0 20px;   /* Prevents the card from touching mobile edges */
-  }
-
   .card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Adds a subtle shadow for depth */
-    overflow: hidden; /* Ensures table corners don't poke out of the rounded card */
+    max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
-
   .table-scroll {
-    overflow-x: auto; /* Allows the table to scroll inside the centered card */
-    width: 100%;
+    overflow-x: auto;
   }
-
   table.land-table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 1600px; /* Keeps the table wide inside the scrollable card */
+    min-width: 2400px; /* increased width for wider table */
   }
-
   table.land-table th, table.land-table td {
-    padding: 12px 15px;
-    border: 1px solid #eee;
+    padding: 8px;
+    border: 1px solid #ddd;
     white-space: nowrap;
     text-align: left;
   }
-
-  table.land-table th {
-    background-color: #f9f9f9;
-    font-weight: 600;
-  }
-
   .image-thumb {
     width: 60px;
     height: 45px;
