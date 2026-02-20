@@ -43,16 +43,24 @@
   <div id="header-placeholder"></div>
 
 <style>
+  .listing-wrapper {
+    max-width: 1400px; /* Adjust this to your desired 'wide' width */
+    margin: 0 auto;    /* This is the magic that aligns it to the center */
+    padding: 20px;     /* Optional: adds breathing room on the sides */
+  }
+
   .card {
-    max-width: 90%;
+    max-width: 100%;
     box-sizing: border-box;
+    border: 1px solid #ddd; /* Optional: makes the card edge visible */
+    border-radius: 8px;
   }
   .table-scroll {
     overflow-x: auto;
   }
   table.land-table {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
     min-width: 1600px; /* increased width for wider table */
   }
   table.land-table th, table.land-table td {
