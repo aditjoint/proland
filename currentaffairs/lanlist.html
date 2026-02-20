@@ -43,32 +43,44 @@
   <div id="header-placeholder"></div>
 
 <style>
-  .listing-wrapper {
-    max-width: 1400px; /* Adjust this to your desired 'wide' width */
-    margin: 0 auto;    /* This is the magic that aligns it to the center */
-    padding: 20px;     /* Optional: adds breathing room on the sides */
+  /* This wrapper limits the card width and centers it */
+  .container-center {
+    max-width: 1400px; /* Limits how wide the card can get */
+    margin: 40px auto; /* Centers it horizontally and adds vertical space */
+    padding: 0 20px;   /* Prevents the card from touching mobile edges */
   }
 
   .card {
-    max-width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ddd; /* Optional: makes the card edge visible */
+    background: #fff;
+    border: 1px solid #ddd;
     border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Adds a subtle shadow for depth */
+    overflow: hidden; /* Ensures table corners don't poke out of the rounded card */
   }
+
   .table-scroll {
-    overflow-x: auto;
+    overflow-x: auto; /* Allows the table to scroll inside the centered card */
+    width: 100%;
   }
+
   table.land-table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 1600px; /* increased width for wider table */
+    min-width: 1600px; /* Keeps the table wide inside the scrollable card */
   }
+
   table.land-table th, table.land-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
+    padding: 12px 15px;
+    border: 1px solid #eee;
     white-space: nowrap;
     text-align: left;
   }
+
+  table.land-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+  }
+
   .image-thumb {
     width: 60px;
     height: 45px;
