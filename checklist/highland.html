@@ -6,11 +6,41 @@
 
   <title>PROLAND – Land, Property & Estate Consulting | Acquisition, Due Diligence & Liaisoning Services</title>
 
+  <!-- SEO Meta -->
+  <meta name="description" content="PROLAND offers expert land and property consulting, acquisition support, due diligence, title verification, zoning checks, estate advisory, development liaisoning, and investor facilitation. Trusted partner for real estate developers, enterprises, and landowners." />
+
+  <meta name="keywords" content="land consulting, property consulting, estate services, land acquisition, property due diligence, title verification, zoning clearance, real estate advisory, project liaisoning, land sourcing, FAR analysis, development permissions, land investment" />
+
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.adamconsult.com/proland/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PROLAND – Land & Property Consulting | Acquisition, Due Diligence & Development Support" />
+  <meta property="og:description" content="End-to-end land sourcing, verification, valuation, zoning checks, legal review, and liaisoning services for developers, investors, and businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.adamconsult.com/proland/" />
+  <meta property="og:image" content="https://www.adamconsult.com/assets/images/proland-thumbnail.jpg" />
+  <meta property="og:site_name" content="PROLAND Property Consult" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PROLAND – Land, Property & Estate Consulting Services" />
+  <meta name="twitter:description" content="Trusted consulting partner for land sourcing, due diligence, title checks, legal compliance, and development coordination." />
+  <meta name="twitter:image" content="https://www.adamconsult.com/assets/images/proland-thumbnail.jpg" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/ratecards.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="../header-placeholder"></div>
+  <div id="header-placeholder"></div>
 
   <style>
     .card {
@@ -280,56 +310,47 @@
   </section>
 
     
-  <!-- ✅ Footer Placeholder -->
-  <div id="footer-placeholder"></div>    
- <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Load Header
+    // 1. Fetch Header using absolute path "/"
     fetch("/header.html")
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) throw new Error("Header not found at root");
+        return res.text();
+      })
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
 
-        // ✅ Wait for DOM injection, then bind mobile menu
+        // 2. Bind Mobile Menu (Wait for injection)
         const toggle = document.getElementById("menu-toggle");
         const nav = document.getElementById("mobile-menu");
-
         if (toggle && nav) {
           toggle.addEventListener("click", function () {
             nav.classList.toggle("active");
           });
         }
+      })
+      .catch(err => console.error("QC Error (Header):", err));
 
-        // ✅ Optional: re-run dropdown initialization if needed
-        if (typeof initDropdowns === "function") initDropdowns();
-      });
-
-    // Load Footer
+    // 3. Fetch Footer using absolute path "/"
     fetch("/footer.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("footer-placeholder").innerHTML = html;
-
-        // ✅ Load protection script after footer
+        
+        // Load protection script relative to root
         const protect = document.createElement("script");
         protect.src = "/js/imgTextProtect.js";
         document.body.appendChild(protect);
       });
 
-    // ✅ Load core scripts after all above
-    const main = document.createElement("script");
-    main.src = "/js/main.js";
-    main.onload = () => {
-      if (typeof initTabs === "function") initTabs();
-      if (typeof initHeroAnimation === "function") initHeroAnimation();
-      // Add other initializers if needed
-    };
-    document.body.appendChild(main);
-
-    const dropdown = document.createElement("script");
-    dropdown.src = "/js/dropdown.js";
-    document.body.appendChild(dropdown);
+    // 4. Load Core JS from root
+    const scripts = ["/js/main.js", "/js/dropdown.js"];
+    scripts.forEach(path => {
+      const s = document.createElement("script");
+      s.src = path;
+      document.body.appendChild(s);
+    });
   });
 </script>
 </body>
